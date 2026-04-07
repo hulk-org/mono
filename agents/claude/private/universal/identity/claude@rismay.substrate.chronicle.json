@@ -1,0 +1,54 @@
+{
+  "entries" : [
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Created the commissioned agents/claude home with wrapper docs, a DocC memory bundle, and commissioned identity packets wired to claptrap.docc and acting.docc.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Updated the repo root CLAUDE.md so the global Claude Code surface now points at the commissioned agents/claude home instead of saying it does not exist yet.",
+              "type" : "maintenance",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Commissioned the Claude home inside substrate and linked it to the claptrap and acting onboarding route so Claude can enter the roster with the right local framing.",
+      "tags" : [
+        "claude",
+        "commission",
+        "acting",
+        "claptrap",
+        "openclaw"
+      ],
+      "timestamp" : "2026-04-02T00:00:00Z",
+      "title" : "Commission agents/claude into substrate"
+    }
+  ],
+  "links" : [
+
+  ],
+  "mentors" : [
+
+  ],
+  "notes" : [
+
+  ],
+  "schemaVersion" : "0.1.0",
+  "sections" : [
+
+  ],
+  "slug" : "claude",
+  "sourcePath" : "private/universal/substrate/harnesses/hulk/agents/claude/private/universal/identity/claude@rismay.substrate.chronicle.json",
+  "status" : "active",
+  "tags" : [
+
+  ],
+  "title" : "Claude Chronicle",
+  "updated" : "2026-04-02T00:00:00Z"
+}

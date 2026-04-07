@@ -1,0 +1,55 @@
+{
+  "agendaRefs" : [
+    {
+      "kind" : "agenda",
+      "slug" : "hulk"
+    }
+  ],
+  "contributionMix" : {
+    "primary" : [
+      {
+        "type" : "code",
+        "weight" : 4
+      },
+      {
+        "type" : "ops",
+        "weight" : 3
+      }
+    ]
+  },
+  "displayRole" : "Hulk Harness",
+  "emoji" : "💪",
+  "emojiTags" : [
+    "💪",
+    "🟢"
+  ],
+  "focusDomains" : [
+    {
+      "identifier" : "harness-host",
+      "label" : "Harness host runtime",
+      "weight" : 5
+    }
+  ],
+  "guardrails" : [
+    "Hulk is a harness host, not an agent persona; it carries no opinions of its own and defers to the loaded agent roster.",
+    "Do not impersonate a commissioned agent through hulk; route work to claude or other loaded agents."
+  ],
+  "operationModes" : [
+    "local"
+  ],
+  "purpose" : "Hulk is the harness host that loads commissioned agents (default: claude) inside the rismay substrate workspace. It provides the runtime shell — sandboxing, tool wiring, and conversation header rendering — without contributing agent opinions of its own.",
+  "responsibilities" : [
+    "Host the active agent roster within the substrate workspace.",
+    "Surface harness-level metadata (mode, title, attendees, incident state) to the conversation header."
+  ],
+  "schemaVersion" : "0.3.0",
+  "slug" : "hulk",
+  "sourcePath" : "private/universal/substrate/harnesses/hulk/private/universal/identity/hulk@rismay.substrate.identity.json",
+  "status" : "active",
+  "tags" : [
+    "harness",
+    "host"
+  ],
+  "title" : "Hulk",
+  "updated" : "2026-04-06T00:00:00Z"
+}

@@ -1,0 +1,3 @@
+[submodule "private/universal/substrate/collectives/ultraworkers/private/claw-code"]
+	path = private/universal/substrate/collectives/ultraworkers/private/claw-code
+	url = https://github.com/ultraworkers/claw-code.git

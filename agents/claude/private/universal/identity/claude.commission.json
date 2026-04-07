@@ -1,0 +1,25 @@
+{
+  "dirTag" : "root@rismay.substrate",
+  "handles" : [
+    {
+      "service" : "anthropic",
+      "status" : "claimed",
+      "type" : "product",
+      "value" : "claude-code",
+      "verified" : false
+    },
+    {
+      "notes" : "Agent slug / commissioned home.",
+      "service" : "clia",
+      "status" : "claimed",
+      "type" : "agent",
+      "value" : "claude",
+      "verified" : false
+    }
+  ],
+  "notes" : "Claude is the commissioned Claude Code collaborator inside the substrate roster. This home anchors Claude to repo-native identity, DocC memory, and the claptrap to acting onboarding route.",
+  "schemaVersion" : "0.1.0",
+  "slug" : "claude",
+  "title" : "Claude - commissioned Claude Code collaborator",
+  "updated" : "2026-04-02T00:00:00Z"
+}

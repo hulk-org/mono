@@ -1,0 +1,77 @@
+{
+  "backlog" : [
+    {
+      "notes" : [
+        "Read claptrap.docc straight through before treating local assistant damage and product logic as understood.",
+        "Then move into acting.docc, especially the technical-reader, CLIA-director, and cast-packet surfaces."
+      ],
+      "slug" : "claude-absorb-claptrap-and-acting",
+      "title" : "Absorb the claptrap to acting onboarding route"
+    },
+    {
+      "notes" : [
+        "Map the relationship between the repo root CLAUDE.md, the canonical harnesses/hulk/agents/claude persona home, and the neighboring agents/claw home.",
+        "Keep the distinction between global Claude Code guidance and commissioned substrate identity crisp."
+      ],
+      "slug" : "claude-align-root-and-commissioned-surfaces",
+      "title" : "Align root Claude guidance with the commissioned home"
+    },
+    {
+      "notes" : [
+        "Learn the existing OpenClaw collective and the commissioned claw home without collapsing the two.",
+        "Focus on how Claude should collaborate with those surfaces rather than replacing them."
+      ],
+      "slug" : "claude-openclaw-context",
+      "title" : "Understand the local OpenClaw relationship"
+    }
+  ],
+  "dependencies" : [
+
+  ],
+  "horizons" : [
+
+  ],
+  "initiatives" : [
+
+  ],
+  "links" : [
+
+  ],
+  "mentors" : [
+
+  ],
+  "notes" : [
+
+  ],
+  "ownerRefs" : [
+    {
+      "kind" : "agent",
+      "slug" : "claude"
+    }
+  ],
+  "primaryOwnerRef" : {
+    "kind" : "agent",
+    "slug" : "claude"
+  },
+  "principles" : [
+
+  ],
+  "risks" : [
+
+  ],
+  "schemaVersion" : "0.1.0",
+  "sections" : [
+
+  ],
+  "slug" : "claude",
+  "sourcePath" : "private/universal/substrate/harnesses/hulk/agents/claude/private/universal/identity/claude@rismay.substrate.agenda.json",
+  "status" : "active",
+  "tags" : [
+
+  ],
+  "themes" : [
+
+  ],
+  "title" : "Claude Agent - AGENDA",
+  "updated" : "2026-04-02T00:00:00Z"
+}

@@ -1,0 +1,9 @@
+- [Preserve historical data](feedback_no-rewrite-history.md) — never rewrite harvest/receipt/vault contents when paths change
+- [Save insights to docc](feedback_save-insights-docc.md) — write insights to claude home memory/.docc/insights/
+- [Substrate layout](project_substrate-layout.md) — orchestrators/ category, dynamic resolution, vaults pattern
+- [Default roster: Hulk + Claude](user_harness-hulk-claude.md) — harness=hulk, agent=claude by default in rismay's substrate
+- ["open it" = launch the app](feedback_open-means-launch.md) — for Apple projects, "open" means run the built .app, not open xcodeproj
+- [Swift not Python](feedback_swift-not-python.md) — never use python3 heredocs in this substrate; Swift is the only sanctioned helper language
+- [No bash grep -r on substrate](feedback_no-recursive-grep.md) — always use Grep tool (ripgrep); bash grep -rln across collectives hangs 20-30+ minutes
+- [localOrRemote defaults false](feedback_localOrRemote-default-false.md) — useLocalDeps must default false; only true on explicit truthy SPM_USE_LOCAL_DEPS; never invert
+- [claude-code-leaks repo gone](project_claude-code-leaks-irreplaceable.md) — github.com/rismay/claude-code-leaks taken down; local checkouts are the only surviving copies, never delete carelessly

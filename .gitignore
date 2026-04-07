@@ -1,0 +1,25 @@
+# Local Claude Code runtime state. The merged Hulk home itself is canonical.
+backups/
+cache/
+file-history/
+history.jsonl
+mcp-needs-auth-cache.json
+plans/
+plugins/
+projects/
+session-env/
+sessions/
+settings.json
+settings.local.json
+shell-snapshots/
+tasks/
+
+# Vendor reference implementations live local-only by default. The
+# claude-code TypeScript leak (dead remote) is preserved on disk for the
+# clia-dir/clia-llm contract-audit work but is NOT committed to git
+# unless explicitly opted in. See:
+#   harnesses/hulk/memory/.docc/insights/hardlink-drain-2026-04-07.md
+#   harnesses/hulk/memory/.docc/project_claude-code-leaks-irreplaceable.md
+private/universal/domain/tooling/claude-code/
+
+!.gitignore
