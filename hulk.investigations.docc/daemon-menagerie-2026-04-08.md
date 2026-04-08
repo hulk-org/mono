@@ -245,46 +245,129 @@ the engine to `swift-service-registry` and keep the surface verbatim.
 
 ### A4. `SwiftDaemon` (in `wrkstrm/`)
 
-**Path (per survey).**
-`code/mono/apple/spm/universal/SwiftDaemon/Sources/SwiftDaemon/SwiftDaemon.swift`.
-Still lives inside the `wrkstrm` collective today.
+**Path (live).**
+`wrkstrm/private/universal/spm/domain/system/SwiftDaemon/Sources/SwiftDaemon/SwiftDaemon.swift`.
+66 lines. Still lives inside the `wrkstrm` collective today.
 
-**Shape.** Handler protocol with typed `Item`, per-handler seen sets,
-tolerance, `CommonLog` integration. The 2025-10-01 survey nominated
-this as the canonical in-process daemon engine for the substrate.
+> [!IMPORTANT]
+> **Update 2026-04-08 (post source read).** The original framing of A4 in
+> this investigation took the 2025-10-01 survey's description on faith and
+> called `SwiftDaemon` "the most mature in-process daemon engine in the
+> substrate." Reading the source contradicts that framing. `SwiftDaemon` is
+> a 66-line reference loop, not an engine. The "+" and "−" sections below
+> have been re-graded against the actual source.
+
+**Shape (per source).** Handler protocol with typed `Item`, per-handler
+seen sets, tolerance passed through to `Task.sleep`, `CommonLog`
+integration. The whole thing is one actor, one `start()` method, one
+`stop()` method, and a `while !Task.isCancelled { for handler in
+handlers { fetch ; dedup ; handle } ; await Task.sleep }` loop.
+
+```swift
+public actor SwiftDaemon<Handler: DaemonHandler> {
+  public func start() {
+    task = Task {
+      while !Task.isCancelled {
+        for (index, handler) in handlers.enumerated() {
+          do {
+            let items = try await handler.fetchItems()
+            for item in items where seen.insert(item.id).inserted {
+              await handler.handleNew(item)
+            }
+          } catch {
+            await handler.handleError(error)
+          }
+        }
+        try? await Task.sleep(for: interval, tolerance: tolerance ?? .zero)
+      }
+    }
+  }
+}
+```
+
+That is the engine in its entirety. There is also a 7-line
+`Log+SwiftDaemon.swift` and a 20-line test file with **one** test
+(`serviceStartsAndStops`) that calls `start()` then immediately `stop()`
+on a stub handler returning `[]`. There is no test that asserts ticks
+happened, no test that asserts dedup works, no test that asserts
+cancellation stops in-flight work.
 
 **+ What it gets right**
 
-- **Canonical engine.** The 2025-10-01 survey already nominated it.
-  It's the most mature in-process daemon engine in the tree.
-- **Typed `Item` per handler**, per-handler seen sets, tolerance,
-  `CommonLog` integration. All the things A1–A3 reinvented badly.
-- **Six months of de-facto endorsement** — every time the question came
-  up, the answer was "use SwiftDaemon" — even though nothing actually
-  migrated onto it.
 - **Foundation-only**, no SSWG dep. Embeds in apps without dragging
   server-side baggage.
+- **Typed handler protocol** with `Item: Identifiable & Sendable`.
+  Tests *could* substitute fake handlers without touching real polling
+  (the existing test stub uses this affordance, even though it doesn't
+  exercise it).
+- **Per-handler seen sets** for dedup across ticks. The substrate's
+  Notion-polling use case wants this and the loop body honors it.
+- **Cooperative cancellation.** `Task.isCancelled` check at the top of
+  the loop plus `task?.cancel()` in `stop()` is the textbook
+  Swift-Concurrency teardown pattern.
+- **Tolerance passed to `Task.sleep`** (right call) so the OS can
+  coalesce wakes the way it can for `Timer.tolerance`.
 
-**− What it gets wrong**
+**− What it gets wrong** (now grounded in the source, not paraphrased
+from the survey)
 
-- **Lives in `wrkstrm/`.** That is *the* reason `swift-service-registry`
-  exists as a separate package. Non-`wrkstrm` collectives (clia-org,
+- **It is not an engine; it is a reference loop.** Calling it "the
+  canonical engine" was generous. The 2025-10-01 survey nominated it as
+  the consolidation target, but six months later there is no production
+  consumer, no integration with anything else, and no test coverage
+  beyond a smoke test. The "endorsement" was endorsement of an *idea*.
+- **No backoff.** Errors are caught and `handler.handleError(error)` is
+  called, then the loop just continues at the next interval. Forever.
+  No exponential drop. No jitter. No circuit breaker. The `Backoff`
+  type that ``swift-service-registry`` introduces is brand new — there
+  is no upstream implementation in `SwiftDaemon` to inherit.
+- **No per-id keying.** `seenIds` is keyed by **handler array index**
+  (`[Int: Set<Handler.Item.ID>]`). If two instances of the same handler
+  type get registered, their seen sets get conflated. The whole
+  `(type, id)` keying that `Registry` enforces is *not* in `SwiftDaemon`
+  and would have to be retrofitted into the array model.
+- **No per-handler concurrency.** Handlers are processed sequentially
+  inside a single task. One slow `fetchItems()` blocks every other
+  handler in the same daemon until it returns. There is no per-handler
+  task isolation, no per-handler timeout, and no cancellation deadline.
+- **No `ServiceGroup` integration.** No SSWG `Service` conformance, no
+  graceful-shutdown ordering, no preflight/loop/shutdown phases. The
+  whole `Host` story in ``swift-service-registry`` has zero precedent
+  here.
+- **No status / inspection surface.** `SwiftDaemon` is opaque from the
+  outside. No `list()`, no `Status`, no per-id snapshots. Whatever
+  debugging affordances the registry envisions, they are brand new.
+- **Local-deps `Package.swift` is broken.**
+  `Package.Inject.local.dependencies` points `common-log` at
+  `../../../../../../modules/swift-universal/private/spm/universal/domain/system/common-log`.
+  That goes up six levels from `SwiftDaemon/` and expects a
+  `modules/swift-universal/` sibling. **There is no
+  `modules/swift-universal/` in the current substrate layout.** That
+  path is the legacy pre-substrate location, frozen in the file.
+  Anyone setting `SPM_USE_LOCAL_DEPS=true` and trying to build
+  `SwiftDaemon` against local deps today will hit a missing-package
+  error. The remote URL fallback (`from: "3.0.0"`) still works, but
+  **the local-deps story for `SwiftDaemon` has been silently dead
+  since the substrate restructure**. Either nobody has built it with
+  `SPM_USE_LOCAL_DEPS=true` since the move, or they have, hit the
+  broken path, and shrugged. Either way: it is a package nobody is
+  actively maintaining.
+- **Lives in `wrkstrm/`.** Non-`wrkstrm` collectives (clia-org,
   clia-app-org, schema-universal) can't take a wrkstrm dep without
-  dragging the whole world. The location is the bug.
-- **No `ServiceGroup` integration.** Same shutdown story problem as A3.
-- **`common-log` dep is local-relative-path under
-  `SPM_USE_LOCAL_DEPS=true`.** This is the identity-collision trap
-  documented in the swift-service-registry article. Any consumer that
-  *also* pulls `common-log` locally hits SPM duplicate-package errors.
-- **No `Backoff`.** Tolerance handles power coalescing, not retry policy.
-- **Single-process, no remoting.** That's a feature, but also means it
-  can't span an XPC boundary.
+  dragging the whole world. This was the original justification for
+  extracting ``swift-service-registry`` as a separate package. The
+  location is *a* bug; the engine being a 66-line reference loop is
+  *the* bug.
 
-**When it's the right answer.** As the *engine* underneath
-`swift-service-registry`. End-state: `SwiftDaemon` either moves to
-`swift-universal` *or* stays in `wrkstrm` and `swift-service-registry`
-imports it via a long relative path. `Registry` becomes its public API.
-This is the work item that unblocks every other A-class consolidation.
+**When it's the right answer.** Re-graded honestly: probably never.
+The original recommendation here said `SwiftDaemon` should become the
+engine underneath ``swift-service-registry``, either by moving it out
+of `wrkstrm/` or by importing it via a long relative path. After
+reading the source, the right move is **neither** — see "Path C" in
+the work-in-priority-order section below. `SwiftDaemon` should stay
+where it is, untouched, while ``swift-service-registry`` inlines its
+own engine. The cost of replacing 66 lines is lower than the cost of
+consuming them.
 
 ---
 
@@ -568,14 +651,41 @@ capture, and it is the size of the win still on the table today.
 
 ## The work, in priority order
 
-1. **Land the `SwiftDaemon` engine wiring inside
-   `swift-service-registry`.** This is the unblocker. Every other
-   step depends on it. Either move `SwiftDaemon` out of `wrkstrm/`
-   into `swift-universal/`, or import it from `wrkstrm/` via a long
-   relative path the way the foundation already does. Resolve the
+> [!IMPORTANT]
+> **Step 1 was amended on 2026-04-08 after reading the `SwiftDaemon`
+> source.** The original framing assumed `SwiftDaemon` was a viable
+> engine that ``swift-service-registry`` should consume. After reading
+> the 66-line source, that framing is wrong. The new framing — Path C —
+> is to inline the engine directly inside ``swift-service-registry`` and
+> leave `SwiftDaemon` untouched in `wrkstrm/`. See A4's updated section
+> for the source-grounded reasoning.
+
+1. **Inline the engine inside `swift-service-registry`. Don't import
+   `SwiftDaemon`.** This is the unblocker. Every other step depends
+   on it. The reference implementation in `wrkstrm/` is 66 lines, has
+   one smoke-test (`serviceStartsAndStops` against an empty stub),
+   no backoff, no per-id keying (its seen-set is keyed by handler
+   array index, not by id), no per-handler concurrency (one slow
+   `fetchItems()` blocks every other handler), no `ServiceGroup`
+   integration, no inspection surface, and a local-deps `Package.swift`
+   whose relative path has been pointing at the dead pre-substrate
+   `modules/swift-universal/` location since the substrate restructure.
+   The cost of replacing 66 lines is lower than the cost of consuming
+   them. The `Backoff` type, the `(type, id)` actor keying, the
+   `Status` snapshots, the `Host`/`ServiceGroup` integration, and the
+   per-handler task isolation all have to be written either way. Doing
+   that work *inside* the registry instead of layered on top of
+   `SwiftDaemon` keeps the code path one layer thinner and walks away
+   from a package nobody is actively maintaining. Resolve the
    `common-log` identity collision under `SPM_USE_LOCAL_DEPS=true`
    while you're in there — it will only get worse the more consumers
-   pile on.
+   pile on, but with Path C the trap mostly evaporates because the
+   registry doesn't pull `SwiftDaemon` and therefore doesn't drag in
+   `SwiftDaemon`'s broken local-deps inject. (Path A "move SwiftDaemon
+   out of `wrkstrm/`" and Path B "import via long relative path"
+   remain documented in the original swift-service-registry
+   investigation article for historical context. They are no longer
+   the recommended approach.)
 2. **Migrate `TradeDaemon` (A1) onto `Registry`.** Mechanical
    migration. `PositionPriceRefreshService` becomes a small
    `IdentifiedDaemonHandler` conformance keyed by position id. The
@@ -658,7 +768,28 @@ which is exactly the right call. The proliferation isn't the new
 shapes; it's that we kept growing Shape A without ever consolidating
 it.
 
-The next concrete decision to make is: **does `SwiftDaemon` move out
-of `wrkstrm/`, or does `swift-service-registry` reach across into
-`wrkstrm/` to consume it?** Until that question has an answer, every
-other consolidation step is blocked.
+The next concrete decision to make was originally framed as: *does
+`SwiftDaemon` move out of `wrkstrm/`, or does `swift-service-registry`
+reach across into `wrkstrm/` to consume it?*
+
+**Update 2026-04-08 (post source read).** Reading `SwiftDaemon`'s
+66-line source revealed there is a third answer that is better than
+both: **neither.** ``swift-service-registry`` should inline its own
+engine and leave `SwiftDaemon` untouched in `wrkstrm/`. The reference
+loop is too small to be worth importing, has no production consumers,
+and its local-deps `Package.swift` has been silently broken since the
+substrate restructure. Path C is the new step 1. See A4 and the
+work-in-priority-order section above.
+
+The unblocking question now is smaller and concretely actionable:
+**what does the inlined engine actually need on day one?** The answer
+the registry's own surface already implies: per-`(type, id)` actor
+keying (already in the `Registry` store shape), `task = Task { while
+!Task.isCancelled { tick all handlers concurrently with per-handler
+isolation ; record per-id Status ; sleep with tolerance } }`, basic
+`Backoff` on per-handler errors, and a SSWG `ServiceGroup`-aware
+`Host` shell. Plus real tests that exercise tick semantics, dedup,
+backoff, and cancellation — none of which `SwiftDaemon`'s
+`serviceStartsAndStops` smoke test covers. That is the day-one engine.
+Everything beyond it (debug surface, multi-model hosting, MarketClock
+adaptation) layers on top.
