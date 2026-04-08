@@ -15,11 +15,17 @@
 - [Prep Lab branding](project_prep-lab-brand.md) — Prep Lab = user-facing brand for the study-lab codename app; belongs to Laussat Studio or wrkstrm family, never clia
 - [Clia Day Pa distribution](project_clia-day-pa-distribution.md) — Pa-facing Clia Day builds ship via rismay's personal App Store account (team BM6B69ZQSR), not Laussat or wrkstrm
 - [App Store Connect credentials store](project_appstoreconnect-credentials-store.md) — interim credentials live at ~/.appstoreconnect/credentials/<bundle-id>.json (chmod 600), one file per app, outside the repo
-- [clia-mem app planned](project_clia-mem-app.md) — future clia-family app that browses session history across all harnesses
-- [Source Control brand](project_source-control-brand.md) — clia-git Mac app should be rebranded "Source Control" under wrkstrm, not clia
+- [clia-mem app live](project_clia-mem-app.md) — live Codex-sessions browser in clia-app-org; Sessions-only lane, Apply queue, Swift Testing invariants
+- [Source Control brand](project_source-control-brand.md) — Source Control (was clia-git) shipped under wrkstrm 2026-04-08; slug source-control-by-wrkstrm, bundle me.rismay.source-control, type prefix SourceControl
+- [git mv + Edit trap](feedback_git-mv-then-edit-trap.md) — git mv pre-stages with old content; always git add after Edits or commit captures only the rename
 - [Three legal entities](user_legal-entities.md) — Cristian A Monterroza (personal), Laussat Studio LLC, wrkstrm Inc (C corp); per-app entity assignment is durable, get it right before launch
 - [wrkstrm Pages app](project_wrkstrm-pages-app.md) — display name "wrkstrm Pages" (not bare "Pages" — Apple trademark); slug pages-by-wrkstrm; me.rismay.* bundle ID
 - [Workspace auto-commit hook](feedback_workspace-auto-commit-hook.md) — a git hook silently commits + pushes unrelated untracked files during my commits, authored as Cristian without co-author trailer
 - [swift-web-deploy-cli local build](project_swift-web-deploy-cli-local-build.md) — needs SPM_USE_LOCAL_DEPS=true; remote swift-universal-main 3.0.7 lacks SemanticVersionable; engine + CLI green as of 40a8de5c5
 - [Never push codex-sessions](feedback_no-push-codex-sessions.md) — exclude vaults/.../codex/sessions submodule from any batch push sweep; pointer bumps in mono are still fine
 - [Patch safety workflow](feedback_patch-safety-workflow.md) — multi-chunk deletes need grep-verify + diff-stat before commit; sustained refactors need Swift Testing invariants
+- [Direct deps not transitive](feedback_direct-deps-not-transitive.md) — SPM consumers depend on the narrow source-of-truth package per import; never bundle into kitchen-sink super-packages
+- [No re-export typealias](feedback_no-reexport-typealias.md) — never `public typealias X = OtherPackage.X` to dodge import updates; consumers import the source-of-truth and use canonical names
+- [No deletion without confirmation](feedback_no-deletion-without-confirmation.md) — never `rm` files in the operator's tree without explicit per-file/per-batch authorization, even when a "lift" or "rollback" task seems to imply it
+- [Schema set binding model](project_schema-set-binding.md) — agents bind via private/universal/schemas/sets aggregator + identity.schemaSetRefs; per-file schemaVersion is family version, not stale
+- [Schema-universal wrapper localOrRemote sweep](project_schema-universal-wrapper-sweep.md) — ~62 legacy wrappers still hard-code github URL; 8 fixed in core-triad-set v0.6.0 graph 2026-04-08; full sweep wants a Swift CLI

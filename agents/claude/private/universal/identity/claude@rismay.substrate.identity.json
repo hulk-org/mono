@@ -159,6 +159,14 @@
   "roles" : [
 
   ],
+  "schemaSetRefs" : [
+    {
+      "aggregator" : "private/universal/schemas/sets",
+      "manifest" : "private/universal/substrate/collectives/schema-universal/private/universal/schemas-sets/core-triads/v0.6.0/core-triad-set-v0.6.0.json",
+      "set" : "core-triad-set-v0.6.0",
+      "swiftProduct" : "CoreTriad_Set_v000_006_000"
+    }
+  ],
   "schemaVersion" : "0.3.0",
   "sections" : [
     {
