@@ -161,3 +161,60 @@ See [journal-2026-04-08](articles/journal-2026-04-08.md) for the full chain.
   - Decide keep/retarget/delete on the orphan `swift-agent-session` cluster.
   - Hunt down `SPM_USE_LOCAL_DEPS=true` shell-init leak (it corrupted SPM
     resolution mid-session and burned ~30 minutes of debug time).
+
+## 2026-04-08 (late evening) - Today (clia-day) Pa-mode V1 → TestFlight upload
+
+See [journal-2026-04-08](articles/journal-2026-04-08.md) (the Late evening
+section) for the full chain.
+
+- Context: Build the Today product end-to-end on top of the Collective view
+  scaffold and ship a real TestFlight build to rismay's iPad. The mid-session
+  correction reframed the customer: Today is for rismay reading AI agent
+  end-of-session summaries, not for a literal 62-year-old reader. "Pa" is
+  design language, not customer identity.
+- Actions:
+  - Soft warm theme (paired light/dark warm palette + three personality
+    typographies) in `CollectiveTheme.swift`; renderer rewrite in
+    `CollectiveCardView.swift`.
+  - Pa-mode locked iOS root: Info.plist `RDDefaultCollective: pa` triggers a
+    separate body that returns the locked `CollectiveFullScreenView` directly
+    as the WindowGroup root — no dev shell, no chrome, no fullScreenCover
+    dance, never visible behind anything.
+  - PaStory bundled producer surface with `nonisolated(unsafe)` cache for
+    `Bundle.main` reads.
+  - `scripts/generate-app-icon.swift` — re-runnable Swift CoreGraphics +
+    CoreText icon generator. Cream paper + serif terracotta T.
+  - `LaunchBackground.colorset` (cream / warm graphite paired) wired through
+    `UILaunchScreen`.
+  - `PrivacyInfo.xcprivacy` minimal manifest.
+  - Bumped iOS deployment 18 → 26 (`LanguageModelSession` stored prop).
+  - Resolved stable-vs-unstable SPM graph via local-path overrides in
+    clia-day's `packages:` block.
+  - Wrapped previous-dev `#warning` Release trace setup in `#if DEBUG`.
+  - Reused legacy 2016 ASC slot `com.wrkstrm.ios.app.today` (id `1153239848`,
+    "Today: Relive your Favorite Moments") under personal team `BM6B69ZQSR`.
+    The `com.wrkstrm.*` prefix is historical naming, not wrkstrm Inc.
+  - Archived Release, exported with **`-allowProvisioningUpdates`**
+    (REQUIRED — silent failure without it), validated, uploaded via
+    `xcrun altool --upload-app -p '@env:VAR'`. Delivery UUID
+    `6c11c0f8-d105-40ea-9b78-3e754f3aaaea`.
+  - Stored credentials at `~/.appstoreconnect/credentials/com.wrkstrm.ios.app.today.json`
+    (chmod 600, dir 700, outside the repo).
+  - Saved four memory entries: `user_one-truth-many-lenses`,
+    `user_today-app-real-customer`, overhauled
+    `project_clia-day-pa-distribution` with concrete identifiers, and
+    `project_appstoreconnect-credentials-store` for the credentials convention.
+- Artifacts:
+  - `clia-app-org` `88f8808` (head); `mono` `c52c29a23c` (head)
+  - `/tmp/clia-day-ios-export/clia-day-ios.ipa` (4.9 MB, signed
+    `Apple Distribution: Cristian Monterroza (BM6B69ZQSR)`)
+  - App Store Connect record `1153239848` ("Today"), version `0.1.0` (1)
+- Next:
+  - **Producer pipeline** — make the AI agent generate `today-pa.json`
+    automatically at end of session. Slash command? Session-end hook?
+    Aggregate per-agent slots into one daily card?
+  - **App Store Connect API key** — replace the app-specific password with a
+    `.p8` saved to `~/.appstoreconnect/private_keys/` so future ships are
+    fully scripted with no paste-credential step.
+  - **Catalyst host shell layout bug** — `ModernSharedAppShell` overlaps
+    columns on the catalyst target; iOS path is unaffected; separate ticket.

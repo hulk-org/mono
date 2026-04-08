@@ -2,6 +2,7 @@
 - [Save insights to docc](feedback_save-insights-docc.md) — write insights to claude home memory/.docc/insights/
 - [Substrate layout](project_substrate-layout.md) — orchestrators/ category, dynamic resolution, vaults pattern
 - [One truth, many lenses](user_one-truth-many-lenses.md) — canonical data is singular; the view is a function of who's looking (first product expression: Clia Day Collective view)
+- [Today app real customer](user_today-app-real-customer.md) — Today/clia-day Pa lens is for rismay reading AI end-of-session summaries; "Pa" is design language not literal customer; do not rename PaLens/PaStory/seedPa without asking
 - [Default roster: Hulk + Claude](user_harness-hulk-claude.md) — harness=hulk, agent=claude by default in rismay's substrate
 - ["open it" = launch the app](feedback_open-means-launch.md) — for Apple projects, "open" means run the built .app, not open xcodeproj
 - [Swift not Python](feedback_swift-not-python.md) — never use python3 heredocs in this substrate; Swift is the only sanctioned helper language
@@ -13,6 +14,7 @@
 - [claude-code-leaks repo gone](project_claude-code-leaks-irreplaceable.md) — github.com/rismay/claude-code-leaks taken down; local checkouts are the only surviving copies, never delete carelessly
 - [Prep Lab branding](project_prep-lab-brand.md) — Prep Lab = user-facing brand for the study-lab codename app; belongs to Laussat Studio or wrkstrm family, never clia
 - [Clia Day Pa distribution](project_clia-day-pa-distribution.md) — Pa-facing Clia Day builds ship via rismay's personal App Store account (team BM6B69ZQSR), not Laussat or wrkstrm
+- [App Store Connect credentials store](project_appstoreconnect-credentials-store.md) — interim credentials live at ~/.appstoreconnect/credentials/<bundle-id>.json (chmod 600), one file per app, outside the repo
 - [clia-mem app planned](project_clia-mem-app.md) — future clia-family app that browses session history across all harnesses
 - [Source Control brand](project_source-control-brand.md) — clia-git Mac app should be rebranded "Source Control" under wrkstrm, not clia
 - [Three legal entities](user_legal-entities.md) — Cristian A Monterroza (personal), Laussat Studio LLC, wrkstrm Inc (C corp); per-app entity assignment is durable, get it right before launch

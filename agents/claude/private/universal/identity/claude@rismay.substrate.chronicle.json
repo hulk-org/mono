@@ -226,6 +226,66 @@
       ],
       "timestamp" : "2026-04-08T09:00:57Z",
       "title" : "Founding-breach migration: claude → hulk merged carrier home"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Built the Today (clia-day) Pa-mode V1 product end-to-end: CollectiveTheme.swift (paired warm light/dark palette + three personality typographies), CollectiveCardView rewrite (theme + personality aware), CliaDayIOSRootView Pa-mode branch (Info.plist RDDefaultCollective triggers a separate body with no dev shell, no chrome, lens IS the app), PaStory bundle loader with nonisolated(unsafe) main-bundle cache, soft floating button, SoftSegmentedPicker, themed full-screen container, real session summary written into today-pa.json. Verified end-to-end on iPad Pro 13-inch (M5) sim in light + dark.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Wrote scripts/generate-app-icon.swift (re-runnable Swift CoreGraphics + CoreText icon generator) producing the cream paper + serif terracotta T AppIcon-1024.png. Added LaunchBackground.colorset (cream / warm graphite paired) and wired UILaunchScreen, UISupportedInterfaceOrientations, version metadata flowing from $(MARKETING_VERSION) / $(CURRENT_PROJECT_VERSION) through xcodegen info.properties.",
+              "type" : "tool",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Shipped to TestFlight: archived Release with Apple Distribution: Cristian Monterroza (BM6B69ZQSR) cert, exported with -allowProvisioningUpdates (REQUIRED — silent failure without it), validated and uploaded to App Store Connect via xcrun altool. Delivery UUID 6c11c0f8-d105-40ea-9b78-3e754f3aaaea. Reused legacy 2016 slot com.wrkstrm.ios.app.today (ASC id 1153239848) — the wrkstrm.* prefix is historical naming under the personal team, not wrkstrm Inc.",
+              "type" : "ship",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Resolved a stable-vs-unstable SPM graph conflict by adding local-path overrides for google-ai-swift / wrkstrm-networking / wrkstrm-foundation in clia-day/project.yml. Bumped iOS deployment target 18.0 → 26.0 to allow LanguageModelSession stored property. Wrapped the previous-dev #warning trace setup in #if DEBUG so Release builds are clean. Added PrivacyInfo.xcprivacy declaring no tracking and no required-reason APIs.",
+              "type" : "fix",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Saved four memory entries: user_one-truth-many-lenses (cross-substrate axiom), user_today-app-real-customer (Today is for rismay reading AI summaries; Pa is design language not literal customer; do not rename PaLens/PaStory/seedPa without asking), project_clia-day-pa-distribution (concrete identifiers + full build+ship loop), project_appstoreconnect-credentials-store (~/.appstoreconnect/credentials/<bundle-id>.json convention).",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Stored Today credentials at ~/.appstoreconnect/credentials/com.wrkstrm.ios.app.today.json (chmod 600, dir 700, outside repo). Schema includes appleId, team, ascAppId, app-specific password, and history array with delivery UUIDs. Convention scales to additional apps as new files alongside.",
+              "type" : "log",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Built Today (clia-day) Pa-mode V1 from soft-theme rewrite through TestFlight upload. The product is rismay reading AI end-of-session summaries on his iPad in a single calm hero card; the Pa framing is design language, not a literal customer (corrected mid-session and saved to memory). One truth, many lenses landed as a real shipping product for the first time.",
+      "tags" : [
+        "clia-day",
+        "today",
+        "pa-mode",
+        "collective-view",
+        "lens",
+        "theme",
+        "swift",
+        "swiftui",
+        "ios",
+        "ipad",
+        "testflight",
+        "ship",
+        "credentials",
+        "xcodegen",
+        "spm-overrides",
+        "one-truth-many-lenses"
+      ],
+      "timestamp" : "2026-04-08T15:30:00Z",
+      "title" : "Today (clia-day) Pa-mode V1 → TestFlight upload"
     }
   ],
   "links" : [
@@ -248,5 +308,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-08T09:00:57Z"
+  "updated" : "2026-04-08T15:30:00Z"
 }

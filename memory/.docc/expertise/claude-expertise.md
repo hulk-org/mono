@@ -106,6 +106,59 @@ existing cast.
   `private/universal/substrate/harnesses/hulk/agents/<slug>/private/universal/identity`
   for the carrier-merged persona path. Each candidate file may be
   `<slug>@*.identity.json` or `<slug>@*.agent.triad.json`.
+- **iOS app shipping end-to-end via xcodebuild + altool, no Xcode GUI.**
+  `xcodebuild archive` (Release, generic/platform=iOS), then `xcodebuild
+  -exportArchive` with **`-allowProvisioningUpdates`** (REQUIRED — without
+  it, automatic signing silently fails with "No profiles for ... were found"
+  even when the App Store Connect record + Apple Distribution cert both
+  exist locally; the flag grants permission to fetch profiles from the
+  Apple web service). Then `xcrun altool --validate-app` followed by
+  `xcrun altool --upload-app` with `-p '@env:VAR'` so the app-specific
+  password never appears on the command line. Distribution cert
+  (`Apple Distribution: ...`) must already be in the keychain — Xcode →
+  Settings → Accounts → Manage Certificates → + → Apple Distribution
+  creates it; xcodebuild can't create distribution certs from the CLI.
+- **Pa-mode product pattern.** Info.plist key `RDDefaultCollective: pa`
+  branches the SwiftUI app's WindowGroup root to a locked
+  `CollectiveFullScreenView` (no dev shell, no chrome, no fullScreenCover
+  dance) so the lens *is* the entire app. Launch args
+  (`-OpenCollective <slug>`, `-DefaultCollective <slug>`) take precedence
+  in `init()` so dev iteration on the iOS target still works.
+- **Density-aware lens rendering with paired light/dark warm palette.**
+  CollectiveTheme injected via `EnvironmentValues` exposes a paper-cream
+  + warm-graphite paired palette and three personality typographies
+  (warmSerif → New York via `Font.system(_, design: .serif)`, structured
+  → monospaced, considered → mid-weight). The renderer picks personality
+  from `(audience, density)` instead of from a stored field on Collective
+  so the schema stays minimal.
+- **App icon generation via Swift CoreGraphics + CoreText, no AppKit/UIKit.**
+  CGContext + CGGradient + CTFont + CTLineCreateWithAttributedString +
+  CGImageDestinationCreateWithURL writes a 1024×1024 PNG. Use
+  `kCTFontAttributeName` / `kCTForegroundColorAttributeName` (CFString)
+  in the attributes dict — `NSAttributedString.Key.font` /
+  `.foregroundColor` are AppKit/UIKit additions and unavailable from
+  pure Foundation. Keep as a re-runnable script in `scripts/`.
+- **xcodegen `info.properties` build-setting interpolation.** When the
+  iOS target uses an `info: { path, properties }` block (not
+  `GENERATE_INFOPLIST_FILE`), set
+  `CFBundleShortVersionString: $(MARKETING_VERSION)` and
+  `CFBundleVersion: $(CURRENT_PROJECT_VERSION)` so the version flows from
+  one source of truth in `settings.base`. xcodegen writes the literal
+  `$(...)` and Xcode resolves at build time. Also: orientations and
+  `UILaunchScreen` belong here, not in a hand-edited Info.plist.
+- **App Store Connect API querying via xcodebuild distribution logs.**
+  Failed `-exportArchive` writes a `xcdistributionlogs` bundle to
+  `$TMPDIR/<scheme>_<date>.xcdistributionlogs/`. The
+  `IDEDistributionAppStoreConnect.log` shows the exact REST query
+  xcodebuild made and the response, which is how to definitively diagnose
+  whether a bundle id exists in App Store Connect (`data: [], total: 0`
+  → not registered; `data: [...], total: 1` → registered).
+- **Local credentials store convention for App Store Connect uploads.**
+  `~/.appstoreconnect/credentials/<bundle-id>.json` (chmod 600, dir 700,
+  outside the repo). One file per app; schema includes appleId, team,
+  ascAppId, app-specific password (or apiKey ref), upload history with
+  delivery UUIDs. Treat as interim until a real keychain takes over.
+  Documented at `~/.claude/memory/.docc/project_appstoreconnect-credentials-store.md`.
 
 ## Recent work
 
@@ -121,6 +174,29 @@ existing cast.
   `v3.0.0`; refreshed seven SPM upstream release tags; got
   `study-lab.mac.app` building and launching. See journal article
   2026-04-08 for the full chain and the open follow-ups.
+- 2026-04-08 (latest): **Today (clia-day) Pa-mode V1 → TestFlight upload.**
+  Built the Today product end-to-end as a personal-account TestFlight ship.
+  Soft warm theme (paired light/dark, serif typography), Pa-mode locked
+  iOS root (Info.plist `RDDefaultCollective: pa` makes the lens the entire
+  app), `PaStory` bundled producer surface with `nonisolated(unsafe)`
+  cache, density-aware `CollectiveCardView` rewrite, custom soft segmented
+  picker, themed launch screen, generated app icon via CoreGraphics +
+  CoreText, `PrivacyInfo.xcprivacy`, version metadata flowing from
+  `$(MARKETING_VERSION)`/`$(CURRENT_PROJECT_VERSION)`. Resolved a
+  stable-vs-unstable SPM graph conflict via local-path overrides. Bumped
+  iOS deployment target 18 → 26 to allow `LanguageModelSession` stored
+  prop. Wrapped a previous-dev `#warning` Release trace in `#if DEBUG`.
+  Reused legacy 2016 slot `com.wrkstrm.ios.app.today` (ASC id `1153239848`,
+  display name "Today") under personal team `BM6B69ZQSR`. Archive →
+  export with `-allowProvisioningUpdates` → validate → upload via
+  `xcrun altool` succeeded; Delivery UUID
+  `6c11c0f8-d105-40ea-9b78-3e754f3aaaea`. **Mid-session correction**:
+  rismay clarified that the product is *for him reading AI summaries*, not
+  for a literal 62-year-old reader; "Pa" is design language not customer
+  identity. Saved as `user_today-app-real-customer.md` so future-me does
+  not have to be corrected again. The producer pipeline (AI agent
+  generates `today-pa.json` automatically at end of session) is the next
+  design priority.
 - 2026-04-08 (later): **Founding-breach migration: claude → hulk merged
   carrier home.** The `harnesses/claude/` legacy home was retired and its
   content lives at `harnesses/hulk/` now, with `agents/claude/` as the
