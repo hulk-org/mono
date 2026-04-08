@@ -10,4 +10,4 @@
 - [localOrRemote defaults false](feedback_localOrRemote-default-false.md) — useLocalDeps must default false; only true on explicit truthy SPM_USE_LOCAL_DEPS; never invert
 - [claude-code-leaks repo gone](project_claude-code-leaks-irreplaceable.md) — github.com/rismay/claude-code-leaks taken down; local checkouts are the only surviving copies, never delete carelessly
 - [Prep Lab branding](project_prep-lab-brand.md) — Prep Lab = user-facing brand for the study-lab codename app; belongs to Laussat Studio or wrkstrm family, never clia
-- [Three legal entities](user_legal-entities.md) — Cristian A Monterroza (personal), Laussat Studio LLC, wrkstrm Inc (C corp); per-app entity assignment is durable, get it right before launch
+- [Clia Day Pa distribution](project_clia-day-pa-distribution.md) — Pa-facing Clia Day builds ship via rismay's personal App Store account (team BM6B69ZQSR), not Laussat or wrkstrm
