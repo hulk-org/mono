@@ -1,9 +1,13 @@
 - [Preserve historical data](feedback_no-rewrite-history.md) — never rewrite harvest/receipt/vault contents when paths change
 - [Save insights to docc](feedback_save-insights-docc.md) — write insights to claude home memory/.docc/insights/
 - [Substrate layout](project_substrate-layout.md) — orchestrators/ category, dynamic resolution, vaults pattern
+- [One truth, many lenses](user_one-truth-many-lenses.md) — canonical data is singular; the view is a function of who's looking (first product expression: Clia Day Collective view)
 - [Default roster: Hulk + Claude](user_harness-hulk-claude.md) — harness=hulk, agent=claude by default in rismay's substrate
 - ["open it" = launch the app](feedback_open-means-launch.md) — for Apple projects, "open" means run the built .app, not open xcodeproj
 - [Swift not Python](feedback_swift-not-python.md) — never use python3 heredocs in this substrate; Swift is the only sanctioned helper language
+- [No bash scripts either](feedback_no-bash-scripts.md) — bash for-loops, while-read pipelines, multi-step shell logic are also forbidden; save anything beyond a discrete command as a Swift CLI
 - [No bash grep -r on substrate](feedback_no-recursive-grep.md) — always use Grep tool (ripgrep); bash grep -rln across collectives hangs 20-30+ minutes
 - [localOrRemote defaults false](feedback_localOrRemote-default-false.md) — useLocalDeps must default false; only true on explicit truthy SPM_USE_LOCAL_DEPS; never invert
 - [claude-code-leaks repo gone](project_claude-code-leaks-irreplaceable.md) — github.com/rismay/claude-code-leaks taken down; local checkouts are the only surviving copies, never delete carelessly
+- [Prep Lab branding](project_prep-lab-brand.md) — Prep Lab = user-facing brand for the study-lab codename app; belongs to Laussat Studio or wrkstrm family, never clia
+- [Three legal entities](user_legal-entities.md) — Cristian A Monterroza (personal), Laussat Studio LLC, wrkstrm Inc (C corp); per-app entity assignment is durable, get it right before launch

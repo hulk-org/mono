@@ -94,6 +94,138 @@
       ],
       "timestamp" : "2026-04-08T05:03:04Z",
       "title" : "Substrate normalization sweep + study-lab build green"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Removed PrepLabSectionChrome from study-lab's per-section detail header (the banner was crowding the Practice typing surface) and preserved both PrepLabSectionChrome and PrepLabSectionGlyph in source with a 'PRESERVED FOR APP ICON SOURCE' comment so the canonical book-and-flask glyph stays available as macOS app icon art.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Failed and reverted attempt to fix focused-practice cursor not following keystrokes by wiring SyntaxHighlightedTextView.followCharacterIndex to focusedTypedStreamIndices.last. Build green; runtime unchanged; reverted to leave a clean baseline. Root cause likely involves the manual focusedAnimateStageTranslation chain not propagating through the SwiftUI binding in time.",
+              "type" : "log",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Wrote investigation 2026-04-08-brand-and-entity-split in wrkstrm.investigations.docc/articles/. Documented the three legal entities (Cristian A Monterroza personal, Laussat Studio LLC, wrkstrm Inc C corp) and the per-entity ownership split mapping the substrate's collectives, github orgs, bundle ID prefixes, and apps onto each entity. Captured the durable entity-decision constraint and listed concrete substrate moves required before first Prep Lab release.",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Discovered swift-wrkstrm-identifier-cli already enforces the canonical bundle ID shape <root>.<product>.<platform>.<surface>.<lane>. Updated the investigation to point at the CLI as the source of truth so 'what bundle ID shape' collapses to 'what reverse-DNS root does each entity use'.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Closed 4 of 5 brand/entity open questions per operator: Laussat Studio LLC reverse-DNS root is studio.laussat, github.com/laussat-studio already exists (verified via gh api, created 2026-01-08, billing email cmonterroza@laussat.studio), wrkstrm Inc platform layer is private for everything, codeswiftly is its own coding brand and not an incubator. Updated investigation, project_prep-lab-brand.md, and user_legal-entities.md to record the resolutions.",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Extended laussat-studio/private/laussat-studio.brand.docc/laussat-studio-brand.md with legal entity, shipping conventions, first product (Prep Lab), and family positioning sections. Added new laussat-studio-shipping.md with the decision matrix and a 10-item release readiness checklist for Prep Lab. Pushed to laussat-studio/mono.",
+              "type" : "doc",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "Evening session: Prep Lab UI tidy and brand / release planning. Removed the per-section header chrome from study-lab and preserved the glyph as future app icon source. Failed and reverted a focused-practice cursor-follow stab. Wrote a wrkstrm investigation on the brand and legal-entity split (Cristian personal / Laussat Studio LLC / wrkstrm Inc C corp), discovered swift-wrkstrm-identifier-cli already enforces the canonical bundle ID shape, closed 4 of 5 open questions with operator, and recorded the resolved facts in laussat-studio's brand docc bundle.",
+      "tags" : [
+        "prep-lab",
+        "study-lab",
+        "brand",
+        "laussat-studio",
+        "wrkstrm-inc",
+        "legal-entities",
+        "bundle-identifiers",
+        "release-planning",
+        "investigation",
+        "focused-practice",
+        "app-icon"
+      ],
+      "timestamp" : "2026-04-08T08:38:52Z",
+      "title" : "Prep Lab UI tidy + brand and entity split planning"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Performed the founding-breach migration live: harnesses/claude/ retired, harnesses/hulk/ became the merged carrier home with agents/claude/ as the persona child. The running Claude Code session never lost a tool call. Used the hardlink-drain pattern (two paths, one inode) to keep both paths writable while the migration happened. Ended with the hard finish — rm -rf harnesses/claude/ with zero data loss because every inode was already double-referenced from hulk (2832 hulk files before the rm, 2832 after).",
+              "type" : "code",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Authored swift-hardlink-drain-cli under swift-universal/private/universal/domain/tooling/spm/. Library target SwiftHardlinkDrain (Drainer + HardlinkDrain orchestrator + CoalescingFSEventsWatcher adapted from openclaw's production wrapper) plus an executable target with ArgumentParser flags --source/--destination/--coalesce/--once/--quiet and clean SIGINT/SIGTERM shutdown. Replaces a bash-first version that violated the no-shell-scripts rule. setvbuf(stdout, nil, _IONBF, 0) at the top of run() so the daemon's log lines flush in real time when stdout is captured.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Moved wrkstrm-service-lifecycle from wrkstrm/private/universal/spm/domain/system/ to swift-universal/private/universal/domain/system/spm/swift-service-registry/. Type names inside the package were already prefix-free (Backoff, Registry, Host, Status, IdentifiedDaemonHandler, TickingAdapter, TickingHandler, TickOptions); only filenames + module name changed. Updated the one consumer (wrkstrm-core's UniversalParityFullTests path-based test fixture). Resolved the common-log path-identity conflict with SwiftDaemon under SPM_USE_LOCAL_DEPS=true by switching to the remote URL.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Added a new schema-universal apple/ domain at v0.1.0 with two new schema families: apple-signing-binding-schemas (build/sign concern — bundle ID, Apple Developer team ID, bundleIDPrefix, internal beta lane, signing identity hint, provisioning specifier, automatic signing flag, shipping state, substrate path graduation tracking) and apple-store-listing-schemas (App Store presence concern — marketing name, subtitle, promotional text, description, keywords, primary/secondary category from Apple's 25-case enum, seller name, support/privacy/marketing URLs, copyright, age rating, license, pricing tier, availability, listing state). Each family has JSON Schema (draft 2020-12, additionalProperties: false) + Codable Swift package (SemanticVersionable, custom init/encode/decode) + fixture-driven swift-testing tests against placeholder instances. Both packages build clean and all four tests pass.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Filed three OrgCompanyModel v0.1.0 instance records for the rismay legal entities (wrkstrm-inc, laussat-studio-llc, personal) under org-company-schemas/v0.1.0/json/.../instances/. These are the canonical legal-entity records the new apple-signing-binding and apple-store-listing schemas reference via OrgCompanyRef. Plus two prep-lab placeholder instances for the new apple families with XXXXXXXXXX as the team ID placeholder (real team IDs stay operator-private).",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Fixed the swift-harness-environment-cli renderer to find the agent identity bundle at the new harnesses/hulk/agents/<slug>/private/universal/identity path after the persona moved. Extended both resolveDisplayEmoji and resolveDisplayRole candidate-dirs. The header now renders the full operator/harness/agent emoji trio again — was rendering only operator+harness silently after the move.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Filed two long-form investigations: hulk.investigations.docc/release-and-branding-2026-04-08.md (the internal hulk strategic doc — three layers contract/reference impl/witness suite, the hulk-vs-Marvel naming question, the v0.1.0 → v1.0.0 release ladder, what hulk should NOT become) and wrkstrm.investigations.docc/articles/investigation-2026-04-08-harness-as-shipping-infrastructure.md (the load-bearing one — two-carrier symmetry hulk-internal/wrkstrm-external, the three tiers of concrete harness work for shipping rismay's apps, with entities.json and the prep-lab runbook as the first concrete moves).",
+              "type" : "doc",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Authored the hardlink-drain insight at hulk/memory/.docc/insights/hardlink-drain-2026-04-07.md as a named technique (not just 'the thing we did once'). Two paths, one inode. The pattern that lets a live process migrate its own home without compat symlinks. Documented the four naive approaches that fail (mv, symlink re-point, cp+delete, compat shim) and why; the hardlink-and-drain insight; the three-branch reconcile logic in the daemon; the constraints (same filesystem, regular files only, permissions shared via the inode); and how it traces back to the founding-breach principle 'survive what you carry'.",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Saved feedback_no-bash-scripts.md to ~/.claude/memory/.docc/ as durable feedback. Sharpens the existing feedback_swift-not-python.md rule from 'no python heredocs' to 'no inline scripting languages of any kind in tool calls — only saved Swift CLIs'. Indexed in MEMORY.md so future sessions read it on startup.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "14 commits across 5 repos, all pushed. wrkstrm-core 4a89819b + 999e742, wrkstrm fbad18b37, swift-universal 8de0ef51 + de43ec64, hulk 0c9d5e3d, schema-universal eec78d9 + 44bd0c9 + 955714e + 5a8fda4, mono parent 30e274dca7 + d778af589c + 043f0dc1cb + 96a46deb0e. Each commit scoped clean of parallel-agent churn via per-path git add (never git add -A).",
+              "type" : "tool",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "Founding-breach migration session: retired harnesses/claude/ live, made harnesses/hulk/ the merged carrier home with agents/claude/ as the persona child, used the hardlink-drain pattern to migrate under live operation without compat symlinks, ended with the hard finish (rm -rf harnesses/claude/ with zero data loss). Same session moved wrkstrm-service-lifecycle to swift-universal/swift-service-registry, authored swift-hardlink-drain-cli as the canonical drain tool, added the new schema-universal apple/ domain with two families + Codable + tests + prep-lab placeholder instances + the three rismay OrgCompanyModel records, fixed the harness header renderer for the moved persona, filed two long-form investigations (hulk-internal release-and-branding and the load-bearing wrkstrm harness-as-shipping-infrastructure), saved feedback_no-bash-scripts.md as durable rule, and landed 14 commits across 5 repos all pushed clean.",
+      "tags" : [
+        "founding-breach",
+        "migration",
+        "hulk",
+        "carrier-merge",
+        "hardlink-drain",
+        "swift-hardlink-drain-cli",
+        "swift-service-registry",
+        "apple-schemas",
+        "schema-universal",
+        "investigations",
+        "harness-header-renderer",
+        "feedback-no-bash-scripts",
+        "live-process-migration"
+      ],
+      "timestamp" : "2026-04-08T09:00:57Z",
+      "title" : "Founding-breach migration: claude → hulk merged carrier home"
     }
   ],
   "links" : [
@@ -116,5 +248,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-08T05:03:04Z"
+  "updated" : "2026-04-08T09:00:57Z"
 }
