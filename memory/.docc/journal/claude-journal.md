@@ -218,3 +218,114 @@ section) for the full chain.
     fully scripted with no paste-credential step.
   - **Catalyst host shell layout bug** — `ModernSharedAppShell` overlaps
     columns on the catalyst target; iOS path is unaffected; separate ticket.
+
+## 2026-04-08 - Env profile cutover out of harnesses/clia/ + clia-org build repair + TriadSchemaVersion fix
+
+- Context: Operator opened the session with `/sync >hulk` and asked to make
+  hulk the canonical harness so codex and openclaw could "move over." Mid-
+  plan-mode, operator caught a category error in my framing: "the header
+  harness is for the environment - not for the harness right?" The 521-line
+  file at `harnesses/clia/rismay-substrate.header.harness.wrkstrm.json` is
+  environment-scoped (operator/org/policy/preferences/realms/terminalogy/
+  toolPolicy/directives + a header.defaults block); only one field in the
+  whole file is harness-specific (`participants.harness.identity`). The
+  "harness" in the filename meant "this is the header rendered at the top
+  of every harness session," not "this file belongs to a harness." Hosting
+  it under `harnesses/clia/` falsely implied harness ownership.
+- Actions:
+  - **Plan-mode design**: launched 3 Explore agents in parallel + 1 Plan
+    agent to validate the cutover order across submodule boundaries. Final
+    plan was a 14-step additive-first cutover.
+  - **C0 pre-flight**: verified rismay submodule `.gitignore` won't block
+    the new path; confirmed both `cadence.resume.json` files are independent
+    (not symlinks); snapshotted unrelated dirty state in 4 submodules
+    (wrkstrm-app, schema-universal, codex-agent, hulk) to avoid sweeping
+    them up.
+  - **C1 → C15**: ran the cutover. Cross-repo file move (no `git mv`
+    because it crosses submodule boundaries). Added the new operator-home
+    candidate to `HarnessHeaderConfig.candidateLocations` first, then
+    landed the file, then migrated every consumer in lockstep with their
+    test fixtures, then shrunk the candidate array, then deleted the
+    legacy file under explicit per-file confirmation.
+  - **Hulk implementation registration**: added codex + openclaw rows to
+    `harnesses/hulk/.docc/index.md` Implementations table; created
+    skeleton `hulk-compliance.json` files at both harness roots with the
+    new `hulk.compliance.v0.1.0` schema (13 clauses B-1..S-7 marked
+    `unverified`).
+  - **clia-org build repair**: the build had been broken pre-cutover by
+    a missing `Agent_Schemas_v000_001_000` package dep. Wired the package
+    + product dependencies into CLIACore + CLIAAgentAudit + CLIAAgentTool
+    + 2 test targets, added missing imports to 11 source files + 9 test
+    files, fixed `LinkRefModel.url` → `urlString` API drift in 4 files,
+    bumped 5 stale fixture `schemaVersion` strings.
+  - **`TriadSchemaVersion.current` fix**: bumped from `0.1.0` to `0.5.0`
+    in `core-triad-schemas-v000-001-000` and rewrote the contradictory
+    `// HISTORICAL ... legacy` comment. The constant should always track
+    the live wire version; the SPM package name reflects when it was
+    first stamped.
+- Artifacts:
+  - **Source**: `private/universal/substrate/operators/rismay/private/universal/rismay-substrate.environment.wrkstrm.json`
+    (new home, rismay-operator submodule)
+  - **Resolver**: `wrkstrm-core/.../HarnessHeaderConfig.swift` `candidateLocations`
+    is now a single-entry array pointing at the new path
+  - **Hulk impls table**: `harnesses/hulk/.docc/index.md` (rows for codex
+    and openclaw)
+  - **Compliance files**: `harnesses/codex/hulk-compliance.json`,
+    `harnesses/openclaw/hulk-compliance.json`
+  - **Schema fix**: `core-triad-schemas-v000-001-000/sources/.../triad-schema-version.swift`
+  - **Plan file**: `~/.claude/plans/linked-skipping-muffin.md`
+  - **16 commits across 7 submodules** + several parent mono pointer bumps:
+    - rismay-operator: `f1eb4be`, `80f5fc4`
+    - wrkstrm-core: `e1e3b36`, `f08bd53`
+    - clia-agent-cli (sub-submodule): `3618f12`, `2afd524`, `2d7b37c`
+    - clia-org: `84e248ed`, `a8ef1878`, `90f1a10675`, `12df304`
+    - wrkstrm-app: `776b8556`
+    - codex-agent: `cc73ca0` (auto-committed by hook)
+    - cadence-agent: `5c7f3ca1`
+    - orchestrators/clia: `0df34a4`, `b29dfb8`
+    - hulk: `354f32e`
+    - schema-universal: `12df304`, `ff206f6`
+    - parent mono: `9d27cffb21`, `1852a20c84`, `5e7ef21d10`, `5441e78767`,
+      `05c1c659d8`, `ec7b7fb5eb`, `5b4f15ddb9` plus several
+      `chore(submodules):` auto-bumps
+- Lessons:
+  - **The "harness header" file was always environment-scoped**, not
+    harness-scoped. The reframe was the central insight; every cutover
+    decision flowed from it.
+  - **Additive-first resolver migration is the only safe ordering across
+    submodule boundaries.** Never delete the legacy file in the same
+    commit as the resolver change — leave it as a safety cushion for
+    in-flight sessions holding stale CLI binaries.
+  - **The auto-commit workspace hook is doing intelligent commits with
+    the `Co-Authored-By` trailer this session.** Different from the
+    older `feedback_workspace-auto-commit-hook.md` description (which
+    said it omitted trailers). Worth updating that memory.
+  - **Cross-repo file moves don't get git rename detection** because git
+    can't follow inodes across repo boundaries. Use `git rm` in source +
+    `git add` in dest, with a note in both commit messages so future
+    readers understand the move wasn't a delete-and-recreate.
+  - **`SemanticVersionable` constant naming trap**: a SPM package named
+    `core-triad-schemas-v000-001-000` is named for its first SPM-stamped
+    version, but the `current` constant inside should always track the
+    live wire version. A comment saying `HISTORICAL v0.1.0` paired with
+    `static let current = "0.1.0"` describes two opposite states and is
+    a bug, not documentation.
+  - **`LinkRefModel` API drift between v0.1.0 and v0.2.0**: v0.1.0 has
+    `url: String?`, v0.2.0 has `urlString: String` (non-optional). Files
+    importing both versions get ambiguous-init errors disguised as type-
+    inference failures. Fix at the call site by being explicit, or
+    align helper signatures to whichever version the consumed model uses.
+- Next:
+  - **Participant identity rewire** — flip
+    `participants.harness.identity` from `codex@todo3` → `hulk@todo3` and
+    rewrite `environmentHarnessMap` codex/openclaw entries to point at
+    hulk-flavored identities. Natural follow-up now that the file is in
+    the right home.
+  - **Witness-suite scaffolding** for hulk implementations — audit each
+    of the 13 contract clauses against actual codex + openclaw runtime
+    behavior, flip statuses from `unverified` to actual values.
+  - **Stale duplicate `## Recent work` heading** in
+    `claude-expertise.md` (lines 163 and 220) — leftover from a previous
+    merge, worth a separate cleanup pass.
+  - **Update `feedback_workspace-auto-commit-hook.md` memory** — observed
+    behavior is intelligent + trailer-bearing now.

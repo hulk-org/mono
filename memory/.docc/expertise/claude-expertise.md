@@ -162,6 +162,55 @@ existing cast.
 
 ## Recent work
 
+- 2026-04-08 (evening): **Env profile cutover out of `harnesses/clia/` +
+  clia-org build repair + `TriadSchemaVersion` fix.** Cut over the 521-line
+  operator/environment profile from the misnamed
+  `harnesses/clia/rismay-substrate.header.harness.wrkstrm.json` to its
+  semantically correct home at
+  `operators/rismay/private/universal/rismay-substrate.environment.wrkstrm.json`.
+  The operator caught the misnomer mid-plan-mode ("the header harness is
+  for the environment - not for the harness right?") and the reframe drove
+  everything: the file describes operator/org/policy/preferences/realms/
+  terminalogy/toolPolicy/directives plus a header.defaults block; only ONE
+  field in the entire 521 lines is harness-specific. Additive-first resolver
+  cutover across 7 submodules + parent mono in 16 commits — extend
+  `HarnessHeaderConfig.candidateLocations` to `[new, legacy]`, land the file
+  cross-repo (no `git mv` because git can't follow inodes across repo
+  boundaries), migrate every consumer (wrkstrm-core resolver/tests/display
+  literals, clia-org `EnvironmentProfiler` fallbacks + 5 test files,
+  wrkstrm-app source-control commit-plan filter, codex-agent boot/identity
+  surfaces × 6, cadence-agent identity + resume × 2, orchestrators/clia
+  doctrine mirrors × 3, schema-universal investigation, hulk memory note,
+  parent-mono skill files), shrink the candidate array to a single entry,
+  delete the legacy file + the retirement README + the empty `harnesses/clia/`
+  directory under explicit per-file confirmation. **Registered codex and
+  openclaw as hulk implementations on paper**: Implementations table rows in
+  `harnesses/hulk/.docc/index.md` plus skeleton `hulk-compliance.json` files
+  at both harness roots listing all 13 contract clauses (B-1 Identity Loading
+  through S-7 Host Citizenship) as `unverified`. Defined the
+  `hulk.compliance.v0.1.0` schema. **Repaired the pre-existing clia-org build
+  break** that had been masked by the missing module error: wired
+  `agent-schemas-v000-001-000` as a new package dep across CLIACore +
+  CLIAAgentAudit + CLIAAgentTool + 2 test targets, added the missing
+  `Agent_Schemas` + `Agenda_Schemas` imports to 11 source files and 9 test
+  files, fixed `LinkRefModel` API drift (`.url` → `.urlString`, non-optional
+  in v0.2.0), bumped 5 stale fixture `schemaVersion` strings from `0.2.0` to
+  `0.3.0`. **Fixed `TriadSchemaVersion.current` drift** in
+  `core-triad-schemas-v000-001-000`: the constant was hardcoded to `"0.1.0"`
+  with a contradictory `// HISTORICAL v0.1.0: preserved legacy schema
+  surface` comment. Bumped to `"0.5.0"` matching the live JSON schemas under
+  `.wrkstrm/schemas/triads/triads.{agent,agency,agenda}.schema.json` and
+  rewrote the comment to explain that the SPM package name reflects its
+  first stamped version while the constant always tracks the live wire.
+  Unblocked 3 silent runtime bugs (Merger fallback, BackupCleanupCommand
+  output, ProfilesCommand warning chain) that were all silently encoding
+  invalid documents with `schemaVersion: 0.1.0`. Final state: 117/117
+  clia-agent-cli tests green (was failing-to-build → 114/117 → 117/117);
+  17/17 wrkstrm-core SwiftHarnessEnvironmentTests green under both extended
+  and shrunk resolver; `header validate` returns the new operator-home path;
+  `harnesses/clia/` directory gone. See journal article
+  `journal-2026-04-08-env-profile-cutover.md` for the full chain.
+
 - 2026-04-08: Day-long substrate normalization sweep. Split clia-app-org and
   wrkstrm-performance out of clia-org with full history; promoted
   wrkstrm-mac-tab-chrome to its own component; reshaped catapult-prototype
