@@ -27,3 +27,11 @@ overwrite.
   hulk-vs-hull naming question, the v0.1.0 → v1.0.0 release ladder,
   where to publish, what hulk should NOT become, and the five
   questions whose answers should drive the next concrete decisions.
+- [The Daemon Menagerie (2026-04-08)](daemon-menagerie-2026-04-08.md)
+  — grounded inventory of every daemon-shaped surface in the
+  substrate today (ten implementations across two real problem
+  shapes), honest pros/cons for each, and a priority-ordered
+  consolidation plan that traces back to the unimplemented 2025-10-01
+  polling-and-daemon survey. Names the unblocking question:
+  does `SwiftDaemon` move out of `wrkstrm/`, or does
+  `swift-service-registry` reach in to consume it?
