@@ -115,3 +115,49 @@ A dated log of notable events, decisions, and onboarding progress.
     `private/universal/substrate/harnesses/claude/`
 - Next: build canonical fixtures and expected results for the bench press
   suite, then continue provider wiring work.
+
+## 2026-04-08 - substrate normalization sweep + study-lab green
+
+See [journal-2026-04-08](articles/journal-2026-04-08.md) for the full chain.
+
+- Context: Day-long substrate normalization session covering 9 git repos.
+- Actions:
+  - Split `clia-app-org/mono` and `wrkstrm-performance/mono` out of clia-org
+    via `git filter-repo` with full history.
+  - Promoted `wrkstrm-mac-tab-chrome` to a top-level component.
+  - Reshaped `catapult-prototype` -> `catapult/demo-apps/catapult.demo`.
+  - Split `wrkstrm-app-shell` demos into `legacy-app-shell.demo` +
+    `modern-app-shell.demo`.
+  - Tier 3 rename: `Wrkstrm{Mac,MacDocument,Catalyst,CatalystDocument,Shared}AppShell`,
+    `WrkstrmCatalystSceneMenus`, `WrkstrmScene{Payload,Presentation}`,
+    `WrkstrmDocumentShellCore`, `WrkstrmMacTabChrome` -> `Modern*` across 8
+    submodules + 50+ Swift import sites.
+  - Renamed `interview-prep` -> `study-lab` end to end (65 files).
+  - Relocated `wrkstrm-kit` to nested submodule
+    `wrkstrm-components/private/wrkstrm-kit/catalyst/spm/wrkstrm-kit` against
+    new private repo `github.com/wrkstrm-components/wrkstrm-kit` and tagged
+    `v3.0.0`.
+  - Tagged 7 SPM upstream releases to align URL fetches with HEAD: common-log
+    v3.0.6, swift-universal-main v3.0.8, swift-universal-foundation v3.0.11,
+    common-process v0.3.8, common-shell v0.1.8, swift-common-cli v0.1.5,
+    wrkstrm-networking v3.0.7.
+  - Got `study-lab.mac.app` building (`** BUILD SUCCEEDED **`) and launching
+    after reverting 12 over-renamed schema-exported `InterviewPrep*` types.
+  - Removed `PrepLabSectionChrome` from study-lab detail view; preserved the
+    glyph in source as canonical app-icon art.
+- Artifacts:
+  - `github.com/clia-app-org/mono` (new private)
+  - `github.com/wrkstrm-performance/mono` (new private)
+  - `github.com/wrkstrm-components/wrkstrm-kit` (new private, tagged v3.0.0)
+  - `study-lab.mac.app` running from DerivedData
+- Next:
+  - focused-practice cursor doesn't follow keystrokes — reverted my first stab
+    (`followCharacterIndex` wiring), root cause still unknown.
+  - Replace ugly `study-lab` AppIcon PNGs with the preserved
+    `PrepLabSectionGlyph` art.
+  - Triage 8 remaining `wrkstrm-app/private/apple/prototypes/` (foundry-todo3,
+    foundry-wrkstrm, nightwatch, stacks, system-monitor-d, wrkstrm-beta,
+    wrkstrm-catalyst, wrkstrm-macOS).
+  - Decide keep/retarget/delete on the orphan `swift-agent-session` cluster.
+  - Hunt down `SPM_USE_LOCAL_DEPS=true` shell-init leak (it corrupted SPM
+    resolution mid-session and burned ~30 minutes of debug time).

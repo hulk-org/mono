@@ -28,6 +28,72 @@
       ],
       "timestamp" : "2026-04-02T00:00:00Z",
       "title" : "Commission agents/claude into substrate"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Created clia-app-org/mono and wrkstrm-performance/mono GitHub repos and split private/apple, private/clia-chat, private/clia-windowing out of clia-org via git filter-repo with full history; merged apple-pi-bench-press into wrkstrm-performance the same way.",
+              "type" : "tool",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Promoted wrkstrm-mac-tab-chrome to a top-level component, reshaped catapult-prototype into catapult/demo-apps/catapult.demo, and split wrkstrm-app-shell demos into legacy-app-shell.demo + modern-app-shell.demo. Each xcodeproj regenerated via xcodegen and verified with xcodebuild BUILD SUCCEEDED.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Tier 3 rename: Wrkstrm{Mac,MacDocument,Catalyst,CatalystDocument,Shared}AppShell, WrkstrmCatalystSceneMenus, WrkstrmScene{Payload,Presentation}, WrkstrmDocumentShellCore, WrkstrmMacTabChrome -> Modern* across 8 submodules and 50+ Swift import sites. Includes SPM directory renames, inner sources/ renames, every project.yml package alias, and the main public types.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Renamed interview-prep app to study-lab across 65 files (outer dir, inner module dir, sub-target dirs, project.yml, xcodeproj, xcscheme regen, 41 Swift sources, 4 resource JSONs, docs, scaffold tools). Reverted 12 over-renamed schema-exported InterviewPrep* types in study-lab sources; build verified ** BUILD SUCCEEDED **.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Relocated wrkstrm-kit from wrkstrm/public/cross/spm/wrkstrm-kit to nested submodule at wrkstrm-components/private/wrkstrm-kit/catalyst/spm/wrkstrm-kit pointing at the new private repo github.com/wrkstrm-components/wrkstrm-kit. Tagged v3.0.0. Rewired 8 in-substrate consumers (project.ymls and Package.swifts).",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Tagged 7 SPM upstream releases to align URL fetches with HEAD: common-log v3.0.6, swift-universal-main v3.0.8, swift-universal-foundation v3.0.11, common-process v0.3.8, common-shell v0.1.8, swift-common-cli v0.1.5, wrkstrm-networking v3.0.7. Pushed all tags to their respective remotes.",
+              "type" : "tool",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Removed PrepLabSectionChrome from study-lab's per-section detail header; preserved PrepLabSectionChrome and PrepLabSectionGlyph in source with a 'PRESERVED FOR APP ICON SOURCE' comment so the book-and-flask glyph stays available as canonical art for the macOS app icon.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Failed/reverted attempt to fix focused-practice cursor not following keystrokes by wiring SyntaxHighlightedTextView.followCharacterIndex to focusedTypedStreamIndices.last. Build green but runtime behavior unchanged; reverted to leave a clean baseline for the next debug pass.",
+              "type" : "log",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Day-long substrate normalization sweep across 9 git repos: split clia-app-org and wrkstrm-performance out of clia-org with full history, promoted wrkstrm-mac-tab-chrome, reshaped catapult-prototype + mac-tabstrip + legacy/modern app-shell, executed Tier 3 Wrkstrm*AppShell -> Modern* rename, renamed interview-prep -> study-lab, relocated wrkstrm-kit to its new private repo and tagged v3.0.0, refreshed 7 release tags across managed SPM submodules, and got study-lab.mac.app green and launching.",
+      "tags" : [
+        "substrate",
+        "normalization",
+        "rename",
+        "modern-app-shell",
+        "study-lab",
+        "wrkstrm-kit",
+        "release-tags",
+        "git-filter-repo",
+        "submodules",
+        "spm",
+        "app-icon",
+        "focused-practice"
+      ],
+      "timestamp" : "2026-04-08T05:03:04Z",
+      "title" : "Substrate normalization sweep + study-lab build green"
     }
   ],
   "links" : [
@@ -50,5 +116,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-02T00:00:00Z"
+  "updated" : "2026-04-08T05:03:04Z"
 }
