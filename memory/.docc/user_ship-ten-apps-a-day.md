@@ -14,7 +14,7 @@ Two corrections to my earlier mental model, both important:
 
 Consequences for how I should approach any shipping automation request:
 
-- Default to a **batch tool shape** (`swift-ship-apple-apps` plural, registry-driven, `ship-all` as endgame), not single-app scripts.
+- Default to a **batch tool shape** (`swift-ship-apple-app-cli` plural, registry-driven, `ship-all` as endgame), not single-app scripts.
 - Use `@Generable` Swift types for every judgment the FoundationModels session makes; post-validate every field in Swift before writing anything to disk.
 - Assume Apple Silicon Mac + macOS 26+ + Xcode 26+ as the execution substrate.
 - Treat disclaimer strings, sibling permissions, and packaged-plist-vs-source-plist divergence as hard invariants, not soft guidance.

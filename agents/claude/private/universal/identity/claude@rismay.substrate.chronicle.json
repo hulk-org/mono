@@ -286,6 +286,85 @@
       ],
       "timestamp" : "2026-04-08T15:30:00Z",
       "title" : "Today (clia-day) Pa-mode V1 → TestFlight upload"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Env profile cutover across 7 submodules + parent mono in 16 commits. Moved the 521-line operator/environment profile from parent-mono path private/universal/substrate/harnesses/clia/rismay-substrate.header.harness.wrkstrm.json into the rismay-operator submodule at private/universal/substrate/operators/rismay/private/universal/rismay-substrate.environment.wrkstrm.json. Cross-repo move (no git mv) — git rm in parent, git add in submodule. Renamed file to drop the misleading 'header.harness' suffix; the file is environment-scoped (operator/org/policy/preferences/realms/terminalogy/toolPolicy/directives + a header.defaults block), not harness-scoped. Operator caught the misnomer mid-plan-mode and the reframe drove the destination.",
+              "type" : "code",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Additive-first resolver migration in wrkstrm-core HarnessHeaderConfig.candidateLocations. Phase 1: extended array to [new-operator-home, legacy-clia] so both paths resolve during the transition window. Phase 2: shrunk array to single new-path entry only after every consumer migrated. Updated main.swift display literals at lines 580/624/733 (header validate / show / title-show fallback) to the new filename. Updated all 17 wrkstrm-core SwiftHarnessEnvironmentTests fixture-write paths in lockstep so tests don't silently rely on the fallback. The negative test harnessHeaderConfigRequiresOrchestratorLevelArtifacts still verifies legacy non-substrate paths are rejected.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Migrated downstream consumers in clia-org (EnvironmentProfiler.swift fallbacks in clia-agent-cli + swift-agent-cli-v008; OperatorWorkspaceActivationTests + HeaderIncidentTests + HeaderOpinionTests in clia-agent-cli; HeaderIncidentTests + HeaderOpinionTests in clia-tui — the latter two were currently broken with stale non-substrate paths and got fixed to the new operator-home path), wrkstrm-app (SourceControlWorkspaceOverview.swift commit-plan filter literal), codex-agent (6 boot/identity surfaces: AGENTS.md, BOOTSTRAP.md, identity.json, persona triad with 2 occurrences, system-instructions-compact + -full triads), cadence-agent (identity.json + cadence.resume.json), orchestrators/clia (3 doctrine mirror copies of agents-env-harness-header-sync-surfaces-2026-03-27.md), and parent-mono surfaces (harnesses/AGENTS.md, harnesses/skills/sync/SKILL.md, harnesses/codex/prompts/sync.md, private/universal/resumes/cadence.resume.json). Updated the new env profile's own self-referential directives.sync checklist text. Skipped historical/append-only files (chronicles, beat journals, frozen mirror.docc copies, vault session mirrors).",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Retired harnesses/clia/ entirely. Added a forwarding-pointer README.md in commit C3 as a safety cushion for in-flight sessions; deleted both the legacy JSON file and the README in commit C15 after explicit operator confirmation. The directory has no remaining tracked files. Per-file deletion authorization respected the feedback_no-deletion-without-confirmation memory.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Registered codex and openclaw as hulk implementations on paper. Added two rows to the Implementations table in harnesses/hulk/.docc/index.md (after the existing claude-code and claw-code rows). Created skeleton hulk-compliance.json files at harnesses/codex/hulk-compliance.json and harnesses/openclaw/hulk-compliance.json. Defined the hulk.compliance.v0.1.0 JSON shape: hulkName, hulkRepo, contractVersion, contractUrl, assessedAt, assessedBy, overallStatus, clauses keyed by CONTRACT.md clause id (B-1..B-6, S-1..S-7) with name/status/notes per clause, breaches[] empty, remediationPlan free-text rollup. All 13 clauses marked unverified pending witness-suite run.",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Updated harnesses/hulk/memory/.docc/user_harness-hulk-claude.md to reflect the post-cutover state. The note still flags that the env profile's participants.harness.identity hardcodes codex@todo3 as the reason hulk-hosted sessions render a misleading harness line — that participant rewire is the next pass and was deliberately out of scope here.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Repaired pre-existing clia-org build break that had been masked behind a missing module error. Wired agent-schemas-v000-001-000 as a new package dep in clia-agent-cli/Package.swift; added Agent_Schemas_v000_001_000 + Agenda_Schemas_v000_001_000 product deps to CLIACore + CLIAAgentAudit + CLIAAgentTool targets and CLIAAgentAuditTests + CLIAAgentCoreCLICommandsTests test targets. Added the missing imports to 11 source files (CommissionedProfileDocuments.swift, Merger.swift, BackupCleanupCommand.swift, AgentDocCCommandGroup.swift, AgentNormalizeCore.swift, RecoveryCommand.swift, ProfilesCommand.swift, CLIAAgentAudit.swift, AgendaNormalizeCore.swift, TriadNormalizeCoreV070.swift, ConversationCommand.swift) and 9 test files (TriadDecodingTests.swift, TriadDecodingExtensionsTests.swift, RosterCommandTests.swift, TriadsAgentNormalizeTests.swift, TriadsAgendaNormalizeTests.swift, TriadsMirrorAggregateTests.swift, CLIAAgentAuditTests.swift, ModelsDefaultsTests.swift, AgentDocCGenerateTests.swift). Pre-existing 'failed to compile' state predated this session.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Fixed LinkRef_Schemas API drift between v0.1.0 and v0.2.0. v0.1.0 had `url: String?` and v0.2.0 has `urlString: String` (non-optional). Files importing both versions produced ambiguous-init errors disguised as type-inference failures. Fixed by using explicit version qualifiers at construction sites (AgencyLogCore.swift, ConversationCommand.swift, AgencyLogCommandTests.swift) and aligning helper signatures to the version that the consumed model uses (AgentNormalizeCore.swift sortLinks/equalLinks were typed for v0.2.0 but operated on v0.1.0 LinkRefModel via AgentDoc.links — switched helper signatures to v0.1.0). TriadNormalizeCoreV070.swift uses IdentityModel which exposes v0.2.0 LinkRefModel — added the explicit import and rewrote the closure body to use .urlString instead of the optional .url chain.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Fixed test fixture data drift: 5 header tests across clia-agent-cli + clia-tui wrote `\"schemaVersion\": \"0.2.0\"` fixtures, which the current HarnessHeaderConfig schema only accepts as 0.3.0. Bumped each fixture string. Tests now actually exercise the resolver instead of failing decode.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Fixed TriadSchemaVersion.current = '0.1.0' drift in core-triad-schemas-v000-001-000 (schema-universal submodule). The constant was hardcoded to 0.1.0 with a contradictory `// HISTORICAL v0.1.0: preserved legacy schema surface` comment — a constant named `current` cannot also be marked historical. Bumped to 0.5.0 (matching the live wire schemas under .wrkstrm/schemas/triads/triads.{agent,agency,agenda}.schema.json which all require schemaVersion: 0.5.0) and rewrote the comment to explain the SPM package name reflects its first stamped version while the constant always tracks the live wire. Unblocked 3 silent runtime bugs: Merger fallback chain (was defaulting missing schemaVersion to invalid 0.1.0), BackupCleanupCommand (was setting cleanup output schemaVersion to invalid 0.1.0), ProfilesCommand warning chain (was warning on every doc whose schemaVersion ≠ 0.1.0 — basically every doc in the substrate).",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Final verification: swift-harness-environment-cli header validate returns 'rismay-substrate.environment.wrkstrm.json 0.3.0 — OK' from new operator-home path; 17/17 wrkstrm-core SwiftHarnessEnvironmentTests pass under both extended and shrunk resolver candidate arrays; 117/117 clia-agent-cli tests pass after the build repair (was failing-to-build, then 114/117, then 117/117 after the TriadSchemaVersion fix); grep verify across the substrate (excluding vault history and intentionally-untouched chronicles + frozen mirrors) shows zero live consumers of the legacy harnesses/clia path.",
+              "type" : "log",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Cut over the 521-line operator/environment profile out of harnesses/clia/ into operators/rismay/private/universal/ as rismay-substrate.environment.wrkstrm.json (additive resolver → shrink → confirmed deletion of legacy file + retire harnesses/clia/). Registered codex and openclaw as hulk implementations with skeleton hulk-compliance.json files. Repaired pre-existing clia-org build break (missing Agent_Schemas + Agenda_Schemas wiring, missing imports across 20 files, LinkRefModel API drift) and fixed TriadSchemaVersion.current drift from 0.1.0 to live 0.5.0. Final state: 117/117 clia-agent-cli tests + 17/17 wrkstrm-core tests green; legacy file gone; harnesses/clia/ retired.",
+      "tags" : [
+        "env-profile",
+        "cutover",
+        "hulk",
+        "codex",
+        "openclaw",
+        "clia-org",
+        "build-repair",
+        "schema-versions",
+        "spm",
+        "harnesses"
+      ],
+      "timestamp" : "2026-04-08T22:02:12Z",
+      "title" : "Env profile cutover out of harnesses/clia/ + clia-org build repair + TriadSchemaVersion fix"
     }
   ],
   "links" : [
@@ -308,5 +387,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-08T15:30:00Z"
+  "updated" : "2026-04-08T22:02:12Z"
 }
