@@ -57,6 +57,8 @@ contract is breached, regardless of what features it adds.
 |---|---|---|
 | `claude-code` | `github.com/anthropics/claude-code` | Reference, currently breaching (160GB host memory leak observed 2026-04-04 and 2026-04-05) |
 | `claw-code` | `github.com/ultraworkers/claw-code` | Second implementation, in development |
+| `codex` | embedded in rismay/mono@`private/universal/substrate/harnesses/codex` (vendoring `github.com/openai/codex`) | Newly registered 2026-04-08; all clauses unverified — see `private/universal/substrate/harnesses/codex/hulk-compliance.json` |
+| `openclaw` | embedded in rismay/mono@`private/universal/substrate/harnesses/openclaw` (relates to `github.com/openclaw/openclaw`) | Newly registered 2026-04-08; all clauses unverified — see `private/universal/substrate/harnesses/openclaw/hulk-compliance.json` |
 
 Both implementations must satisfy the same contract. New implementations are
 welcome but must pass the contract before being added to the table above.
