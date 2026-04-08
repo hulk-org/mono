@@ -17,6 +17,14 @@ The substrate-side binding model that landed 2026-04-08:
 
 **How to apply:** When binding a new agent (tau, codex, clia-org, etc.), first add the relevant set as a path dep in `private/universal/schemas/sets/Package.swift` and re-export it from `SchemaSets.swift`, then add the `schemaSetRefs` entry to that agent's identity. Verify with `swift build --package-path private/universal/schemas/sets` and an eye-check that the file's `schemaVersion` matches the manifest's binding row. Do **not** rewrite per-file `schemaVersion` fields under the assumption they are stale — they are family versions under the declared set.
 
+**Two layers, two rules — do not conflate:**
+
+1. **Schema set wrappers** (e.g. `core-triad-set-v000-006-000` inside `schema-universal/.../schemas-sets/<set>/<version>/spm/`) are explicitly allowed to `@_exported import` their constituent family products. Composing families into a single bindable surface is the whole point of a set. The carve-out from `feedback_no-reexport-typealias.md` and `feedback_direct-deps-not-transitive.md` applies **here**. Each set wrapper has a `*-exports.swift` source file that re-exports its members; that file is correct, do not strip it.
+
+2. **The universal aggregator** at `private/universal/schemas/sets/` is **not** a schema set. It is the index of *which sets* the substrate currently binds. It has no public API, no re-exports, and no consumers — `Sources/SchemaSets/SchemaSets.swift` is just `public enum SchemaSets {}` so the target has something to compile. Its only job is to make `swift build --package-path private/universal/schemas/sets` resolve every declared set's wrapper, proving they still build together. Agents bind directly to a set wrapper's product (e.g. `CoreTriad_Set_v000_006_000`) via `identity.schemaSetRefs.swiftProduct`, not by importing `SchemaSets`. The direct-deps and no-reexport rules apply **here**.
+
+If a future task wants to "simplify" the aggregator by adding `@_exported import` to pull set types through it, that's wrong — it would turn the index into a kitchen-sink super-package and break the direct-deps rule. The aggregator stays sourceless-in-spirit.
+
 **Deferred / not done yet:**
 - `SchemaSetDetector.detect` still content-sniffs; no manifest read yet.
 - No loader enforces `schemaVersion` ↔ manifest row equality at load time.
