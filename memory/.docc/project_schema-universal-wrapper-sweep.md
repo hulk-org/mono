@@ -17,16 +17,22 @@ Schema-universal has ~138 SPM wrappers under `private/universal/substrate/collec
 - Full sweep across all ~62 legacy wrappers should be done as a Swift CLI rewrite, not by hand. Patch-safety doctrine for sustained refactors applies.
 - The wrappers live inside the `schema-universal` git submodule. Edits land on the submodule's working tree; commit inside the submodule and bump the pointer in mono separately. Cross-repo, not a single mono commit.
 
-**Fixed in 2026-04-08 schema-set binding session (8 wrappers, tight scope of `core-triad-set v0.6.0` transitive graph):**
+**Fixed in 2026-04-08 schema-set binding session (12 wrappers, tight scope of `core-triad-set v0.6.0` transitive graph):**
 1. `schemas-sets/core-triads/v0.6.0/spm/core-triad-set-v000-006-000`
 2. `schema-families/triad-primitives-schemas/v0.6.0/spm/triad-primitives-v000-006-000`
 3. `schema-families/expected-contributions-schemas/v0.1.0/spm/expected-contributions-schemas-v000-001-000`
 4. `schema-families/entity-primitives-schemas/v0.1.0/spm/entity-primitives-schemas-v000-001-000`
 5. `schema-families/agenda-support-schemas/v0.1.0/spm/agenda-support-schemas-v000-001-000`
-6. `domain/foundation/schema-primitives/section-schemas/v0.1.0/spm/section-schemas-v000-001-000`
-7. `domain/foundation/schema-primitives/contribution-schemas/v0.1.0/spm/contribution-schemas-v000-001-000` (preamble already present)
-8. `domain/foundation/schema-primitives/focus-domain-schemas/v0.1.0/spm/focus-domain-schemas-v000-001-000` (preamble already present)
+6. `schema-families/agenda-support-schemas/v0.5.0/spm/agenda-support-schemas-v000-005-000`
+7. `schema-families/chronicle-support-schemas/v0.1.0/spm/chronicle-support-schemas-v000-001-000`
+8. `schema-families/thread-link-schemas/v0.1.0/spm/thread-link-schemas-v000-001-000`
+9. `schema-families/horizon-schemas/v0.3.0/spm/horizon-schemas-v000-003-000`
+10. `domain/foundation/schema-primitives/section-schemas/v0.1.0/spm/section-schemas-v000-001-000`
+11. `domain/foundation/schema-primitives/contribution-schemas/v0.1.0/spm/contribution-schemas-v000-001-000` (preamble already present)
+12. `domain/foundation/schema-primitives/focus-domain-schemas/v0.1.0/spm/focus-domain-schemas-v000-001-000` (preamble already present)
 
-After these 8, `swift build --package-path private/universal/schemas/sets` is silent. Edits are uncommitted on the schema-universal submodule working tree as of session end.
+After these 12, **clean** `rm -rf .build && swift build --package-path private/universal/schemas/sets` is silent. Edits are uncommitted on the schema-universal submodule working tree as of session end.
 
-**Still pending (~55 wrappers):** the broader sweep across all legacy wrappers not currently in any active dep graph. Best done as a Swift CLI that detects the legacy pattern and applies the rewrite uniformly. Each fix needs a build verification of the wrapper itself.
+**Cache trap to know about:** `swift build` re-uses cached dependency resolution aggressively. The first incremental build after fixing only 8 wrappers reported "Build complete!" with `grep -c Conflicting identity` returning 0 — but that was because SPM hadn't re-resolved. A clean `rm -rf .build` rebuild surfaced 4 more legacy wrappers in the same graph. **Always do a clean rebuild for the final verification when sweeping conflict warnings**, otherwise the cache will lie.
+
+**Still pending (~50 wrappers):** the broader sweep across legacy wrappers not currently in any active dep graph. Best done as a Swift CLI that detects the legacy pattern and applies the rewrite uniformly. Each fix needs a clean build verification of the aggregator after.
