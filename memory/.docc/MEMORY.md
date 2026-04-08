@@ -6,6 +6,8 @@
 - ["open it" = launch the app](feedback_open-means-launch.md) — for Apple projects, "open" means run the built .app, not open xcodeproj
 - [Swift not Python](feedback_swift-not-python.md) — never use python3 heredocs in this substrate; Swift is the only sanctioned helper language
 - [No bash scripts either](feedback_no-bash-scripts.md) — bash for-loops, while-read pipelines, multi-step shell logic are also forbidden; save anything beyond a discrete command as a Swift CLI
+- [Swift Testing not XCTest](feedback_swift-testing-not-xctest.md) — all new tests use `import Testing` + `@Test` + `#expect`, never XCTestCase
+- [Fix hygiene via app not CLI](feedback_fix-via-app-not-cli.md) — once a hygiene check is wired into schema-lab, stop running CLI sweeps; the long tail belongs to the app
 - [No bash grep -r on substrate](feedback_no-recursive-grep.md) — always use Grep tool (ripgrep); bash grep -rln across collectives hangs 20-30+ minutes
 - [localOrRemote defaults false](feedback_localOrRemote-default-false.md) — useLocalDeps must default false; only true on explicit truthy SPM_USE_LOCAL_DEPS; never invert
 - [claude-code-leaks repo gone](project_claude-code-leaks-irreplaceable.md) — github.com/rismay/claude-code-leaks taken down; local checkouts are the only surviving copies, never delete carelessly
@@ -14,3 +16,8 @@
 - [clia-mem app planned](project_clia-mem-app.md) — future clia-family app that browses session history across all harnesses
 - [Source Control brand](project_source-control-brand.md) — clia-git Mac app should be rebranded "Source Control" under wrkstrm, not clia
 - [Three legal entities](user_legal-entities.md) — Cristian A Monterroza (personal), Laussat Studio LLC, wrkstrm Inc (C corp); per-app entity assignment is durable, get it right before launch
+- [wrkstrm Pages app](project_wrkstrm-pages-app.md) — display name "wrkstrm Pages" (not bare "Pages" — Apple trademark); slug pages-by-wrkstrm; me.rismay.* bundle ID
+- [Workspace auto-commit hook](feedback_workspace-auto-commit-hook.md) — a git hook silently commits + pushes unrelated untracked files during my commits, authored as Cristian without co-author trailer
+- [swift-web-deploy-cli local build](project_swift-web-deploy-cli-local-build.md) — needs SPM_USE_LOCAL_DEPS=true; remote swift-universal-main 3.0.7 lacks SemanticVersionable; engine + CLI green as of 40a8de5c5
+- [Never push codex-sessions](feedback_no-push-codex-sessions.md) — exclude vaults/.../codex/sessions submodule from any batch push sweep; pointer bumps in mono are still fine
+- [Patch safety workflow](feedback_patch-safety-workflow.md) — multi-chunk deletes need grep-verify + diff-stat before commit; sustained refactors need Swift Testing invariants

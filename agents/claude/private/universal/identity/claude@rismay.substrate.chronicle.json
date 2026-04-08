@@ -40,7 +40,7 @@
               "weight" : 2
             },
             {
-              "evidence" : "Promoted wrkstrm-mac-tab-chrome to a top-level component, reshaped catapult-prototype into catapult/demo-apps/catapult.demo, and split wrkstrm-app-shell demos into legacy-app-shell.demo + modern-app-shell.demo. Each xcodeproj regenerated via xcodegen and verified with xcodebuild BUILD SUCCEEDED.",
+              "evidence" : "Promoted wrkstrm-mac-tab-chrome to a top-level component, reshaped catapult-prototype into catapult/demo-apps/catapult.demo, and split modern-app-shell demos into legacy-app-shell.demo + modern-app-shell.demo. Each xcodeproj regenerated via xcodegen and verified with xcodebuild BUILD SUCCEEDED.",
               "type" : "code",
               "weight" : 3
             },
