@@ -30,3 +30,5 @@
 - [Schema set binding model](project_schema-set-binding.md) — agents bind via private/universal/schemas/sets aggregator + identity.schemaSetRefs; per-file schemaVersion is family version, not stale
 - [Schema-universal wrapper localOrRemote sweep](project_schema-universal-wrapper-sweep.md) — ~62 legacy wrappers still hard-code github URL; 8 fixed in core-triad-set v0.6.0 graph 2026-04-08; full sweep wants a Swift CLI
 - [Purpose strings must be honest](feedback_purpose-strings-honest.md) — NS*UsageDescription must describe real behavior; never write disclaimer strings or assume a permission is only transitive without asking
+- [App Store Connect creds schema](reference_appstoreconnect-credentials-schema.md) — ~/.appstoreconnect/credentials/<bundle-id>.json fields + Xcode 26 altool flag rename (username/app-password)
+- [Ship 10 apps/day via FoundationModels](user_ship-ten-apps-a-day.md) — scale target + architecture thesis: on-device Apple FoundationModels session as judgment layer in a Swift batch tool, NOT a Claude Code sub-session
