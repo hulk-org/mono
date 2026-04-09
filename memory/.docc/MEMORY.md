@@ -20,13 +20,15 @@
 - [git mv + Edit trap](feedback_git-mv-then-edit-trap.md) — git mv pre-stages with old content; always git add after Edits or commit captures only the rename
 - [Three legal entities](user_legal-entities.md) — Cristian A Monterroza (personal), Laussat Studio LLC, wrkstrm Inc (C corp); per-app entity assignment is durable, get it right before launch
 - [wrkstrm Pages app](project_wrkstrm-pages-app.md) — display name "wrkstrm Pages" (not bare "Pages" — Apple trademark); slug pages-by-wrkstrm; me.rismay.* bundle ID
-- [Workspace auto-commit hook](feedback_workspace-auto-commit-hook.md) — a git hook silently commits + pushes unrelated untracked files during my commits, authored as Cristian without co-author trailer
+- [Workspace auto-commit hook](feedback_workspace-auto-commit-hook.md) — auto-commits my edits with coherent messages + Co-Authored-By trailers and bumps submodule pointers; still sometimes sweeps unrelated working-tree state into my commits
 - [swift-web-deploy-cli local build](project_swift-web-deploy-cli-local-build.md) — needs SPM_USE_LOCAL_DEPS=true; remote swift-universal-main 3.0.7 lacks SemanticVersionable; engine + CLI green as of 40a8de5c5
+- [xcodebuild needs launchctl setenv](feedback_xcodebuild-spm-use-local-deps.md) — `SPM_USE_LOCAL_DEPS=true xcodebuild` is stripped by sandbox; use `launchctl setenv` then `unsetenv` to bracket the build
 - [Never push codex-sessions](feedback_no-push-codex-sessions.md) — exclude vaults/.../codex/sessions submodule from any batch push sweep; pointer bumps in mono are still fine
 - [Patch safety workflow](feedback_patch-safety-workflow.md) — multi-chunk deletes need grep-verify + diff-stat before commit; sustained refactors need Swift Testing invariants
 - [Direct deps not transitive](feedback_direct-deps-not-transitive.md) — SPM consumers depend on the narrow source-of-truth package per import; never bundle into kitchen-sink super-packages
 - [No re-export typealias](feedback_no-reexport-typealias.md) — never `public typealias X = OtherPackage.X` to dodge import updates; consumers import the source-of-truth and use canonical names
 - [No deletion without confirmation](feedback_no-deletion-without-confirmation.md) — never `rm` files in the operator's tree without explicit per-file/per-batch authorization, even when a "lift" or "rollback" task seems to imply it
+- [Reshape preserves data](feedback_reshape-preserves-data.md) — "give the right structure" / "Pattern B" / "fix" instructions are about shape, NOT content; never destroy existing data inside a home being reshaped without per-item authorization
 - [Schema set binding model](project_schema-set-binding.md) — agents bind via private/universal/schemas/sets aggregator + identity.schemaSetRefs; per-file schemaVersion is family version, not stale
 - [Schema-universal wrapper localOrRemote sweep](project_schema-universal-wrapper-sweep.md) — ~62 legacy wrappers still hard-code github URL; 8 fixed in core-triad-set v0.6.0 graph 2026-04-08; full sweep wants a Swift CLI
 - [Purpose strings must be honest](feedback_purpose-strings-honest.md) — NS*UsageDescription must describe real behavior; never write disclaimer strings or assume a permission is only transitive without asking

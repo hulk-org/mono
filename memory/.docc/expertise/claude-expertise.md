@@ -162,6 +162,23 @@ existing cast.
 
 ## Recent work
 
+- 2026-04-09 (post-cutover followup): **Updated
+  `feedback_workspace-auto-commit-hook.md` to two-layer framing.** The
+  older memory described the workspace hook as silently committing
+  unrelated untracked files without trailers; this session observed a
+  newer behavior where the hook auto-commits MY edits with coherent
+  scope-aware messages (e.g. `cc73ca0 env(codex):`,
+  `2d7b37c clia-agent-cli: wire agent-schemas`,
+  `a04ffd0 memory(hulk/claude): chronicle the env profile cutover session`)
+  that DO carry the `Co-Authored-By: Claude Opus 4.6 (1M context)`
+  trailer, and that the hook also auto-bumps parent mono submodule
+  pointers in separate `chore(submodules):` commits. The older sweep
+  behavior is still active though — confirmed mid-session when my
+  `0759894e20 chore(submodules): bump hulk for env profile cutover
+  winddown` accidentally bundled three unrelated `maintainers/{shueber,
+  simonbs}` items. Memory now documents both layers; index entry
+  rewritten to match.
+
 - 2026-04-08 (evening): **Env profile cutover out of `harnesses/clia/` +
   clia-org build repair + `TriadSchemaVersion` fix.** Cut over the 521-line
   operator/environment profile from the misnamed

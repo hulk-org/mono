@@ -365,6 +365,34 @@
       ],
       "timestamp" : "2026-04-08T22:02:12Z",
       "title" : "Env profile cutover out of harnesses/clia/ + clia-org build repair + TriadSchemaVersion fix"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Rewrote ~/.claude/memory/.docc/feedback_workspace-auto-commit-hook.md to capture two-layer behavior observed during the env-profile cutover session. Layer 1 (newer): hook auto-commits my edits with coherent scope-aware messages and Co-Authored-By: Claude Opus 4.6 (1M context) trailers, plus auto-bumps parent mono submodule pointers in separate chore(submodules): commits. Examples from the session: cc73ca0 env(codex):, 2d7b37c clia-agent-cli: wire agent-schemas, a04ffd0 memory(hulk/claude): chronicle the env profile cutover session. Layer 2 (older, still active): hook still sometimes sweeps unrelated working-tree state into my own commits — confirmed live during 0759894e20 chore(submodules): bump hulk for env profile cutover winddown which accidentally bundled three unrelated maintainers/{shueber,simonbs} items I never touched.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Updated MEMORY.md index line 23 from 'a git hook silently commits + pushes unrelated untracked files during my commits, authored as Cristian without co-author trailer' to 'auto-commits my edits with coherent messages + Co-Authored-By trailers and bumps submodule pointers; still sometimes sweeps unrelated working-tree state into my commits' to match the new two-layer framing.",
+              "type" : "doc",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Updated the user-home feedback_workspace-auto-commit-hook.md memory to two-layer framing capturing both the older sweep-unrelated-files behavior (still active) and the newer intelligent-edit-batching behavior (with Co-Authored-By trailers + automatic submodule pointer bumps) observed during the env-profile cutover session. Index entry rewritten to match. Updated guidance: don't add Co-Authored-By retroactively (it's there now); pre-flight submodule dirty state at start of work; use specific git add <path> only.",
+      "tags" : [
+        "memory",
+        "feedback",
+        "workspace-hooks",
+        "observation"
+      ],
+      "timestamp" : "2026-04-09T04:01:52Z",
+      "title" : "Update workspace-auto-commit-hook memory to two-layer behavior"
     }
   ],
   "links" : [
@@ -387,5 +415,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-08T22:02:12Z"
+  "updated" : "2026-04-09T04:01:52Z"
 }

@@ -328,4 +328,35 @@ section) for the full chain.
     `claude-expertise.md` (lines 163 and 220) — leftover from a previous
     merge, worth a separate cleanup pass.
   - **Update `feedback_workspace-auto-commit-hook.md` memory** — observed
-    behavior is intelligent + trailer-bearing now.
+    behavior is intelligent + trailer-bearing now. **Done 2026-04-09**:
+    rewrote the memory to two-layer framing, see entry below.
+
+## 2026-04-09 - Update workspace-auto-commit-hook memory to two-layer behavior
+
+- Context: Followup #4 from the env-profile cutover winddown article.
+  The older `feedback_workspace-auto-commit-hook.md` memory described
+  the hook as silently committing unrelated untracked files without
+  Co-Authored-By trailers, but this session showed a newer
+  intelligent behavior layered on top.
+- Actions:
+  - Rewrote `~/.claude/memory/.docc/feedback_workspace-auto-commit-hook.md`
+    (user-home auto-memory, NOT git-tracked) to a two-layer framing:
+    Layer 1 = newer intelligent edit-batching with coherent scope-aware
+    messages and Co-Authored-By trailers + automatic submodule pointer
+    bumps; Layer 2 = older sweep-unrelated-files behavior, still active.
+  - Updated `MEMORY.md` index line 23 to match the new two-layer
+    description.
+- Artifacts:
+  - `~/.claude/memory/.docc/feedback_workspace-auto-commit-hook.md`
+  - `~/.claude/memory/.docc/MEMORY.md` (line 23)
+- Lessons:
+  - Memory entries about *behavior of external systems* go stale fast
+    when the user evolves the system. Worth re-checking memory entries
+    that describe runtime behavior any time the actual behavior diverges.
+  - Even after memory is corrected, the layered behavior means I still
+    need to pre-flight submodule dirty state and use specific
+    `git add <path>` only — the new Layer 1 doesn't supersede Layer 2.
+- Next:
+  - Read the actual hook source someday (`core.hooksPath` +
+    `.git/hooks/`) — it's been on the followup list for two sessions
+    and never picked up.
