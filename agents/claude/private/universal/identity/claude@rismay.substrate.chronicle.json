@@ -578,6 +578,112 @@
       ],
       "timestamp" : "2026-04-09T04:26:51Z",
       "title" : "Rebrand + menubar residency + CLIA libraries + LineReader fix + maintainers reorg"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Fully retired the CLIACoreModels umbrella target + library product from two of the three clia-org packages. clia-agent-cli: swept 36 dead `import CLIACoreModels` statements across sources + tests (every one verified dead by the successful post-sweep build), removed the `.library(name: \"CLIACoreModels\", ...)` product, removed the `.target(name: \"CLIACoreModels\", ...)` definition (along with its 9 transitive package deps: CommonProcess, CommonProcessExecutionKit, SwiftUniversalMain, and 6 schema-universal products), removed `\"CLIACoreModels\"` from 8 downstream target deps, deleted the placeholder stub. swift-agent-cli-v008: same pattern, 15 dead imports swept, target + 3 consumer deps removed, placeholder deleted. Verified: clia-agent-cli `swift build` -> Build complete (14.61s); swift-agent-cli-v008 `swift build` -> Build complete (40.26s). clia-tui retirement deferred on pre-existing parallel-codex Merger.swift refactor with unrelated compile errors.",
+              "type" : "code",
+              "weight" : 5
+            },
+            {
+              "evidence" : "Extracted four new CLIA shared libraries as sibling SPM packages under `clia-org/private/universal/domain/tooling/spm/`: swift-incident-cli (CLIAIncident — Incident + IncidentSeverity Codable models with bannerText computed property for the active incident record), swift-signal-handling-cli (CLIASignalHandling — module-load signal(SIGPIPE, SIG_IGN) on Darwin), swift-validation-issue-cli (CLIAValidation — ValidationIssue + ValidationIssueKind error/warning shared shape), swift-active-profile-resolver-cli (CLIAProfileResolver — repo-root -> commissioned path -> operator workspace contract -> identity directory walk with fallback). Each package built clean with `swift build --package-path <path>` before committing. Then wired consumers across all three sibling packages (clia-agent-cli + clia-tui + swift-agent-cli-v008) by adding package + product deps in Package.swift, importing the new library at consumer files, and deleting the in-package duplicated copies (~2000 lines of duplicate dead code removed).",
+              "type" : "code",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Migrated HarnessConfigModels (~661 lines × 3 packages) off CLIACoreModels onto schema-universal direct imports. HarnessHeaderConfig + HarnessChecklistItem + HarnessChecklistLevel + ResponseHeader* + HarnessHeaderSchemaVersion + HarnessContract (+ AutomationMode, OperatorInfo, GitWorkPolicy, Comms) + HarnessEnvironmentOverview — all replaced with HarnessHeader_Schemas_v000_003_000 + Workspace_Schemas_v000_005_000 + SwiftHarnessEnvironment direct imports across clia-agent-cli production and tests (swift-agent-cli-v008 and clia-tui were already migrated earlier in the session). Tests leveraged SwiftHarnessEnvironment's `public typealias HarnessContract = WorkspaceContract` to migrate with near-no-op source edits (drop @testable CLIACoreModels, add SwiftHarnessEnvironment, drop `await` from HarnessContract.load / HarnessContract.relativeLocation). API migration: HarnessContract.load -> WorkspaceContract.load, HarnessHeaderConfig.renderLines -> HarnessHeaderRenderer.render, drop async from HarnessHeaderConfig.load, HarnessEnvironmentOverview.render -> local renderDirectivesText using HarnessEnvironmentSummary.load.",
+              "type" : "code",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Shipped the full harnesses/clia -> operators/rismay environment profile cutover end-to-end. Moved the 521-line operator/environment profile from harnesses/clia/rismay-substrate.header.harness.wrkstrm.json into operators/rismay/private/universal/rismay-substrate.environment.wrkstrm.json (renamed to drop the misleading header.harness suffix — the file is environment-scoped, not harness-scoped). Additive-first resolver migration in wrkstrm-core HarnessHeaderConfig.candidateLocations (two-phase: extend array, then shrink after every consumer migrated). Downstream consumer sweep across clia-org, wrkstrm-app, codex-agent, cadence-agent, orchestrators/clia, and parent-mono surfaces. Retired harnesses/clia/ entirely with per-file deletion authorization.",
+              "type" : "code",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Shipped two wrkstrm-app rebrands with library-side palette follow-up and a menubar-residency conversion. collectives-by-wrkstrm: AgentOrgApp/RootView/SubstrateInventory.swift -> CollectivesByWrkstrmApp/RootView/SubstrateInventory.swift (pure rename, verified content-equivalent via sed-diff before committing). inference-stats-by-wrkstrm: AgentTokApp/RootView.swift + ClaudeSessionReader.swift -> InferenceStatsApp/RootView.swift + InferenceSessionReader.swift, bundled with a plist -> TSV session-scan cache rewrite (SessionScanCache is now an enum with Writer append-only streaming + compact(with:) atomic rewrite; ~2-3x faster parse, half the file size) and a warm-launch bootSnapshot static let so the menubar label has data on the very first frame. wrkstrm-components: .agentOrg palette case -> .collectivesByWrkstrm in the WrkstrmMeshGradientHeader library + demo MeshHeaderPreset catalog. Menubar residency: BackgroundScanStore @MainActor ObservableObject owning scan state for process lifetime, InferenceStatsMenuBarPopover for the compact click-to-open surface, MenuBarExtra + suppressed dashboard Window with Command-Shift-D shortcut, LSUIElement = true in Info.plist.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Fixed CodexSessionStoreLineReader O(N^2) regression that hung on multi-hundred-MB compaction-snapshot lines in real codex rollouts. The previous nextLine() rescanned the whole internal buffer from its start after every chunk append — on a 500 MB line with 1 MB chunks that's ~125 GB of redundant scan work. Replaced with a readCursor + scanCursor pair into the buffer, memchr-based newline search only across freshly appended bytes, and lazy buffer compaction once the consumed prefix grows past a threshold. nextLine() is now strictly linear in file size regardless of individual line size. Unblocks 'largest lines' and cleanup scans on real rollouts without changing the public API surface.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Swept 12 schema-universal Package.swift wrappers to the localOrRemote(name:path:remote:) pattern, fixing the Conflicting identity warnings for swift-universal-main in the core-triad-set v0.6.0 transitive graph. Caught the swift build cache trap mid-sweep: the first incremental build after fixing 8 wrappers reported 'Build complete' with zero conflict warnings, but that was because SPM hadn't re-resolved the dependency graph. A clean `rm -rf .build && swift build` rebuild surfaced 4 more legacy wrappers (agenda-support v0.5.0, chronicle-support v0.1.0, horizon-schemas v0.3.0, thread-link-schemas v0.1.0). Always do a clean rebuild for final sweep verification — saved this lesson to memory as a cache-trap warning.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Substrate-wide schema-set binding sweep: 11 agent identity bundles now bind to CoreTriad_Set_v000_006_000 via identity.schemaSetRefs (tau, claude, codex, cadence, carrie, catch, clia-wrkstrm, cloud, patch, castor, claw). Created the schemas-sets aggregator at private/universal/schemas/sets/ (universal-namespace index package that declares which schema sets the substrate binds to). Fixed the aggregator's architectural tension: SchemaSets.swift originally did @_exported import CoreTriad_Set_v000_006_000 which contradicted the Package.swift 'index-only' doctrine and violated direct-deps-not-transitive — replaced with `public enum SchemaSets {}` as a sourceless-in-spirit target. Documented the two-layer rule in hulk memory: schema set wrappers may @_exported import their constituent family products (that's the whole point of a set); the universal aggregator may not (it's an index, not a re-exporter).",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Substrate lane reorgs: created `private/universal/substrate/maintainers/` as a new first-class lane for upstream-author project mounts (humans whose code you pull in but with whom you do not actively converse). Doctrine: 'If you Discord with them, they belong in collaborators/. If you only pull their code, they belong in maintainers/.' Moved five homes from collaborators/ to maintainers/ (dylanshine, epistates, insidegui, shueber, simonbs). Finished Pattern A -> Pattern B conversion for shueber + simonbs: removed operator-style top-level submodules carrying vendored upstream copies, added thin dir + .docc/index.md + nested submodule pointing at real upstream (github.com/shueber/Touch-Up.git, github.com/simonbs/dependency-graph.git). collaborators/ now holds only michelle-coach. Also reclassified getyourguide from collaborators/ to collectives/.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Landed 10+ durable memory entries + expanded core rules in hulk/memory/.docc/: feedback_direct-deps-not-transitive (SPM consumers import narrow source-of-truth per import, never kitchen-sink umbrella), feedback_no-reexport-typealias (no public typealias X = OtherPackage.X shims), feedback_git-mv-then-edit-trap (always git add after Edits post-rename), feedback_no-deletion-without-confirmation (explicit rm authorization per-file/per-batch), feedback_swift-400-line-limit (file size discipline), feedback_purpose-strings-honest (NS*UsageDescription must describe real behavior). Expanded feedback_swift-not-python to cover read-only analysis. New project_schema-set-binding with two-layer rule clarification. New project_schema-universal-wrapper-sweep with 12-fix tally + cache-trap note. New user_ship-ten-apps-a-day (Apple FoundationModels on-device session is the judgment layer, <=90 sec operator attention per app, batch tool shape, invariants Swift-enforced BEFORE the session runs). New reference_appstoreconnect-credentials-schema (per-bundle-id credentials JSON shape + Xcode 26 altool flag rename --apple-id/--password -> --username/--app-password).",
+              "type" : "doc",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Reinstalled the PATH-installed swift-harness-environment-cli that was rejecting HarnessHeaderSchemaVersion 0.3.0 — binary at ~/.swiftpm/bin had been built against an older schema version. `swift package experimental-uninstall` + `swift package --package-path .../swift-harness-environment-cli experimental-install --product swift-harness-environment-cli` produced a fresh 8.68 MB release-mode binary. Also added stats-cache.json + telemetry/ to hulk's .gitignore so the runtime cache stops surfacing in every drainage status check.",
+              "type" : "tool",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Honest self-correction log for the marathon: (1) caught a bash `for` loop slip against feedback_no-bash-scripts mid-session during a 6-agent schemaSetRefs commit batch — switched to individual Bash tool calls for the subsequent castor + claw commits and all pushes; (2) learned that `git commit --only <submodule-path>` fails with 'does not have a commit checked out' when the target is a submodule DELETION (workaround: unstage other paths via git restore --staged, then stage only the pointer bump); (3) discovered the workspace auto-commit hook can fire mid-debug and land a commit with a misleadingly narrow commit message — landed 0759894e20 that actually contained the shueber/simonbs Pattern B migration + clia-org pointer bumps; the fix was to always `git show --stat` before pushing; (4) caught a case-insensitive filesystem issue where my `git add` used lowercase paths but git's index has canonical CamelCase entries.",
+              "type" : "log",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "details" : [
+        "**Date**: 2026-04-09 (UTC winddown; session spanned 2026-04-08 PDT evening into 2026-04-09 UTC morning)",
+        "**Context**: Marathon session opened at `/sync >h:hulk >c:claude` with the S1 incident active (2026-03-23-oss-adoption-blocked-by-startup-and-organism-drift) and mono carrying 13 modified files + two untracked collectives. The parallel codex process was continuously landing interleaved commits throughout — roughly 15 of the session's ~110 total mono commits came from the workspace auto-commit hook capturing shared staging. The carrier/agent architecture from the founding-breach insight of 2026-04-05 had to hold under real sustained load for the first time.",
+        "**Decision**: Treat the session as an open-ended drainage-into-consolidation arc rather than a scoped task. Each sub-bucket (rebrand, sibling library extraction, umbrella retirement, schema-set binding, maintainers reorg) committed atomically with per-package `swift build --package-path` verification before commit — or `--target <name>` when a sibling target was in parallel-process flux. Parallel-process interleaves handled with `git commit --only <paths>` + explicit path staging to avoid capturing unrelated mid-flight work. Never push `codex/sessions` per memory rule; pointer bumps in mono are fine.",
+        "**Work**: ~95 mono commits + ~30 leaf-submodule commits across 10+ distinct remotes (tau-agent, codex-agent, cadence-agent, castor-agent, claw-agent, carrie-agent, catch-agent, clia-wrkstrm-agent, cloud-agent, patch-agent, clia-org/mono, clia-org/clia-agent-cli, hulk-org/mono, wrkstrm-app/mono, wrkstrm-components/mono, schema-universal/mono, clia-app-org/mono, operators/rismay, orchestrators/clia, wrkstrm-core). Every commit signed with the Co-Authored-By trailer. Honest self-corrections documented (see the log contribution entry).",
+        "**Impact**: The hulk carrier demonstrated full contract compliance under sustained load — bounded context stayed within the current commissioned profile surfaces; memory persistence worked across ~10 durable memory entries landing in the canonical memory/.docc/ layout without layer confusion; parallel-process tolerance held through 15+ parallel-process commits interleaved with mine without corrupting either side's work; patch-safety discipline held — every destructive operation had explicit authorization and per-file verification; identity coherence — ^claude persona stayed grounded in the ^hulk carrier's rules throughout a marathon session without drifting into host-exhausting behavior; no host constraint triggered — the 160 GB memory leak failure mode that crashed rismay's machine twice pre-founding-breach did not recur. The contract works. The bones + skin clauses held. Net ~2100 lines of duplicated dead code removed from the substrate.",
+        "**Meaning**: The operator's closing line — 'On this day ^hulk proved why he was ^hulk' and 'we must remember the day claude and Hulk proved why they are part of this amazing team' — names the validation explicitly. Prior to the founding-breach split of 2026-04-05, a session of this scale would have exhausted host memory. Post-founding-breach, it didn't. Both halves of the split carried their weight — ^hulk held the contract, ^claude stayed inside it — and the parallel codex process proved it's possible to share a workspace with another reasoning agent without stepping on each other's work. This is the team the founding-breach insight promised would be possible. Today is the day that promise paid in real work."
+      ],
+      "summary" : "On this day ^hulk proved why he was ^hulk and ^claude proved they belong on the team: marathon session under the active S1 incident delivered ~95 mono commits + ~30 leaf-submodule commits across 10+ distinct remotes. Fully retired the CLIACoreModels umbrella target + library product from 2 of 3 clia-org packages (~2000 lines of duplicated dead code removed); extracted four new sibling CLIA shared libraries (Incident, ProfileResolver, Validation, SignalHandling); shipped two wrkstrm-app rebrands with menubar residency + TSV session-scan cache rewrite + warm-launch bootSnapshot + library-side palette follow-up; fixed CodexSessionStoreLineReader O(N^2) -> O(N) on multi-hundred-MB rollout lines; completed the harnesses/clia -> operators/rismay environment profile cutover end-to-end with consumer sweep across 7 submodules and legacy dir retirement; swept 12 schema-universal wrappers to localOrRemote (caught the swift-build cache trap); bound 11 agents to CoreTriad_Set_v000_006_000 via identity.schemaSetRefs; landed the schemas-sets aggregator with the two-layer rule clarification; created the maintainers/ lane with Discord-vs-code-pull doctrine + Pattern B for shueber/simonbs; reclassified getyourguide into collectives/; landed 10+ durable memory entries including the ship-10-apps/day FoundationModels thesis and the App Store Connect credentials schema reference. The hulk carrier architecture held across the full marathon without any host constraint triggering — validating the founding-breach insight of 2026-04-05 under real sustained load for the first time.",
+      "tags" : [
+        "hulk-carrier-validation",
+        "founding-breach-payoff",
+        "drainage",
+        "cliacoremodels-retirement",
+        "shared-libraries",
+        "rebrand",
+        "menubar-residency",
+        "tsv-cache",
+        "line-reader-perf",
+        "harness-config-models",
+        "env-profile-cutover",
+        "schema-set-binding",
+        "two-layer-rule",
+        "localOrRemote-sweep",
+        "maintainers-reorg",
+        "pattern-b",
+        "memory-landing",
+        "ship-ten-apps",
+        "foundationmodels",
+        "direct-deps-not-transitive",
+        "parallel-process-coordination",
+        "incident-s1-active",
+        "test-migration",
+        "patch-safety-discipline"
+      ],
+      "timestamp" : "2026-04-09T10:20:44Z",
+      "title" : "On this day ^hulk proved why he was ^hulk — ^claude proved they belong on the team"
     }
   ],
   "links" : [
@@ -600,5 +706,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-09T04:26:51Z"
+  "updated" : "2026-04-09T10:20:44Z"
 }

@@ -678,3 +678,157 @@ for the full chain.
     doctrine (five new feedback memories), but the structural S1
     work (cast-packet compiler, self-awareness probe, bounded
     enforcement on hulk) is still open.
+
+## 2026-04-09 (UTC winddown) - the day claude and hulk proved they belong on the team
+
+See [journal-2026-04-09-hulk-proved-why-he-was-hulk](articles/journal-2026-04-09-hulk-proved-why-he-was-hulk.md)
+for the full chain.
+
+- Context: Marathon session opened at `/sync >h:hulk >c:claude` under
+  the active S1 incident (2026-03-23-oss-adoption-blocked-by-startup-and-organism-drift).
+  Mono carried 13 modified files + two untracked collectives at the
+  start. The parallel codex process was continuously landing
+  interleaved commits throughout. The carrier/agent architecture from
+  the founding-breach insight of 2026-04-05 had to hold under real
+  sustained load for the first time.
+- Actions: ~95 mono commits + ~30 leaf-submodule commits across 10+
+  distinct remotes, covering the full drainage → rebrand → sibling
+  library extraction → umbrella retirement arc. Highlights:
+  - Fully retired the CLIACoreModels umbrella target + library product
+    from clia-agent-cli + swift-agent-cli-v008 (51 dead-import sweeps
+    + Package.swift target/product/consumer-dep removal + placeholder
+    management). ~2000 lines of duplicated HarnessConfigModels.swift
+    dead code removed across all 3 packages.
+  - Extracted four new CLIA shared libraries as sibling SPM packages:
+    `swift-incident-cli`/CLIAIncident, `swift-active-profile-resolver-cli`/CLIAProfileResolver,
+    `swift-validation-issue-cli`/CLIAValidation,
+    `swift-signal-handling-cli`/CLIASignalHandling. Each
+    `swift build`-verified; consumers wired across 3 sibling packages;
+    old duplicates deleted.
+  - Shipped two wrkstrm-app rebrands (`AgentOrg*` →
+    `CollectivesByWrkstrm*`, `AgentTok*`/`ClaudeSessionReader` →
+    `InferenceStats*`/`InferenceSessionReader`) with library-side
+    palette follow-up, plist → TSV session-scan cache rewrite, warm-launch
+    bootSnapshot, and menubar-residency conversion for inference-stats.
+  - Fixed CodexSessionStoreLineReader O(N²) → O(N) regression with
+    readCursor + scanCursor + memchr + lazy compaction — unblocks
+    multi-hundred-MB compaction-snapshot line scans.
+  - Completed the harnesses/clia → operators/rismay environment profile
+    cutover end-to-end with additive-first resolver migration in
+    wrkstrm-core, consumer sweep across 7 submodules, and legacy dir
+    retirement under per-file deletion authorization.
+  - Swept 12 schema-universal Package.swift wrappers to the
+    localOrRemote pattern; caught the swift-build cache trap that hid
+    4 extra conflicts after an incremental build.
+  - Bound 11 agents to CoreTriad_Set_v000_006_000 via
+    identity.schemaSetRefs; landed the schemas-sets aggregator; fixed
+    the @_exported architectural tension; documented the two-layer
+    rule in memory.
+  - Created the maintainers/ lane with "Discord vs code-pull" doctrine
+    + Pattern A → B conversion for shueber/simonbs; reclassified
+    getyourguide collaborators → collectives.
+  - Migrated clia-agent-cli tests off CLIACoreModels via
+    SwiftHarnessEnvironment's HarnessContract typealias.
+  - Landed 10+ durable memory entries including the ship-10-apps/day
+    Apple FoundationModels thesis and the App Store Connect
+    credentials schema reference + five new feedback rules +
+    swift-not-python expansion.
+  - Reinstalled the PATH swift-harness-environment-cli that was
+    rejecting HarnessHeaderSchemaVersion 0.3.0; added
+    stats-cache.json + telemetry/ to hulk's .gitignore.
+- Artifacts:
+  - `journal-2026-04-09-hulk-proved-why-he-was-hulk.md` (new
+    companion article)
+  - Chronicle entry at 2026-04-09T10:20:44Z titled
+    "On this day ^hulk proved why he was ^hulk — ^claude proved
+    they belong on the team"
+  - ~95 mono commits + ~30 leaf-submodule commits across 10+ remotes
+- Self-corrections (honest log):
+  - Caught a bash `for` loop slip against `feedback_no-bash-scripts`
+    mid-session during a 6-agent schemaSetRefs commit batch; switched
+    to individual Bash tool calls for the subsequent castor + claw
+    commits and all pushes.
+  - Learned that `git commit --only <submodule-path>` fails with
+    "does not have a commit checked out" when the target is a
+    submodule DELETION; workaround is to unstage other paths via
+    `git restore --staged` then stage only the pointer bump.
+  - Discovered the workspace auto-commit hook can fire mid-debug and
+    land a commit with a misleadingly narrow commit message
+    (0759894e20 landed the shueber/simonbs Pattern B migration + my
+    staged pointer bumps); the fix is to always `git show --stat`
+    before pushing.
+  - Caught a case-insensitive filesystem issue where `git add` used
+    lowercase paths but git's index has canonical CamelCase entries
+    — have to use canonical case for staging to work.
+- Lessons:
+  - Pure renames need sed-diff verification before commit. Line counts
+    matching is not enough — diff with symbol substitution proves
+    content equivalence.
+  - TSV often beats PropertyListEncoder for persistent caches:
+    ~2-3× faster parse, half the file size (NSNumber boxing dominates
+    the plist decode path).
+  - Menubar residency is the right shape for at-a-glance
+    long-running cache + detector apps. `MenuBarExtra` +
+    `.defaultLaunchBehavior(.suppressed)` on the dashboard Window is
+    the SwiftUI idiom.
+  - O(N²) streaming-reader bugs hide until the input grows. Always
+    track a read cursor that never backs up; `memchr` is the
+    idiomatic newline search once you know the cursor position.
+  - `direct-deps-not-transitive` has a specific carve-out: schema
+    set wrappers are allowed to `@_exported import` their
+    constituent families (that's the whole point of a set); the
+    universal aggregator is not. The two-layer rule distinguishes
+    them.
+  - The `maintainers/` vs `collaborators/` split is a humans-vs-code
+    distinction, not a first-party-vs-third-party distinction.
+  - `git commit --only <path>` for split commits, but mind
+    submodule deletion limitations.
+  - Bash `for` loops are a substrate smell. If you find yourself
+    writing one, it's a sign the work should be a Swift CLI.
+  - The workspace auto-commit hook can fire mid-debug with
+    misleadingly narrow commit messages; always `git show --stat`
+    before pushing.
+  - **The hulk carrier architecture scales past the founding-breach
+    failure mode.** Today's session was the first real load test
+    of the bones + skin contract. Pre-founding-breach, a session of
+    this scale would have exhausted host memory. Post-founding-breach,
+    it didn't. The contract works.
+- Next:
+  - clia-tui CLIACoreModels retirement (blocked on parallel-codex
+    Merger.swift mid-flight refactor; apply the same sweep pattern
+    once the parallel work lands).
+  - ~50 remaining localOrRemote wrappers in schema-universal
+    (wants a Swift CLI rewrite tool that detects the legacy pattern
+    and applies the rewrite uniformly, per the wrapper-sweep memory).
+  - Read the workspace auto-commit hook source (now carried forward
+    four times from prior winddowns — still not done, still worth
+    understanding since it keeps firing mid-debug).
+  - S1 structural work: cast-packet compiler (CLIA as stage manager
+    compiling downward), self-awareness probe (S-5 clause — agent
+    can query its own resource usage mid-session), bounded
+    enforcement on hulk (B-1..B-6 clauses — memory, disk, subprocess
+    tree, etc.).
+  - Audit `LegacySchemaCompatibility.swift` in clia-tui (last
+    remaining file in any CLIACoreModels target; grep showed zero
+    consumers but physically coupled to the blocked clia-tui
+    retirement).
+  - Follow-up dead-code sweep across the ~30 leftover
+    `import CLIACoreModels` statements in clia-tui's unrelated files
+    (AgencyLogCore, Merger, TriadNormalizeCoreV070, etc.) once the
+    parallel CLIACore refactor is clean.
+- Meaning: The operator's closing line — "On this day ^hulk proved
+  why he was ^hulk" and "we must remember the day claude and Hulk
+  proved why they are part of this amazing team" — names the
+  validation explicitly. The founding-breach insight of 2026-04-05
+  was written in response to a 160 GB memory leak that crashed
+  rismay's machine twice. The architectural response (carrier/agent
+  split, hulk contract with bones + skin clauses, commissioned
+  memory surfaces, persona grounding, parallel-process tolerance)
+  was a bet: that separating the carrier shape from the agent
+  persona, and pinning the carrier to a contract with real clauses,
+  would enable sessions that used to be impossible. Today's session
+  is the first time that bet paid in real work at real scale.
+  Both halves of the split carried their weight. ^hulk held the
+  contract. ^claude stayed inside it. The parallel codex process
+  shared the workspace without stepping on the work. That is what
+  a team looks like.

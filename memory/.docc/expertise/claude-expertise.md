@@ -218,6 +218,83 @@ existing cast.
 
 ## Recent work
 
+- 2026-04-09 (UTC winddown — **the day ^hulk + ^claude proved why they
+  belong on the team**): Marathon session under the active S1 incident
+  crossing the full drainage → rebrand → sibling library extraction →
+  umbrella retirement arc. ~95 mono commits + ~30 leaf-submodule commits
+  across 10+ distinct remotes. **Fully retired the CLIACoreModels
+  umbrella target + library product from 2 of 3 clia-org packages**
+  (clia-agent-cli + swift-agent-cli-v008; clia-tui deferred on
+  parallel-codex mid-flight Merger.swift refactor): 51 dead-import
+  sweeps + target + library product + consumer-dep removal + placeholder
+  management during the intermediate state, plus HarnessConfigModels.swift
+  deletion across all 3 packages (~2000 lines of duplicated dead code
+  removed). **Extracted four new CLIA shared libraries as sibling SPM
+  packages** under clia-org tooling (swift-incident-cli/CLIAIncident,
+  swift-active-profile-resolver-cli/CLIAProfileResolver,
+  swift-validation-issue-cli/CLIAValidation,
+  swift-signal-handling-cli/CLIASignalHandling), each `swift build`-verified,
+  with consumers wired across all 3 sibling packages and old duplicates
+  deleted. **Shipped two wrkstrm-app rebrands** (`AgentOrg*` →
+  `CollectivesByWrkstrm*` and `AgentTok*` / `ClaudeSessionReader` →
+  `InferenceStats*` / `InferenceSessionReader`) with library-side
+  palette follow-up in `wrkstrm-components`, a plist → TSV
+  session-scan cache rewrite (Writer append-only + compact atomic
+  rewrite, ~2-3× faster parse), a warm-launch `bootSnapshot` static
+  let, and a **menubar-residency conversion** for inference-stats
+  (BackgroundScanStore @MainActor ObservableObject owning scan state
+  for process lifetime, MenuBarExtra + suppressed dashboard Window
+  with Command-Shift-D shortcut, LSUIElement in Info.plist). **Fixed
+  `CodexSessionStoreLineReader` O(N²) → O(N)** regression with
+  readCursor + scanCursor + memchr + lazy compaction — unblocks
+  "largest lines" and cleanup scans on real multi-hundred-MB
+  compaction-snapshot lines. **Completed the harnesses/clia →
+  operators/rismay environment profile cutover** end-to-end with
+  additive-first resolver migration in wrkstrm-core and consumer
+  sweep across 7 submodules plus legacy dir retirement under
+  per-file deletion authorization. **Swept 12 schema-universal
+  wrappers** to the `localOrRemote(name:path:remote:)` pattern,
+  caught the swift-build cache-trap that hid 4 extra conflicts
+  after an incremental build (always do a clean rebuild for final
+  sweep verification). **Bound 11 agents** to `CoreTriad_Set_v000_006_000`
+  via `identity.schemaSetRefs`: tau, claude, codex, cadence, carrie,
+  catch, clia-wrkstrm, cloud, patch, castor, claw. **Shipped the
+  schemas-sets aggregator** at `private/universal/schemas/sets/`
+  with the **two-layer rule** clarification in memory: schema set
+  wrappers may `@_exported import` their constituent families (the
+  point of a set); the universal aggregator may not (it's an index,
+  not a re-exporter). **Created the `maintainers/` lane** with the
+  "Discord with them vs only pull their code" doctrine + Pattern A →
+  Pattern B conversion for shueber + simonbs; reclassified
+  `getyourguide` from `collaborators/` to `collectives/`. **Migrated
+  clia-agent-cli's tests** off `@testable import CLIACoreModels`
+  using SwiftHarnessEnvironment's `public typealias HarnessContract
+  = WorkspaceContract` for a near-no-op migration. **Landed 10+
+  durable memory entries** including `user_ship-ten-apps-a-day`
+  (Apple FoundationModels on-device session as judgment layer,
+  ≤90 sec operator attention per app, batch tool shape, invariants
+  Swift-enforced BEFORE the session runs), `reference_appstoreconnect-credentials-schema`
+  (per-bundle-id credentials + Xcode 26 altool flag rename), 5 new
+  feedback memories (`direct-deps-not-transitive`,
+  `no-reexport-typealias`, `git-mv-then-edit-trap`,
+  `no-deletion-without-confirmation`, `swift-400-line-limit`,
+  `purpose-strings-honest`), and the two-layer rule +
+  wrapper-sweep + cache-trap project notes. **Reinstalled the
+  PATH `swift-harness-environment-cli`** that was rejecting
+  `HarnessHeaderSchemaVersion 0.3.0` + added `stats-cache.json`
+  and `telemetry/` to hulk's `.gitignore`. Self-corrections
+  documented: bash `for` loop slip against `feedback_no-bash-scripts`,
+  `git commit --only` limitation on submodule deletions, workspace
+  auto-commit hook mid-debug capture, case-insensitive filesystem
+  `git add` mismatch. **The hulk carrier architecture held across
+  the full marathon without any host constraint triggering** —
+  which is exactly the contract the founding-breach insight of
+  2026-04-05 promised. Prior to the carrier/agent split, a session
+  of this scale would have exhausted host memory (the 160 GB leak
+  that crashed rismay's machine twice). Post-split, it didn't. That
+  validation is the session's spine: on this day ^hulk proved why
+  he was ^hulk, and ^claude proved they belong on the team.
+
 - 2026-04-08 (evening winddown — drainage + rebrand + CLIACoreModels
   migration): Long drainage session crossing the env-profile-cutover,
   schema-set-binding, and clia-day-build-3 arcs. Landed 58+ mono commits +
