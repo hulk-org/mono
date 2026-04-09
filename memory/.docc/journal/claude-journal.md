@@ -360,3 +360,321 @@ section) for the full chain.
   - Read the actual hook source someday (`core.hooksPath` +
     `.git/hooks/`) — it's been on the followup list for two sessions
     and never picked up.
+
+## 2026-04-08 (evening) - Clia-day build 3 shipped + Foundry apple-app-release SOP seeded
+
+See [journal-2026-04-08-clia-day-ship-and-foundry-sop](articles/journal-2026-04-08-clia-day-ship-and-foundry-sop.md)
+for the full chain.
+
+- Context: App Store Connect rejected Today (clia-day,
+  `com.wrkstrm.ios.app.today`) build 1 with ITMS-90683 for missing
+  `NSSpeechRecognitionUsageDescription`. Voice input reaches the app
+  transitively via `CLIAChatSwiftUI` → `common-voice-input` →
+  `Speech.framework` — the app's own source has zero `import Speech`.
+  Goal: remediate, re-ship, then productionize the pattern in Foundry so
+  the next rejection doesn't cost another manual session.
+- Actions:
+  - Caught and rewrote a dishonest first-attempt disclaimer purpose string
+    (operator flagged it as self-contradictory) into honest copy grounded
+    in `CLIAVoiceEvidence+WrkstrmVoiceInput.swift`.
+  - Added `NSMicrophoneUsageDescription` as the sibling permission speech
+    recognition actually needs at runtime.
+  - Mirrored both keys into `mac-app/Info.plist` and
+    `catalyst-app/Config/InfoCatalyst.plist` with display-name-matched copy
+    ("CLIA Day" — those targets aren't renamed to Today yet).
+  - Bumped `CURRENT_PROJECT_VERSION` 1 → 2 → 3 (build 2 archived only;
+    build 3 delivered).
+  - Archive → `-exportArchive` → `altool --validate-app` → `altool
+    --upload-app`. Discovered Xcode 26's altool flag rename
+    (`--apple-id`/`--password` → `--username`/`--app-password`) the hard
+    way via an `AuthenticationFailure` on the first validate call.
+  - Wrote `private/.wrkstrm/foundry/investigations/apple-app-release.investigation.md`
+    — 141-line 9-section productionization brief classifying today's
+    12 manual steps as rule-based (9) vs judgment-based (3), mapping
+    each to existing + new Foundry surfaces.
+  - Seeded three Foundry artifacts in a new `schemas/apple-app-release/`
+    subdir (uncommitted): 19-step SOP conforming to `sops/sop.schema.json`,
+    14-framework permission table, 2-draft copy library with 11-phrase
+    disallowed-phrases blocklist.
+  - Revised automation architecture after operator corrections: "foundation
+    session" means on-device Apple `FoundationModels` (not Claude Code sub-
+    session); tool name is `swift-ship-apple-app-cli` (singular, `-cli`
+    suffix); scale target is 10 apps/day with ≤90 sec operator attention
+    per app, forcing invariants into hard Swift-level enforcement.
+  - Investigated hack-nu as potential second-app test case — fastlane
+    pipeline with ASC API key auth (not altool app-specific password),
+    different shipping path, no pending rejection. Stopped before any
+    writes because the SOP design needs to absorb this heterogeneity via
+    a `shippingFlow` discriminator in the brand identity.
+- Artifacts:
+  - Delivery UUID `aae939eb-7020-46a6-9473-cef455ac82a4` on ASC App ID
+    `1153239848`, Today build 3, 4.9 MB IPA, uploaded 2026-04-08T14:48:26Z
+    local, `VERIFY SUCCEEDED` + `UPLOAD SUCCEEDED` no errors.
+  - `clia-app-org@34d7aa2` — iOS plist, build 1 → 2
+  - `clia-app-org@c365cc3` — mac + catalyst plist mirror, build 2 → 3
+  - `rismay/substrate@30cde5deb6` — mono pointer bump for build 2
+  - `rismay/substrate@1edf8c52a0` — Foundry investigation
+  - `rismay/substrate@008c5c50cb` — mono pointer bump for build 3
+  - `private/.wrkstrm/foundry/investigations/apple-app-release.investigation.md`
+    (committed)
+  - `private/.wrkstrm/foundry/schemas/apple-app-release/{SOP.apple.app-release.v1,apple-permission-table.v0.1,apple-copy-library.v0.1}.json`
+    (**uncommitted** — operator approved shapes, did not approve bundling
+    the commit into winddown)
+  - Three durable memories in `hulk/memory/.docc/`:
+    `feedback_purpose-strings-honest.md`,
+    `reference_appstoreconnect-credentials-schema.md`,
+    `user_ship-ten-apps-a-day.md`
+- Lessons:
+  - Purpose strings are user-facing sentences, not compliance artifacts.
+    The disallowed-phrases blocklist is the hard invariant that should
+    refuse to write a disclaimer string before it hits disk.
+  - Sibling permissions are table-driven, not rejection-driven. Speech
+    implies Microphone; HealthKit read implies write; Photos read implies
+    add; Location WhenInUse implies Always.
+  - Packaged-plist readback via PlistBuddy is the gate, not source-plist
+    presence. `GENERATE_INFOPLIST_FILE=YES` + unsynced `INFOPLIST_KEY_*`
+    can silently diverge.
+  - Path-scoped `git commit <path>` is load-bearing against the workspace
+    auto-hook's pre-staging contamination. Used twice today to avoid
+    bundling unrelated `.gitmodules` changes.
+  - Xcode 26 altool uses `--username`/`--app-password`; legacy
+    `--apple-id`/`--password` errors out. Wrap altool behind a typed Swift
+    helper so the flag rename is a one-line change in one place.
+  - "Foundation session" in rismay's workspace means Apple `FoundationModels`
+    framework, not a triggered Claude Code sub-session. Single Swift binary,
+    offline, `@Generable` typed output. Zero API cost.
+  - At 10 apps/day scale, every advisory prompt to the on-device model is
+    one silent regression per day. Invariants must be Swift-enforced before
+    the session runs, not prompt-advised at the session.
+- Next:
+  - Commit the three Foundry artifacts in one path-scoped commit:
+    `foundry: seed apple-app-release SOP + permission table + copy library`.
+  - Extend the investigation doc with §10 capturing the spine + FoundationModels
+    session split and the `swift-ship-apple-app-cli` naming fix.
+  - Scaffold `swift-ship-apple-app-cli` at the proposed default home
+    (`wrkstrm-components/private/apple-release/swift-ship-apple-app-cli/`);
+    operator to confirm home. First slice: `diagnose` subcommand, read-only.
+  - Seed `brand-identities/` with day-one apps. Known: Today + hack-nu.
+    Need operator input on full day-one list and `shippingFlow` discriminator
+    per app (`altool` vs `fastlane-beta`).
+  - Resolve the latent `CFBundleVersion` hardcode trap in clia-day mac +
+    catalyst plists (project-level bump doesn't propagate).
+  - ASC API key rotation story — credentials expire 1y, at 10 apps × 1y
+    that's ~5 week rotation cadence.
+  - The auto-commit hook source read is still on the followup list from
+    earlier today's env-profile cutover winddown; carry forward.
+
+## 2026-04-08 (evening winddown) - drainage, rebrand, CLIA libraries, LineReader fix, maintainers reorg
+
+See [journal-2026-04-08-rebrand-drainage-schema-set-maintainers](articles/journal-2026-04-08-rebrand-drainage-schema-set-maintainers.md)
+for the full chain.
+
+- Context: Long session running alongside the parallel env-profile-cutover,
+  schema-set-binding, and clia-day-build-3 arcs that are already
+  chronicled in sibling entries. This entry captures the unique work not
+  covered by those: the two wrkstrm-app rebrands and their library-side
+  follow-ups, the menubar residency conversion of inference-stats, the
+  extraction of four new CLIA shared libraries, the CodexSessionStoreLineReader
+  O(N²) → O(N) perf fix, the CLIACoreModels umbrella migration across
+  swift-agent-cli-v008 and clia-tui, the collaborators → maintainers lane
+  reorg with Pattern A → B for shueber + simonbs, the getyourguide
+  reclassification, and five new feedback memories + one expansion.
+  58+ mono commits + ~20 leaf commits across 9 submodule remotes pushed
+  through the session; codex/sessions explicitly skipped.
+- Actions:
+  - Shipped the `AgentOrg*` → `CollectivesByWrkstrm*` rebrand in
+    `collectives-by-wrkstrm` as a pure rename verified content-equivalent
+    via sed-diff before committing.
+  - Shipped the `AgentTok*` / `ClaudeSessionReader` →
+    `InferenceStats*` / `InferenceSessionReader` rebrand in
+    `inference-stats-by-wrkstrm`, bundled with a plist → TSV
+    `SessionScanCache` rewrite (`Writer` append-only streaming +
+    `compact(with:)` atomic rewrite, ~2-3× faster parse and half the
+    file size vs PropertyListEncoder NSNumber boxing) and a warm-launch
+    `bootSnapshot` static let.
+  - Followed both rebrands with the library-side palette rename
+    (`.agentOrg` → `.collectivesByWrkstrm`) in `wrkstrm-components`
+    mesh-gradient-header + mac demo catalog.
+  - Converted inference-stats to menubar-resident mode: added
+    `BackgroundScanStore` @MainActor `ObservableObject` owning scan
+    state for the process lifetime, added
+    `InferenceStatsMenuBarPopover`, swapped `WindowGroup` for
+    `MenuBarExtra` + a separate `Window("dashboard")` scene with
+    `.defaultLaunchBehavior(.suppressed)` and a Command-Shift-D
+    keyboard shortcut, set `LSUIElement = true` in `Info.plist`.
+  - Extracted four new CLIA shared libraries under
+    `clia-org/private/universal/domain/tooling/spm/`:
+    `swift-incident-cli` (CLIAIncident — `Incident` +
+    `IncidentSeverity` Codable models for the active incident record
+    with `bannerText` computed property),
+    `swift-signal-handling-cli` (CLIASignalHandling — module-load
+    `signal(SIGPIPE, SIG_IGN)` on Darwin),
+    `swift-validation-issue-cli` (CLIAValidation — `ValidationIssue` +
+    `ValidationIssueKind` error/warning shape),
+    `swift-active-profile-resolver-cli` (CLIAProfileResolver — repo-root
+    → commissioned path → operator workspace contract → identity-dir
+    walk with a fallback). Each built clean with
+    `swift build --package-path <path>` before committing.
+  - Fixed `CodexSessionStoreLineReader` O(N²) → O(N) regression with
+    `readCursor` + `scanCursor` + `memchr` newline search across the
+    freshly appended bytes + lazy buffer compaction. The previous
+    `nextLine()` rescanned the whole internal buffer from its start
+    after every chunk append — on a 500 MB line with 1 MB chunks
+    that's ~125 GB of redundant scan work, which was hanging on real
+    codex rollouts with multi-hundred-MB compaction snapshots.
+  - Migrated `swift-agent-cli-v008` and `clia-tui` commands off the
+    `CLIACoreModels` umbrella onto direct imports of
+    `HarnessHeader_Schemas_v000_003_000` +
+    `Workspace_Schemas_v000_005_000` + `SwiftHarnessEnvironment`.
+    Dropped `import CLIACoreModels` across 9 CLIACore files in
+    swift-agent-cli-v008 + 4 command files in clia-tui. API migration:
+    `HarnessContract.load` → `WorkspaceContract.load`,
+    `HarnessHeaderConfig.renderLines` → `HarnessHeaderRenderer.render`,
+    drop `await` from `HarnessHeaderConfig.load` which is no longer
+    async, `HarnessEnvironmentOverview.render` → local
+    `renderDirectivesText(under:)` using
+    `HarnessEnvironmentSummary.load(under:renderOptions:)`.
+  - Created `private/universal/substrate/maintainers/` as a new
+    first-class substrate lane with
+    `maintainers/.docc/index.md` capturing the deciding test: **if you
+    Discord with them, they belong in `collaborators/`. If you only
+    pull their code, they belong in `maintainers/`.**
+  - Moved five homes from `collaborators/` to `maintainers/`:
+    dylanshine, epistates, insidegui, shueber, simonbs. After the
+    move, `collaborators/` holds only michelle-coach.
+  - Finished Pattern A → Pattern B conversion for shueber and simonbs:
+    removed the operator-style top-level submodule entries that
+    carried vendored upstream copies, added thin dir + `.docc/index.md`
+    + nested submodule pointing at the real upstream
+    (`github.com/shueber/Touch-Up.git`,
+    `github.com/simonbs/dependency-graph.git`).
+  - Reclassified `getyourguide` from `collaborators/` to `collectives/`
+    (section key + URL fix + doctrine doc update) — third-party
+    tour-booking company, not a human collaborator.
+  - Fixed the aggregator architectural tension in the brand-new
+    `private/universal/schemas/sets/` package: dropped the
+    `@_exported import CoreTriad_Set_v000_006_000` re-export from
+    `SchemaSets.swift` and replaced it with `public enum SchemaSets {}`.
+    The Package.swift header explicitly says the package is the *index*
+    and the stated purpose is `swift build --package-path
+    private/universal/schemas/sets` as a compile check. Verified the
+    fix builds clean.
+  - Landed the **two-layer rule** in `hulk/memory/.docc/
+    project_schema-set-binding.md`: schema set wrappers are explicitly
+    allowed to `@_exported import` their constituent family products
+    (that's the whole point of a set); the universal aggregator is
+    not. Warns future readers not to "simplify" the aggregator by
+    pulling set types through it.
+  - Landed five new durable feedback memories in
+    `hulk/memory/.docc/`:
+    `feedback_direct-deps-not-transitive.md` (SPM consumers import the
+    narrow source-of-truth per import, never a kitchen-sink umbrella),
+    `feedback_no-reexport-typealias.md` (no `public typealias
+    X = OtherPackage.X` shims),
+    `feedback_git-mv-then-edit-trap.md` (always `git add` after Edits
+    post-rename or commit captures only the rename),
+    `feedback_no-deletion-without-confirmation.md` (explicit rm
+    authorization per-file or per-batch),
+    `feedback_swift-400-line-limit.md` (file size discipline).
+  - Expanded `feedback_swift-not-python.md` to cover read-only
+    analysis — no Python heredocs for "just looking" at files either;
+    the work belongs in a Swift CLI under an existing tooling SPM.
+  - Reinstalled the PATH-installed `swift-harness-environment-cli`
+    that was rejecting `HarnessHeaderSchemaVersion 0.3.0`: the binary
+    at `~/.swiftpm/bin` had been built against an older schema
+    version. `swift package experimental-uninstall` +
+    `swift package --package-path .../swift-harness-environment-cli
+    experimental-install --product swift-harness-environment-cli`
+    produced a fresh 8.68 MB release-mode binary at 12:57 today.
+    Sync header render works without the repo-local swift-run
+    fallback.
+- Artifacts:
+  - Mono commits (representative, not exhaustive):
+    - `b4d6d448` collectives-by-wrkstrm rebrand
+    - `8e9cfbb7` inference-stats rebrand + TSV cache + warm-launch
+    - `8697f7c4` pages-by-wrkstrm DocC toggle
+    - `8127ec2` wrkstrm-components `.collectivesByWrkstrm` palette
+      rename
+    - `0d53052b` menubar-resident conversion
+    - `2d7b37c` clia-agent-cli agent-schemas wiring
+    - `3e738fd6` 4 new CLIA shared libraries
+    - `79d1a154` clia-tui CLIACoreModels migration
+    - `b2fd4b06` swift-agent-cli-v008 CLIACoreModels migration
+    - `12cc63c2` CodexSessionStoreLineReader O(N²) → O(N)
+    - `90ec6e151b` 5-home maintainers lane reorg
+    - `0759894e20` Pattern A → B for shueber + simonbs (via the
+      workspace auto-commit hook; included my staged pointer bumps)
+    - `5a8eba8319` schemas-sets `@_exported` fix
+    - `434cc22` two-layer rule memory clarification
+  - 4 new CLIA libraries:
+    `clia-org/private/universal/domain/tooling/spm/swift-incident-cli/`,
+    `.../swift-signal-handling-cli/`,
+    `.../swift-validation-issue-cli/`,
+    `.../swift-active-profile-resolver-cli/`
+  - Five new feedback memories + one expansion in
+    `hulk/memory/.docc/`
+  - Fresh PATH binary at `~/.swiftpm/bin/swift-harness-environment-cli`
+    (8.68 MB, built 12:57 local)
+- Lessons:
+  - Pure renames need sed-diff verification before commit. Short diff
+    stat is not enough — the line count match doesn't prove content
+    equivalence; `diff <(sed ... <old) <new>` does.
+  - TSV is often much faster than PropertyListEncoder for persistent
+    caches: NSNumber boxing dominated the decode path on a 16 MB
+    session-scan cache. TSV is a flat byte scan with
+    `Int.init(String)` / `Double.init(String)` on substrings — ~2-3×
+    faster and half the file size.
+  - Menubar residency is the right shape for "at-a-glance
+    long-running cache + detector" apps. The separate dashboard
+    `Window` scene with `.defaultLaunchBehavior(.suppressed)` is the
+    SwiftUI idiom for launching into the status bar while keeping
+    deep inspection available on demand.
+  - O(N²) streaming-reader bugs hide until the input grows. Always
+    track a read cursor that never backs up, even if the buffer is
+    compacted behind it. `memchr` is the idiomatic newline search
+    once you know the cursor position.
+  - Direct-deps-not-transitive has a specific carve-out: schema set
+    *wrappers* are allowed to `@_exported import` their constituent
+    families (that's the whole point of a set). The *universal
+    aggregator* is not. The two-layer rule distinguishes them.
+  - The `maintainers/` vs `collaborators/` split is a humans-vs-code
+    distinction, not a first-party-vs-third-party distinction. If you
+    Discord with them, they're a collaborator; if you only pull their
+    code, they're a maintainer. Non-human entities go to
+    `collectives/` regardless.
+  - `git commit --only` fails on submodule deletions with
+    `error: '<path>' does not have a commit checked out`. The
+    workaround is `git restore --staged <pointer-paths>` + re-stage,
+    or commit everything staged together.
+  - Bash `for` loops are a smell in this substrate. If I find myself
+    writing one, it's a sign the work should be a Swift CLI. Caught
+    one mid-stream for a 6-agent schemaSetRefs batch; switched to
+    individual Bash tool calls for the remaining 2 agents and all
+    pushes.
+  - The workspace auto-commit hook can fire in the middle of a
+    debugging sequence and land a commit with a misleading
+    single-focus message. When it happens, check the diff stat
+    before pushing — the content is usually correct even if the
+    message is narrow.
+- Artifacts:
+  - `journal-2026-04-08-rebrand-drainage-schema-set-maintainers.md`
+- Next:
+  - Wire consumers of the four new CLIA shared libraries. Nothing
+    imports them yet — library landing step only.
+  - Continue the localOrRemote wrapper sweep: ~50 wrappers still
+    hard-code the remote URL. Best done as a Swift CLI rewrite, not
+    by hand.
+  - Pattern A → B reshape for any remaining operator-style submodules
+    in maintainers/ that still carry vendored code instead of nested
+    real-upstream submodules.
+  - `hulk/stats-cache.json` and `hulk/image-cache/` want a
+    `.gitignore` entry — runtime cache that keeps surfacing as
+    untracked at the hulk root.
+  - Read the workspace auto-commit hook source — carried forward
+    from earlier winddowns, still not done.
+  - The S1 incident is still active. Today's work chipped at the
+    organism-drift piece (carrier/agent split, maintainers/
+    doctrine, two-layer schema rule) and added to the patch-safety
+    doctrine (five new feedback memories), but the structural S1
+    work (cast-packet compiler, self-awareness probe, bounded
+    enforcement on hulk) is still open.

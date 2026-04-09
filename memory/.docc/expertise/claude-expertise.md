@@ -159,8 +159,153 @@ existing cast.
   ascAppId, app-specific password (or apiKey ref), upload history with
   delivery UUIDs. Treat as interim until a real keychain takes over.
   Documented at `~/.claude/memory/.docc/project_appstoreconnect-credentials-store.md`.
+- **Apple app rejection remediation loop**: ITMS code parsing from the
+  rejection email, deterministic symbol scanning of the packaged `.app`
+  binaries with `nm`/`otool` to discover transitively-linked framework
+  symbols, table-driven lookup of `(framework, symbol) → (requiredKey,
+  siblingKeys, itmsCode)`, honest purpose string authoring grounded in
+  reading the consuming source code (not in the rejection text alone),
+  sibling permission expansion (Speech implies Microphone; HealthKit
+  read implies write; Photos read implies add; Location WhenInUse implies
+  Always), and packaged-plist readback via `PlistBuddy` as the gate. The
+  disclaimer-style purpose string anti-pattern — writing *"{app} does not
+  use X, this is required because a dependency references..."* — is both
+  rejected by Apple reviewers and dishonest to the user at the exact
+  moment the system permission dialog fires. Blocked by a disallowed-
+  phrases regex blocklist that refuses to write a matching string.
+- **Xcode 26 altool flag rename**: `--apple-id` → `--username`,
+  `--password` → `--app-password`. Legacy flags error out with
+  `AuthenticationFailure` naming all three required flags
+  (`--username`, `--app-password`, `--provider-public-id`) in the error
+  message. The Xcode 15/16 invocation pattern is a silent breakage on
+  Xcode 26; wrap altool behind a typed Swift helper so the rename is a
+  one-line change in one place.
+- **Path-scoped `git commit <path>` discipline** in a workspace with an
+  auto-commit hook that sometimes sweeps unrelated working-tree state.
+  Never `git add -a` or `git commit -a`. Always name the specific paths
+  in the commit invocation; the path-scoped form bypasses the index and
+  captures only the named path's current working-tree content, leaving
+  pre-staged unrelated changes (e.g. `.gitmodules` URL renames staged by
+  other processes) untouched. Used twice in the same session to avoid
+  bundling a `getyourguide` submodule URL rename into two different
+  shipping commits.
+- **Foundry SOP + reference data authoring**: Documenting a lived manual
+  shipping flow as a `sops/sop.schema.json`-conforming instance with 19
+  steps, 13 named failure modes, 10 links back to the investigation +
+  sibling tables + reference commits + Apple docs + memory files; seeding
+  a permission reference table under the same subdir mapping 14 Apple
+  frameworks to `(symbols, requiredKey, siblingKeys, itmsCode, reason)`;
+  seeding a copy library keyed by `(packageIdentity, permissionKey)` with
+  approved drafts carrying `evidenceFiles` (actual paths), `grounding`
+  sentences, `shippedInBuilds` provenance including Delivery UUIDs, and
+  a `disallowedPhrases` blocklist enforcing the no-disclaimer invariant
+  before any plist write. The pattern: write the SOP first (cheap,
+  schema-conformant), then the reference tables alongside, then the
+  Swift CLI that executes them — not the other way around. Codifying
+  before coding is much cheaper than re-discovering failure modes during
+  implementation.
+- **On-device Apple `FoundationModels` as the judgment layer in a Swift
+  batch tool**: `LanguageModelSession` + `@Generable` typed output types
+  + `@Guide` field-level prompt guidance, post-validated in Swift against
+  hard invariants (regex blocklists, source-file existence checks,
+  app-name matching). Zero API cost, offline, ~100ms-1s per call on
+  Apple Silicon. Collapses the spine + session into a single Swift binary
+  with no out-of-process JSON handoff. At 10 apps/day scale, every
+  advisory prompt to the model is one silent regression per day;
+  invariants must be Swift-enforced before the session runs, not prompt-
+  advised at the session. "Foundation session" in rismay's workspace
+  specifically means this, not a Claude Code sub-session.
 
 ## Recent work
+
+- 2026-04-08 (evening winddown — drainage + rebrand + CLIACoreModels
+  migration): Long drainage session crossing the env-profile-cutover,
+  schema-set-binding, and clia-day-build-3 arcs. Landed 58+ mono commits +
+  ~20 leaf commits across 9 submodule remotes. Unique contributions not
+  covered by the sibling winddown entries: shipped the wrkstrm-app
+  `AgentOrg*` → `CollectivesByWrkstrm*` + `AgentTok*` /
+  `ClaudeSessionReader` → `InferenceStats*` / `InferenceSessionReader`
+  rebrands (pure renames verified sed-equivalent, bundled with a plist →
+  TSV session-scan cache rewrite via `Writer` + `compact(with:)` and a
+  warm-launch `bootSnapshot`) + library-side palette follow-up
+  (`.agentOrg` → `.collectivesByWrkstrm`) in `wrkstrm-components`;
+  converted inference-stats to menubar-resident mode (`BackgroundScanStore`,
+  `MenuBarExtra`, `LSUIElement`, suppressed dashboard Window with
+  Command-Shift-D shortcut); extracted four new CLIA shared libraries under
+  `clia-org/private/universal/domain/tooling/spm/` (`swift-incident-cli` /
+  CLIAIncident, `swift-signal-handling-cli` / CLIASignalHandling,
+  `swift-validation-issue-cli` / CLIAValidation,
+  `swift-active-profile-resolver-cli` / CLIAProfileResolver), each
+  `swift build`-verified before commit; fixed
+  `CodexSessionStoreLineReader` O(N²) regression that hung on multi-
+  hundred-MB compaction-snapshot lines (replaced whole-buffer rescan with
+  `readCursor` + `scanCursor` + `memchr` + lazy compaction);
+  migrated `swift-agent-cli-v008` and `clia-tui` commands off the
+  `CLIACoreModels` umbrella onto direct imports of
+  `HarnessHeader_Schemas_v000_003_000` + `Workspace_Schemas_v000_005_000` +
+  `SwiftHarnessEnvironment` (direct-deps-not-transitive rule); created
+  `private/universal/substrate/maintainers/` as a new lane with the
+  "Discord with them → collaborators/, only pull their code →
+  maintainers/" doctrine, moved five homes from `collaborators/`, and
+  finished Pattern A → Pattern B conversion for shueber + simonbs (thin
+  dir + nested real-upstream submodule); reclassified `getyourguide` from
+  `collaborators/` to `collectives/`; landed five new durable feedback
+  memories (`direct-deps-not-transitive`, `no-reexport-typealias`,
+  `git-mv-then-edit-trap`, `no-deletion-without-confirmation`,
+  `swift-400-line-limit`) + expanded `feedback_swift-not-python` to cover
+  read-only analysis; reinstalled the stale PATH
+  `swift-harness-environment-cli` that was rejecting
+  `HarnessHeaderSchemaVersion 0.3.0`. Left for parallel codex: 693 lines
+  of in-flight `CodexSessionStoreLargestLinesPreview` work in clia-org and
+  the inference-stats SourceLocation/Settings feature in wrkstrm-app.
+  Self-correction: used a bash `for` loop for a 6-agent schemaSetRefs
+  batch against `feedback_no-bash-scripts`; caught mid-stream and switched
+  to individual Bash tool calls for the subsequent castor + claw commits
+  and all pushes. Workspace auto-commit hook captured a mid-debug reset
+  state and landed a commit `0759894e20` with a misleadingly narrow
+  message; pushed as-is since the content was correct.
+
+- 2026-04-08 (evening — rejection remediation + Foundry SOP seed):
+  **Clia-day build 3 shipped via ITMS-90683 remediation loop; Foundry
+  apple-app-release SOP + permission table + copy library seeded.**
+  Today (`com.wrkstrm.ios.app.today`) build 1 was rejected for missing
+  `NSSpeechRecognitionUsageDescription` — voice input reaches the app
+  transitively through `CLIAChatSwiftUI` → `common-voice-input` →
+  `Speech.framework`. First-attempt disclaimer purpose string (*"Today
+  does not use speech recognition, this is required because a bundled
+  dependency"*) was self-contradictory and dishonest at the user-facing
+  permission dialog; operator caught it and I rewrote it honest
+  (*"Today transcribes your voice into text so you can speak into your
+  day instead of typing"*) grounded in the `CLIAVoiceEvidence+WrkstrmVoiceInput.swift`
+  flow. Added `NSMicrophoneUsageDescription` pre-emptively as Speech's
+  sibling permission. Mirrored both keys into mac and catalyst plists
+  with display-name-matched copy ("CLIA Day"). Bumped
+  `CURRENT_PROJECT_VERSION` 1 → 2 → 3 (build 2 archived only; build 3
+  delivered). Discovered Xcode 26's altool flag rename
+  (`--apple-id`/`--password` → `--username`/`--app-password`) the hard
+  way via a first-attempt `AuthenticationFailure`; retry with renamed
+  flags succeeded. Upload: Delivery UUID
+  `aae939eb-7020-46a6-9473-cef455ac82a4` at 2026-04-08T14:48:26Z local.
+  Then operator asked for productionization: wrote a 141-line 9-section
+  investigation at
+  `private/.wrkstrm/foundry/investigations/apple-app-release.investigation.md`
+  (committed as `1edf8c52a0`), classified 9 of 12 manual steps as
+  rule-based and 3 as judgment-based, mapped each to existing and new
+  Foundry surfaces. Seeded three artifacts in a new
+  `private/.wrkstrm/foundry/schemas/apple-app-release/` subdir
+  (uncommitted at session end): 19-step SOP conforming to
+  `sops/sop.schema.json`, 14-framework permission table, 2-draft copy
+  library with 11-phrase disallowed-phrases blocklist. Architecture for
+  downstream `swift-ship-apple-app-cli` revised after operator
+  corrections: single Swift binary with on-device Apple `FoundationModels`
+  judgment layer (NOT a Claude Code sub-session — workspace-specific
+  vocabulary), scale target 10 apps/day with ≤90 sec operator attention
+  per app. Tool name corrected from plural `swift-ship-apple-apps` to
+  singular `swift-ship-apple-app-cli` per substrate convention. Three
+  durable memories persisted: `feedback_purpose-strings-honest.md`,
+  `reference_appstoreconnect-credentials-schema.md`,
+  `user_ship-ten-apps-a-day.md`. See journal article
+  `journal-2026-04-08-clia-day-ship-and-foundry-sop.md` for the full chain.
 
 - 2026-04-09 (post-cutover followup): **Updated
   `feedback_workspace-auto-commit-hook.md` to two-layer framing.** The
