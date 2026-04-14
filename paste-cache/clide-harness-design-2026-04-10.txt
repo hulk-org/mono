@@ -1,0 +1,506 @@
+Cfrunloop vs runloop
+
+At a systems level, this is a Core Foundation vs Foundation abstraction boundary question. You're essentially comparing a C-based event loop primitive with its Objective-C/Swift façade.
+
+1. Core difference (mechanically precise)
+CFRunLoop
+→ C API, part of Core Foundation
+→ Lowest-level event loop used by the system
+
+RunLoop
+→ Swift/ObjC wrapper around CFRunLoop
+→ Lives in Foundation
+→ Thin abstraction, not a separate implementation
+
+They are not independent systems.
+RunLoop is essentially a type-safe, object-oriented façade over CFRunLoopRef.
+
+2. Mental model (important for your architecture)
+Think in layers:
+
+Mach ports / kqueue / kernel events
+        ↓
+CFRunLoop (C, deterministic, minimal)
+        ↓
+RunLoop (ObjC/Swift convenience)
+        ↓
+UIKit/AppKit main thread scheduling
+If you're building CLIs, agents, or minimal stacks, you care about CFRunLoop.
+If you're inside UIKit/AppKit/SwiftUI, you're already sitting on RunLoop.
+
+3. API-level differences
+CFRunLoop (surgical control)
+import CoreFoundation
+
+let rl = CFRunLoopGetCurrent()
+
+CFRunLoopRunInMode(
+  CFRunLoopMode.defaultMode,
+  1.0,   // seconds
+  false  // return after source handled?
+)
+Capabilities:
+
+Precise control over:
+
+modes (kCFRunLoopDefaultMode, custom modes)
+
+sources (input sources, timers, observers)
+
+Can run partially (bounded time slices)
+
+No implicit autorelease pools
+
+Deterministic behavior (important for low-latency loops)
+
+RunLoop (higher-level ergonomics)
+let rl = RunLoop.current
+
+rl.run(mode: .default, before: Date().addingTimeInterval(1.0))
+Capabilities:
+
+Swift-friendly types (RunLoop.Mode)
+
+Integrates with:
+
+Timer
+
+Port
+
+InputStream
+
+Implicit memory management assumptions (autorelease pools, etc.)
+
+Limitations:
+
+Less explicit control over internals
+
+Slight overhead (bridging + ObjC runtime)
+
+4. Performance + determinism
+For your use case (CLIA, agent runtime, minimal Swift systems):
+
+CFRunLoop wins
+
+No ObjC dispatch
+
+No hidden allocations
+
+Cleaner integration with C / syscalls / custom schedulers
+
+Easier to embed inside unconventional environments (VMs, Firecracker, etc.)
+
+RunLoop cost is small but real
+
+Message dispatch
+
+Bridging overhead
+
+Autorelease pool interactions
+
+In high-frequency loops (token streaming, IPC, shared memory signaling),
+this difference compounds.
+
+5. Modes (this is where things actually matter)
+Run loops operate in modes. This is critical for UI + latency.
+
+Examples:
+
+kCFRunLoopDefaultMode
+
+UITrackingRunLoopMode (scrolling)
+
+custom modes
+
+If you've ever seen timers pause during scrolling — this is why.
+
+6. Where this matters for your stack
+You're building:
+
+Swift CLIs
+
+agent runtimes
+
+low-latency streaming (LLM tokens, sockets)
+
+potential VM/container execution
+
+Decision tree:
+
+Option A — Use RunLoop everywhere
+Faster dev, works fine for UI + typical apps
+Hidden behavior (autorelease, scheduling quirks)
+Less deterministic under load
+
+Option B — Use CFRunLoop as core primitive
+Deterministic scheduling
+Easy integration with file descriptors, sockets, shared memory signaling
+Fits your "cellular automata agent runtime" idea
+Better for embedding inside minimal OS/VM environments
+
+Correct choice for your direction: Option B
+
+7. Advanced pattern (what I'd actually do for CLIA)
+Build a hybrid loop:
+
+Core = CFRunLoop
+
+Layer on top:
+
+async sequences for events
+
+custom "sources" for:
+
+token streams
+
+IPC messages
+
+Apple Intelligence callbacks
+
+---
+
+What's below this?
+
+Below CFRunLoop, you drop out of Apple's "framework layer" and into the kernel-facing event demultiplexing stack.
+
+1. Immediate layer under CFRunLoop
+CFRunLoop is essentially a multiplexer of event sources mapping to:
+
+Mach ports (IPC, timers, system signals)
+
+BSD file descriptors (sockets, pipes)
+
+Timers
+
+Observers (internal bookkeeping)
+
+Internally, CFRunLoop coordinates:
+
+Mach ports
+
+kqueue / select / poll
+
+Timer wheels / deadline scheduling
+
+2. The real substrate (what actually blocks the thread)
+A. Mach messaging (Darwin-native path)
+Primary mechanism on Apple platforms.
+
+Kernel primitive: mach_msg()
+
+Used for: timers, XPC, system services, run loop wakeups
+
+CFRunLoop creates a Mach port set and blocks on mach_msg(...)
+
+B. BSD layer (POSIX compatibility)
+For file descriptors: sockets, pipes, tty, files
+
+Uses: kqueue() (preferred on Darwin), fallback: select() / poll()
+
+3. Under that: kernel event systems
+interrupts (network packets, disk IO)
+
+timers (hardware clock / monotonic clock)
+
+signals (process-level)
+
+Kernel aggregates into: Mach messages, kqueue events
+
+4. Even lower: hardware + scheduler
+CPU interrupt controllers, NIC interrupts, APIC / ARM GIC, scheduler context switching threads
+
+5. Stack view (fully expanded)
+Your Swift code
+   ↓
+RunLoop (Foundation)
+   ↓
+CFRunLoop (Core Foundation)
+   ↓
+CFRunLoop Sources (Mach ports, FDs, timers)
+   ↓
+mach_msg() + kevent()   ← blocking syscalls
+   ↓
+XNU Kernel (Mach + BSD hybrid)
+   ↓
+Interrupts / hardware events
+
+6. Critical insight
+CFRunLoop is already not minimal. If you're chasing ultra-low latency, tiny runtime footprint, agent micro-environments, your real decision is:
+
+Option A — Stay at CFRunLoop: portable across Apple frameworks, integrates with Foundation/UIKit, extra abstraction cost
+
+Option B — Drop below CFRunLoop (direct kernel interface): build your own loop using mach_msg() for messaging, kqueue() for IO, clock_gettime / timers
+
+7. What I would do for CLIA / agent runtime
+You want:
+
+A custom event loop with:
+kqueue for sockets, pipes
+Mach port (optional) for Apple services
+shared memory ring buffer for token streaming
+
+---
+
+What's below this loop? And can we make that ASM?
+
+Below that loop is the actual blocking primitive and, below that, the syscall boundary and CPU transition.
+
+Yes you can make parts of it assembly, but only a very thin slice should be ASM. The rest should stay in C or Swift.
+
+The stack from your code downward:
+
+Swift event loop
+  ↓
+C shim / libc / CoreFoundation wrapper
+  ↓
+syscall trap stub
+  ↓
+kernel entry
+  ↓
+kernel event wait primitive
+  ↓
+interrupt / timer / IPC wakeup
+  ↓
+scheduler resumes your thread
+  ↓
+return to userspace
+
+A loop has two halves:
+
+First, the policy half: what sources you watch, how you batch work, fairness, priority, coalescing, backpressure, wakeup strategy
+
+Second, the mechanism half: block current thread, wake on event, return event data
+
+ASM can help only a little with the mechanism half. It does almost nothing for the policy half.
+
+What can realistically be assembly:
+1. syscall stubs
+2. context switch helpers in a user-space coroutine runtime
+3. atomics / lock-free ring buffer hot path
+4. spin-wait or pause/yield loops
+5. startup / entrypoint
+
+---
+
+This is the original tau daemon I was trying to create
+
+What you were calling the Tau daemon is effectively the right ancestor for the CLIA harness broker.
+
+The shape is the same:
+a long-lived resident process
+explicit worker boundaries
+streaming results instead of one-shot request/response
+reusable state and cached contexts
+one control plane for many frontends
+
+Correct decomposition:
+clia (client)
+   ↓
+taud (daemon / harness)
+   ↓
+workers
+   ├─ trade-whisperer
+   ├─ quote-stream
+   ├─ strategy-engine
+   └─ journal-writer
+
+Key insight: Tau is not the whisperer.
+Tau = runtime + scheduler + transport
+Whisperer = one worker
+
+---
+
+This is what I'm running right now:
+
+Clia the orchestrator
+Tau is the agent
+Codex the harness
+
+What we need is for Tau to deploy
+
+tochikoma = what tau deploys
+
+The corrected stack:
+
+Clia = orchestrator / operator surface
+Tau = agent / planner
+CLIDE = harness / daemon / process factory (formerly Codex)
+tochikoma = deployed runtime unit created by Tau
+
+And your expansion:
+CLIDE = Command Line Intelligent Daemon Executor
+
+---
+
+clide = codex
+
+If "CLIDE = Codex", then:
+Codex was never the strategist
+Codex was never the orchestrator
+Codex was the execution substrate / working shell
+
+CLIDE is the canonical name for the harness layer that Codex used to represent.
+
+Final clean graph:
+Clia commands
+Tau decides
+CLIDE runs
+Tochikomas act
+
+---
+
+Basically clide is CommonProcess embodied
+
+CLIDE = CommonProcess, but elevated from a helper → a first-class runtime substrate
+
+CommonProcess = primitive (spawn + pipe + run)
+CLIDE = system = process orchestration + lifecycle management + transport + scheduling + embodiment semantics (tochikoma)
+
+CLIDE is CommonProcess with memory, identity, and concurrency.
+CLIDE is the OS where CommonProcess lives.
+
+---
+
+CLIDE boot: maniacally efficient macOS startup
+
+You are competing with: Rust CLIs, Node/JS tools, Codex-style harnesses
+
+What actually costs time (cold start latency):
+Swift runtime init, dyld work, global/static initializers, argument parsing overhead, unnecessary allocations, Foundation usage, logging frameworks, spawning overhead
+
+Phase 1: brutal entrypoint
+@_cdecl("main") or raw argv — no CommandLine.arguments, no [String] allocation
+
+Phase 2: zero Foundation rule
+Do not import Foundation in hot path. Use Darwin/libc only.
+
+Phase 3: static linking mindset
+-Osize, -whole-module-optimization, -static-stdlib if viable
+
+Phase 4: kill global work
+No global singletons, lazy heavy statics, logging setup, environment scanning
+
+Phase 5: fast spawn (Darwin path)
+posix_spawn, not Process, not shell
+
+Phase 6: warm spawn strategy (the real unlock)
+CLIDE daemon keeps warm execution contexts
+CLI becomes: send request → daemon responds (near instant)
+
+Phase 7: avoid stdout bottlenecks
+buffer writes, use write(1, ...) not print
+
+Phase 8: reactor-first design
+kqueue directly, no polling loops, no thread overhead
+
+The real unlock: FAST ENTRY + PERSISTENT DAEMON + WARM SPAWN
+
+---
+
+CLIDE can start himself
+
+Because CLIDE is a process substrate, it can start workers, restart failed embodiments, and re-exec or promote itself.
+
+clide client
+  -> check daemon socket
+  -> if absent, spawn clide daemon
+  -> connect
+  -> submit command
+
+Every CLIDE invocation is either a client of the resident organism or the act that materializes it.
+
+---
+
+Can we create a Package.swift with ASM?
+
+Yes. SwiftPM accepts .s files in C-family targets.
+
+Pattern:
+Package
+  ├─ executableTarget: CLIDE (Swift, depends on CLIDEBoot)
+  └─ target: CLIDEBoot (C + ASM sources)
+
+Sources/
+  CLIDE/
+    main.swift
+  CLIDEBoot/
+    include/
+      clide_boot.h
+    boot.c
+    boot_macos.S
+
+---
+
+Binary wire protocol (not JSON)
+
+For CLIDE's internal hot path, binary frames:
+
+@frozen
+public struct FrameHeader: Sendable {
+  public var magic: UInt32
+  public var version: UInt16
+  public var kind: UInt16
+  public var flags: UInt32
+  public var streamID: UInt64
+  public var sequence: UInt64
+  public var payloadLength: UInt32
+  public var reserved: UInt32
+}
+
+Text for people. Binary for organisms. CLIDE is an organism.
+
+---
+
+The harness reduction
+
+A harness is basically:
+
+while alive:
+  event = receive()
+  decision = think(event, state)
+  action = act(decision)
+  state = update(state, event, action)
+
+Laws:
+1. The harness is a loop.
+2. Events are primary.
+3. State is retained between events.
+4. The model is only one decision function inside the loop.
+5. APIs belong in the middle, not at the membrane.
+6. Text is for the edges; the organism should prefer bytes and structs.
+
+---
+
+Bare minimum to start a while loop as a process on macOS
+
+The true minimum:
+int main(void) {
+  for (;;) { }
+}
+
+To start another process: posix_spawn() or execve()
+
+Minimal self-materializing harness:
+clide --daemon   -> enters loop
+clide ping       -> tries to connect; if missing, posix_spawn(self, --daemon)
+
+Minimal daemon loop:
+for (;;) {
+  int fd = accept(listener, NULL, NULL);
+  if (fd < 0) continue;
+  char cmd;
+  if (read(fd, &cmd, 1) == 1) {
+    if (cmd == 0x01) {
+      char ok = (char)0xFF;
+      write(fd, &ok, 1);
+    }
+  }
+  close(fd);
+}
+
+That is already a harness: wait for event, receive, decide, act, repeat.
+
+Prove this sequence:
+clide ping → connect to unix socket → if missing, posix_spawn(clide --daemon) → daemon enters accept/read/write loop → ping gets one-byte response
+
+That is the minimum living CLIDE.

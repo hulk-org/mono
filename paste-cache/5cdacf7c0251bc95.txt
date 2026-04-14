@@ -1,0 +1,277 @@
+-------------------------------------
+Translated Report (Full Report Below)
+-------------------------------------
+Process:             directory-control [42439]
+Path:                /Users/USER/Library/Developer/Xcode/DerivedData/directory-control-by-wrkstrm-eyarpfrqecniqpegwfcivndfjuxf/Build/Products/Debug/directory-control.app/Contents/MacOS/directory-control
+Identifier:          me.rismay.directory-control
+Version:             0.1.0 (1)
+Code Type:           ARM-64 (Native)
+Role:                Foreground
+Parent Process:      launchd [1]
+Coalition:           me.rismay.directory-control [36060]
+User ID:             501
+
+Date/Time:           2026-04-13 16:11:57.6213 -0700
+Launch Time:         2026-04-13 15:22:36.4937 -0700
+Hardware Model:      Mac13,2
+OS Version:          macOS 26.5 (25F5042g)
+Release Type:        User
+
+Crash Reporter Key:  63382C7E-35B9-672A-883D-871C45E48434
+Incident Identifier: 47751051-C4A4-4D14-81DC-6395E150FED6
+
+Time Awake Since Boot: 450000 seconds
+
+System Integrity Protection: enabled
+
+Triggered by Thread: 17, Dispatch Queue: com.apple.root.user-initiated-qos.cooperative
+
+Exception Type:    EXC_BREAKPOINT (SIGTRAP)
+Exception Codes:   0x0000000000000001, 0x000000018dfdb4fc
+
+Termination Reason:  Namespace SIGNAL, Code 5, Trace/BPT trap: 5
+Terminating Process: exc handler [42439]
+
+
+Thread 0::  Dispatch queue: com.apple.main-thread
+0   libsystem_kernel.dylib                   0x18e11f9dc __psynch_mutexwait + 8
+1   libsystem_pthread.dylib                  0x18e15de9c _pthread_mutex_firstfit_lock_wait + 84
+2   libsystem_pthread.dylib                  0x18e15b8e0 _pthread_mutex_firstfit_lock_slow + 216
+3   SwiftUICore                              0x23b7de850 _MovableLockLock + 48
+4   SwiftUICore                              0x23bce99d8 static Update.ensure<A>(_:) + 76
+5   SwiftUI                                  0x1c43b8278 implicit closure #2 in implicit closure #1 in AppWindowsController.beginObservingNSAppWindows() + 236
+6   SwiftUI                                  0x1c4ae87f0 partial apply for thunk for @escaping @callee_guaranteed @Sendable (@guaranteed NSApplication, @in_guaranteed NSKeyValueObservedChange<NSWindow?>) -> () + 32
+7   Foundation                               0x18fb40be8 closure #1 in _KeyValueCodingAndObserving.observe<A>(_:options:changeHandler:) + 472
+8   Foundation                               0x18fb43bbc specialized NSKeyValueObservation.Helper._swizzle_me_observeValue(forKeyPath:of:change:context:) + 5164
+9   Foundation                               0x18fb405c8 @objc NSKeyValueObservation.Helper._swizzle_me_observeValue(forKeyPath:of:change:context:) + 180
+10  Foundation                               0x18fa3e930 NSKeyValueNotifyObserver + 252
+11  Foundation                               0x18faebc44 NSKeyValueDidChange + 388
+12  Foundation                               0x1904a6b40 NSKeyValueDidChangeWithPerThreadPendingNotifications + 160
+13  AppKit                                   0x192741658 -[NSApplication _setKeyWindow:] + 264
+14  AppKit                                   0x1927410ac -[NSWindow _changeKeyAndMainLimitedOK:] + 600
+15  AppKit                                   0x193391f20 -[NSWindow _orderOut:calculatingKeyWithOptions:documentWindow:] + 920
+16  AppKit                                   0x19268c2d8 NSPerformVisuallyAtomicChange + 128
+17  AppKit                                   0x1933937f0 -[NSWindow _reallyDoOrderWindowOutRelativeTo:] + 488
+18  AppKit                                   0x193393b54 -[NSWindow _reallyDoOrderWindow:] + 80
+19  AppKit                                   0x19354dadc -[NSSavePanel _reallyDoOrderWindow:] + 68
+20  AppKit                                   0x193393dc8 -[NSWindow _doOrderWindow:] + 300
+21  AppKit                                   0x19354c174 -[NSSavePanel didEndPanelWithReturnCode:] + 520
+22  AppKit                                   0x19354b968 -[NSSavePanel completeModeless:] + 24
+23  AppKit                                   0x19354bbd8 -[NSSavePanel completeWithReturnCode:url:urls:] + 460
+24  AppKit                                   0x193549f58 -[NSSavePanel observeMostRecentCompletion:] + 480
+25  AppKit                                   0x193549a38 -[NSSavePanel observeValueForKeyPath:ofObject:change:context:] + 524
+26  Foundation                               0x18fa3e930 NSKeyValueNotifyObserver + 252
+27  Foundation                               0x18faebc44 NSKeyValueDidChange + 388
+28  Foundation                               0x1904a6b40 NSKeyValueDidChangeWithPerThreadPendingNotifications + 160
+29  ViewBridge                               0x198834358 __47-[NSViewBridge setObject:forKey:withKVO:local:]_block_invoke + 308
+30  ViewBridge                               0x1988b8e70 withHintInProgress + 168
+31  ViewBridge                               0x1988340e4 -[NSViewBridge setObject:forKey:withKVO:local:] + 564
+32  ViewBridge                               0x198896250 -[NSRemoteViewMarshal setHostObject:forKey:] + 276
+33  CoreFoundation                           0x18e1fe634 __invoking___ + 148
+34  CoreFoundation                           0x18e1fe4c0 -[NSInvocation invoke] + 424
+35  ViewBridge                               0x19882994c __deferNSXPCInvocationOntoMainThread_block_invoke + 132
+36  ViewBridge                               0x1988201b0 __deferBlockOntoMainThread_block_invoke_2 + 32
+37  HIServices                               0x195838448 invocation function for block in wrapBlockWithVoucher(void () block_pointer) + 56
+38  HIServices                               0x195837fec _ZL24deferredBlockOpportunity_block_invoke_2 + 496
+39  CoreFoundation                           0x18e21dad0 __CFRUNLOOP_IS_CALLING_OUT_TO_A_BLOCK__ + 28
+40  CoreFoundation                           0x18e21da10 __CFRunLoopDoBlocks + 396
+41  CoreFoundation                           0x18e21ce54 __CFRunLoopRun + 2356
+42  CoreFoundation                           0x18e2ef1c4 _CFRunLoopRunSpecificWithOptions + 532
+43  HIToolbox                                0x19b0e9560 RunCurrentEventLoopInMode + 320
+44  HIToolbox                                0x19b0ec8bc ReceiveNextEventCommon + 488
+45  HIToolbox                                0x19b27613c _BlockUntilNextEventMatchingListInMode + 48
+46  AppKit                                   0x192cf7158 _DPSBlockUntilNextEventMatchingListInMode + 228
+47  AppKit                                   0x19264b084 _DPSNextEvent + 576
+48  AppKit                                   0x1931e06c0 -[NSApplication(NSEventRouting) _nextEventMatchingEventMask:untilDate:inMode:dequeue:] + 688
+49  AppKit                                   0x1931e03cc -[NSApplication(NSEventRouting) nextEventMatchingMask:untilDate:inMode:dequeue:] + 72
+50  AppKit                                   0x19263e13c -[NSApplication run] + 368
+51  AppKit                                   0x1926167b0 NSApplicationMain + 880
+52  SwiftUI                                  0x1c3af94f0 specialized runApp(_:) + 140
+53  SwiftUI                                  0x1c3eaf518 runApp<A>(_:) + 104
+54  SwiftUI                                  0x1c417b3b8 static App.main() + 224
+55  directory-control.debug.dylib            0x1052daca8 static DirectoryControlApp.$main() + 40
+56  directory-control.debug.dylib            0x1052dae24 __debug_main_executable_dylib_entry_point + 12
+57  dyld                                     0x18dda3da4 start + 6992
+
+Thread 1:: com.apple.NSEventThread
+0   libsystem_kernel.dylib                   0x18e11cc34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib                   0x18e12f574 mach_msg2_internal + 76
+2   libsystem_kernel.dylib                   0x18e1259c0 mach_msg_overwrite + 480
+3   libsystem_kernel.dylib                   0x18e11cfc0 mach_msg + 24
+4   CoreFoundation                           0x18e21e0d8 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                           0x18e21c9c4 __CFRunLoopRun + 1188
+6   CoreFoundation                           0x18e2ef1c4 _CFRunLoopRunSpecificWithOptions + 532
+7   AppKit                                   0x19276cc7c _NSEventThread + 184
+8   libsystem_pthread.dylib                  0x18e160c58 _pthread_start + 136
+9   libsystem_pthread.dylib                  0x18e15bc1c thread_start + 8
+
+Thread 2:
+
+Thread 3:
+
+Thread 4:
+
+Thread 5:
+
+Thread 6:
+
+Thread 7:
+
+Thread 8:
+
+Thread 9:
+
+Thread 10:
+
+Thread 11:
+
+Thread 12:
+
+Thread 13:
+
+Thread 14:
+
+Thread 15:
+
+Thread 16:
+
+Thread 17 Crashed::  Dispatch queue: com.apple.root.user-initiated-qos.cooperative
+0   libdispatch.dylib                        0x18dfdb4fc _dispatch_assert_queue_fail + 120
+1   libdispatch.dylib                        0x18dfdbf68 dispatch_assert_queue$V2.cold.1 + 116
+2   libdispatch.dylib                        0x18dfa9114 dispatch_assert_queue + 108
+3   libswift_Concurrency.dylib               0x29308c57c _swift_task_checkIsolatedSwift + 48
+4   libswift_Concurrency.dylib               0x29303c11c swift_task_isCurrentExecutorWithFlagsImpl(swift::SerialExecutorRef, swift::swift_task_is_current_executor_flag) + 356
+5   directory-control.debug.dylib            0x1052de1e8 closure #1 in DirectoryControlRootView.body.getter + 612
+6   SwiftUICore                              0x23b956a58 closure #1 in VStack.init(alignment:spacing:content:) + 196
+7   SwiftUICore                              0x23bcdae98 _VariadicView.Tree.init(_:content:) + 188
+8   SwiftUICore                              0x23b956988 VStack.init(alignment:spacing:content:) + 88
+9   directory-control.debug.dylib            0x1052ddd44 DirectoryControlRootView.body.getter + 768 (DirectoryControlRootView.swift:120)
+10  directory-control.debug.dylib            0x1053138d0 protocol witness for View.body.getter in conformance DirectoryControlRootView + 52
+11  SwiftUICore                              0x23bb8aaa8 closure #1 in ViewBodyAccessor.updateBody(of:changed:) + 1152
+12  SwiftUICore                              0x23bb8a5f0 ViewBodyAccessor.updateBody(of:changed:) + 348
+13  SwiftUICore                              0x23bb8ac00 protocol witness for BodyAccessor.updateBody(of:changed:) in conformance ViewBodyAccessor<A> + 16
+14  SwiftUICore                              0x23bce6ae4 closure #1 in DynamicBody.updateValue() + 1076
+15  SwiftUICore                              0x23bce62a0 DynamicBody.updateValue() + 1220
+16  SwiftUICore                              0x23b9f0ad8 partial apply for implicit closure #1 in closure #1 in closure #1 in Attribute.init<A>(_:) + 32
+17  AttributeGraph                           0x1c5145384 AG::Graph::UpdateStack::update() + 496
+18  AttributeGraph                           0x1c5154c58 AG::Subgraph::update(unsigned int) + 972
+19  SwiftUICore                              0x23bf857a0 specialized GraphHost.runTransaction(_:do:id:) + 368
+20  SwiftUICore                              0x23bf68760 GraphHost.flushTransactions() + 180
+21  SwiftUICore                              0x23b8f4e2c specialized GraphHost.asyncTransaction<A>(_:id:mutation:style:mayDeferUpdate:) + 804
+22  SwiftUICore                              0x23b98f4c4 AttributeInvalidatingSubscriber.invalidateAttribute() + 400
+23  SwiftUICore                              0x23b98fac8 specialized AttributeInvalidatingSubscriber.receive(_:) + 216
+24  SwiftUICore                              0x23b98f89c protocol witness for Subscriber.receive(_:) in conformance AttributeInvalidatingSubscriber<A> + 24
+25  SwiftUICore                              0x23bef889c SubscriptionLifetime.Connection.receive(_:) + 100
+26  Combine                                  0x1a4ba408c ObservableObjectPublisher.Inner.send() + 208
+27  Combine                                  0x1a4ba37b4 ObservableObjectPublisher.send() + 464
+28  Combine                                  0x1a4b916d0 PublishedSubject.send(_:) + 200
+29  Combine                                  0x1a4bb29e8 closure #1 in static Published.subscript.setter + 468
+30  Combine                                  0x1a4bb38e4 specialized static Published.withMutation<A>(of:keyPath:storage:apply:) + 584
+31  Combine                                  0x1a4bb397c specialized static Published.subscript.setter + 60
+32  Combine                                  0x1a4bb27a4 static Published.subscript.setter + 84
+33  directory-control.debug.dylib            0x10534a6ac DirectoryControlStore.isLoading.setter + 128
+34  directory-control.debug.dylib            0x10535067c DirectoryControlStore.reload() + 72 (DirectoryControlStore.swift:191)
+35  directory-control.debug.dylib            0x105353935 closure #1 in closure #1 in DirectoryControlStore.chooseAdditionalRoot() + 1 (DirectoryControlStore.swift:225)
+36  directory-control.debug.dylib            0x105369f8d partial apply for closure #1 in closure #1 in DirectoryControlStore.chooseAdditionalRoot() + 1
+37  directory-control.debug.dylib            0x1052d9561 thunk for @escaping @isolated(any) @callee_guaranteed @async () -> (@out A) + 1
+38  directory-control.debug.dylib            0x1052d96b1 partial apply for thunk for @escaping @isolated(any) @callee_guaranteed @async () -> (@out A) + 1
+39  libswift_Concurrency.dylib               0x293043ec5 completeTaskWithClosure(swift::AsyncContext*, swift::SwiftError*) + 1
+
+Thread 18:
+
+Thread 19:
+
+Thread 20:
+
+Thread 21:
+
+Thread 22:
+
+
+Thread 17 crashed with ARM Thread State (64-bit):
+    x0: 0x0000100000000000   x1: 0xffffffffb0000000   x2: 0x0000000000000060   x3: 0xfffff0007fc00000
+    x4: 0x00000005ca53be00   x5: 0x0000000000000000   x6: 0x0068637461707369   x7: 0x00000005ca53bd80
+    x8: 0x00000001f8192000   x9: 0x000000007fbe5c27  x10: 0x0000000000000000  x11: 0x0000000000000000
+   x12: 0x007b23d88041a3d8  x13: 0x007b133600419860  x14: 0x000000000001a000  x15: 0x000000000000002b
+   x16: 0x952d0005ca53bd80  x17: 0x00000007b1336060  x18: 0x0000000000000000  x19: 0x00000005ca53be00
+   x20: 0x000000096bc00700  x21: 0x000000096b566870  x22: 0x000000016bf9cac8  x23: 0x000000096b566890
+   x24: 0x000000016bf933c0  x25: 0x000000016bf90e80  x26: 0x000000016bf9f2a0  x27: 0x00000001fad5fe18
+   x28: 0x00000001053f4a10   fp: 0x000000016bf89b80   lr: 0x000000018dfdb4f4
+    sp: 0x000000016bf89b40   pc: 0x000000018dfdb4fc cpsr: 0x00001000
+   far: 0x0000000000000000  esr: 0xf2000001 (Breakpoint) brk 1
+
+Binary Images:
+       0x1047a4000 -        0x1047a7fff me.rismay.directory-control (0.1.0) <3285fbcd-4514-38c4-a013-e750892c13b6> /Users/USER/Library/Developer/Xcode/DerivedData/directory-control-by-wrkstrm-eyarpfrqecniqpegwfcivndfjuxf/Build/Products/Debug/directory-control.app/Contents/MacOS/directory-control
+       0x105228000 -        0x1053effff directory-control.debug.dylib (*) <fa2cfd73-fe56-37c1-af81-200d62d9af40> /Users/USER/Library/Developer/Xcode/DerivedData/directory-control-by-wrkstrm-eyarpfrqecniqpegwfcivndfjuxf/Build/Products/Debug/directory-control.app/Contents/MacOS/directory-control.debug.dylib
+       0x10dcc8000 -        0x10dcd3fff libobjc-trampolines.dylib (*) <0a7fd0b9-26a2-3383-b84f-600dc3259675> /usr/lib/libobjc-trampolines.dylib
+       0x11a270000 -        0x11a9fbfff com.apple.AGXMetalG13X (350.38) <6dedcc64-071e-3047-b150-94a334eb09f9> /System/Library/Extensions/AGXMetalG13X.bundle/Contents/MacOS/AGXMetalG13X
+       0x18e11c000 -        0x18e15929f libsystem_kernel.dylib (*) <71d44e9b-de67-3a31-877d-389bb35b81ea> /usr/lib/system/libsystem_kernel.dylib
+       0x18e15a000 -        0x18e166b3b libsystem_pthread.dylib (*) <a746a284-107e-359f-9704-60b64791e7ca> /usr/lib/system/libsystem_pthread.dylib
+       0x23b7a1000 -        0x23c6fd91f com.apple.SwiftUICore (7.5.1) <20c6a2be-d644-388f-b234-ce0ef0ca4e2d> /System/Library/Frameworks/SwiftUICore.framework/Versions/A/SwiftUICore
+       0x1c39ee000 -        0x1c51376bf com.apple.SwiftUI (7.5.1) <5319f899-bec0-32c1-83c7-10755d19ff78> /System/Library/Frameworks/SwiftUI.framework/Versions/A/SwiftUI
+       0x18fa0d000 -        0x1909ef1df com.apple.Foundation (6.9) <12c3385e-2a34-385c-9b10-16f85fbbbe5f> /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+       0x192612000 -        0x193d34cdf com.apple.AppKit (6.9) <f1cadb24-bf56-3ba8-8c0f-aee8210a70ea> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+       0x19881d000 -        0x1989516df com.apple.ViewBridge (832) <cf1ea4db-8b5b-37e6-9189-e5414f0fbb70> /System/Library/PrivateFrameworks/ViewBridge.framework/Versions/A/ViewBridge
+       0x18e1a0000 -        0x18e6fe31f com.apple.CoreFoundation (6.9) <8eb86f61-3cf3-3e1a-9fc7-944dc6b75e62> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+       0x1957f8000 -        0x19586335f com.apple.HIServices (1.22) <95482fd8-2f78-314c-8b65-726e661019ef> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+       0x19b02c000 -        0x19b32705f com.apple.HIToolbox (2.1.1) <b22f8839-6c49-33b9-890d-8a10a6337da9> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+       0x18dd84000 -        0x18de2a08b dyld (*) <4aea9d00-113b-3b77-8974-3a34a1d592c9> /usr/lib/dyld
+               0x0 - 0xffffffffffffffff ??? (*) <00000000-0000-0000-0000-000000000000> ???
+       0x18dfa4000 -        0x18dfeb23f libdispatch.dylib (*) <edd0c482-5d26-373f-a872-47b1486245b3> /usr/lib/system/libdispatch.dylib
+       0x293037000 -        0x2930c2095 libswift_Concurrency.dylib (*) <2b10e99b-5d26-3156-a0fd-8031b423efa7> /usr/lib/swift/libswift_Concurrency.dylib
+       0x1c5138000 -        0x1c517d0ff com.apple.AttributeGraph (7.0.80) <3366593f-038f-3922-b161-b75d71fba879> /System/Library/PrivateFrameworks/AttributeGraph.framework/Versions/A/AttributeGraph
+       0x1a4b6f000 -        0x1a4c62a36 com.apple.combine (1.0) <b494322b-2ccb-32e4-8021-59561787081b> /System/Library/Frameworks/Combine.framework/Versions/A/Combine
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 34
+    thread_create: 0
+    thread_set_state: 128
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=1.8G resident=0K(0%) swapped_out_or_unallocated=1.8G(100%)
+Writable regions: Total=271.6M written=673K(0%) resident=673K(0%) swapped_out=0K(0%) unallocated=271.0M(100%)
+
+                                VIRTUAL   REGION 
+REGION TYPE                        SIZE    COUNT (non-coalesced) 
+===========                     =======  ======= 
+Accelerate framework               128K        1 
+Activity Tracing                   256K        1 
+AttributeGraph Data               1024K        1 
+ColorSync                           32K        2 
+CoreAnimation                     2960K      157 
+CoreGraphics                        48K        3 
+CoreUI image data                  704K        6 
+Foundation                          16K        1 
+Kernel Alloc Once                   32K        1 
+MALLOC                           180.1M       48 
+MALLOC guard page                 3952K        4 
+Memory Tag 22                     64.0M        1 
+STACK GUARD                       56.4M       23 
+Stack                             19.7M       23 
+VM_ALLOCATE                       3248K       12 
+__AUTH                            5952K      626 
+__AUTH_CONST                      88.8M     1011 
+__CTF                               824        1 
+__DATA                            34.0M      962 
+__DATA_CONST                      34.4M     1019 
+__DATA_DIRTY                      8303K      868 
+__FONT_DATA                        2352        1 
+__LINKEDIT                       578.2M        5 
+__OBJC_RO                         79.1M        1 
+__OBJC_RW                         2597K        1 
+__TEXT                             1.2G     1041 
+__TPRO_CONST                       128K        2 
+mapped file                      238.1M       45 
+page table in kernel               673K        1 
+shared memory                     1936K       14 
+===========                     =======  ======= 
+TOTAL                              2.6G     5882 

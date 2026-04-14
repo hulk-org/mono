@@ -4,7 +4,7 @@ Claude is the commissioned agent persona loaded into the hulk carrier.
 
 Startup order:
 
-1. Read carrier `harnesses/hulk/AGENTS.md` and `harnesses/hulk/.docc/CONTRACT.md`.
+1. Read carrier `harnesses/hulk/AGENTS.md` and `harnesses/hulk/.docc/contract.md`.
 2. Read this persona's `AGENTS.md`.
 3. Read this persona's `.docc/index.md`.
 4. Read this persona's `AGENDA.md`.

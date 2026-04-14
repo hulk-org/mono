@@ -27,6 +27,32 @@ overwrite.
   hulk-vs-hull naming question, the v0.1.0 → v1.0.0 release ladder,
   where to publish, what hulk should NOT become, and the five
   questions whose answers should drive the next concrete decisions.
+- [Buddy vs. S-Type (2026-04-09)](buddy-vs-s-type-2026-04-09.md)
+  — reads the actual buddy TypeScript at
+  `harnesses/hulk/private/universal/domain/tooling/claude-code/src/buddy/`
+  (types, roll engine, sprites, prompt injection, teaser hook) and
+  compares it shape-for-shape against the A\* Triads / S-Type
+  Contribution System docs in carrie/codex. Confirms Quipsnip is a
+  buddy (species `owl`), names the shared "derived-from-seed
+  contracts" pattern, and lists what each system could teach the
+  other.
+- [The Buddy Feature (2026-04-09)](buddy-feature-2026-04-09.md)
+  — open investigation into the `buddy` subsystem referenced by the
+  upstream claude-code TS snapshot (companion sprite, notification
+  hook, separate prompt path), the gap between that reference and the
+  placeholder Python package in claw-code, and how it relates to
+  Quipsnip and the carrier-vs-persona split. Blocked on locating the
+  upstream TS archive and on naming "the persistent agent folder."
+- [Tachikoma Design Genesis (2026-04-10)](tachikoma-design-genesis-2026-04-10.md)
+  — full reasoning chain from the design conversation that produced
+  the CLIA organism ontology: the naming journey (crawler → spider →
+  traverser → pet → Tachikoma), the trick abstraction, the five
+  organism classes, the key invariants, the anatomy system
+  (Ant/Hound/Fox/Spider/Owl mapped to algorithms), the training
+  loop, the projection pipeline (compiler analogy), the worker
+  contract, the cognition bridge, the execution-world ladder,
+  the Fuchikoma boundary (disciplined vs chaotic), the cellular
+  automata insight, and Apple Intelligence as Ghost not Pet.
 - [The Daemon Menagerie (2026-04-08)](daemon-menagerie-2026-04-08.md)
   — grounded inventory of every daemon-shaped surface in the
   substrate today (ten implementations across two real problem

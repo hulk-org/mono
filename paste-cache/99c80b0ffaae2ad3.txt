@@ -1,0 +1,26 @@
+
+❯ >clia: we need a /roster skill look to make sure the tool still works.
+
+⏺ Bash(ls /Users/sonoma/.claude/skills/ | grep -i roster)
+  ⎿  No matches found
+
+⏺ No /roster skill exists in /Users/sonoma/.claude/skills/. It's not in the available-skills list either.
+
+  Before I build one, I need to know what "the tool" is that should still work. A few options:
+
+  1. swift-agent-cli roster — is there an existing roster subcommand you want the skill to wrap?
+  2. The synced-agents JSONL at .wrkstrm/tmp/synced-agents.jsonl that /sync writes — should /roster read/print/edit that?
+  3. The harness header roster rendered by swift-harness-environment-cli — should /roster just re-render the [🧬💪| ...] line?
+
+  Which of those (or something else) is the tool you want me to verify before scaffolding the skill?
+
+❯ look through our swift-agent-cli to see if it has a roster command
+
+⏺ Bash(swift-agent-cli --help 2>&1 | head -50; echo ---; swift-agent-cli roster --help 2>&1 | head -30)
+  ⎿  (eval):1: command not found: swift-agent-cli
+     ---
+     (eval):1: command not found: swift-agent-cli
+
+⏺ Search(pattern: "roster", path:
+  "private/universal/substrate/collectives/clia-org/private/universal/domain/tooling/spm/swift-agent-cli")
+  ⎿  Found 0 files

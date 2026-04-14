@@ -18,7 +18,7 @@ Started: 2026-04-06.
 
 ```
 harnesses/hulk/                       — carrier home (the impenetrable hull)
-├── .docc/CONTRACT.md                 — bones + skin clauses
+├── .docc/contract.md                 — bones + skin clauses
 ├── .docc/index.md                    — hulk technology root
 ├── .gitignore                        — runtime state ignore patterns (staged)
 ├── memory/.docc/                     — hulk's carrier-level memory

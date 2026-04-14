@@ -1,0 +1,13 @@
+A crash report for the directory-control application on macOS 26.5 is provided. The crash occurred due to a breakpoint exception (EXC_BREAKPOINT) triggered by a namespace signal (SIGNAL) with code 5. The crash report includes details about the application, hardware model, OS version, and the thread that triggered the crash.
+
+Thread 18 crashed with ARM Thread State (64-bit) in directory-control.debug.dylib. The crash report includes details about the application, system, and the exception that caused the crash. The crash occurred due to a breakpoint exception (EXC_BREAKPOINT) in the function “completeTaskWithClosure”.
+
+A thread is in the ARM_THREAD_STATE64 flavor, waiting on a mutex in the main thread queue. The thread is currently executing the __psynch_mutexwait function.
+
+A crash report is provided, detailing the thread state and stack trace of the application at the time of the crash. The report includes symbols and image offsets for various functions, indicating the point of failure. The crash occurred in the NSEventThread thread, specifically in the mach_msg2_trap function.
+
+A thread dump shows multiple threads with the same state, indicating a potential issue. The threads are in a syscall state, with the same program counter and ESR value.
+
+A crash report is provided, detailing the crash of the “directory-control” application. The report includes thread states, stack traces, and used images, with a focus on the “com.apple.root.user-initiated-qos.cooperative” queue. The crash occurred at the “InitialAllocationPool” symbol.
+
+The provided text contains a JSON object with information about a system dump, including details about various libraries, frameworks, and system components. It also includes information about the system’s hardware, such as the processor, memory, graphics, and network interfaces. Additionally, it provides details about the system’s software, including the operating system version, installed applications, and system settings.

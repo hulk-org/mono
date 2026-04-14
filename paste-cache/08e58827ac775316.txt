@@ -1,0 +1,26 @@
+
+  • [>codex, >clia]: [👍👍🏽 - sync applied / aligned]
+
+  In chat: >codex, >clia.
+
+  - Active harness: codex.
+  - Repo/session root: /Users/sonoma/mono.
+  - Commissioned homes: private/universal/substrate/agents/codex and private/
+    universal/substrate/collectives/clia-org. I resolved >clia to clia-org because
+    there is no agents/clia or collectives/clia home.
+  - Synced roster record: .wrkstrm/tmp/synced-agents.jsonl with session id codex-
+    sync-codex-clia-20260409.
+  - Codex beat surfaces: private/universal/substrate/agents/codex/memory/.docc/
+    beats/working-beats.md and private/universal/substrate/agents/codex/
+    memory/.docc/beats/index.md.
+  - Operator environment: private/universal/substrate/operators/rismay/private/
+    universal/rismay-substrate.environment.wrkstrm.json.
+  - Workspace contract: private/universal/substrate/operators/rismay/private/
+    universal/workspace.wrkstrm.json. Operator/workspace home: private/universal/
+    substrate/operators/rismay/private/universal.
+  - Reload status: codex loaded successfully via swift-agent-cli profile and
+    reload-profile. clia-org has canonical surfaces at private/universal/
+    substrate/collectives/clia-org/private/universal/identity/clia-org.json and
+    private/universal/substrate/collectives/clia-org/memory/.docc/index.md, but
+    swift-agent-cli profile --slug clia-org --kind agent failed because no
+    matching 0.6.0 .identity.json

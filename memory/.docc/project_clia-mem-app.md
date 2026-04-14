@@ -1,27 +1,19 @@
 ---
 name: clia-mem app live
-description: clia-mem is a live Codex-sessions browser app inside clia-app-org, Sessions-only lane
+description: clia-mem is now a substrate memory browser (was Codex sessions browser); session cleanup functionality moved to session-lab in wrkstrm-app
 type: project
 ---
 
-**clia-mem** is a live macOS app — not planned — at
-`private/universal/substrate/collectives/clia-app-org/private/apple/apps/clia-mem/`.
-It reads Codex session history via `CliaMemCodexSessions` +
-`CodexSessionStoreCore`, with a Sessions-only routing lane (`CliaMemRoute`),
-an Apply queue with batch actions, and Swift Testing invariants
-(`CliaMemRouteTests`, `CliaMemQueuedOptimizationTests`).
+**clia-mem** pivoted from Codex sessions browser to substrate memory browser on 2026-04-13.
 
-**Why:** Sessions are the canonical corpus; clia-mem is the clia-family lens
-onto them (one truth, many lenses). It was split out of the old `clia-git`
-surface in commit `3fffe0ca57` along with `source-control` (wrkstrm side).
-Subsequent beats aggressively simplified it: dropped Overview, Collectives,
-and Git Repos routes; rebranded away from "Operator by CLIA"; pruned all
-git-client deps. Sessions is the only lane now.
+- **Location**: clia-app-org/private/apple/apps/clia-mem/
+- **Bundle**: me.rismay.clia-mem
+- **Pattern**: @Observable + @State (same as compendium-by-wrkstrm)
+- **Scans**: substrate/{agents,collectives,operators,harnesses}/*/memory/.docc/ (+ compat fallbacks)
+- **Identity probing**: reads *.identity.json for schemaVersion, schemaSetRef, displayRole, status, updated
 
-**How to apply:** When session-history, memory browsing, or Codex rollout
-reading comes up, go straight to `clia-app-org/private/apple/apps/clia-mem/`.
-The clia agents suite roster is also being trimmed — `clia-tok` and `clia-git`
-are being dropped; token/economics UI is moving to an external
-"Inference Stats by wrkstrm" app. Don't add new routes to clia-mem casually;
-the active direction is fewer lanes, better Sessions depth, and more
-Swift Testing coverage of route and apply-queue invariants.
+Session cleanup functionality (the original clia-mem) was copied to **session-lab** in wrkstrm-app with type prefix SessionLab and bundle me.rismay.session-lab.
+
+**Why:** clia-mem's name implies memory, not sessions. The session cleanup work is a wrkstrm product concern, not clia-specific.
+
+**How to apply:** clia-mem = memory browser. session-lab = session cleanup. Don't conflate them.

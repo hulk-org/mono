@@ -15,7 +15,8 @@
 - [Prep Lab branding](project_prep-lab-brand.md) — Prep Lab = user-facing brand for the study-lab codename app; belongs to Laussat Studio or wrkstrm family, never clia
 - [Clia Day Pa distribution](project_clia-day-pa-distribution.md) — Pa-facing Clia Day builds ship via rismay's personal App Store account (team BM6B69ZQSR), not Laussat or wrkstrm
 - [App Store Connect credentials store](project_appstoreconnect-credentials-store.md) — interim credentials live at ~/.appstoreconnect/credentials/<bundle-id>.json (chmod 600), one file per app, outside the repo
-- [clia-mem app live](project_clia-mem-app.md) — live Codex-sessions browser in clia-app-org; Sessions-only lane, Apply queue, Swift Testing invariants
+- [clia-mem app live](project_clia-mem-app.md) — substrate memory browser in clia-app-org; session cleanup moved to session-lab in wrkstrm-app
+- [Close, delete, then launch](feedback_close-delete-launch.md) — quit app, delete .app bundle, rebuild, then launch; never relaunch over stale binary
 - [Source Control brand](project_source-control-brand.md) — Source Control (was clia-git) shipped under wrkstrm 2026-04-08; slug source-control-by-wrkstrm, bundle me.rismay.source-control, type prefix SourceControl
 - [git mv + Edit trap](feedback_git-mv-then-edit-trap.md) — git mv pre-stages with old content; always git add after Edits or commit captures only the rename
 - [Three legal entities](user_legal-entities.md) — Cristian A Monterroza (personal), Laussat Studio LLC, wrkstrm Inc (C corp); per-app entity assignment is durable, get it right before launch
@@ -23,6 +24,7 @@
 - [Workspace auto-commit hook](feedback_workspace-auto-commit-hook.md) — auto-commits my edits with coherent messages + Co-Authored-By trailers and bumps submodule pointers; still sometimes sweeps unrelated working-tree state into my commits
 - [swift-web-deploy-cli local build](project_swift-web-deploy-cli-local-build.md) — needs SPM_USE_LOCAL_DEPS=true; remote swift-universal-main 3.0.7 lacks SemanticVersionable; engine + CLI green as of 40a8de5c5
 - [xcodebuild needs launchctl setenv](feedback_xcodebuild-spm-use-local-deps.md) — `SPM_USE_LOCAL_DEPS=true xcodebuild` is stripped by sandbox; use `launchctl setenv` then `unsetenv` to bracket the build
+- [localOrRemote no fileExists guard](feedback_localOrRemote-no-fileexists-guard.md) — Package.swift evaluator runs with arbitrary cwd; relative-path fileExists silently routes to remote URL even when SPM_USE_LOCAL_DEPS is set
 - [Never push codex-sessions](feedback_no-push-codex-sessions.md) — exclude vaults/.../codex/sessions submodule from any batch push sweep; pointer bumps in mono are still fine
 - [Patch safety workflow](feedback_patch-safety-workflow.md) — multi-chunk deletes need grep-verify + diff-stat before commit; sustained refactors need Swift Testing invariants
 - [Direct deps not transitive](feedback_direct-deps-not-transitive.md) — SPM consumers depend on the narrow source-of-truth package per import; never bundle into kitchen-sink super-packages
@@ -34,3 +36,54 @@
 - [Purpose strings must be honest](feedback_purpose-strings-honest.md) — NS*UsageDescription must describe real behavior; never write disclaimer strings or assume a permission is only transitive without asking
 - [App Store Connect creds schema](reference_appstoreconnect-credentials-schema.md) — ~/.appstoreconnect/credentials/<bundle-id>.json fields + Xcode 26 altool flag rename (username/app-password)
 - [Ship 10 apps/day via FoundationModels](user_ship-ten-apps-a-day.md) — scale target + architecture thesis: on-device Apple FoundationModels session as judgment layer in a Swift batch tool, NOT a Claude Code sub-session
+- [Codex sessions vault rg-ignored](project_codex-sessions-rgignore.md) — .ignore at sessions + session-corpora roots breaks the recursive rollout-amplification loop; use `--no-ignore` to grep into the vault on purpose
+- [Move conversations CLI to clia-org](project_conversations-to-clia-org.md) — todo3/.../tools/conversations should relocate to clia-org/.../tooling/spm/swift-conversations-cli; zero external Swift consumers, dead source dirs to decide on, ReproducibleArchive sibling to plan
+- [Carect-ers sigil](user_carect-ers-sigil.md) — ^ prefix = caret + er = "character"; read rismay's sigils phonetically before parsing structurally; characters ARE the role, actor has the self
+- [Voice discipline at close](feedback_voice-discipline-at-session-close.md) — stay first-person when closing as the character; third-person "^claude" in the same sentence as the speaker is the tell
+- [common-archive in swift-universal](project_common-archive-design.md) — canonical reproducible-archive lives at swift-universal/.../common-archive/, ports ReproducibleArchive's compatibility flags via Foundation Process direct (no CommonShell); CommonLZFSE renamed to AppleLZFSE to make Apple-only constraint legible
+- [DocC single-article TechnologyRoot split](project_docc-single-article-split.md) — xcrun docc convert emits empty archive for solo @TechnologyRoot bundles; fix in DocCBrowserKit BundleRenderer scaffolds a sibling Overview.md, must port same fix to DocCPreviewUI when migrating
+- [Localize app distribution](project_localize-by-wrkstrm.md) — localize-by-wrkstrm: wrkstrm-owned, rismay-distributed (team BM6B69ZQSR), bundle me.rismay.localize, links LocalizeCore
+- [LocalizeCore library carve](project_localize-core-carve.md) — wrkstrm-core/.../spm/localize split into LocalizeCore lib + localize exec on 2026-04-09; embed via LocalizeCore
+- [JSON hot-loop: simdjson via C shim](project_json-hot-loop-simdjson-shim.md) — Swift Decodable is 35-70× slower than parser; wrkstrm-performance cli-arg-bench-press proved 1.7 μs via SimdJsonShim vs 86 μs via JSONDecoder on 2026-04-09
+- [Swift mincore package treaty](project_swift-mincore-package-treaty.md) — minima of Swift systems: Package.swift is the treaty, Swift is conductor, C is knife, ASM is ignition spark; first milestone is swift-mincore with C shims, syscall target, optional ASM experiment, and size/startup/RSS metrics
+- [Tachikoma by wrkstrm scope](project_generable-studio-scope.md) — was Generable Studio → Tachikoma → Koma; graduated to koma-org as **koma-plant** (コマプラント); stale copy at wrkstrm-app/koma-by-wrkstrm
+- [koma-org collective](project_koma-org-collective.md) — canonical Komo home at collectives/koma-org; koma-plant app, 6 live komo specs, 41 domain komo packages across core/context/intelligence/meta/directory/build
+- [Tachikoma organism ontology](project_tachikoma-ontology.md) — Ghost/Shell/Sprite/Tachikoma/Trick hierarchy; ghosts project work graphs, tachis execute them; Apple Intelligence stays host-side; execution worlds via Apple Containerization → Firecracker
+- [Tachikoma traverser vocabulary + field worlds](project_tachikoma-traverser-vocabulary-and-field-worlds.md) — preserves the 2026-04-10 paste-cache note on Traverser vs Surveyor naming, bounded Tachikoma traversal, and Ghost-on-host / field-world execution doctrine
+- [Komo execution units](project_komo-execution-units.md) — Komo (short for Tachikoma) deployed by Tau via CLIDE; species presets (Ant/Hound/Fox/Spider/Owl), one trick per node, context-only, no mid-term memory
+- [Koretsufu collective](project_gunchi-collective.md) — コレツフ (Koretsufu) = the Collective in four pure full-size katakana; ツ smiles at Americans, フ breathes out like French "collectif"; pairs with タチコマ (Tachikoma)
+- [Logikoma is the class](project_logikoma-is-the-class.md) — ロジコマ (Logikoma) is the canonical class name; Komo = chassis, Logikoma = chassis + logic contract; each individual has a slug; filesystem/schema stay `koma` for compat
+- [Tachikoma factory](project_tachikoma-factory.md) — carrier/harness layer should mint bounded workers from specs, work graphs, staged worlds, tricks, budgets, and receipts instead of spawning full agents for discrete work
+- [Design goals are not UI chrome](feedback_design-goals-not-chrome.md) — codenames like "Operator 2027" / "Collective 2027" are aspirational targets, never visible Text labels
+- [openclaw is compat surface, not our identity](project_openclaw-compatibility-not-identity.md) — harnesses/openclaw/ is the OpenAI-side upstream we mirror; our carrier identity belongs elsewhere (don't author doctrine in openclaw top-level files)
+- [Architect by wrkstrm](project_architect-by-wrkstrm.md) — flagship: operator draws on Metal 4 canvas with substrate organisms as primitives; output is a running application
+- [Use rismay-substrate.xcworkspace](feedback_use-substrate-workspace.md) — every new package/app MUST be added to the 922-package workspace at private/universal/substrate/rismay-substrate.xcworkspace for shared build cache
+- [Verify product after compaction](feedback_verify-product-after-compaction.md) — after context compaction, build+verify the product FIRST, bookkeeping second
+- [Harness spawns Tachikoma not agents](feedback_harness-spawns-tachikoma-not-agents.md) — discrete work = Tachikoma (bounded, no system prompt, no context pollution); full agents only when judgment/personality needed
+- [CLIA Env is carrier bootstrap](project_clia-env-carrier-bootstrap.md) — swift-harness-environment-cli must recognize all carriers; without it sync lies and identity loading can't fire; P0 with Tachikoma
+- [Never remove working code](feedback_never-remove-working-code.md) — verify dependency graph before deleting; distinguish upstream deps from project's own ObjC wrappers; if deletion breaks build, revert don't patch
+- [CLIDE versioning policy](project_clide-versioning-policy.md) — active clide path currently symlinks to the copied clia-tui-derived clide-v1 package; clide-v2 is the separate minimum daemon package
+- [Modular test surfaces](feedback_modular-test-surfaces.md) — when A/B testing implementations, copy the file and swap at runtime via protocol; never inline if/else between strategies
+- [No hardcoded fps](feedback_no-hardcoded-fps.md) — never hardcode preferredFramesPerSecond; read NSScreen.main?.maximumFramesPerSecond at runtime
+- [Vault by wrkstrm](project_vault-by-wrkstrm.md) — Passwords + Wallet + Reminders hybrid; multi-vault trust compartments; keychain daemon; sealed agent artifacts; card-first UI; me.rismay.vault
+- [clia-rpg Game Dev Story mode](project_clia-rpg-game-dev-story.md) — Game Dev Story-style sim: agents are devs, directories are rooms, Koma get visual representation; main office + doors + navigable directory tree on Metal canvas
+- [Hidden files as basement](project_hidden-files-as-basement.md) — dotfiles render as basement levels in Agent RPG: .docc=knowledge vault, .git=sewers, .wrkstrm=utility closet; trapdoor access
+- [wrkstrm-games collective](project_wrkstrm-games.md) — clia-rpg graduates to wrkstrm-games org; repo created at github.com/wrkstrm-games/mono, migration from clia-app-org pending
+- [AppDelegate not SwiftUI for Metal](feedback_appdelegate-not-swiftui.md) — Metal game apps start AppDelegate + NSWindow + MTKView; SwiftUI is a layer on top, not the foundation
+- [EGM Compendium vault](reference_egm-compendium-vault.md) — 368-page EGM history at vaults/egm-page-vault/; reference for review scoring, UI formats, agent-as-reviewer design in wrkstrm-games
+- [Logikoma training ground](project_logikoma-training-ground.md) — iso bench becomes the Koma training ground; Fuchi/Tachi/Logi families on the diamond grid; feeds into Agent RPG studio
+- [Koma katakana files](project_koma-katakana-files.md) — komo homes use アイディ.md (ID), インスト.md (instructions), レイ.md (directives); machine identity is *.organism.json with KomaAspect
+- [No throwaway — make a Koma](feedback_no-throwaway-make-koma.md) — never write throwaway scripts; if worth executing, create or invoke a Komo with spec, lineage, tests
+- [Use koma for discrete work](feedback_use-koma-for-work.md) — before doing mechanical work (file moves, renames, scaffolding), ask if a koma can do it
+- [Koma commits, not agent](feedback_koma-commits-not-agent.md) — never git commit directly; invoke koma-git commit; mechanical git ops belong to the komo
+- [Trash not rm -rf](feedback_trash-not-rm.md) — move to ~/.Trash instead of rm -rf; keeps deletions recoverable
+- [Never trash under investigation](feedback_never-trash-under-investigation.md) — build the inspection tool first, then let the operator decide what to delete
+- [Analysis before deletion](feedback_analysis-before-deletion.md) — scan→inspect→select→review→confirm→execute; never show delete buttons inline with scan results
+- [Add Xcode targets yourself](feedback_add-xcode-targets-yourself.md) — never ask user to manually configure Xcode; edit pbxproj programmatically
+- [Port means expand not simplify](feedback_port-expand-not-simplify.md) — when porting code between apps, preserve ALL features and expand; never drop functionality
+- [Directory Control app](project_directory-control-app.md) — unified filesystem watcher (15 routes, WrkstrmFont); observes git, links to Source Control for actions
+- [Session Lab sandbox telemetry](project_session-lab-sandbox-telemetry.md) — Sandbox route in Session Lab showing /private/tmp/claude-{uid}/ disk usage
+- [Koma domain architecture](project_koma-domain-architecture.md) — six domains (core/context/meta/directory/build/intelligence), DAG deps, Ghost spans all, Komo stay within
+- [koma-plant](project_koma-plant.md) — コマプラント: factory app for the fleet. Ancestor is koma-by-wrkstrm (Phase 1 inventory). Phase 2 adds CLIDE dispatch + Metal canvas + live invocation
+- [Next session pickup](project_next-session-pickup.md) — build koma-list first, replace 75-entry fixture with live 40-Komo fleet, wire koma-plant to real catalog
+- [Source Control next](project_source-control-next.md) — submodule commit history, concurrent commit detection (index.lock), cross-submodule timeline

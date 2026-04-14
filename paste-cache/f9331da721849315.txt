@@ -1,0 +1,9 @@
+A crash report for the session-lab application on macOS 26.5 (25F5042g) is provided. The crash occurred due to a breakpoint exception in the libdispatch.dylib library, specifically in the _dispatch_assert_queue_fail function. The report includes details about the application, system, and threads involved in the crash.
+
+A crash report for the “session-lab” app on macOS 26.5 is provided. The crash occurred due to an EXC_BREAKPOINT signal (SIGTRAP) with a code of 5, indicating a Trace/BPT trap. The report includes various details about the app, system, and crash circumstances.
+
+A crash report is provided, detailing the state of multiple threads at the time of the crash. The report includes information about the thread state, frames, and symbols, as well as the queue each thread is running on. The crash appears to have occurred in the “session-lab.sandbox-scan” queue.
+
+A thread dump of a process running on an ARM64 architecture is provided. The dump shows the thread state, including the program counter (pc), link register (lr), and stack pointer (sp). The process is identified as “session-lab” and is running on macOS.
+
+The shared cache has a base address of 6673596416 and a size of 5990645760. The vmSummary shows the read-only and writable regions, including the size and count of various virtual regions. The legacyInfo indicates a thread triggered by the “session-lab.sandbox-scan” queue.

@@ -35,7 +35,7 @@ This directory is the agent half of that split.
 ## Adjacent surfaces
 
 - Carrier home (hulk): `private/universal/substrate/harnesses/hulk/`
-- Hulk contract: `private/universal/substrate/harnesses/hulk/.docc/CONTRACT.md`
+- Hulk contract: `private/universal/substrate/harnesses/hulk/.docc/contract.md`
 - Founding insight: `private/universal/substrate/harnesses/hulk/memory/.docc/insights/founding-breach-2026-04-05.md`
 - Repo-global Claude guidance: `CLAUDE.md`
 - Legacy claude home (live runtime state during migration):

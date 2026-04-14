@@ -48,7 +48,7 @@ A hulk is BOTH:
 ## The Contract
 
 The harness contract is the spec every hulk implementation must satisfy. It
-lives at [CONTRACT.md](CONTRACT.md). Any implementation that violates the
+lives at [contract.md](contract.md). Any implementation that violates the
 contract is breached, regardless of what features it adds.
 
 ## Implementations
