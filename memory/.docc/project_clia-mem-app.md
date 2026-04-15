@@ -8,7 +8,7 @@ type: project
 
 - **Location**: clia-app-org/private/apple/apps/clia-mem/
 - **Bundle**: me.rismay.clia-mem
-- **Pattern**: @Observable + @State (same as egm-compendium-by-wrkstrm)
+- **Pattern**: @Observable + @State (same as egm-compendium)
 - **Scans**: substrate/{agents,collectives,operators,harnesses}/*/memory/.docc/ (+ compat fallbacks)
 - **Identity probing**: reads *.identity.json for schemaVersion, schemaSetRef, displayRole, status, updated
 
