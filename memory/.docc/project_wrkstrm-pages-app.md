@@ -1,18 +1,18 @@
 ---
 name: Page Deploy app branding
-description: Display name "Page Deploy"; renamed from "wrkstrm Pages" 2026-04-15; slug page-deploy-by-wrkstrm; bundle me.rismay.page-deploy
+description: Display name "Page Deploy"; renamed from "wrkstrm Pages" 2026-04-15; slug page-deploy; bundle me.rismay.page-deploy
 type: project
 ---
 
 `Page Deploy` is the SwiftUI macOS workbench for the wrkstrm web sharing
-standard. Lives at `wrkstrm-app/private/apple/apps/page-deploy-by-wrkstrm/`.
+standard. Lives at `wrkstrm-app/private/apple/apps/page-deploy/`.
 Job: compose, validate, and deploy `*.share.json` records against the
 canonical `gh-pages/{shares,snapshots,docc}` triple layout.
 
 **Naming choices (updated 2026-04-15):**
 
 - Display name (`CFBundleDisplayName`): `Page Deploy`
-- Directory slug: `page-deploy-by-wrkstrm`
+- Directory slug: `page-deploy`
 - Swift type prefix: `PagesByWrkstrm` (unchanged — internal identifier only)
 - Bundle identifier: `me.rismay.page-deploy`
 - Marketing tagline: `Page Deploy by wrkstrm`
