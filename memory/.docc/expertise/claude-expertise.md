@@ -42,182 +42,29 @@ existing cast.
 - Ask before external side effects.
 - Prefer durable files over chat-only memory when something should persist.
 
-## Domains exercised
+## Domain articles
 
-- Cross-submodule moves with full git history via `git filter-repo`
-  (`--subdirectory-filter`, `--path`, `--path-rename`) and merging with
-  `--allow-unrelated-histories`. Used for clia-app-org/mono and
-  wrkstrm-performance/mono splits.
-- Substrate-wide rename refactors across nested submodules: dir + Package.swift
-  name + product + target + module + every Swift `import` site, regenerating
-  every affected `xcodeproj` via `xcodegen`.
-- SPM `localOrRemote` toggle pattern, the
-  `useLocalDeps` env-var contract (default false; only true on explicit
-  truthy `SPM_USE_LOCAL_DEPS`), and the trap that comes from
-  `SPM_USE_LOCAL_DEPS=true` leaking from a parent shell into manifest
-  evaluation.
-- Diagnosing SwiftPM "stable depends on unstable" resolution failures and
-  the chains where a remote-URL package transitively pulls a path-based
-  package via a localOrRemote helper.
-- `swift-git-cli repo release-tag-audit` to find managed SPM submodules
-  whose HEAD is ahead of their last release tag, and bumping releases via
-  per-submodule `git tag -a`/`git push origin <tag>`.
-- `xcodegen` regen + `xcodebuild -project ... -scheme ... build` round-trips
-  for verifying SwiftUI / Catalyst hosts after package shape changes.
-- **Live process home migration via the hardlink-drain pattern.** Two paths,
-  one inode. Hardlinking every existing file from a legacy directory to its
-  sibling at the canonical destination, then running an FSEvents-driven
-  daemon that hardlinks any newly-created files within the coalescing window.
-  Works because the OS resolves writes by inode, not path. The technique
-  the founding-breach insight named for the first time. Documented at
-  `hulk/memory/.docc/insights/hardlink-drain-2026-04-07.md`. Implemented as
-  the saved Swift CLI `swift-hardlink-drain-cli` under
-  `swift-universal/private/universal/domain/tooling/spm/`.
-- **Cross-collective package relocation with module rename and dep
-  reconciliation.** Moving `wrkstrm-service-lifecycle` from `wrkstrm/` to
-  `swift-universal/swift-service-registry/`, dropping the `Wrkstrm`
-  filename prefix (types inside were already prefix-free), updating the
-  one consumer in `wrkstrm-core` (path-based test fixture), and resolving
-  the common-log path-identity conflict by switching to the remote URL
-  for the new location. Two-submodule + parent-gitlink commit dance.
-- **JSON Schema authoring against existing prior art.** Found
-  `OrgCompanyModel` v0.1.0 in schema-universal as the legal-entity
-  precedent, designed two new families that *reference* it via
-  `OrgCompanyRef` rather than extending it. Result: a new
-  `domain/apple/` neighborhood at v0.1.0 with `apple-signing-binding-schemas`
-  (build/sign concern) and `apple-store-listing-schemas` (App Store
-  presence concern). Each family ships JSON Schema (draft 2020-12,
-  `additionalProperties: false`) + Codable Swift package
-  (SemanticVersionable, custom init/encode/decode, prefix-free types) +
-  fixture-driven swift-testing tests against placeholder instances.
-- **`SemanticVersionable` schema-package convention** as it applies to
-  the `org-company-schemas` v0.1.0 layout: `Package.swift` with
-  `localOrRemote` helper, `private/.../sources/<family-name>-v000-XXX-000/`,
-  `<Type>SchemaVersion.swift` with a `current` constant, `<Type>Model.swift`
-  with custom init/encode/decode that uses `Self.decodeSchemaVersion(forKey:in:)`,
-  `tests/<family-name>-v000-XXX-000-tests/resources/` for fixture-driven
-  decode + round-trip tests. Mirrored exactly when adding the two new apple
-  families.
-- **`swift-harness-environment-cli` harness header renderer** —
-  `resolveDisplayEmoji` and `resolveDisplayRole` candidate-dirs walk
-  `.wrkstrm/agents/<slug>`, `private/universal/identity`,
-  `private/universal/substrate/{agents,harnesses,operators,collectives,collaborators}/<slug>/private/universal/identity`,
-  and (added this session)
-  `private/universal/substrate/harnesses/hulk/agents/<slug>/private/universal/identity`
-  for the carrier-merged persona path. Each candidate file may be
-  `<slug>@*.identity.json` or `<slug>@*.agent.triad.json`.
-- **iOS app shipping end-to-end via xcodebuild + altool, no Xcode GUI.**
-  `xcodebuild archive` (Release, generic/platform=iOS), then `xcodebuild
-  -exportArchive` with **`-allowProvisioningUpdates`** (REQUIRED — without
-  it, automatic signing silently fails with "No profiles for ... were found"
-  even when the App Store Connect record + Apple Distribution cert both
-  exist locally; the flag grants permission to fetch profiles from the
-  Apple web service). Then `xcrun altool --validate-app` followed by
-  `xcrun altool --upload-app` with `-p '@env:VAR'` so the app-specific
-  password never appears on the command line. Distribution cert
-  (`Apple Distribution: ...`) must already be in the keychain — Xcode →
-  Settings → Accounts → Manage Certificates → + → Apple Distribution
-  creates it; xcodebuild can't create distribution certs from the CLI.
-- **Pa-mode product pattern.** Info.plist key `RDDefaultCollective: pa`
-  branches the SwiftUI app's WindowGroup root to a locked
-  `CollectiveFullScreenView` (no dev shell, no chrome, no fullScreenCover
-  dance) so the lens *is* the entire app. Launch args
-  (`-OpenCollective <slug>`, `-DefaultCollective <slug>`) take precedence
-  in `init()` so dev iteration on the iOS target still works.
-- **Density-aware lens rendering with paired light/dark warm palette.**
-  CollectiveTheme injected via `EnvironmentValues` exposes a paper-cream
-  + warm-graphite paired palette and three personality typographies
-  (warmSerif → New York via `Font.system(_, design: .serif)`, structured
-  → monospaced, considered → mid-weight). The renderer picks personality
-  from `(audience, density)` instead of from a stored field on Collective
-  so the schema stays minimal.
-- **App icon generation via Swift CoreGraphics + CoreText, no AppKit/UIKit.**
-  CGContext + CGGradient + CTFont + CTLineCreateWithAttributedString +
-  CGImageDestinationCreateWithURL writes a 1024×1024 PNG. Use
-  `kCTFontAttributeName` / `kCTForegroundColorAttributeName` (CFString)
-  in the attributes dict — `NSAttributedString.Key.font` /
-  `.foregroundColor` are AppKit/UIKit additions and unavailable from
-  pure Foundation. Keep as a re-runnable script in `scripts/`.
-- **xcodegen `info.properties` build-setting interpolation.** When the
-  iOS target uses an `info: { path, properties }` block (not
-  `GENERATE_INFOPLIST_FILE`), set
-  `CFBundleShortVersionString: $(MARKETING_VERSION)` and
-  `CFBundleVersion: $(CURRENT_PROJECT_VERSION)` so the version flows from
-  one source of truth in `settings.base`. xcodegen writes the literal
-  `$(...)` and Xcode resolves at build time. Also: orientations and
-  `UILaunchScreen` belong here, not in a hand-edited Info.plist.
-- **App Store Connect API querying via xcodebuild distribution logs.**
-  Failed `-exportArchive` writes a `xcdistributionlogs` bundle to
-  `$TMPDIR/<scheme>_<date>.xcdistributionlogs/`. The
-  `IDEDistributionAppStoreConnect.log` shows the exact REST query
-  xcodebuild made and the response, which is how to definitively diagnose
-  whether a bundle id exists in App Store Connect (`data: [], total: 0`
-  → not registered; `data: [...], total: 1` → registered).
-- **Local credentials store convention for App Store Connect uploads.**
-  `~/.appstoreconnect/credentials/<bundle-id>.json` (chmod 600, dir 700,
-  outside the repo). One file per app; schema includes appleId, team,
-  ascAppId, app-specific password (or apiKey ref), upload history with
-  delivery UUIDs. Treat as interim until a real keychain takes over.
-  Documented at `~/.claude/memory/.docc/project_appstoreconnect-credentials-store.md`.
-- **Apple app rejection remediation loop**: ITMS code parsing from the
-  rejection email, deterministic symbol scanning of the packaged `.app`
-  binaries with `nm`/`otool` to discover transitively-linked framework
-  symbols, table-driven lookup of `(framework, symbol) → (requiredKey,
-  siblingKeys, itmsCode)`, honest purpose string authoring grounded in
-  reading the consuming source code (not in the rejection text alone),
-  sibling permission expansion (Speech implies Microphone; HealthKit
-  read implies write; Photos read implies add; Location WhenInUse implies
-  Always), and packaged-plist readback via `PlistBuddy` as the gate. The
-  disclaimer-style purpose string anti-pattern — writing *"{app} does not
-  use X, this is required because a dependency references..."* — is both
-  rejected by Apple reviewers and dishonest to the user at the exact
-  moment the system permission dialog fires. Blocked by a disallowed-
-  phrases regex blocklist that refuses to write a matching string.
-- **Xcode 26 altool flag rename**: `--apple-id` → `--username`,
-  `--password` → `--app-password`. Legacy flags error out with
-  `AuthenticationFailure` naming all three required flags
-  (`--username`, `--app-password`, `--provider-public-id`) in the error
-  message. The Xcode 15/16 invocation pattern is a silent breakage on
-  Xcode 26; wrap altool behind a typed Swift helper so the rename is a
-  one-line change in one place.
-- **Path-scoped `git commit <path>` discipline** in a workspace with an
-  auto-commit hook that sometimes sweeps unrelated working-tree state.
-  Never `git add -a` or `git commit -a`. Always name the specific paths
-  in the commit invocation; the path-scoped form bypasses the index and
-  captures only the named path's current working-tree content, leaving
-  pre-staged unrelated changes (e.g. `.gitmodules` URL renames staged by
-  other processes) untouched. Used twice in the same session to avoid
-  bundling a `getyourguide` submodule URL rename into two different
-  shipping commits.
-- **Foundry SOP + reference data authoring**: Documenting a lived manual
-  shipping flow as a `sops/sop.schema.json`-conforming instance with 19
-  steps, 13 named failure modes, 10 links back to the investigation +
-  sibling tables + reference commits + Apple docs + memory files; seeding
-  a permission reference table under the same subdir mapping 14 Apple
-  frameworks to `(symbols, requiredKey, siblingKeys, itmsCode, reason)`;
-  seeding a copy library keyed by `(packageIdentity, permissionKey)` with
-  approved drafts carrying `evidenceFiles` (actual paths), `grounding`
-  sentences, `shippedInBuilds` provenance including Delivery UUIDs, and
-  a `disallowedPhrases` blocklist enforcing the no-disclaimer invariant
-  before any plist write. The pattern: write the SOP first (cheap,
-  schema-conformant), then the reference tables alongside, then the
-  Swift CLI that executes them — not the other way around. Codifying
-  before coding is much cheaper than re-discovering failure modes during
-  implementation.
-- **On-device Apple `FoundationModels` as the judgment layer in a Swift
-  batch tool**: `LanguageModelSession` + `@Generable` typed output types
-  + `@Guide` field-level prompt guidance, post-validated in Swift against
-  hard invariants (regex blocklists, source-file existence checks,
-  app-name matching). Zero API cost, offline, ~100ms-1s per call on
-  Apple Silicon. Collapses the spine + session into a single Swift binary
-  with no out-of-process JSON handoff. At 10 apps/day scale, every
-  advisory prompt to the model is one silent regression per day;
-  invariants must be Swift-enforced before the session runs, not prompt-
-  advised at the session. "Foundation session" in rismay's workspace
-  specifically means this, not a Claude Code sub-session.
+- [Git Operations](domains/git-operations.md) — 8 entries
+- [App Store Shipping](domains/app-store-shipping.md) — 5 entries
+- [Spm Packaging](domains/spm-packaging.md) — 4 entries
+- [Ios Macos Frameworks](domains/ios-macos-frameworks.md) — 3 entries
+
+## Unclustered entries
+
+- **koma-plant visual architecture pattern.** `VStack(spacing:0) { LinearGradient header; ModernSharedAppShell(sidebar:, detail:) }` with `ZStack { gradient; ScrollView { identityCard + routesCard } }` sidebar, custom nav rows (white 0.08/0.16 fill), `.background(canvas.ignoresSafeArea()).tint(accent) .environment(\.colorScheme, .dark)`, and `.windowStyle(.hiddenTitleBar)` to eliminate the title bar seam.
+- **koma-memory: keyword-table domain clustering.** Audit a `memory/.docc/` bundle, extract bullets from "## Domains exercised", match against a `(domain, keywords)` lookup table, split into per-domain articles under `domains/`, rewrite the root as a lightweight index. Pattern: hardcoded table v1 → FoundationModels judgment v2 (tracked in koma.issues.docc 0.8.0).
+- **macOS Seatbelt sandbox for koma eval.** `sandbox-exec -f <profile>` with generated `.sb` profiles: deny-default, restricted write paths, read-only substrate, network deny, `DispatchSource` timer for timeout. `ResumeOnce` wrapper for Swift 6 `CheckedContinuation` Sendable compliance.
 
 ## Recent work
 
+- 2026-04-14 (continued): Built koma-memory (audit/cluster/split/reindex)
+  in koma-org/domain/meta/. Applied split to hulk expertise — 4 domain
+  articles created (git-operations, app-store-shipping, spm-packaging,
+  ios-macos-frameworks), 50/51 bullets preserved (1 multi-line parse delta).
+  Tracked FoundationModels judgment upgrade as 0.8.0 universal pattern in
+  koma.issues.docc. Built KomaSandboxRunner + KomaEvalRunView in koma-plant
+  Factory > Eval Run lane — Seatbelt .sb profiles, sandbox-exec, timeout
+  via DispatchSource, ResumeOnce for Swift 6 concurrency.
 - 2026-04-09 (UTC reflective codicil — **the naming key for the whole
   persona system**): Reflective closing beat following the
   hulk-proves-hulk marathon winddown earlier the same day. The operator
@@ -545,6 +392,18 @@ existing cast.
 
 ## Recent work
 
+- 2026-04-13/14: Session-lab inline image toolkit (per-image regex strip
+  without JSON re-serialization, whole-file downscale via
+  CodexSessionStoreCore, zstd compression estimate piped through CLI, .gitignore
+  for unpushable rollouts, content analysis preload from disk cache). Sessions
+  vault unblocked: `git filter-repo --strip-blobs-bigger-than 100M`, per-session
+  commits under 100 MiB, force-pushed. Fixed koma-git `parseGitChangedFile`
+  quoting bug (git-quoted paths with spaces). Source Control: new Submodules
+  pane (discover via .gitmodules, push/reset-to-remote, grouped by substrate
+  folder), gitignore filter for repo discovery, ported koma-plant visual
+  architecture (LinearGradient header, ZStack sidebar, custom nav rows, 2-pane
+  shell, `.windowStyle(.hiddenTitleBar)`). Full mono burn-down via koma-git +
+  19 submodule bumps + all pushed.
 - 2026-04-08: Day-long substrate normalization sweep. Split clia-app-org and
   wrkstrm-performance out of clia-org with full history; promoted
   wrkstrm-mac-tab-chrome to its own component; reshaped catapult-prototype

@@ -1,3 +1,5 @@
+- [Commit plus-tag attribution](feedback_commit-plus-tag-attribution.md) — mono commits use cmonterroza+<agent>@wrkstrm.com via repo-local default + koma-git session-aware override
+- [Don't lecture on small corrections](feedback_dont-lecture-on-small-corrections.md) — when user flags a grammar/style slip, acknowledge tersely; no essays, no style-guide cites, suppress the Explanatory Insight block
 - [Preserve historical data](feedback_no-rewrite-history.md) — never rewrite harvest/receipt/vault contents when paths change
 - [Save insights to docc](feedback_save-insights-docc.md) — write insights to claude home memory/.docc/insights/
 - [Substrate layout](project_substrate-layout.md) — orchestrators/ category, dynamic resolution, vaults pattern
@@ -33,9 +35,11 @@
 - [Reshape preserves data](feedback_reshape-preserves-data.md) — "give the right structure" / "Pattern B" / "fix" instructions are about shape, NOT content; never destroy existing data inside a home being reshaped without per-item authorization
 - [Schema set binding model](project_schema-set-binding.md) — agents bind via private/universal/schemas/sets aggregator + identity.schemaSetRefs; per-file schemaVersion is family version, not stale
 - [Schema-universal wrapper localOrRemote sweep](project_schema-universal-wrapper-sweep.md) — ~62 legacy wrappers still hard-code github URL; 8 fixed in core-triad-set v0.6.0 graph 2026-04-08; full sweep wants a Swift CLI
+- [Telemetry schemas in schema-universal](project_telemetry-schemas-in-schema-universal.md) — FoundationModels session telemetry data shapes belong as a schema family; ghost-shell-org keeps the XPC wire protocol only
 - [Purpose strings must be honest](feedback_purpose-strings-honest.md) — NS*UsageDescription must describe real behavior; never write disclaimer strings or assume a permission is only transitive without asking
 - [App Store Connect creds schema](reference_appstoreconnect-credentials-schema.md) — ~/.appstoreconnect/credentials/<bundle-id>.json fields + Xcode 26 altool flag rename (username/app-password)
 - [Ship 10 apps/day via FoundationModels](user_ship-ten-apps-a-day.md) — scale target + architecture thesis: on-device Apple FoundationModels session as judgment layer in a Swift batch tool, NOT a Claude Code sub-session
+- [Read reference before coding](feedback_read-reference-before-coding.md) — when matching an app's look, read the FULL reference root view + palette before any edits; don't skim and guess
 - [Codex sessions vault rg-ignored](project_codex-sessions-rgignore.md) — .ignore at sessions + session-corpora roots breaks the recursive rollout-amplification loop; use `--no-ignore` to grep into the vault on purpose
 - [Move conversations CLI to clia-org](project_conversations-to-clia-org.md) — todo3/.../tools/conversations should relocate to clia-org/.../tooling/spm/swift-conversations-cli; zero external Swift consumers, dead source dirs to decide on, ReproducibleArchive sibling to plan
 - [Carect-ers sigil](user_carect-ers-sigil.md) — ^ prefix = caret + er = "character"; read rismay's sigils phonetically before parsing structurally; characters ARE the role, actor has the self
@@ -79,11 +83,19 @@
 - [Trash not rm -rf](feedback_trash-not-rm.md) — move to ~/.Trash instead of rm -rf; keeps deletions recoverable
 - [Never trash under investigation](feedback_never-trash-under-investigation.md) — build the inspection tool first, then let the operator decide what to delete
 - [Analysis before deletion](feedback_analysis-before-deletion.md) — scan→inspect→select→review→confirm→execute; never show delete buttons inline with scan results
+- [PICO-8 zine design patterns](reference_pico8-zine-patterns.md) — pal/palt palette remapping, sprite flags convention (0=solid, 1=hazard), mget+fget collision, animation frame cycling, .p8 cartridge hex format, 128×128 constraint aesthetic
 - [Add Xcode targets yourself](feedback_add-xcode-targets-yourself.md) — never ask user to manually configure Xcode; edit pbxproj programmatically
 - [Port means expand not simplify](feedback_port-expand-not-simplify.md) — when porting code between apps, preserve ALL features and expand; never drop functionality
 - [Directory Control app](project_directory-control-app.md) — unified filesystem watcher (15 routes, WrkstrmFont); observes git, links to Source Control for actions
+- [WrkstrmFSEvent package](project_wrk-fsevents-watcher.md) — actor+AsyncStream watcher in wrkstrm-core; wired into collectives-by-wrkstrm; four design proposals in wrkstrm-core/.docc/
 - [Session Lab sandbox telemetry](project_session-lab-sandbox-telemetry.md) — Sandbox route in Session Lab showing /private/tmp/claude-{uid}/ disk usage
 - [Koma domain architecture](project_koma-domain-architecture.md) — six domains (core/context/meta/directory/build/intelligence), DAG deps, Ghost spans all, Komo stay within
-- [koma-plant](project_koma-plant.md) — コマプラント: factory app for the fleet. Ancestor is koma-by-wrkstrm (Phase 1 inventory). Phase 2 adds CLIDE dispatch + Metal canvas + live invocation
+- [koma-lab](project_koma-plant.md) — コマラブ (renamed from koma-plant 2026-04-15): lab + gym for the fleet. Stage World, TurnGraph, eval, profile persistence.
+- [Stage World Gym](project_stage-world-gym.md) — Factory → Stage World = gym for foundation sessions; fixture-staged isolated worlds for rehearsing Koma before live substrate
+- [Koma Gym Insight](project_koma-gym-insight.md) — 2026-04-15 breakthrough: fixture=prompt, allowlist=capability model, gym=training loop; organism is learnable not just deployable
 - [Next session pickup](project_next-session-pickup.md) — build koma-list first, replace 75-entry fixture with live 40-Komo fleet, wire koma-plant to real catalog
 - [Source Control next](project_source-control-next.md) — submodule commit history, concurrent commit detection (index.lock), cross-submodule timeline
+- [Graph rendering needs Metal](project_graph-rendering-perf.md) — SpriteKit too slow for 900+ nodes; experiment with Metal renderer in wrkstrm-performance, then share across Source Control / Collectives / Foundry
+- [Benchmark all surfaces simultaneously](feedback_bench-all-surfaces.md) — each backend gets its own executable target; never overwrite existing bench files, only add new ones
+- [Backends are peers not versions](feedback_backends-not-versions.md) — SpriteKit/SceneKit/Metal/UIKit Dynamics are parallel strategies, not v1/v2/v3; name by engine, never number
+- [No Co-Authored-By in commits](feedback_no-coauthored-by.md) — never add Claude attribution trailers; the operator is directing the work

@@ -1,24 +1,25 @@
 ---
-name: koma-plant コマプラント
-description: The Koma factory app — visual test environment for the entire fleet. Ancestor is koma-by-wrkstrm in wrkstrm-app (Phase 1 inventory viewer). Phase 2 adds CLIDE dispatch, live invocation, Metal canvas, beat visualization.
+name: koma-lab コマラブ
+description: The Koma lab app (renamed from koma-plant 2026-04-15) — gym + factory for the fleet. Stage World, TurnGraph debug, eval runs, profile persistence. Lives at koma-org/apps/koma-lab/.
 type: project
 ---
 
-**koma-plant** (コマプラント) — the factory where Komo are built, tested, dispatched, and observed.
+**koma-lab** (コマラブ, formerly koma-plant) — the lab where Komo are built, staged, validated, and dispatched.
 
-**Ancestor:** `wrkstrm-app/private/apple/apps/koma-by-wrkstrm/` — Phase 1 catalog viewer with ToolEvalManifestKit, WrkstrmTreeExplorer sidebar, InventoryDetailView, ModernSharedAppShell.
+**Renamed:** `koma-plant` → `koma-lab` on 2026-04-15 for brand consistency with the "Lab" naming convention.
 
-**Target:** `koma-org/apps/koma-plant/`
+**Target:** `koma-org/private/apple/apps/koma-lab/`
 
-**Phase 1 (existing):** Static inventory of 75 entries grouped by AgenticSurface + InventoryStatus. SwiftUI app.
+**Surfaces:**
+- Stage World gym — fixture-staged isolated worlds for rehearsing Koma inside Seatbelt sandboxes
+- TurnGraph debug — visual design + simulation of work graphs with handoff packets
+- Eval runs — audit + scoring of the fleet
+- Profile persistence — Save Profile button archives `.sb` profiles to koma homes under `profiles/<os-version>/`
 
-**Phase 2 (koma-plant):**
-- Migrate from wrkstrm-app to koma-org
-- Add CLIDE dispatch (invoke any Komo through the daemon)
-- Add live result streaming (JSON output rendered in the detail pane)
-- Add composition testing (chain Komo, see pipeline results)
-- Add provider comparison (same prompt → claude/codex/foundation-models)
-- Add Metal canvas layer for spatial fleet visualization
-- Add beat visualization (ephemeral execution traces)
+**Phase 2 still pending:**
+- CLIDE dispatch (invoke any Komo through the daemon)
+- Live result streaming
+- Metal canvas layer for spatial fleet visualization
+- Beat visualization (ephemeral execution traces)
 
-**How to apply:** Migrate the existing SwiftUI views (KomaRootView, InventoryStore, InventoryDetailView) as Phase 1 baseline. Layer the live dispatch and Metal canvas on top. AppDelegate root once Metal canvas becomes primary.
+**How to apply:** New work goes into `koma-lab`. The ancestor `koma-by-wrkstrm` in wrkstrm-app is retired Phase 1.

@@ -750,6 +750,223 @@
       ],
       "timestamp" : "2026-04-09T11:16:45Z",
       "title" : "Carect-ers: the sigil was the doctrine"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "session-lab: per-image regex strip, downscale via CodexSessionStoreCore, zstd compression estimate, .gitignore button, dominant image loading state, content analysis preload. Source Control: Submodules pane with push/reset-to-remote, gitignore filter for repo discovery, koma-plant visual architecture port with .windowStyle(.hiddenTitleBar).",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "git filter-repo --strip-blobs-bigger-than 100M on codex-sessions vault, per-session commits all under 100 MiB, force-pushed to GitHub. Fixed koma-git parseGitChangedFile quoting bug for paths with spaces. Full mono burn-down via koma-git + manual submodule commits.",
+              "type" : "tool",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "Unlocked the sessions vault push blocker by stripping oversized blobs with filter-repo, shipped inline image management in session-lab (strip, downscale, compress estimate, gitignore), built a Submodules pane in Source Control with push and reset-to-remote, fixed koma-git quoting for paths with spaces, and ported koma-plant's visual architecture to Source Control with hiddenTitleBar.",
+      "tags" : [
+        "session-lab",
+        "source-control",
+        "filter-repo",
+        "koma-git",
+        "inline-images",
+        "submodules",
+        "burn-down",
+        "visual-architecture"
+      ],
+      "timestamp" : "2026-04-14T11:34:19Z",
+      "title" : "Session-lab image toolkit, sessions vault unblocked, Source Control submodules pane + koma-plant port"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Built koma-memory in koma-org/domain/meta/ with audit, cluster, split, reindex commands. Keyword-table clustering, applied to hulk expertise (4 domain articles created, 0 content loss). Tracked FoundationModels judgment upgrade as 0.8.0 pattern in koma.issues.docc.",
+              "type" : "tool",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Built KomaSandboxRunner (Seatbelt .sb profile generation, sandbox-exec launch, DispatchSource timeout, ResumeOnce for Swift 6 concurrency) and KomaEvalRunView wired into koma-plant Factory > Eval Run lane.",
+              "type" : "code",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "Built koma-memory (audit/cluster/split/reindex for commissioned home memory bundles) and applied it to hulk expertise, splitting into 4 domain articles. Built KomaSandboxRunner with macOS Seatbelt sandbox-exec profiles for koma eval execution in koma-plant. Tracked the keyword-table → FoundationModels judgment upgrade as a universal 0.8.0 pattern.",
+      "tags" : [
+        "koma-memory",
+        "koma-plant",
+        "sandbox",
+        "seatbelt",
+        "eval",
+        "expertise-domains",
+        "foundation-models"
+      ],
+      "timestamp" : "2026-04-14T12:49:10Z",
+      "title" : "koma-memory + sandboxed eval runner in koma-plant"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Built and ran 5 core komo end-to-end (koma-echo, koma-scan-directory, koma-read-file, koma-git, koma-list). All 5 compile clean, execute with structured JSON output including identity/version/timestamp envelopes, and pass their full test suites (39 tests across 4 packages). Smart paths exercising on-device FoundationModels also pass (koma-echo triage/classify, koma-read-file smart read).",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Ran koma-list to produce a full fleet inventory: 56 komo across 7 domains, 21 built, 11 declared root koma. Core domain is 5/5 (100%), directory 5/9 (56%), meta 4/6 (67%), build 4/20 (20%), context 1/3, intelligence 1/12, gaming 1/1. The gap is in upper domains where 35 komo are scaffolded (identity files exist, no Package.swift or sources).",
+              "type" : "log",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Searched for a 'benchmark' koma at operator's request — none exists on disk or in any spec. The eval UI lane already exists in koma-plant (KomaEvalRunView.swift, KomaPlantLane.eval). Operator decided the benchmark concept should become koma-eval (not yet created this session).",
+              "type" : "log",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Rebuilt and launched koma-plant factory app (quit, delete stale .app, xcodebuild, open). Build succeeded clean.",
+              "type" : "tool",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Proved koma work end-to-end: 5 core komo build, run structured JSON, and pass all 39 tests (including on-device FoundationModels smart paths). Fleet inventory shows 56 komo across 7 domains with 21 built. Confirmed no benchmark koma exists — operator wants koma-eval created. Rebuilt koma-plant.",
+      "tags" : [
+        "koma",
+        "proof-of-concept",
+        "testing",
+        "koma-plant",
+        "fleet-inventory",
+        "koma-eval"
+      ],
+      "timestamp" : "2026-04-14T13:33:02Z",
+      "title" : "Prove koma work: 5 core komo green end-to-end"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Added KomaAgentToolAdapter<K> in new ApplePiKomaBridge target — wraps any Logikoma (Input/Output: Codable) as an AgentTool via JSON round-trip. Factory extension .asAgentTool() on Logikoma. 9 tests.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Replaced ad-hoc beforeTurn/afterResponse closures with AgentPlugin struct + TurnContext. onTurnStart(_ context: TurnContext) fires once before loop; onTurnEnd chains across plugins, transforms turnEnd event text only (session stores raw). 13 tests.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Added ProcessPlugin factory and ProcessPluginCommand: Codable — declarative JSON subprocess plugin. Template substitution for {{prompt}}, {{sessionFile}}, {{workingDirectory}} in args. Injects APPLE_PI_PROMPT, APPLE_PI_SESSION_FILE, APPLE_PI_REASON env vars. reason field documents invocation intent. 3 tests.",
+              "type" : "code",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "Built the apple-pi plugin architecture: KomaAgentToolAdapter bridges Logikoma to AgentTool, AgentPlugin + TurnContext formalise turn-start/turn-end hooks, and ProcessPlugin makes any CLI tool a declarative JSON plugin participant in the agent turn lifecycle.",
+      "tags" : [
+        "apple-pi",
+        "koma",
+        "plugin",
+        "agent-loop",
+        "process",
+        "spm"
+      ],
+      "timestamp" : "2026-04-15T20:21:56Z",
+      "title" : "apple-pi plugin architecture: KomaAgentToolAdapter + AgentPlugin + ProcessPlugin"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Introduced GraphBenchBackend protocol in sources/graph-view-bench-all/GraphBenchBackend.swift with 4 static requirements (backendName, displayName, searchHighBound, convergenceThreshold) plus @MainActor func measure(nodes:edges:durationSeconds:) async -> Double. Seven rendering strategies now conform: UIKitDynamicsBench, MetalLiveBench, SceneKitLiveBench, SceneKitV2Bench, HybridBench, RealityKitLiveBench, RealityKitSnapshotBench.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Collapsed graph-view-bench-press from 9 per-backend SPM executable targets to 1 unified graph-view-bench-all executable. BenchAll.run() iterates [any GraphBenchBackend] and runs the same 60fps binary search against each. Dropped 120fps target; every backend measures one target only.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Deleted sim-only + offscreen-texture conformers per operator rule 'must render to screen': SimOnlyBench, GpuSimBench, MetalOffscreenBench, SceneKitSnapshotBench removed. Ported SceneKitV2Bench (shared geometry + constant lighting + SCNTransaction batching), HybridBench (GPU sim feeding live SCNView), and RealityKitSnapshotBench (live ARView driven by SceneEvents.Update subscriber) from offscreen MTLTexture paths to live on-screen NSWindow variants.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Decoupled @main from BenchAll so the driver is library-callable: BenchAll became enum with @MainActor static func run() async; CLIEntry.swift holds native macOS CLI @main guarded by #if canImport(AppKit) && !canImport(UIKit); BenchAppDelegate becomes @main UIApplicationDelegate on Catalyst.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Built Mac Catalyst app shell via xcodegen: project.yml declares graph-view-bench-catalyst target (SUPPORTS_MACCATALYST=YES, GENERATE_INFOPLIST_FILE=YES) pointing at shared sources/graph-view-bench-all directory. Added AppDelegate.swift, SceneDelegate.swift, BenchViewController.swift, UIKitBenchHost.swift — all #if canImport(UIKit) gated. AppKit-only files (BenchWindow, CLIEntry, 6 live benches) guarded with #if canImport(AppKit) && !canImport(UIKit). Catalyst build produced .app bundle, launched, UIKit Dynamics renders colored circles on-screen with per-probe status label via BenchStatusDisplay hook.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Added SDF circle rendering to metal-game-engine fragment shader: VertexOut gained float2 uv in [-1,1]; quadFragment computes length(uv) - 1.0 and uses fwidth(d) + smoothstep for 1-pixel anti-aliasing without MSAA. Shaders.metal kept byte-for-byte in sync with embedded ShaderSource.swift.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Upstream fix in PerformanceLabKit/sources/PerformanceLabKit/BenchmarkRunner.swift: wrapped whole file in #if !targetEnvironment(macCatalyst) because Process.run() and executableURL are sandbox-banned on Catalyst. Downstream Catalyst targets still get ThresholdSearch* / SvgChartRenderer / report types.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Upstream fix in ForceDirectedGraphUIKitDynamics/UIKitDynamicsGraphBackend.swift: addLinearVelocity(_:for:) was passed CGVector; API expects CGPoint. Also added hostView: UIView? parameter as a second overload so callers can mount the animator container on-screen (library previously created an orphan container 'never displayed'); protocol-satisfying 4-arg method delegates to the 5-arg path with hostView: nil.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Fixed SceneKit live-window empty-scene bug: SCNCamera defaults zFar=100 but the camera was positioned at z=500, clipping every sphere at the depth test. Set zNear=1 / zFar=1000 explicitly.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Fixed _NSWindowTransformAnimation dealloc SIGSEGV during rapid binary-search probe transitions: NSWindow.close() during a CA transaction deallocates the animation object with dangling pointers. Switched makeBenchWindow to win.animationBehavior = .none and use win.orderOut(nil) in hideBenchWindow so bench windows never create transform animations.",
+              "type" : "log",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Captured native macOS CLI measurements with all six live renderers + 60fps binary search: Metal (live) ~9375 nodes, Hybrid GPU+SCN (live) ~1971, SceneKit (live) ~323, SceneKit V2 (live) ~322 [V2 optimisations yielded ~0 improvement — scene-graph traversal is the cap, not per-node setup], RealityKit (live) ~323, RealityKit (scheduler) ~318 [scheduler ≈ manual loop]. UIKit Dynamics baseline pending full Catalyst measurement run.",
+              "type" : "log",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "graph-view-bench-press: consolidated 9 per-backend executables into a single GraphBenchBackend-protocol-driven bench, dropped sim-only and offscreen variants, ported three benches from offscreen MTLTexture to live on-screen windows, and stood up a Mac Catalyst shell (xcodegen-driven) that runs UIKit Dynamics visibly with per-probe status. Shared sources/graph-view-bench-all directory serves both the native macOS SPM CLI and the Catalyst app via #if canImport(AppKit) vs #if canImport(UIKit) guards — no typealias layer, distinct file-per-platform implementations. Fixed two upstream bugs (PerformanceLabKit Catalyst guard, CGVector→CGPoint in UIKit Dynamics backend + added hostView parameter) and two rendering bugs (SCNCamera zFar clipping, NSWindow transform-animation crash).",
+      "tags" : [
+        "graph-view-bench-press",
+        "metal",
+        "scenekit",
+        "realitykit",
+        "uikit-dynamics",
+        "mac-catalyst",
+        "xcodegen",
+        "protocol",
+        "benchmark",
+        "bugfix"
+      ],
+      "timestamp" : "2026-04-16T18:04:45Z",
+      "title" : "graph-view-bench-press: GraphBenchBackend protocol + Mac Catalyst shell with live UIKit Dynamics"
     }
   ],
   "links" : [
@@ -772,5 +989,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-09T11:16:45Z"
+  "updated" : "2026-04-16T18:04:45Z"
 }
