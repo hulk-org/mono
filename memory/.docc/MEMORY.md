@@ -3,6 +3,7 @@
 - [Preserve historical data](feedback_no-rewrite-history.md) — never rewrite harvest/receipt/vault contents when paths change
 - [Save insights to docc](feedback_save-insights-docc.md) — write insights to claude home memory/.docc/insights/
 - [Substrate layout](project_substrate-layout.md) — orchestrators/ category, dynamic resolution, vaults pattern
+- [Desktop Utilities app](project_desktop-utilities.md) — renamed from desktop-by-wrkstrm; slug desktop-utilities, bundle me.rismay.desktop-utilities; z-order flexible desktop widget layer
 - [One truth, many lenses](user_one-truth-many-lenses.md) — canonical data is singular; the view is a function of who's looking (first product expression: Clia Day Collective view)
 - [Today app real customer](user_today-app-real-customer.md) — Today/clia-day Pa lens is for rismay reading AI end-of-session summaries; "Pa" is design language not literal customer; do not rename PaLens/PaStory/seedPa without asking
 - [Default roster: Hulk + Claude](user_harness-hulk-claude.md) — harness=hulk, agent=claude by default in rismay's substrate

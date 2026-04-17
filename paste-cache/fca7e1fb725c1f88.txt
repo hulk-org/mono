@@ -1,0 +1,459 @@
+-------------------------------------
+Translated Report (Full Report Below)
+-------------------------------------
+Process:             wrkstrm-chess [84358]
+Path:                /Users/USER/Library/Developer/Xcode/DerivedData/wrkstrm-chess-czxhjpggvcunxqfnamubaisppnzw/Build/Products/Debug/wrkstrm-chess.app/Contents/MacOS/wrkstrm-chess
+Identifier:          me.rismay.wrkstrm-chess
+Version:             0.1.0 (1)
+Code Type:           ARM-64 (Native)
+Role:                Foreground
+Parent Process:      launchd [1]
+Coalition:           me.rismay.wrkstrm-chess [6820]
+User ID:             501
+
+Date/Time:           2026-04-17 08:24:24.9448 -0700
+Launch Time:         2026-04-17 08:20:37.2194 -0700
+Hardware Model:      Mac13,2
+OS Version:          macOS 26.5 (25F5053d)
+Release Type:        User
+
+Crash Reporter Key:  63382C7E-35B9-672A-883D-871C45E48434
+Incident Identifier: 685FBABC-8401-4CA1-8D48-78BE22C9FA96
+
+Sleep/Wake UUID:       2841D40B-D2D5-4B02-9D17-322DDA3DD363
+
+Time Awake Since Boot: 60000 seconds
+Time Since Wake:       16019 seconds
+
+System Integrity Protection: enabled
+
+Triggered by Thread: 0, Dispatch Queue: com.apple.main-thread
+
+Exception Type:    EXC_BREAKPOINT (SIGTRAP)
+Exception Codes:   0x0000000000000001, 0x00000001954d54d4
+
+Termination Reason:  Namespace SIGNAL, Code 5, Trace/BPT trap: 5
+Terminating Process: exc handler [84358]
+
+
+Thread 0 Crashed::  Dispatch queue: com.apple.main-thread
+0   libswiftCore.dylib                       0x1954d54d4 closure #1 in closure #1 in _assertionFailure(_:_:file:line:flags:) + 400
+1   libswiftCore.dylib                       0x1954d4fa8 _assertionFailure(_:_:file:line:flags:) + 276
+2   wrkstrm-chess.debug.dylib                0x1057e0e2c WrkstrmChessAppDelegate.stopAndSave() + 656
+3   wrkstrm-chess.debug.dylib                0x1057e20e0 @objc WrkstrmChessAppDelegate.stopAndSave() + 132
+4   AppKit                                   0x18637d6c0 -[NSApplication(NSResponder) sendAction:to:from:] + 560
+5   AppKit                                   0x18637d460 -[NSControl sendAction:to:] + 72
+6   AppKit                                   0x18637d3a4 __26-[NSCell _sendActionFrom:]_block_invoke + 100
+7   AppKit                                   0x18637d2cc -[NSCell _sendActionFrom:] + 204
+8   AppKit                                   0x18637d1c8 -[NSButtonCell _sendActionFrom:] + 96
+9   AppKit                                   0x1868cc248 -[NSControl(_NSTracking) _pressGRActionCellBased:] + 2392
+10  AppKit                                   0x1868cca8c -[NSControl(_NSTracking) gestureRecognizerTrackingAction:] + 104
+11  AppKit                                   0x18637d6c0 -[NSApplication(NSResponder) sendAction:to:from:] + 560
+12  AppKit                                   0x186419660 _NSGestureRecognizerSendActions + 156
+13  AppKit                                   0x187124d2c -[NSGestureRecognizer _updateGesture] + 444
+14  Gestures                                 0x24d491ec4 0x24d481000 + 69316
+15  Gestures                                 0x24d4b3334 0x24d481000 + 205620
+16  Gestures                                 0x24d4e4a6c 0x24d481000 + 408172
+17  Gestures                                 0x24d513494 0x24d481000 + 599188
+18  AppKit                                   0x187056aec -[_NSGFGestureEnvironment _routeMouseEventToActiveGestureRecognizers:] + 312
+19  AppKit                                   0x18697d610 -[_NSGestureEnvironmentBase _sendMouseEventToGestureRecognizers:requireAcceptsFirstMouse:] + 376
+20  AppKit                                   0x18697e9b4 -[_NSGestureEnvironmentBase sendEventToGestureRecognizers:requireAcceptsFirstMouse:] + 92
+21  AppKit                                   0x186306e24 -[NSWindow(NSEventRouting) sendEvent:] + 316
+22  AppKit                                   0x186d77208 -[NSApplication(NSEventRouting) sendEvent:] + 1276
+23  AppKit                                   0x1869c4460 -[NSApplication _handleEvent:] + 60
+24  AppKit                                   0x1861d6164 -[NSApplication run] + 408
+25  wrkstrm-chess.debug.dylib                0x1057d21f4 static WrkstrmChessAppDelegate.main() + 128 (WrkstrmChessApp.swift:99)
+26  wrkstrm-chess.debug.dylib                0x1057f95ec static WrkstrmChessAppDelegate.$main() + 28
+27  wrkstrm-chess.debug.dylib                0x1057f9b30 __debug_main_executable_dylib_entry_point + 28
+28  dyld                                     0x18193be00 start + 6992
+
+Thread 1:: com.apple.NSEventThread
+0   libsystem_kernel.dylib                   0x181cb4c34 mach_msg2_trap + 8
+1   libsystem_kernel.dylib                   0x181cc7574 mach_msg2_internal + 76
+2   libsystem_kernel.dylib                   0x181cbd9c0 mach_msg_overwrite + 480
+3   libsystem_kernel.dylib                   0x181cb4fc0 mach_msg + 24
+4   CoreFoundation                           0x181db60d8 __CFRunLoopServiceMachPort + 160
+5   CoreFoundation                           0x181db49c4 __CFRunLoopRun + 1188
+6   CoreFoundation                           0x181e871c4 _CFRunLoopRunSpecificWithOptions + 532
+7   AppKit                                   0x186304c7c _NSEventThread + 184
+8   libsystem_pthread.dylib                  0x181cf8c58 _pthread_start + 136
+9   libsystem_pthread.dylib                  0x181cf3c1c thread_start + 8
+
+Thread 2:: CVDisplayLink
+0   libsystem_kernel.dylib                   0x181cb850c __psynch_cvwait + 8
+1   libsystem_pthread.dylib                  0x181cf9154 _pthread_cond_wait + 1024
+2   CoreVideo                                0x18c69eb44 CVDisplayLink::waitUntil(unsigned long long) + 336
+3   CoreVideo                                0x18c69dc2c CVDisplayLink::runIOThread() + 452
+4   libsystem_pthread.dylib                  0x181cf8c58 _pthread_start + 136
+5   libsystem_pthread.dylib                  0x181cf3c1c thread_start + 8
+
+Thread 3:
+
+Thread 4:
+
+Thread 5:
+
+Thread 6:
+
+Thread 7:
+
+Thread 8:
+
+Thread 9:
+
+Thread 10:
+
+Thread 11:
+
+Thread 12:
+
+Thread 13:
+
+Thread 14:
+
+Thread 15:
+
+Thread 16:
+
+Thread 17:
+
+Thread 18:
+
+Thread 19:
+
+Thread 20:
+
+Thread 21:
+
+Thread 22:
+
+Thread 23:
+
+Thread 24:
+
+
+Thread 0 crashed with ARM Thread State (64-bit):
+    x0: 0x0000100000000000   x1: 0xffffffffb0000000   x2: 0x0000000000000060   x3: 0xfffff0007fc00000
+    x4: 0x0000000cec1dd200   x5: 0x0000000000000013   x6: 0x0000000000000020   x7: 0xfffff0003ffff800
+    x8: 0x0000000000000000   x9: 0x000000007f7ceee5  x10: 0x0000000000000000  x11: 0x0000000000000000
+   x12: 0x57a725388083111a  x13: 0x57a71537808309bc  x14: 0x0000000000031000  x15: 0x000000000000001f
+   x16: 0x952d000cec1dd1a0  x17: 0x0000000a715379bc  x18: 0x0000000000000000  x19: 0x000000016af9c8e0
+   x20: 0x00000009de454300  x21: 0x0000000105a2903d  x22: 0x00000009dfc83d40  x23: 0x000000016af9d398
+   x24: 0x000000016af9d5f8  x25: 0x000000016af9dd38  x26: 0x00000009de456880  x27: 0x000000016af9db90
+   x28: 0x0000000000000038   fp: 0x000000016af9c8c0   lr: 0x00000001954d54d4
+    sp: 0x000000016af9c840   pc: 0x00000001954d54d4 cpsr: 0x00001000
+   far: 0x0000000000000000  esr: 0xf2000001 (Breakpoint) brk 1
+
+Binary Images:
+       0x104e60000 -        0x104e63fff me.rismay.wrkstrm-chess (0.1.0) <893c9dd4-d4a8-36b6-836e-654e2ada3763> /Users/USER/Library/Developer/Xcode/DerivedData/wrkstrm-chess-czxhjpggvcunxqfnamubaisppnzw/Build/Products/Debug/wrkstrm-chess.app/Contents/MacOS/wrkstrm-chess
+       0x1057cc000 -        0x105a53fff wrkstrm-chess.debug.dylib (*) <756365a4-7492-3428-bca6-3cb82ab076fc> /Users/USER/Library/Developer/Xcode/DerivedData/wrkstrm-chess-czxhjpggvcunxqfnamubaisppnzw/Build/Products/Debug/wrkstrm-chess.app/Contents/MacOS/wrkstrm-chess.debug.dylib
+       0x105108000 -        0x105113fff libobjc-trampolines.dylib (*) <0a7fd0b9-26a2-3383-b84f-600dc3259675> /usr/lib/libobjc-trampolines.dylib
+       0x10fa8c000 -        0x110217fff com.apple.AGXMetalG13X (350.38) <b90f0932-c522-3b3e-a2f4-b349bb7dd677> /System/Library/Extensions/AGXMetalG13X.bundle/Contents/MacOS/AGXMetalG13X
+       0x195374000 -        0x19591593f libswiftCore.dylib (*) <1f6379c4-20a8-3d2a-91a4-ed875d151d70> /usr/lib/swift/libswiftCore.dylib
+       0x1861aa000 -        0x1878cccff com.apple.AppKit (6.9) <661e1f8c-bcbc-37ac-bcaa-1ea2c98a21eb> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+       0x24d481000 -        0x24d544e9f com.apple.Gestures (9126.1.5) <4c201380-a671-3a56-b46f-e512988c7c78> /System/Library/PrivateFrameworks/Gestures.framework/Versions/A/Gestures
+       0x18191c000 -        0x1819c221b dyld (*) <88333106-9ae1-38f0-a867-d1d13eb095c6> /usr/lib/dyld
+               0x0 - 0xffffffffffffffff ??? (*) <00000000-0000-0000-0000-000000000000> ???
+       0x181cb4000 -        0x181cf12bf libsystem_kernel.dylib (*) <5432a8da-5b84-3e1f-a7da-cc57f12a182e> /usr/lib/system/libsystem_kernel.dylib
+       0x181d38000 -        0x18229631f com.apple.CoreFoundation (6.9) <16c06922-75b6-3e7b-afca-fdbbe4918456> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+       0x181cf2000 -        0x181cfeb3b libsystem_pthread.dylib (*) <dd1fa812-fca0-3899-bbf2-cbfe1d29bd03> /usr/lib/system/libsystem_pthread.dylib
+       0x18c69b000 -        0x18c71b85f com.apple.CoreVideo (1.8) <771276b8-ea10-35a7-907b-13b5d76f1737> /System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=1.8G resident=0K(0%) swapped_out_or_unallocated=1.8G(100%)
+Writable regions: Total=268.3M written=689K(0%) resident=689K(0%) swapped_out=0K(0%) unallocated=267.7M(100%)
+
+                                VIRTUAL   REGION 
+REGION TYPE                        SIZE    COUNT (non-coalesced) 
+===========                     =======  ======= 
+Accelerate framework               128K        1 
+Activity Tracing                   256K        1 
+AttributeGraph Data               1024K        1 
+ColorSync                           16K        1 
+CoreAnimation                     2032K       95 
+CoreGraphics                        48K        3 
+CoreUI image data                  496K        4 
+Foundation                          16K        1 
+Kernel Alloc Once                   32K        1 
+MALLOC                           179.5M       55 
+MALLOC guard page                 3520K        4 
+Memory Tag 22                     64.0M        1 
+STACK GUARD                       56.4M       25 
+Stack                             20.7M       25 
+VM_ALLOCATE                        208K       13 
+__AUTH                            6011K      636 
+__AUTH_CONST                      89.7M     1023 
+__CTF                               824        1 
+__DATA                            34.5M      974 
+__DATA_CONST                      34.5M     1032 
+__DATA_DIRTY                      8335K      874 
+__FONT_DATA                        2352        1 
+__LINKEDIT                       578.8M        5 
+__OBJC_RO                         79.1M        1 
+__OBJC_RW                         2598K        1 
+__TEXT                             1.2G     1055 
+__TPRO_CONST                       128K        2 
+mapped file                      265.7M       37 
+page table in kernel               689K        1 
+shared memory                     1440K       14 
+===========                     =======  ======= 
+TOTAL                              2.6G     5888 
+
+
+-----------
+Full Report
+-----------
+
+{"app_name":"wrkstrm-chess","timestamp":"2026-04-17 08:24:28.00 -0700","app_version":"0.1.0","slice_uuid":"893c9dd4-d4a8-36b6-836e-654e2ada3763","build_version":"1","platform":1,"bundleID":"me.rismay.wrkstrm-chess","share_with_app_devs":1,"is_first_party":0,"bug_type":"309","os_version":"macOS 26.5 (25F5053d)","roots_installed":0,"name":"wrkstrm-chess","incident_id":"685FBABC-8401-4CA1-8D48-78BE22C9FA96"}
+{
+  "uptime" : 60000,
+  "procRole" : "Foreground",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "Mac13,2",
+  "coalitionID" : 6820,
+  "osVersion" : {
+    "train" : "macOS 26.5",
+    "build" : "25F5053d",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2026-04-17 08:24:24.9448 -0700",
+  "codeSigningMonitor" : 2,
+  "incident" : "685FBABC-8401-4CA1-8D48-78BE22C9FA96",
+  "pid" : 84358,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "procLaunch" : "2026-04-17 08:20:37.2194 -0700",
+  "procStartAbsTime" : 1443833208964,
+  "procExitAbsTime" : 1449298531446,
+  "procName" : "wrkstrm-chess",
+  "procPath" : "\/Users\/USER\/Library\/Developer\/Xcode\/DerivedData\/wrkstrm-chess-czxhjpggvcunxqfnamubaisppnzw\/Build\/Products\/Debug\/wrkstrm-chess.app\/Contents\/MacOS\/wrkstrm-chess",
+  "bundleInfo" : {"CFBundleShortVersionString":"0.1.0","CFBundleVersion":"1","CFBundleIdentifier":"me.rismay.wrkstrm-chess"},
+  "storeInfo" : {"deviceIdentifierForVendor":"7D5B3D8F-3397-5545-B5BA-D10690EADD10","thirdParty":true},
+  "parentProc" : "launchd",
+  "parentPid" : 1,
+  "coalitionName" : "me.rismay.wrkstrm-chess",
+  "crashReporterKey" : "63382C7E-35B9-672A-883D-871C45E48434",
+  "appleIntelligenceStatus" : {"state":"available"},
+  "developerMode" : 1,
+  "codeSigningID" : "wrkstrm-chess",
+  "codeSigningTeamID" : "",
+  "codeSigningFlags" : 570556929,
+  "codeSigningValidationCategory" : 10,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "instructionByteStream" : {"beforePC":"6AUAtej8YNMoAQC14AMFquEDBqrkAwuq5QMJquYDB6rnAwqqnlj\/lw==","atPC":"IAAg1CgAgFKJn4FS6BMAuekHAPlIAIBS6AMAOWAaAJAAEDqRYxoAkA=="},
+  "bootSessionUUID" : "CE27EF74-B3D2-427A-97E8-914A5A218C6A",
+  "wakeTime" : 16019,
+  "sleepWakeUUID" : "2841D40B-D2D5-4B02-9D17-322DDA3DD363",
+  "sip" : "enabled",
+  "exception" : {"codes":"0x0000000000000001, 0x00000001954d54d4","rawCodes":[1,6799840468],"type":"EXC_BREAKPOINT","signal":"SIGTRAP"},
+  "termination" : {"flags":0,"code":5,"namespace":"SIGNAL","indicator":"Trace\/BPT trap: 5","byProc":"exc handler","byPid":84358},
+  "os_fault" : {"process":"wrkstrm-chess"},
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":3460412,"threadState":{"x":[{"value":17592186044416},{"value":18446744072367374336},{"value":96},{"value":18446726483666796544},{"value":55500984832},{"value":19},{"value":32},{"value":18446726482597246976},{"value":0},{"value":2138894053},{"value":0},{"value":0},{"value":6316057927014879514},{"value":6316040330533865916},{"value":200704},{"value":31},{"value":10749247941104226720},{"value":44850969020},{"value":0},{"value":6089722080},{"value":42383786752},{"value":4389507133},{"value":42409147712},{"value":6089724824},{"value":6089725432},{"value":6089727288},{"value":42383796352},{"value":6089726864},{"value":56}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6799840468},"cpsr":{"value":4096},"fp":{"value":6089722048},"sp":{"value":6089721920},"esr":{"value":4060086273,"description":"(Breakpoint) brk 1"},"pc":{"value":6799840468,"matchesCrashFrame":1},"far":{"value":0}},"queue":"com.apple.main-thread","frames":[{"imageOffset":1447124,"symbol":"closure #1 in closure #1 in _assertionFailure(_:_:file:line:flags:)","symbolLocation":400,"imageIndex":4},{"imageOffset":1445800,"symbol":"_assertionFailure(_:_:file:line:flags:)","symbolLocation":276,"imageIndex":4},{"imageOffset":85548,"sourceFile":"WrkstrmChessApp.swift","symbol":"WrkstrmChessAppDelegate.stopAndSave()","symbolLocation":656,"imageIndex":1},{"imageOffset":90336,"sourceFile":"\/<compiler-generated>","symbol":"@objc WrkstrmChessAppDelegate.stopAndSave()","symbolLocation":132,"imageIndex":1},{"imageOffset":1914560,"symbol":"-[NSApplication(NSResponder) sendAction:to:from:]","symbolLocation":560,"imageIndex":5},{"imageOffset":1913952,"symbol":"-[NSControl sendAction:to:]","symbolLocation":72,"imageIndex":5},{"imageOffset":1913764,"symbol":"__26-[NSCell _sendActionFrom:]_block_invoke","symbolLocation":100,"imageIndex":5},{"imageOffset":1913548,"symbol":"-[NSCell _sendActionFrom:]","symbolLocation":204,"imageIndex":5},{"imageOffset":1913288,"symbol":"-[NSButtonCell _sendActionFrom:]","symbolLocation":96,"imageIndex":5},{"imageOffset":7479880,"symbol":"-[NSControl(_NSTracking) _pressGRActionCellBased:]","symbolLocation":2392,"imageIndex":5},{"imageOffset":7481996,"symbol":"-[NSControl(_NSTracking) gestureRecognizerTrackingAction:]","symbolLocation":104,"imageIndex":5},{"imageOffset":1914560,"symbol":"-[NSApplication(NSResponder) sendAction:to:from:]","symbolLocation":560,"imageIndex":5},{"imageOffset":2553440,"symbol":"_NSGestureRecognizerSendActions","symbolLocation":156,"imageIndex":5},{"imageOffset":16231724,"symbol":"-[NSGestureRecognizer _updateGesture]","symbolLocation":444,"imageIndex":5},{"imageOffset":69316,"imageIndex":6},{"imageOffset":205620,"imageIndex":6},{"imageOffset":408172,"imageIndex":6},{"imageOffset":599188,"imageIndex":6},{"imageOffset":15387372,"symbol":"-[_NSGFGestureEnvironment _routeMouseEventToActiveGestureRecognizers:]","symbolLocation":312,"imageIndex":5},{"imageOffset":8205840,"symbol":"-[_NSGestureEnvironmentBase _sendMouseEventToGestureRecognizers:requireAcceptsFirstMouse:]","symbolLocation":376,"imageIndex":5},{"imageOffset":8210868,"symbol":"-[_NSGestureEnvironmentBase sendEventToGestureRecognizers:requireAcceptsFirstMouse:]","symbolLocation":92,"imageIndex":5},{"imageOffset":1429028,"symbol":"-[NSWindow(NSEventRouting) sendEvent:]","symbolLocation":316,"imageIndex":5},{"imageOffset":12374536,"symbol":"-[NSApplication(NSEventRouting) sendEvent:]","symbolLocation":1276,"imageIndex":5},{"imageOffset":8496224,"symbol":"-[NSApplication _handleEvent:]","symbolLocation":60,"imageIndex":5},{"imageOffset":180580,"symbol":"-[NSApplication run]","symbolLocation":408,"imageIndex":5},{"imageOffset":25076,"sourceLine":99,"sourceFile":"WrkstrmChessApp.swift","symbol":"static WrkstrmChessAppDelegate.main()","imageIndex":1,"symbolLocation":128},{"imageOffset":185836,"sourceFile":"\/<compiler-generated>","symbol":"static WrkstrmChessAppDelegate.$main()","symbolLocation":28,"imageIndex":1},{"imageOffset":187184,"sourceFile":"\/<compiler-generated>","symbol":"__debug_main_executable_dylib_entry_point","symbolLocation":28,"imageIndex":1},{"imageOffset":130560,"symbol":"start","symbolLocation":6992,"imageIndex":7}]},{"id":3460513,"name":"com.apple.NSEventThread","threadState":{"x":[{"value":268451845},{"value":21592279046},{"value":8589934592},{"value":94570884890624},{"value":0},{"value":94570884890624},{"value":2},{"value":4294967295},{"value":0},{"value":17179869184},{"value":0},{"value":2},{"value":0},{"value":0},{"value":22019},{"value":0},{"value":18446744073709551569},{"value":8311895296},{"value":0},{"value":4294967295},{"value":2},{"value":94570884890624},{"value":0},{"value":94570884890624},{"value":21592279046},{"value":6092578952},{"value":8589934592},{"value":18446744073709550527},{"value":4412409862}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6472627572},"cpsr":{"value":4096},"fp":{"value":6092578800},"sp":{"value":6092578720},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472551476},"far":{"value":0}},"frames":[{"imageOffset":3124,"symbol":"mach_msg2_trap","symbolLocation":8,"imageIndex":9},{"imageOffset":79220,"symbol":"mach_msg2_internal","symbolLocation":76,"imageIndex":9},{"imageOffset":39360,"symbol":"mach_msg_overwrite","symbolLocation":480,"imageIndex":9},{"imageOffset":4032,"symbol":"mach_msg","symbolLocation":24,"imageIndex":9},{"imageOffset":516312,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":160,"imageIndex":10},{"imageOffset":510404,"symbol":"__CFRunLoopRun","symbolLocation":1188,"imageIndex":10},{"imageOffset":1372612,"symbol":"_CFRunLoopRunSpecificWithOptions","symbolLocation":532,"imageIndex":10},{"imageOffset":1420412,"symbol":"_NSEventThread","symbolLocation":184,"imageIndex":5},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":11},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":11}]},{"id":3460523,"name":"CVDisplayLink","threadState":{"x":[{"value":260},{"value":0},{"value":0},{"value":0},{"value":0},{"value":65704},{"value":0},{"value":15648875},{"value":3490049},{"value":0},{"value":0},{"value":2},{"value":2},{"value":0},{"value":0},{"value":0},{"value":305},{"value":8311893416},{"value":0},{"value":42407103544},{"value":42407103608},{"value":1},{"value":15648875},{"value":0},{"value":0},{"value":3490049},{"value":3490304},{"value":8245950712,"symbolLocation":0,"symbol":"kZeroVideoTime"},{"value":1449298606644}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6472831316},"cpsr":{"value":2684358656},"fp":{"value":6093155760},"sp":{"value":6093155616},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472566028},"far":{"value":0}},"frames":[{"imageOffset":17676,"symbol":"__psynch_cvwait","symbolLocation":8,"imageIndex":9},{"imageOffset":29012,"symbol":"_pthread_cond_wait","symbolLocation":1024,"imageIndex":11},{"imageOffset":15172,"symbol":"CVDisplayLink::waitUntil(unsigned long long)","symbolLocation":336,"imageIndex":12},{"imageOffset":11308,"symbol":"CVDisplayLink::runIOThread()","symbolLocation":452,"imageIndex":12},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":11},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":11}]},{"id":3460907,"frames":[],"threadState":{"x":[{"value":6093729792},{"value":69275},{"value":6093193216},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6093729792},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3463880,"frames":[],"threadState":{"x":[{"value":6097170432},{"value":5731},{"value":6096633856},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6097170432},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3464062,"frames":[],"threadState":{"x":[{"value":6090289152},{"value":51055},{"value":6089752576},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6090289152},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3464067,"frames":[],"threadState":{"x":[{"value":6095450112},{"value":68919},{"value":6094913536},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6095450112},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3464073,"frames":[],"threadState":{"x":[{"value":6100611072},{"value":83899},{"value":6100074496},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6100611072},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465528,"frames":[],"threadState":{"x":[{"value":6090862592},{"value":71847},{"value":6090326016},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6090862592},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465529,"frames":[],"threadState":{"x":[{"value":6091436032},{"value":67311},{"value":6090899456},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6091436032},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465530,"frames":[],"threadState":{"x":[{"value":6092009472},{"value":66547},{"value":6091472896},{"value":0},{"value":409602},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6092009472},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465531,"frames":[],"threadState":{"x":[{"value":6094303232},{"value":84179},{"value":6093766656},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6094303232},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465532,"frames":[],"threadState":{"x":[{"value":6094876672},{"value":65863},{"value":6094340096},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6094876672},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465533,"frames":[],"threadState":{"x":[{"value":6096023552},{"value":81923},{"value":6095486976},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6096023552},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465534,"frames":[],"threadState":{"x":[{"value":6096596992},{"value":71939},{"value":6096060416},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6096596992},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465535,"frames":[],"threadState":{"x":[{"value":6097743872},{"value":81667},{"value":6097207296},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6097743872},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465536,"frames":[],"threadState":{"x":[{"value":6098317312},{"value":81411},{"value":6097780736},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6098317312},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465537,"frames":[],"threadState":{"x":[{"value":6098890752},{"value":55707},{"value":6098354176},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6098890752},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465538,"frames":[],"threadState":{"x":[{"value":6099464192},{"value":72963},{"value":6098927616},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6099464192},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465539,"frames":[],"threadState":{"x":[{"value":6100037632},{"value":80643},{"value":6099501056},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6100037632},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465540,"frames":[],"threadState":{"x":[{"value":6101184512},{"value":73219},{"value":6100647936},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6101184512},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465541,"frames":[],"threadState":{"x":[{"value":6101757952},{"value":80899},{"value":6101221376},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6101757952},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465542,"frames":[],"threadState":{"x":[{"value":6102331392},{"value":82235},{"value":6101794816},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6102331392},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465552,"frames":[],"threadState":{"x":[{"value":6102904832},{"value":72859},{"value":6102368256},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6102904832},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6472809480},"far":{"value":0}}},{"id":3465719,"frames":[],"threadState":{"x":[{"value":6103478272},{"value":0},{"value":6102941696},{"value":0},{"value":278532},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6103478272},"esr":{"value":0},"pc":{"value":6472809480},"far":{"value":0}}}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4377149440,
+    "CFBundleShortVersionString" : "0.1.0",
+    "CFBundleIdentifier" : "me.rismay.wrkstrm-chess",
+    "size" : 16384,
+    "uuid" : "893c9dd4-d4a8-36b6-836e-654e2ada3763",
+    "path" : "\/Users\/USER\/Library\/Developer\/Xcode\/DerivedData\/wrkstrm-chess-czxhjpggvcunxqfnamubaisppnzw\/Build\/Products\/Debug\/wrkstrm-chess.app\/Contents\/MacOS\/wrkstrm-chess",
+    "name" : "wrkstrm-chess",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4387028992,
+    "size" : 2654208,
+    "uuid" : "756365a4-7492-3428-bca6-3cb82ab076fc",
+    "path" : "\/Users\/USER\/Library\/Developer\/Xcode\/DerivedData\/wrkstrm-chess-czxhjpggvcunxqfnamubaisppnzw\/Build\/Products\/Debug\/wrkstrm-chess.app\/Contents\/MacOS\/wrkstrm-chess.debug.dylib",
+    "name" : "wrkstrm-chess.debug.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4379934720,
+    "size" : 49152,
+    "uuid" : "0a7fd0b9-26a2-3383-b84f-600dc3259675",
+    "path" : "\/usr\/lib\/libobjc-trampolines.dylib",
+    "name" : "libobjc-trampolines.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4557684736,
+    "CFBundleShortVersionString" : "350.38",
+    "CFBundleIdentifier" : "com.apple.AGXMetalG13X",
+    "size" : 7913472,
+    "uuid" : "b90f0932-c522-3b3e-a2f4-b349bb7dd677",
+    "path" : "\/System\/Library\/Extensions\/AGXMetalG13X.bundle\/Contents\/MacOS\/AGXMetalG13X",
+    "name" : "AGXMetalG13X",
+    "CFBundleVersion" : "350.38"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6798393344,
+    "size" : 5904704,
+    "uuid" : "1f6379c4-20a8-3d2a-91a4-ed875d151d70",
+    "path" : "\/usr\/lib\/swift\/libswiftCore.dylib",
+    "name" : "libswiftCore.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6544859136,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.AppKit",
+    "size" : 24259840,
+    "uuid" : "661e1f8c-bcbc-37ac-bcaa-1ea2c98a21eb",
+    "path" : "\/System\/Library\/Frameworks\/AppKit.framework\/Versions\/C\/AppKit",
+    "name" : "AppKit",
+    "CFBundleVersion" : "2685.60.103"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 9886502912,
+    "CFBundleShortVersionString" : "9126.1.5",
+    "CFBundleIdentifier" : "com.apple.Gestures",
+    "size" : 802464,
+    "uuid" : "4c201380-a671-3a56-b46f-e512988c7c78",
+    "path" : "\/System\/Library\/PrivateFrameworks\/Gestures.framework\/Versions\/A\/Gestures",
+    "name" : "Gestures",
+    "CFBundleVersion" : "9126.1.5"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6468780032,
+    "size" : 680476,
+    "uuid" : "88333106-9ae1-38f0-a867-d1d13eb095c6",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6472548352,
+    "size" : 250560,
+    "uuid" : "5432a8da-5b84-3e1f-a7da-cc57f12a182e",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6473089024,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.CoreFoundation",
+    "size" : 5628704,
+    "uuid" : "16c06922-75b6-3e7b-afca-fdbbe4918456",
+    "path" : "\/System\/Library\/Frameworks\/CoreFoundation.framework\/Versions\/A\/CoreFoundation",
+    "name" : "CoreFoundation",
+    "CFBundleVersion" : "5026.5.2.1"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6472802304,
+    "size" : 52028,
+    "uuid" : "dd1fa812-fca0-3899-bbf2-cbfe1d29bd03",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6650703872,
+    "CFBundleShortVersionString" : "1.8",
+    "CFBundleIdentifier" : "com.apple.CoreVideo",
+    "size" : 526432,
+    "uuid" : "771276b8-ea10-35a7-907b-13b5d76f1737",
+    "path" : "\/System\/Library\/Frameworks\/CoreVideo.framework\/Versions\/A\/CoreVideo",
+    "name" : "CoreVideo",
+    "CFBundleVersion" : "734.4"
+  }
+],
+  "sharedCache" : {
+  "base" : 6467649536,
+  "size" : 5989859328,
+  "uuid" : "3377d5f4-05a6-32ea-b6e2-f81718539112"
+},
+  "vmSummary" : "ReadOnly portion of Libraries: Total=1.8G resident=0K(0%) swapped_out_or_unallocated=1.8G(100%)\nWritable regions: Total=268.3M written=689K(0%) resident=689K(0%) swapped_out=0K(0%) unallocated=267.7M(100%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nAccelerate framework               128K        1 \nActivity Tracing                   256K        1 \nAttributeGraph Data               1024K        1 \nColorSync                           16K        1 \nCoreAnimation                     2032K       95 \nCoreGraphics                        48K        3 \nCoreUI image data                  496K        4 \nFoundation                          16K        1 \nKernel Alloc Once                   32K        1 \nMALLOC                           179.5M       55 \nMALLOC guard page                 3520K        4 \nMemory Tag 22                     64.0M        1 \nSTACK GUARD                       56.4M       25 \nStack                             20.7M       25 \nVM_ALLOCATE                        208K       13 \n__AUTH                            6011K      636 \n__AUTH_CONST                      89.7M     1023 \n__CTF                               824        1 \n__DATA                            34.5M      974 \n__DATA_CONST                      34.5M     1032 \n__DATA_DIRTY                      8335K      874 \n__FONT_DATA                        2352        1 \n__LINKEDIT                       578.8M        5 \n__OBJC_RO                         79.1M        1 \n__OBJC_RW                         2598K        1 \n__TEXT                             1.2G     1055 \n__TPRO_CONST                       128K        2 \nmapped file                      265.7M       37 \npage table in kernel               689K        1 \nshared memory                     1440K       14 \n===========                     =======  ======= \nTOTAL                              2.6G     5888 \n",
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "logWritingSignature" : "45b2ab84bd0b83518429c6e4a841edb2ca7ee477",
+  "roots_installed" : 0,
+  "bug_type" : "309",
+  "trmStatus" : 8192,
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "63f9578e238e7b23a1f3030a",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 240000005
+    },
+    {
+      "rolloutId" : "64b1b9b57b7a217c6795f565",
+      "factorPackIds" : [
+        "64b1b9e69aa41116c95f6d9c"
+      ],
+      "deploymentId" : 250000003
+    }
+  ],
+  "experiments" : [
+
+  ]
+}
+}
+
+Model: Mac13,2, BootROM 18000.120.31.0.1, proc 20:16:4:0 processors, 64 GB, SMC 
+Graphics: Apple M1 Ultra, Apple M1 Ultra, Built-In
+Display: LG SMART UHD, 6016 x 3384, Main, MirrorOff, Online
+Display: DP, 1920 x 1080 (1080p FHD - Full High Definition), MirrorOff, Online
+Memory Module: LPDDR5, Hynix
+AirPort: spairport_wireless_card_type_wifi (0x14E4, 0x4387), wl0: Jan 20 2026 17:44:29 version 20.140.13.0.8.7.224 FWID 01-ad1e8d98
+IO80211_driverkit-1561.3 "IO80211_driverkit-1561.3" Apr  7 2026 20:13:46
+AirPort: 
+Bluetooth: Version (null), 0 services, 0 devices, 0 incoming serial ports
+Network Service: Wi-Fi, AirPort, en1
+Network Service: Ethernet, Ethernet, en0
+Thunderbolt Bus: Mac Studio, Apple Inc.
+Thunderbolt Bus: Mac Studio, Apple Inc.
+Thunderbolt Bus: Mac Studio, Apple Inc.
+Thunderbolt Bus: Mac Studio, Apple Inc.
+Thunderbolt Bus: Mac Studio, Apple Inc.
+Thunderbolt Bus: Mac Studio, Apple Inc.

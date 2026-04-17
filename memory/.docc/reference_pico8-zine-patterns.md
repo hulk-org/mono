@@ -39,4 +39,23 @@ Key patterns extracted from picozine 1-4 (August 2015 – 2017):
 - 128×128 screen, 16 colors, 128 sprites (8×8 each), 8192 tokens of code.
 - The constraints ARE the identity. Expanding them loses the feel.
 
-**How to apply:** sprite-forge-editor should support pal() remapping (palette slot editing already works), palt() per-color transparency toggle, flag-based collision queries in the runtime, and horizontal-strip animation frame grouping. Agent-rpg's map renderer should use `fget(mget(x,y), .solid)` for collision.
+**Editor layout (from Zine #4 p9 screenshot — the canonical reference):**
+- Sprite strip at BOTTOM (not left sidebar), horizontally scrollable
+- Pixel canvas DOMINATES center (~70% of window)
+- Palette: compact 4×4 grid, top-right corner
+- Tools: tiny icon buttons (pen/stamp/select/copy/fill/circle/rect/line) — NOT text labels
+- Flags: 8 colored dots in a row at bottom-right (not checkboxes)
+- Page buttons [0][1][2][3] for sprite bank pages
+
+**pal() as character reuse pattern (Zine #3 Succer):**
+- ONE player sprite template → draw N times with different pal() remaps → entire team
+- Eliminates per-agent procedural generation; ~5 body templates + palette remap table replaces 40 unique sprites
+- Atlas shrinks dramatically; palette remap is 3 bytes vs 1024 bytes per sprite
+
+**Distance-field AI (Zine #4 p6-7):**
+- Flood-fill distance from hero position, gated by `fget(mget(x,y), .solid)`
+- Monsters check 4 neighbors, move toward lower distance
+- Simple, no A* needed for most room-scale navigation
+- Directly applicable to agent-rpg Koma movement in rooms
+
+**How to apply:** sprite-forge-editor layout should match the PICO-8 canonical layout (bottom strip, dominant canvas, compact palette). The procedural character generator should move to template + pal() remap model. Agent-rpg room navigation should use distance-field AI with fget+mget pattern. The cartridge is a creative artifact, not a config file.
