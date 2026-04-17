@@ -19,6 +19,20 @@ A dated log of notable events, decisions, and onboarding progress.
 
 ## Entries
 
+## 2026-04-16 — Sprite Forge pipeline: procedural sprites → PICO-8 editor → Metal game engine → agent-rpg
+
+- Context: Operator asked "does that look like Game Dev Story?" after seeing the
+  SDF-circle studio. Escalated from camera input fix to a full sprite pipeline.
+- Actions: Built ProceduralSprites library (32×32, 16-color warm palette, pinned
+  ^claude sprite), swift-sprite-forge-cli, sprite-forge-editor (PICO-8-inspired
+  AppKit Mac app with pixel canvas, palette, tools, undo, map editor, inspector),
+  Metal SpriteRenderer + textured shader, SpriteAtlas runtime, agent-rpg render
+  style toggle (classic SDF / sprites / mixed). Also: CameraController max-perf
+  rewrite, clia-rpg end-to-end cleanup, PICO-8 zine study (all 4 fanzines).
+- Artifacts: <doc:articles/journal-2026-04-16-sprite-forge-metal-pipeline>
+- Next: GPU-side palette (R8 texture + pal() remap), template-based characters,
+  distance-field AI, 8×8 mode, tilemap integration.
+
 ## 2026-04-13 — session-lab image toolkit, sessions vault unblocked, Source Control submodules + koma-plant port
 
 - Context: S1 incident blocker — sessions vault couldn't push (files >100 MiB),

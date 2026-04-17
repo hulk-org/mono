@@ -48,6 +48,9 @@ existing cast.
 - [App Store Shipping](domains/app-store-shipping.md) — 5 entries
 - [Spm Packaging](domains/spm-packaging.md) — 4 entries
 - [Ios Macos Frameworks](domains/ios-macos-frameworks.md) — 3 entries
+- Metal Game Engine — sprite pipeline, textured quad rendering, SDF+sprite parallel strategies
+- Procedural Pixel Art — palette-indexed sprite generation, PICO-8-style cartridge format, deterministic character recipes
+- AppKit Editor Apps — NSView-based pixel editors, manual layout, observer-pattern state, undo stack
 
 ## Unclustered entries
 
@@ -57,6 +60,21 @@ existing cast.
 
 ## Recent work
 
+- 2026-04-16: **Sprite Forge + Metal sprite pipeline.** Full PICO-8-inspired
+  procedural sprite system: ProceduralSprites library (palette-indexed 32×32
+  canvas, warm-earth 16-color palette, deterministic character/tile/prop
+  recipes, AtlasBuilder with CoreGraphics PNG encoding, Cartridge JSON
+  round-trip, SpriteFlags OptionSet), swift-sprite-forge-cli, and
+  sprite-forge-editor Mac app (AppKit pixel canvas with integer zoom +
+  checkerboard + grid, palette editor, pencil/eraser/fill/eyedropper/line/rect
+  tools, undo/redo 64-stack, map editor, inspector with flags + tags + rename,
+  PICO-8 canonical layout). Metal engine gains TexturedQuadInstance +
+  SpriteRenderer (nearest-neighbor atlas sampling, dirty-range double-buffer,
+  per-instance tint). SpriteAtlas runtime loader via MTKTextureLoader.
+  Agent-rpg: render style toggle (classic SDF / sprites / mixed), atlas
+  live-reload watcher. CameraController rewrite: stored viewSize, cursor-
+  anchored zoom, @inlinable AppKit bridges, @MainActor. PICO-8 zine study:
+  pal() template model, distance-field AI, editor layout canon.
 - 2026-04-14 (continued): Built koma-memory (audit/cluster/split/reindex)
   in koma-org/domain/meta/. Applied split to hulk expertise — 4 domain
   articles created (git-operations, app-store-shipping, spm-packaging,
