@@ -19,6 +19,21 @@ A dated log of notable events, decisions, and onboarding progress.
 
 ## Entries
 
+## 2026-04-17 — GameScene layer, pixel collision, honest game review
+
+- Context: Continuation of sprite-forge sprint. Operator asked for
+  SpriteKit-equivalent APIs, then iterated collision/bounds/labels
+  through rapid build-test-feedback cycles.
+- Actions: Built GameNode scene graph (6 files in metal-game-engine),
+  StudioGameScene with node tree + actions + Y-sort, pixel-level AABB
+  collision at feet, 5 bounds iterations to nail asymmetric Y, camera
+  clamping, keymap HUD, PICO-8 editor layout overhaul. Honest game
+  review: sprite mode = "walking demo," needs walls + walk animation +
+  agent AI to reach Game Dev Story.
+- Artifacts: <doc:articles/journal-2026-04-17-gamescene-layer-collision-review>
+- Next: Wall sprites, 2-frame walk animation, distance-field agent AI,
+  NPC interaction via Koma profiles, GPU-side palette.
+
 ## 2026-04-16 — Sprite Forge pipeline: procedural sprites → PICO-8 editor → Metal game engine → agent-rpg
 
 - Context: Operator asked "does that look like Game Dev Story?" after seeing the

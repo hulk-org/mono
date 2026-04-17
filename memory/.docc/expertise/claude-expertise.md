@@ -60,6 +60,15 @@ existing cast.
 
 ## Recent work
 
+- 2026-04-17: **GameScene scene graph + collision + game review.** Built
+  SpriteKit-equivalent GameNode layer (scene graph, actions, flatten to
+  Scene2D). StudioGameScene with 20×14 tile floor, 18 nodes with idle
+  animations, Y-sort, parent-child hierarchy (thought bubble tracks
+  Claude). Pixel-level AABB foot collision replacing tile grid. 5
+  iterations of asymmetric bounds refinement (sprite transparent padding
+  vs opaque body vs pixel-row geometry). Camera clamping to room
+  boundaries. Honest comparative review of classic vs sprite render
+  modes identifying 3 key gaps (walls, walk animation, agent AI).
 - 2026-04-16: **Sprite Forge + Metal sprite pipeline.** Full PICO-8-inspired
   procedural sprite system: ProceduralSprites library (palette-indexed 32×32
   canvas, warm-earth 16-color palette, deterministic character/tile/prop
