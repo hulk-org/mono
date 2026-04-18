@@ -1,0 +1,78 @@
+ i think this is a perfect place for a model of the widget object to be : ~copyable and generic over the widget statetype.
+
+⏺ That's a strong architectural insight. A ~Copyable generic widget enforces the physical truth: a desktop widget is a unique resource that
+  owns an NSWindow — you can't duplicate it, only move it.
+
+  Here's the shape I'd propose:
+
+  // What every widget state must provide
+  protocol WidgetStateProtocol: Observable, AnyObject, Sendable {
+    @MainActor func reset()
+  }
+
+  // The placement + appearance config (shared across all widget types)
+  struct WidgetAppearance {
+    var placement: WidgetPlacement  // renamed from ClockPlacement
+    var opacity: CGFloat
+    var background: Color
+  }
+
+  // The generic widget — ~Copyable means unique window ownership
+  struct DesktopWidget<State: WidgetStateProtocol>: ~Copyable {
+    let state: State
+    var appearance: WidgetAppearance
+    private var window: NSWindow?  // owned exclusively
+
+    init(state: consuming State, appearance: WidgetAppearance) { ... }
+
+    mutating func show()   // creates/updates the NSWindow
+    mutating func hide()   // tears down the NSWindow
+    deinit { hide() }      // ~Copyable gets deinit on structs
+  }
+
+  ~Copyable gives you struct deinit — when the widget goes out of scope, the window tears down automatically. No more manual hide() cleanup.
+  And consuming State on init means the state is moved into the widget, not shared — one state, one widget, one window.
+
+  The clock becomes the first concrete widget:
+
+  let clockWidget = DesktopWidget(
+    state: InterviewClockState(),
+    appearance: .init(placement: .overlay, opacity: 0.15, background: .clear)
+  )
+
+  Future widgets (system monitor, stock ticker, agent status) just provide a new State + View pair.
+
+  This is a clean refactor but substantive — touches the window controller, the view, the menu wiring, and introduces the generic protocol.
+  Want me to implement it now or capture it as the architecture brief for a fresh session? We're 45+ commits deep and this is foundational
+  work that deserves focused context.
+
+❯ I want the hide() function to only be available in a generic where close when the WidgetStateVisible
+
+⏺ That's the type-state pattern — ~Copyable + consuming makes it work at compile time, not runtime. The widget literally changes type when you
+   show/hide it:
+
+  protocol WidgetVisibility {}
+  enum Shown: WidgetVisibility {}
+  enum Hidden: WidgetVisibility {}
+
+  struct DesktopWidget<State: WidgetStateProtocol, V: WidgetVisibility>: ~Copyable {
+    let state: State
+    var appearance: WidgetAppearance
+    private var window: NSWindow?
+  }
+
+  // hide() only exists when V == Shown
+  extension DesktopWidget where V == Shown {
+    consuming func hide() -> DesktopWidget<State, Hidden> {
+      window?.orderOut(nil)
+      return DesktopWidget<State, Hidden>(state: state, appearance: appearance)
+    }
+  }
+
+  // show() only exists when V == Hidden
+  extension DesktopWidget where V == Hidden {
+    consuming func show() -> DesktopWidget<State, Shown> {
+      // create window, configure placement...
+      return DesktopWidget<State, Shown>(state: state, appearance: appearance, window: win)
+    }
+  }
