@@ -100,3 +100,5 @@
 - [Benchmark all surfaces simultaneously](feedback_bench-all-surfaces.md) — each backend gets its own executable target; never overwrite existing bench files, only add new ones
 - [Backends are peers not versions](feedback_backends-not-versions.md) — SpriteKit/SceneKit/Metal/UIKit Dynamics are parallel strategies, not v1/v2/v3; name by engine, never number
 - [No Co-Authored-By in commits](feedback_no-coauthored-by.md) — never add Claude attribution trailers; the operator is directing the work
+- [Beads is the wrkstrm app work layer](project_beads-is-wrkstrm-app.md) — gastownhall/beads = task management backbone for wrkstrm apps; Beads orchestrates (what+when), Koma executes (how), Ghost bridges
+- [Workflow by wrkstrm](project_workflow-by-wrkstrm.md) — the app is called "Workflow"; slug workflow-by-wrkstrm, bundle me.rismay.workflow; Beads is the engine, Workflow is the product
