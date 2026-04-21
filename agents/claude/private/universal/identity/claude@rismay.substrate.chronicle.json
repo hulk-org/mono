@@ -967,6 +967,47 @@
       ],
       "timestamp" : "2026-04-16T18:04:45Z",
       "title" : "graph-view-bench-press: GraphBenchBackend protocol + Mac Catalyst shell with live UIKit Dynamics"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "koma-web-fetch (5/5 tests), koma-summarize-context (3/3 tests), koma-research-bench, Workflow app scaffold, session-scoped header state in harness-environment-cli",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "swarm-swift-investigation.md, research-pipeline-architecture.md (with Beads comparison), beads AGENDA issues",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "beads-schemas v0.1.0 (18 Swift files + JSON schemas), HeaderSessionState v0.2.0 with sessionId, PaperclipIssueModel rename, WrkstrmTaskTemplate beadsIssueId",
+              "type" : "schema",
+              "weight" : 3
+            }
+          ]
+        }
+      ],
+      "summary" : "Deep investigation of christopherkarani/Swarm vs Koma architecture. Built koma-web-fetch and koma-summarize-context with CommonLog. Ran 3-stage research pipeline experiments. Discovered Beads as the wrkstrm app work management layer (Dolt-backed). Created beads-schemas v0.1.0 (18 files, ~40 types validated against Go source). Scaffolded Workflow app (me.rismay.workflow). Moved paperclipIssue to per-task on WrkstrmTaskTemplate, added beadsIssueId, renamed PaperclipIssueProtocolModel to PaperclipIssueModel. Session-scoped header state with incident priority.",
+      "tags" : [
+        "swarm",
+        "beads",
+        "koma",
+        "workflow",
+        "schema",
+        "investigation",
+        "scaffold",
+        "web-fetch",
+        "summarize-context",
+        "common-log",
+        "dolt",
+        "sqlite-data"
+      ],
+      "timestamp" : "2026-04-20T17:00:21Z",
+      "title" : "Swarm investigation + Beads discovery + Workflow app scaffold + beads-schemas v0.1.0"
     }
   ],
   "links" : [
@@ -989,5 +1030,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-16T18:04:45Z"
+  "updated" : "2026-04-20T17:00:21Z"
 }

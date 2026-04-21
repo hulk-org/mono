@@ -102,3 +102,4 @@
 - [No Co-Authored-By in commits](feedback_no-coauthored-by.md) — never add Claude attribution trailers; the operator is directing the work
 - [Beads is the wrkstrm app work layer](project_beads-is-wrkstrm-app.md) — gastownhall/beads = task management backbone for wrkstrm apps; Beads orchestrates (what+when), Koma executes (how), Ghost bridges
 - [Workflow by wrkstrm](project_workflow-by-wrkstrm.md) — the app is called "Workflow"; slug workflow-by-wrkstrm, bundle me.rismay.workflow; Beads is the engine, Workflow is the product
+- [Ghost-shell + koma followups](project_ghost-shell-followups.md) — 14 items: concurrent stress test, subprocess XPC wiring, shared mode package, koma-plant glass pass, glyph-glitch exploration

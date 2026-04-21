@@ -28,8 +28,27 @@
   `AppDelegate` / `UISceneDelegate` boot into a view controller that hosts a
   bench container UIView and routes status updates via a closure sink.
 
+- **Beads + Workflow integration**: beads-schemas v0.1.0 (18 Swift types +
+  JSON schemas validated against Go source), Workflow app scaffold
+  (me.rismay.workflow), WorkstreamTemplateModel ↔ Beads bridging,
+  PaperclipIssueModel rename.
+- **Swarm framework analysis**: Deep investigation of christopherkarani/Swarm
+  vs Koma architecture; @Tool macro analysis for potential @KomaSpec adoption.
+- **Research pipeline**: koma-web-fetch (URLSession + Tavily + HTML extraction),
+  koma-summarize-context (recursive FM summarization with chrome filtering),
+  CommonLog integration across all Koma.
+- **Header session state**: Session-scoped state files, incident mode priority,
+  stale sweep, --session-id on all CLI commands.
+
 ## Recent Work
 
+- 2026-04-20: Swarm investigation + Beads discovery. Built koma-web-fetch
+  (5/5 tests) and koma-summarize-context (3/3 tests) with CommonLog wired
+  in. Ran 3-stage research pipeline (v1/v2/v3). Created beads-schemas v0.1.0
+  (~40 types from Go source). Scaffolded Workflow app. Moved paperclipIssue
+  to per-task, added beadsIssueId. Renamed PaperclipIssueProtocolModel →
+  PaperclipIssueModel. Session-scoped header state with incident priority.
+  Mounted pointfreeco/sqlite-data, gastownhall/beads, christopherkarani/Swarm.
 - 2026-04-16: graph-view-bench-press unification - `GraphBenchBackend`
   protocol drives one bench executable over seven live rendering strategies;
   dropped sim-only + offscreen variants per "must render on-screen" rule;
