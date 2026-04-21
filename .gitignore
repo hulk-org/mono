@@ -1,9 +1,11 @@
 # Local Claude Code runtime state. The merged Hulk home itself is canonical.
 backups/
 cache/
+image-cache/
 file-history/
 history.jsonl
 mcp-needs-auth-cache.json
+paste-cache/
 plans/
 plugins/
 projects/
