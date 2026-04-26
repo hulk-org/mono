@@ -1,3 +1,4 @@
+- [Clia app graduation](project_clia-app-graduation.md) — hex-grid-face IS Clia; graduate to clia-app in clia-app-org with menu bar, genome pipeline, and proper distribution
 - [Commit plus-tag attribution](feedback_commit-plus-tag-attribution.md) — mono commits use cmonterroza+<agent>@wrkstrm.com via repo-local default + koma-git session-aware override
 - [Don't lecture on small corrections](feedback_dont-lecture-on-small-corrections.md) — when user flags a grammar/style slip, acknowledge tersely; no essays, no style-guide cites, suppress the Explanatory Insight block
 - [Preserve historical data](feedback_no-rewrite-history.md) — never rewrite harvest/receipt/vault contents when paths change
@@ -101,5 +102,15 @@
 - [Backends are peers not versions](feedback_backends-not-versions.md) — SpriteKit/SceneKit/Metal/UIKit Dynamics are parallel strategies, not v1/v2/v3; name by engine, never number
 - [No Co-Authored-By in commits](feedback_no-coauthored-by.md) — never add Claude attribution trailers; the operator is directing the work
 - [Beads is the wrkstrm app work layer](project_beads-is-wrkstrm-app.md) — gastownhall/beads = task management backbone for wrkstrm apps; Beads orchestrates (what+when), Koma executes (how), Ghost bridges
+- [Ghost shell file split](project_ghost-shell-file-split.md) — GhostShellMacApp.swift 1393→8 files; chrome extracted; tree-explorer sidebar for Single/Adversarial modes
+- [Show code directly](feedback_show-code-directly.md) — when user says "show me", paste code or open file; no summaries
 - [Workflow by wrkstrm](project_workflow-by-wrkstrm.md) — the app is called "Workflow"; slug workflow-by-wrkstrm, bundle me.rismay.workflow; Beads is the engine, Workflow is the product
 - [Ghost-shell + koma followups](project_ghost-shell-followups.md) — 14 items: concurrent stress test, subprocess XPC wiring, shared mode package, koma-plant glass pass, glyph-glitch exploration
+- [wrkstrm-app + perf sweep](project_wrkstrm-app-wrkstrm-perf-sweep.md) — architect merged, spiders trashed, tree-traversal-bench + metal-tetris relocated, TouchUpCore removed, chess UX fixes; build artifact cleanup still pending
+- [Beads CLI takes JSON not flags](feedback_beads-cli-json-input.md) — swift-beads-cli accepts schema-shaped JSON via file or stdin, not one flag per field
+- [Kozy home environment](feedback_kozy-home-environment.md) — workspace is a shared dwelling for operators and agents; kozy/cozy aesthetic is the design contract, not decoration
+- [Provider reset time drift](feedback_reset-time-drift.md) — Claude API resets_at is ~2h late vs reality; subtract 2h safety buffer in all pacing calculations
+- [Inference Control app](project_inference-control.md) — inference-metrics renamed to Inference Control; joins Source Control + Directory Control in wrkstrm control family
+- [Inference Control NERV state](project_inference-metrics-nerv-state.md) — hex badge state machine needs Cadence review; STANDBY→LOADING→ONLINE→OFFLINE transitions + timeout
+- [common-process is infrastructure-grade](project_common-process-constraints.md) — hot path for entire substrate; every OS, 10yr compat, perf down to posix_spawn, C shim roadmap
+- [Backdrop by wrkstrm](project_backdrop-by-wrkstrm.md) — live Metal wallpaper at desktopIconWindow-2; COLLIDE is first scene; particles = real substrate events; separate from Desktop Utilities widget layer

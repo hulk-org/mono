@@ -19,6 +19,13 @@ A dated log of notable events, decisions, and onboarding progress.
 
 ## Entries
 
+## 2026-04-23 — NERV Inference Control + cross-app budget gate
+
+- Context: Two-day session building the NERV command center aesthetic for Inference Control and a cross-app budget gate flowing through Ghost Shell, Workflow, and the harness header.
+- Actions: Built 5-tier pacing urgency with cockpit callouts, 170px hex badges with 3 countdown rings and fuse color model, InferenceBudgetGate SPM package with Darwin notifications, Ghost Shell auto-throttle/encourage banners, Workflow SPEND/HOLD badges, harness header budget line, BudgetBeadGenerator for auto-generated work items. Full rename inference-metrics to inference-control. 2-hour drift buffer for unreliable provider reset timestamps. Directional semantics: RED+BEHIND = SPEND NOW, RED+AHEAD = SLOW DOWN.
+- Artifacts: <doc:articles/journal-2026-04-23-nerv-inference-control>
+- Next: Cadence state review for hex badge lifecycle, session-level waste display in header (currently shows weekly), Ghost Shell auto-routing to recommended provider.
+
 ## 2026-04-17 — GameScene layer, pixel collision, honest game review
 
 - Context: Continuation of sprite-forge sprint. Operator asked for

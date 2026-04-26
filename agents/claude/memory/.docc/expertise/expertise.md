@@ -39,9 +39,35 @@
   CommonLog integration across all Koma.
 - **Header session state**: Session-scoped state files, incident mode priority,
   stale sweep, --session-id on all CLI commands.
+- **Metal particle visualization**: COLLIDE membrane scene built on
+  MetalGameEngine (instanced SDF quads + line segments). CollideSimulation
+  drives particle physics CPU-side, membrane wave amplitude tracks collision
+  density. Desktop wallpaper mode via NSPanel at desktopIconWindow - 1.
+
+- **RPN calculator**: swift-rpn-cli (RPNCore library, 38 ops + named
+  definitions with macro expansion and recursion detection, 51 tests),
+  koma-rpn (Logikoma wrapper), koma-ghost-calc (FM + tool proof).
+- **Swift macros (compiler plugins)**: @Traced body macro via SwiftSyntax,
+  CommonLog-injectable, generates entry/exit/error logging around any function.
+- **Ghost Shell experimentation**: v001 binary with LogikomaFoundationTool,
+  XPC telemetry protocol, observer app configuration.
 
 ## Recent Work
 
+- 2026-04-24: Built swift-rpn-cli (38 ops + named definitions, 51 tests),
+  koma-rpn (5 tests), koma-ghost-calc (FM+tool proof — circle area, leap year,
+  percentages all correct). Built @Traced body macro (SwiftSyntax compiler
+  plugin, 2 expansion tests). Built ghost-shell v001 binary with koma-rpn as
+  FoundationModels Tool. Wrote 3 doctrine articles. Then fumbled the
+  ghost-shell.mac app refactor — rewrote working experimentation UI into a chat
+  box, broke the file split, lost code in git checkout. Restored original,
+  re-added v001 entries. Lesson: ghost-shell is experimentation not chat.
+- 2026-04-23: Local network discovery via Bonjour/mDNS (dns-sd). Found macMini
+  and Mac Pro advertising SMB on local network. Light sync session.
+- 2026-04-23: COLLIDE insight + Metal 4 visualization. Four representations
+  of the membrane metaphor (MD, SVG, HTML/JS, Metal). Built metal-collide-bench
+  target in metal-game-engine with CollideSimulation, NERV palette, and
+  --desktop live wallpaper mode. Synced >clide as harness profile.
 - 2026-04-20: Swarm investigation + Beads discovery. Built koma-web-fetch
   (5/5 tests) and koma-summarize-context (3/3 tests) with CommonLog wired
   in. Ran 3-stage research pipeline (v1/v2/v3). Created beads-schemas v0.1.0

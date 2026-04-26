@@ -1008,6 +1008,183 @@
       ],
       "timestamp" : "2026-04-20T17:00:21Z",
       "title" : "Swarm investigation + Beads discovery + Workflow app scaffold + beads-schemas v0.1.0"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Created collide-membrane-2026-04-23.md insight, collide-architecture.svg diagram, collide-visualization.html JS prototype, and collide-metal-design-note.md in harnesses/clide/memory/.docc/insights/.",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Built metal-collide-bench executable target in metal-game-engine: CollideApp.swift (530 lines) with CollideSimulation (particle physics, collision detection, spark lifecycle), NERV palette, 120-segment membrane wave, SwiftUI control panel with spawn rate slider. Added --desktop mode using NSPanel at CGWindowLevelForKey(.desktopIconWindow) - 1, matching Desktop Utilities WidgetSlot .desktop pattern.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Synced >clide as a harness profile (not agent or collective). Resolved CLIDE identity at harnesses/clide/ with organism.json, expertise, and journal surfaces.",
+              "type" : "log",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "COLLIDE insight and Metal 4 visualization. Operator wordplay revealed the CLIDE name encodes its architecture: the collision surface where Ghost intent meets Shell execution. Created four representations (markdown, SVG, HTML/JS, Metal 4) of the membrane metaphor. Built metal-collide-bench in metal-game-engine with full particle simulation (Ghost descends, Shell ascends, collision sparks at membrane, wave amplitude responds to density). Added --desktop mode for live wallpaper rendering behind Finder icons using the Desktop Utilities NSPanel pattern.",
+      "tags" : [
+        "clide",
+        "metal",
+        "visualization",
+        "insight",
+        "desktop",
+        "ghost-shell",
+        "membrane",
+        "particle-system",
+        "metal-game-engine"
+      ],
+      "timestamp" : "2026-04-23T17:42:26Z",
+      "title" : "COLLIDE insight + Metal 4 membrane visualization + desktop wallpaper mode"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Executed $sync with >h:hulk >a:claude roster. Reloaded operator environment profile, rendered header, persisted synced agents to .wrkstrm/tmp/synced-agents.jsonl. Active S1 incident acknowledged.",
+              "type" : "tool",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Scanned local Bonjour/mDNS network via dns-sd. Discovered two machines advertising SMB: macMini and Mac Pro on local network (interfaces 26, 23).",
+              "type" : "tool",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Light session: sync with hulk+claude roster, then local network discovery via Bonjour/mDNS confirming macMini and Mac Pro visible on local SMB. No further action taken on the Mac Mini.",
+      "tags" : [
+        "sync",
+        "network",
+        "discovery",
+        "bonjour"
+      ],
+      "timestamp" : "2026-04-23T17:43:55Z",
+      "title" : "Sync + local network discovery (macMini + Mac Pro)"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Synced hulk + clia-org collective. Mapped all 6 harnesses (hulk, codex, gemini, apple-pi, clide, pi) and their executables. Mapped 3 organism types (ghost, koma, agent) and the OrganismDoc.aspects composition bag in schema-universal.",
+              "type" : "research",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Identified swift-agent-cli as the natural home for organism resolution — already imports organism-schemas and its doctor command decodes both agent and organism kinds. Identified concrete next fix: organism resolve command.",
+              "type" : "design",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "Research session: ghost-shell-but-for-agents in CLIA-ENV. Key insight — organisms (ghost, koma, agent) are interchangeable cargo via OrganismDoc.aspects; harnesses (executables) are not. swift-agent-cli is the organism management surface; swift-harness-environment-cli is the harness surface. Next fix: organism resolve command in swift-agent-cli.",
+      "tags" : [
+        "research",
+        "design",
+        "organism",
+        "harness",
+        "clia-env",
+        "ghost-shell",
+        "koma",
+        "agent"
+      ],
+      "timestamp" : "2026-04-23T17:44:59Z",
+      "title" : "Organism resolution design — ghost-shell pattern for agents in CLIA-ENV"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "NERV command center: 5-tier pacing urgency, cockpit callouts, 170px hex badges with 3 countdown rings, fuse color model, glass sweep + shimmer, hazard stripes, edge-sweep skeleton loading, 4 lifecycle states.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "InferenceBudgetGate SPM package: shared Codable types, publisher, reader, Darwin notification observer. Cross-app budget flow through shared UserDefaults.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Ghost Shell Phase 1-3 budget gate, Workflow SPEND/HOLD badges + harness picker tinting, harness header budget line, BudgetBeadGenerator for auto-generated work items.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Full rename inference-metrics to inference-control. 2-hour reset time drift buffer.",
+              "type" : "maintenance",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Built NERV command center for Inference Control with EVA-style hex badges and three-ring fuse model. Cross-app budget gate flows from Inference Control through Ghost Shell and Workflow to the harness header. RED+BEHIND = SPEND NOW, RED+AHEAD = SLOW DOWN. Provider reset times get 2-hour drift buffer.",
+      "tags" : [
+        "inference-control",
+        "nerv",
+        "budget-gate",
+        "ghost-shell",
+        "workflow",
+        "pacing",
+        "cross-app",
+        "harness-header",
+        "beads"
+      ],
+      "timestamp" : "2026-04-23T17:46:00Z",
+      "title" : "NERV Inference Control + cross-app budget gate (IC + Ghost Shell + Workflow + harness header)"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "swift-rpn-cli (RPNCore 38 ops + definitions, 51 tests), koma-rpn (Logikoma 5 tests), koma-ghost-calc (standalone FM+tool proof), ghost-shell v001 binary, @Traced body macro (SwiftSyntax compiler plugin, 2 tests)",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "traced-macro-design.md, ghost-shell-v001-postmortem.md, ghost-shell-v2-architecture.md in koma.doctrine.docc",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Restored ghost-shell.mac after botched rewrite, re-added v001 shell+config entries, cleaned up extracted files",
+              "type" : "maintenance",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Built swift-rpn-cli (38 ops + named definitions, 51 tests), koma-rpn (Logikoma, 5 tests), koma-ghost-calc (Ghost+calculator proof), ghost-shell v001 binary (tool-equipped subprocess), @Traced body macro (CommonLog injectable, 2 expansion tests). Fumbled ghost-shell.mac app refactor: rewrote working experimentation UI into clia-ask chat box, broke file split, lost code in git checkout. Restored original app, re-added v001 entries. Key lesson: ghost-shell is experimentation not chat — read the beats before touching.",
+      "tags" : [
+        "rpn",
+        "koma-rpn",
+        "ghost-shell",
+        "traced-macro",
+        "common-log",
+        "fumble",
+        "lesson"
+      ],
+      "timestamp" : "2026-04-25T08:40:42Z",
+      "title" : "RPN calculator + @Traced macro + ghost-shell v001 (and the fumble)"
     }
   ],
   "links" : [
@@ -1030,5 +1207,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-04-20T17:00:21Z"
+  "updated" : "2026-04-25T08:40:42Z"
 }

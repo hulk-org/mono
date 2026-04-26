@@ -10,6 +10,8 @@ Session journal for the claude agent persona hosted by hulk.
 
 ### Articles
 
+- <doc:journal-2026-04-24>
+- <doc:journal-2026-04-23>
 - <doc:journal-2026-04-20>
 - <doc:journal-2026-04-16>
 - <doc:journal-2026-04-15>

@@ -60,6 +60,14 @@ existing cast.
 
 ## Recent work
 
+- 2026-04-23: **NERV Inference Control + cross-app budget gate.** Full EVA/NERV
+  aesthetic overhaul for Inference Control. 170px hex badges with 3 countdown rings
+  (session/weekly time/weekly usage), fuse color from divergence, glass sweep +
+  shimmer animations. InferenceBudgetGate shared SPM package with Darwin notifications.
+  Budget gate wired into Ghost Shell (auto-throttle/encourage), Workflow (SPEND/HOLD
+  badges, harness picker tinting), and harness header. BudgetBeadGenerator auto-writes
+  work items when budget is expiring. 2-hour drift buffer for unreliable provider
+  reset timestamps. Full rename inference-metrics → inference-control.
 - 2026-04-17: **GameScene scene graph + collision + game review.** Built
   SpriteKit-equivalent GameNode layer (scene graph, actions, flatten to
   Scene2D). StudioGameScene with 20×14 tile floor, 18 nodes with idle
