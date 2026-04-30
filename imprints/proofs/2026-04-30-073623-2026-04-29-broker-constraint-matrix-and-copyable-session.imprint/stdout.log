@@ -1,0 +1,1 @@
+ok: broker constraint matrix + ~Copyable TradeSession enforces locked-account axis at type level (positive). Uncomment any runNegativeProof_* body to feel the compile-time refusal (negative).

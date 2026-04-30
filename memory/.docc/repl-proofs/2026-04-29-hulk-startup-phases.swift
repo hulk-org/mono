@@ -1,3 +1,10 @@
+// fixed 2026-04-30: added explicit per-index negative assertions. Original
+// proof relied on cardinality (filter(\.isPersonaScoped).count == 1) to
+// imply that the other 10 indices were not persona-scoped — true
+// mathematically, but fragile: if cardinality ever weakened or reordered,
+// the negative claim would silently evaporate. Each non-persona index is
+// now checked directly with a named-failure message.
+
 /// Claim: hulk's startup is an ordered 11-phase carrier pipeline with exactly
 /// one persona-scoped slot, at index 4 (the `agent-persona` phase). Phases
 /// 0..3 and 5..10 are carrier-invariant — swapping persona only invalidates
@@ -36,4 +43,13 @@ let carrierInvariant = Phase.allCases.enumerated()
   .map(\.offset)
 precondition(carrierInvariant == [0, 1, 2, 3, 5, 6, 7, 8, 9, 10])
 
-print("ok: 11 phases, agentPersona alone at index 4, 10 carrier-invariant phases")
+// Negative: each non-persona index is explicitly NOT persona-scoped.
+// (Symmetric to the positive `firstIndex == 4` above. Catches drift if
+// someone adds a second persona-scoped phase elsewhere.)
+for index in [0, 1, 2, 3, 5, 6, 7, 8, 9, 10] {
+  let phase = Phase.allCases[index]
+  precondition(!phase.isPersonaScoped,
+               "phase at index \(index) (\(phase.rawValue)) should not be persona-scoped")
+}
+
+print("ok: 11 phases, agentPersona alone at index 4, 10 carrier-invariant phases (each explicitly checked)")

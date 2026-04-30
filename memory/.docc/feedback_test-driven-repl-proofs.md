@@ -28,20 +28,25 @@ The file must:
 5. Print `ok: <summary>` on success (the success signal — `precondition`
    aborts silently on failure otherwise).
 
-Then add one row to `reference_repl-proofs.md`'s table — date, topic, path,
-one-liner. The markdown index is a TOC; the `.swift` file is the artifact.
+No markdown index. The directory listing of `repl-proofs/` is the TOC, the
+`///` doc comments inside each `.swift` file are the per-proof metadata,
+and `git log` is the change history. Don't create a `reference_*.md`
+sibling — it just duplicates what the filesystem and git already provide.
 
 **Why:** rismay codified test-driven thinking as the substrate's reasoning
 discipline at root `AGENTS.md` `## Login Driven Thinking (LDT)`
 (2026-04-29): "prose is a placeholder, not the contract." rismay then
-sharpened it: every proof must be a compilable `.swift` file, not an
-embedded snippet, so a harvester can scrape the directory directly into a
-Swift Testing target without parsing markdown. rismay then named the
-discipline LDT to make explicit that it fires at login — every harness
-that boots into the substrate is governed by it. The memory directory IS
-the harvest target. The first proof (hulk 11-phase startup) caught a prose
-off-by-one — I'd been saying "phase 5" for the persona slot when the index
-is actually 4 — which is exactly the kind of slip LDT exists to surface.
+sharpened it twice: first, every proof must be a compilable `.swift` file
+(not an embedded snippet), so a harvester can scrape the directory
+directly into a Swift Testing target without parsing markdown. Second, no
+markdown index either — the filesystem listing and git history already
+serve that purpose, and a hand-maintained TOC introduces drift risk for no
+gain. rismay named the discipline LDT to make explicit that it fires at
+login — every harness that boots into the substrate is governed by it.
+The memory directory IS the harvest target. The first proof (hulk 11-phase
+startup) caught a prose off-by-one — I'd been saying "phase 5" for the
+persona slot when the index is actually 4 — which is exactly the kind of
+slip LDT exists to surface.
 
 **How to apply:** any structural claim ("there are N of X", "exactly one Y",
 "swap invalidates only Z", "ordering is …") gets a `.swift` file under

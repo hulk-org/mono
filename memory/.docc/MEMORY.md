@@ -15,9 +15,10 @@
 - [Swift not Python](feedback_swift-not-python.md) — never use python3 heredocs in this substrate; Swift is the only sanctioned helper language
 - [No bash scripts either](feedback_no-bash-scripts.md) — bash for-loops, while-read pipelines, multi-step shell logic are also forbidden; save anything beyond a discrete command as a Swift CLI
 - [Swift Testing not XCTest](feedback_swift-testing-not-xctest.md) — all new tests use `import Testing` + `@Test` + `#expect`, never XCTestCase
+- [Digikoma not Logikoma](feedback_digikoma-not-logikoma.md) — new komas conform to DigikomaIdentifiable; types/packages get Digikoma* prefix; KomaCore/KomaIdentity/KomaAction stay (they live in the unrenamed core)
 - [Swift identifiers stay romaji](feedback_swift-identifiers-romaji-not-katakana.md) — Swift types/files = romaji ASCII (Digikoma); katakana (デジコマ) only for human-facing prose; source reaches Foundation Models via tool reflection
-- [Login Driven Thinking (LDT)](feedback_test-driven-repl-proofs.md) — substrate-wide reasoning discipline at root AGENTS.md; every non-trivial structural claim becomes a compilable .swift proof under repl-proofs/, runs with `swift <file>`, asserts with precondition
-- [LDT proofs index](reference_repl-proofs.md) — TOC of LDT proof files under ~/.claude/memory/.docc/repl-proofs/; the .swift files ARE the artifacts
+- [Login Driven Thinking (LDT)](feedback_test-driven-repl-proofs.md) — substrate-wide reasoning discipline at root AGENTS.md; every non-trivial structural claim becomes a compilable .swift proof under repl-proofs/, runs with `swift <file>`, asserts with precondition; directory listing + git log are the index
+- [Teach the proof every time](feedback_teach-the-proof-every-time.md) — every LDT proof gets a structured walkthrough (claim, pieces, load-bearing line, how to extend) AND a positive+negative proof pair where possible; never just print "ok: passed" and move on
 - [Fix hygiene via app not CLI](feedback_fix-via-app-not-cli.md) — once a hygiene check is wired into schema-lab, stop running CLI sweeps; the long tail belongs to the app
 - [No bash grep -r on substrate](feedback_no-recursive-grep.md) — always use Grep tool (ripgrep); bash grep -rln across collectives hangs 20-30+ minutes
 - [localOrRemote defaults false](feedback_localOrRemote-default-false.md) — useLocalDeps must default false; only true on explicit truthy SPM_USE_LOCAL_DEPS; never invert
@@ -40,7 +41,9 @@
 - [Patch safety workflow](feedback_patch-safety-workflow.md) — multi-chunk deletes need grep-verify + diff-stat before commit; sustained refactors need Swift Testing invariants
 - [Direct deps not transitive](feedback_direct-deps-not-transitive.md) — SPM consumers depend on the narrow source-of-truth package per import; never bundle into kitchen-sink super-packages
 - [No re-export typealias](feedback_no-reexport-typealias.md) — never `public typealias X = OtherPackage.X` to dodge import updates; consumers import the source-of-truth and use canonical names
+- [No @_exported import](feedback_no-exported-import.md) — never `@_exported import Foo` to leak a dep's symbols; same anti-pattern as re-export typealias, breaks direct-deps rule
 - [No deletion without confirmation](feedback_no-deletion-without-confirmation.md) — never `rm` files in the operator's tree without explicit per-file/per-batch authorization, even when a "lift" or "rollback" task seems to imply it
+- [No submodule update --init without consent](feedback_no-submodule-update-init-without-consent.md) — `git submodule update --init` is destructive against any path with on-disk content; require explicit per-path authorization, prefer adding a new remote when local is more current
 - [Reshape preserves data](feedback_reshape-preserves-data.md) — "give the right structure" / "Pattern B" / "fix" instructions are about shape, NOT content; never destroy existing data inside a home being reshaped without per-item authorization
 - [Schema set binding model](project_schema-set-binding.md) — agents bind via private/universal/schemas/sets aggregator + identity.schemaSetRefs; per-file schemaVersion is family version, not stale
 - [Schema families placeholder audit](project_schema-families-placeholder-audit.md) — 36 versions across 28 families hold only FoundationSession placeholder fixtures; 19 families entirely empty, 4 partial gaps (2026-04-26)

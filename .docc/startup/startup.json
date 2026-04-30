@@ -1,137 +1,323 @@
 {
-  "schemaVersion": "0.2.0",
-  "synopsis": true,
-  "description": "Observed startup surfaces for the hulk harness. This file is derived from reading the codebase — it does not define startup behavior. The code is the source of truth; this is a frozen snapshot for audit and diffing.",
-  "harness": "hulk",
-  "kind": "canonical",
-  "harnessHome": "private/universal/substrate/harnesses/hulk/",
-  "provenance": {
-    "generatedAt": "2026-04-22T00:00:00-07:00",
-    "repos": {
-      "mono": { "remote": "rismay/mono", "commit": "64415c88433c0a1cd8cab764bb276b8b275f0d3b" },
-      "hulk": { "remote": "hulk-org/mono", "commit": "e99cbf61f4ecf20c406575238ec3881b043c8480" },
-      "wrkstrm-core": { "remote": "wrkstrm-core/mono", "commit": "4efa18a85a0a730f92bb1326daffc06104a35cbb" }
-    }
-  },
-  "phases": [
+  "description" : "Observed startup surfaces for the hulk harness. This file is derived from reading the codebase — it does not define startup behavior. The code is the source of truth; this is a frozen snapshot for audit and diffing.",
+  "harness" : "hulk",
+  "harnessHome" : "private/universal/substrate/harnesses/hulk/",
+  "kind" : "canonical",
+  "phases" : [
     {
-      "name": "runtime-config",
-      "description": "Settings read by the Claude Code runtime before any context is injected. These files govern which other surfaces get loaded (autoMemoryDirectory, permissions, voice).",
-      "surfaces": [
-        { "path": "private/universal/substrate/harnesses/hulk/settings.json", "bytes": 366, "estimatedTokens": 91, "required": true, "note": "Configures autoMemoryDirectory → ~/.claude/memory/.docc, permissions, statusline." }
+      "description" : "Settings read by the Claude Code runtime before any context is injected. These files govern which other surfaces get loaded (autoMemoryDirectory, permissions, voice).",
+      "name" : "runtime-config",
+      "surfaces" : [
+        {
+          "bytes" : 366,
+          "estimatedTokens" : 91,
+          "note" : "Configures autoMemoryDirectory → ~/.claude/memory/.docc, permissions, statusline.",
+          "path" : "private/universal/substrate/harnesses/hulk/settings.json",
+          "required" : true
+        }
       ]
     },
     {
-      "name": "root",
-      "description": "Files read by the runtime before any harness-specific logic. AGENTS.md and CLAUDE.md are injected by the Claude Code harness; .docc/index.md is read by the startup CLI.",
-      "surfaces": [
-        { "path": ".docc/index.md", "bytes": 1864, "estimatedTokens": 466, "required": true },
-        { "path": "AGENTS.md", "bytes": 3549, "estimatedTokens": 887, "required": true },
-        { "path": "CLAUDE.md", "bytes": 8455, "estimatedTokens": 2113, "required": true }
+      "description" : "Files read by the runtime before any harness-specific logic. AGENTS.md and CLAUDE.md are injected by the Claude Code harness; .docc/index.md is read by the startup CLI.",
+      "name" : "root",
+      "surfaces" : [
+        {
+          "bytes" : 1864,
+          "estimatedTokens" : 466,
+          "path" : ".docc/index.md",
+          "required" : true
+        },
+        {
+          "bytes" : 3549,
+          "estimatedTokens" : 887,
+          "path" : "AGENTS.md",
+          "required" : true
+        },
+        {
+          "bytes" : 8455,
+          "estimatedTokens" : 2113,
+          "path" : "CLAUDE.md",
+          "required" : true
+        }
       ]
     },
     {
-      "name": "environment",
-      "description": "Operator environment profile and workspace contract. Read during $sync and referenced by the startup CLI for header rendering.",
-      "surfaces": [
-        { "path": "private/universal/substrate/operators/rismay/private/universal/rismay-substrate.environment.wrkstrm.json", "bytes": 18486, "estimatedTokens": 4621, "required": true },
-        { "path": "private/universal/substrate/operators/rismay/private/universal/workspace.wrkstrm.json", "bytes": 342, "estimatedTokens": 85, "required": true }
+      "description" : "Operator environment profile and workspace contract. Read during $sync and referenced by the startup CLI for header rendering.",
+      "name" : "environment",
+      "surfaces" : [
+        {
+          "bytes" : 18486,
+          "estimatedTokens" : 4621,
+          "path" : "private/universal/substrate/operators/rismay/private/universal/rismay-substrate.environment.wrkstrm.json",
+          "required" : true
+        },
+        {
+          "bytes" : 342,
+          "estimatedTokens" : 85,
+          "path" : "private/universal/substrate/operators/rismay/private/universal/workspace.wrkstrm.json",
+          "required" : true
+        }
       ]
     },
     {
-      "name": "harness-bootstrap",
-      "description": "Hulk carrier-level surfaces. AGENTS.md defines the 8-file bootstrap ceremony. .docc/ holds the carrier contract and DocC root.",
-      "surfaces": [
-        { "path": "private/universal/substrate/harnesses/hulk/AGENTS.md", "bytes": 6879, "estimatedTokens": 1719, "required": true },
-        { "path": "private/universal/substrate/harnesses/hulk/.docc/index.md", "bytes": 3533, "estimatedTokens": 883, "required": true },
-        { "path": "private/universal/substrate/harnesses/hulk/.docc/contract.md", "bytes": 6720, "estimatedTokens": 1680, "required": false },
-        { "path": "private/universal/substrate/harnesses/hulk/IDENTITY.md", "bytes": 397, "estimatedTokens": 99, "required": false },
-        { "path": "private/universal/substrate/harnesses/hulk/SOUL.md", "bytes": 367, "estimatedTokens": 91, "required": false }
+      "description" : "Hulk carrier-level surfaces. AGENTS.md defines the 8-file bootstrap ceremony. .docc/ holds the carrier contract and DocC root.",
+      "name" : "harness-bootstrap",
+      "surfaces" : [
+        {
+          "bytes" : 6879,
+          "estimatedTokens" : 1719,
+          "path" : "private/universal/substrate/harnesses/hulk/AGENTS.md",
+          "required" : true
+        },
+        {
+          "bytes" : 3533,
+          "estimatedTokens" : 883,
+          "path" : "private/universal/substrate/harnesses/hulk/.docc/index.md",
+          "required" : true
+        },
+        {
+          "bytes" : 6720,
+          "estimatedTokens" : 1680,
+          "path" : "private/universal/substrate/harnesses/hulk/.docc/contract.md",
+          "required" : false
+        },
+        {
+          "bytes" : 397,
+          "estimatedTokens" : 99,
+          "path" : "private/universal/substrate/harnesses/hulk/IDENTITY.md",
+          "required" : false
+        },
+        {
+          "bytes" : 367,
+          "estimatedTokens" : 91,
+          "path" : "private/universal/substrate/harnesses/hulk/SOUL.md",
+          "required" : false
+        }
       ]
     },
     {
-      "name": "agent-persona",
-      "description": "Claude persona surfaces loaded after the carrier bootstrap. The 8-file bootstrap ceremony plus the memory.md compat pointer.",
-      "persona": "claude",
-      "surfaces": [
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/AGENTS.md", "bytes": 2015, "estimatedTokens": 503, "required": true },
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/SOUL.md", "bytes": 378, "estimatedTokens": 94, "required": true },
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/IDENTITY.md", "bytes": 240, "estimatedTokens": 60, "required": false },
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/USER.md", "bytes": 271, "estimatedTokens": 67, "required": false },
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/TOOLS.md", "bytes": 251, "estimatedTokens": 62, "required": false },
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/HEARTBEAT.md", "bytes": 160, "estimatedTokens": 40, "required": false },
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/BOOTSTRAP.md", "bytes": 1253, "estimatedTokens": 313, "required": false },
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/memory.md", "bytes": 225, "estimatedTokens": 56, "required": false, "note": "Compat pointer to memory/.docc/. Loaded by carrier as bootstrap slot 8." }
+      "description" : "Claude persona surfaces loaded after the carrier bootstrap. The 8-file bootstrap ceremony plus the memory.md compat pointer.",
+      "name" : "agent-persona",
+      "persona" : "claude",
+      "surfaces" : [
+        {
+          "bytes" : 2015,
+          "estimatedTokens" : 503,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/AGENTS.md",
+          "required" : true
+        },
+        {
+          "bytes" : 378,
+          "estimatedTokens" : 94,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/SOUL.md",
+          "required" : true
+        },
+        {
+          "bytes" : 240,
+          "estimatedTokens" : 60,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/IDENTITY.md",
+          "required" : false
+        },
+        {
+          "bytes" : 271,
+          "estimatedTokens" : 67,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/USER.md",
+          "required" : false
+        },
+        {
+          "bytes" : 251,
+          "estimatedTokens" : 62,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/TOOLS.md",
+          "required" : false
+        },
+        {
+          "bytes" : 160,
+          "estimatedTokens" : 40,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/HEARTBEAT.md",
+          "required" : false
+        },
+        {
+          "bytes" : 1253,
+          "estimatedTokens" : 313,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/BOOTSTRAP.md",
+          "required" : false
+        },
+        {
+          "bytes" : 225,
+          "estimatedTokens" : 56,
+          "note" : "Compat pointer to memory/.docc/. Loaded by carrier as bootstrap slot 8.",
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/memory.md",
+          "required" : false
+        }
       ]
     },
     {
-      "name": "identity",
-      "description": "Commissioned identity artifacts read during $sync profile reload.",
-      "surfaces": [
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/private/universal/identity/claude@rismay.substrate.identity.json", "bytes": 7154, "estimatedTokens": 1788, "required": false },
-        { "path": "private/universal/substrate/harnesses/hulk/agents/claude/private/universal/identity/claude@rismay.substrate.agenda.json", "bytes": 1894, "estimatedTokens": 473, "required": false }
+      "description" : "Commissioned identity artifacts read during $sync profile reload.",
+      "name" : "identity",
+      "surfaces" : [
+        {
+          "bytes" : 7154,
+          "estimatedTokens" : 1788,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/private/universal/identity/claude@rismay.substrate.identity.json",
+          "required" : false
+        },
+        {
+          "bytes" : 1894,
+          "estimatedTokens" : 473,
+          "path" : "private/universal/substrate/harnesses/hulk/agents/claude/private/universal/identity/claude@rismay.substrate.agenda.json",
+          "required" : false
+        }
       ]
     },
     {
-      "name": "auto-memory",
-      "description": "Persistent auto-memory loaded by Claude Code from settings.json autoMemoryDirectory (~/.claude/memory/.docc). The MEMORY.md index is always loaded; individual memory files are loaded on relevance.",
-      "surfaces": [
-        { "path": "~/.claude/memory/.docc/MEMORY.md", "bytes": 20800, "estimatedTokens": 5200, "required": true, "note": "Always loaded. 107 entries. Truncated at 200 lines by Claude Code." }
+      "description" : "Persistent auto-memory loaded by Claude Code from settings.json autoMemoryDirectory (~/.claude/memory/.docc). The MEMORY.md index is always loaded; individual memory files are loaded on relevance.",
+      "name" : "auto-memory",
+      "note" : "Individual memory files under ~/.claude/memory/.docc/ are loaded on demand when relevant. The MEMORY.md index is the guaranteed startup cost.",
+      "surfaces" : [
+        {
+          "bytes" : 20800,
+          "estimatedTokens" : 5200,
+          "note" : "Always loaded. 107 entries. Truncated at 200 lines by Claude Code.",
+          "path" : "~/.claude/memory/.docc/MEMORY.md",
+          "required" : true
+        }
+      ]
+    },
+    {
+      "conditional" : true,
+      "description" : "Active incident file, read when present. Conditional — only contributes tokens when an incident is active.",
+      "name" : "incident",
+      "surfaces" : [
+        {
+          "bytes" : 7871,
+          "estimatedTokens" : 1967,
+          "path" : ".wrkstrm/incidents/active.incident.wrkstrm.json",
+          "required" : false
+        }
+      ]
+    },
+    {
+      "description" : "Files listed in CLAUDE.md Background Memory section. Read silently at session start, never surfaced to the user. These belong to a different commissioned home (clia-carrie).",
+      "name" : "background-memory",
+      "note" : "Cross-home dependency: these surfaces are owned by clia-carrie, not by hulk or claude. Growth in clia-carrie's memory increases hulk's startup cost without any change to hulk's own surfaces.",
+      "surfaces" : [
+        {
+          "bytes" : 3541,
+          "estimatedTokens" : 885,
+          "path" : "private/universal/substrate/agents/clia-carrie/memory/.docc/ios-app-from-scratch.md",
+          "required" : false
+        },
+        {
+          "bytes" : 3948,
+          "estimatedTokens" : 987,
+          "path" : "private/universal/substrate/agents/clia-carrie/memory/.docc/app-architecture.md",
+          "required" : false
+        },
+        {
+          "bytes" : 1241,
+          "estimatedTokens" : 310,
+          "path" : "private/universal/substrate/agents/clia-carrie/memory/.docc/swift-naming-guidelines.md",
+          "required" : false
+        },
+        {
+          "bytes" : 535,
+          "estimatedTokens" : 133,
+          "path" : "private/universal/substrate/agents/clia-carrie/memory/.docc/streaming-contracts.md",
+          "required" : false
+        }
+      ]
+    },
+    {
+      "description" : "Skill directories declared to the Claude Code runtime. Not injected into context at startup — loaded on demand when invoked. The skill index contributes to the system-reminder listing.",
+      "name" : "skills",
+      "note" : "34 skill directories, 2.9 MB on disk. Skill names and descriptions are injected as a system-reminder listing at session start (~2K tokens estimated). Actual skill content is loaded only on invocation.",
+      "surfaces" : [
+
+      ]
+    },
+    {
+      "commands" : [
+        {
+          "command" : "swift-harness-environment-cli startup run --path .",
+          "note" : "Reads .docc/index.md, renders header, pulls minimized mono profile."
+        }
       ],
-      "note": "Individual memory files under ~/.claude/memory/.docc/ are loaded on demand when relevant. The MEMORY.md index is the guaranteed startup cost."
-    },
-    {
-      "name": "incident",
-      "description": "Active incident file, read when present. Conditional — only contributes tokens when an incident is active.",
-      "conditional": true,
-      "surfaces": [
-        { "path": ".wrkstrm/incidents/active.incident.wrkstrm.json", "bytes": 7871, "estimatedTokens": 1967, "required": false }
-      ]
-    },
-    {
-      "name": "background-memory",
-      "description": "Files listed in CLAUDE.md Background Memory section. Read silently at session start, never surfaced to the user. These belong to a different commissioned home (clia-carrie).",
-      "surfaces": [
-        { "path": "private/universal/substrate/agents/clia-carrie/memory/.docc/ios-app-from-scratch.md", "bytes": 3541, "estimatedTokens": 885, "required": false },
-        { "path": "private/universal/substrate/agents/clia-carrie/memory/.docc/app-architecture.md", "bytes": 3948, "estimatedTokens": 987, "required": false },
-        { "path": "private/universal/substrate/agents/clia-carrie/memory/.docc/swift-naming-guidelines.md", "bytes": 1241, "estimatedTokens": 310, "required": false },
-        { "path": "private/universal/substrate/agents/clia-carrie/memory/.docc/streaming-contracts.md", "bytes": 535, "estimatedTokens": 133, "required": false }
-      ],
-      "note": "Cross-home dependency: these surfaces are owned by clia-carrie, not by hulk or claude. Growth in clia-carrie's memory increases hulk's startup cost without any change to hulk's own surfaces."
-    },
-    {
-      "name": "skills",
-      "description": "Skill directories declared to the Claude Code runtime. Not injected into context at startup — loaded on demand when invoked. The skill index contributes to the system-reminder listing.",
-      "surfaces": [],
-      "note": "34 skill directories, 2.9 MB on disk. Skill names and descriptions are injected as a system-reminder listing at session start (~2K tokens estimated). Actual skill content is loaded only on invocation."
-    },
-    {
-      "name": "cli-startup",
-      "description": "Output produced by swift-harness-environment-cli startup run. This is generated content, not a file read.",
-      "surfaces": [],
-      "commands": [
-        { "command": "swift-harness-environment-cli startup run --path .", "note": "Reads .docc/index.md, renders header, pulls minimized mono profile." }
+      "description" : "Output produced by swift-harness-environment-cli startup run. This is generated content, not a file read.",
+      "name" : "cli-startup",
+      "surfaces" : [
+
       ]
     }
   ],
-  "summary": {
-    "totalDeclaredSurfaces": 29,
-    "guaranteedStartupBytes": 97695,
-    "guaranteedStartupTokens": 24423,
-    "conditionalBytes": 7871,
-    "conditionalTokens": 1967,
-    "breakdown": {
-      "runtime-config": { "bytes": 366, "tokens": 91 },
-      "root": { "bytes": 13868, "tokens": 3466 },
-      "environment": { "bytes": 18828, "tokens": 4706 },
-      "harness-bootstrap": { "bytes": 17896, "tokens": 4472 },
-      "agent-persona": { "bytes": 4793, "tokens": 1195 },
-      "identity": { "bytes": 9048, "tokens": 2261 },
-      "auto-memory": { "bytes": 20800, "tokens": 5200 },
-      "incident": { "bytes": 7871, "tokens": 1967, "conditional": true },
-      "background-memory": { "bytes": 9265, "tokens": 2315 },
-      "skills": { "bytes": 0, "tokens": 2000, "note": "Estimated from skill index system-reminder." }
+  "provenance" : {
+    "generatedAt" : "2026-04-22T00:00:00-07:00",
+    "repos" : {
+      "hulk" : {
+        "commit" : "e99cbf61f4ecf20c406575238ec3881b043c8480",
+        "remote" : "hulk-org/mono"
+      },
+      "mono" : {
+        "commit" : "64415c88433c0a1cd8cab764bb276b8b275f0d3b",
+        "remote" : "rismay/mono"
+      },
+      "wrkstrm-core" : {
+        "commit" : "4efa18a85a0a730f92bb1326daffc06104a35cbb",
+        "remote" : "wrkstrm-core/mono"
+      }
+    }
+  },
+  "schemaVersion" : "0.2.0",
+  "summary" : {
+    "breakdown" : {
+      "agent-persona" : {
+        "bytes" : 4793,
+        "tokens" : 1195
+      },
+      "auto-memory" : {
+        "bytes" : 20800,
+        "tokens" : 5200
+      },
+      "background-memory" : {
+        "bytes" : 9265,
+        "tokens" : 2315
+      },
+      "environment" : {
+        "bytes" : 18828,
+        "tokens" : 4706
+      },
+      "harness-bootstrap" : {
+        "bytes" : 17896,
+        "tokens" : 4472
+      },
+      "identity" : {
+        "bytes" : 9048,
+        "tokens" : 2261
+      },
+      "incident" : {
+        "bytes" : 7871,
+        "conditional" : true,
+        "tokens" : 1967
+      },
+      "root" : {
+        "bytes" : 13868,
+        "tokens" : 3466
+      },
+      "runtime-config" : {
+        "bytes" : 366,
+        "tokens" : 91
+      },
+      "skills" : {
+        "bytes" : 0,
+        "note" : "Estimated from skill index system-reminder.",
+        "tokens" : 2000
+      }
     },
-    "note": "Token estimates use bytes/4 heuristic. Actual count depends on model tokenizer. Guaranteed total excludes the conditional incident phase and on-demand skill/memory loads. Auto-memory MEMORY.md is the single largest guaranteed surface at ~5.2K tokens."
-  }
+    "conditionalBytes" : 7871,
+    "conditionalTokens" : 1967,
+    "guaranteedStartupBytes" : 97695,
+    "guaranteedStartupTokens" : 24423,
+    "note" : "Token estimates use bytes/4 heuristic. Actual count depends on model tokenizer. Guaranteed total excludes the conditional incident phase and on-demand skill/memory loads. Auto-memory MEMORY.md is the single largest guaranteed surface at ~5.2K tokens.",
+    "totalDeclaredSurfaces" : 29
+  },
+  "synopsis" : true
 }
