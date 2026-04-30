@@ -2,8 +2,8 @@
 name: koma-org collective
 description: The コマ collective graduated from wrkstrm-app to its own org at collectives/koma-org; koma-plant is the app (was koma-by-wrkstrm), 6 live komo specs + 41 domain komo packages across 5 domains
 type: project
+originSessionId: d8bf83a5-6455-41dc-86b8-ec518edcee54
 ---
-
 koma-org is the canonical home for all Komo. Graduated from wrkstrm-app on 2026-04-12.
 
 **Why:** The tool-eval workbench (originally "Generable Studio", then "Tachikoma by wrkstrm", then "Koma by wrkstrm") outgrew wrkstrm-app and became its own collective.
@@ -46,5 +46,4 @@ koma-org/
 - 41 domain komo packages under `domain/` across core/context/intelligence/meta/directory/build
 - App renamed to **koma-plant** (コマプラント)
 - `spec.json` is the komo's identity — action is one field inside it
-- No `trick.json` — term retired, use "action"
 - `wrkstrm-performance/tool-eval-core/ToolEvalManifestKit` still provides the inventory schema types

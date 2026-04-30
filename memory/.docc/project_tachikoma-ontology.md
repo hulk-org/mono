@@ -1,10 +1,10 @@
 ---
 name: Tachikoma organism ontology
-description: Full CLIA organism hierarchy — Ghost/Shell/Sprite/Tachikoma/Action with execution worlds, Apple Intelligence as host-side Ghost, work-graph projection model; pet/trick vocabulary retired (see feedback_no-pet-no-trick)
+description: Full CLIA organism hierarchy — Ghost/Shell/Sprite/Tachikoma/Action with execution worlds, Apple Intelligence as host-side Ghost, work-graph projection model
 type: project
 originSessionId: d8bf83a5-6455-41dc-86b8-ec518edcee54
 ---
-CLIA organism ontology decided 2026-04-09/10, vocabulary refined 2026-04-12 (pet → Komo, trick → action) and 2026-04-29 (scan as the per-station verb). This is foundational doctrine.
+CLIA organism ontology decided 2026-04-09/10. This is foundational doctrine. See `feedback_patrol-scan-vocabulary.md` for the verb pair (patrol/scan) and surrounding architecture.
 
 ## Organism hierarchy
 
@@ -28,7 +28,7 @@ CLIA organism ontology decided 2026-04-09/10, vocabulary refined 2026-04-12 (pet
   action bindings, budgets, and receipts. See `project_tachikoma-factory.md`.
 - Imprints on substrate state are gated on bookend receipts (onboarding +
   offboarding). A scan that yields findings only becomes an imprint after the
-  host receives both stamps. See `feedback_no-pet-no-trick.md` for the
+  host receives both stamps. See `feedback_patrol-scan-vocabulary.md` for the
   surrounding architecture.
 
 ## Tachikoma anatomy = algorithms + data structures
@@ -56,4 +56,4 @@ Species are presets; anatomy is composable.
 
 タチコマ (katakana) = 立ち (tachi, standing/mobile) + 駒 (koma, piece/unit) = "mobile autonomous unit in a larger system"
 
-**How to apply:** Every design decision about tool surfaces, execution boundaries, memory architecture, and app structure should trace back to this ontology. If something doesn't fit cleanly into Ghost/Shell/Sprite/Tachikoma/Action, the ontology needs extending — don't work around it. Banned terms (per `feedback_no-pet-no-trick`): Pet, Trick, Familiar.
+**How to apply:** Every design decision about tool surfaces, execution boundaries, memory architecture, and app structure should trace back to this ontology. If something doesn't fit cleanly into Ghost/Shell/Sprite/Tachikoma/Action, the ontology needs extending — don't work around it.

@@ -21,7 +21,7 @@ Design source for the substrate agents framework. Rismay flagged Suikoden II's m
 
 - **Unite Attack registry (missing primitive).** Declarative typed surface where co-present agents declare a named combo with prerequisites + effect. Distinct from ad-hoc multi-agent assembly. Stage World should rehearse these before live substrate.
 
-- **Runes + per-battle charges (not shared MP).** Equipped to head/hand/body slots; tier-N charges per battle, replenished between. Matches Tachikoma's "no mid-term memory, bounded context, per-engagement" model far better than a shared pool. Use as the scan-budget shape (formerly "trick-budget"; vocabulary retired per `feedback_no-pet-no-trick`).
+- **Runes + per-battle charges (not shared MP).** Equipped to head/hand/body slots; tier-N charges per battle, replenished between. Matches Tachikoma's "no mid-term memory, bounded context, per-engagement" model far better than a shared pool. Use as the scan-budget shape: per-patrol charges replenish between patrols, not between stations.
 
 - **Permadeath in army battles.** Individual Komo failure in long-running fleet tasks should count as recruit-loss against the 108, pressuring careful staffing. Luca Blight's three-stage fight is the rotating-party endurance pattern.
 

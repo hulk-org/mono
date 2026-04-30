@@ -35,7 +35,7 @@ the stable ideas for fast recall.
 - They traverse a **closed projected work graph**, not the infinite knowledge
   graph.
 - They carry **working context**, not durable memory.
-- They should perform **one scan per station** against the projected world. (Vocabulary refined 2026-04-29: "scan" replaces "trick" as the per-station verb. See `feedback_no-pet-no-trick`.)
+- They should perform **one scan per station** against the projected world. See `feedback_patrol-scan-vocabulary.md` for the macro/micro verb pair.
 - The right mental model is not "full agent in a shell" but "local actor with
   bounded context inside a finite universe."
 

@@ -1,6 +1,6 @@
 ---
 name: Tachikoma factory
-description: rismay wants the carrier/harness layer to become a Tachikoma factory: mint bounded workers from specs, projected work graphs, staged worlds, action bindings, budgets, and receipts rather than spawning full agents for discrete work; pet/trick vocabulary retired (see feedback_no-pet-no-trick)
+description: rismay wants the carrier/harness layer to become a Tachikoma factory: mint bounded workers from specs, projected work graphs, staged worlds, action bindings, budgets, and receipts rather than spawning full agents for discrete work
 type: project
 originSessionId: d8bf83a5-6455-41dc-86b8-ec518edcee54
 ---
@@ -38,11 +38,10 @@ and emits:
 ## What the factory owns
 
 - **Anatomy catalog** — traversal presets such as Spider, Ant, Hound, Fox, Watcher.
-  These are anatomy/traversal defaults, not personalities. (Older notes called
-  these "species" — kept as historical naming inside the catalog file names.)
+  These are anatomy/traversal defaults, not personalities.
 - **Action catalog** — atomic operations such as fetch, clean, mark, trace,
   validate, index, watch, normalize, summarize, diff. When an action is
-  performed at a station during traversal, the verb is "scan."
+  performed at a station during a patrol, the verb is "scan."
 - **World builder** — creates staged disposable filesystems / graph slices.
   Tachikoma never execute against the real host filesystem directly.
 - **Budget compiler** — converts intent into bounded limits: max nodes,

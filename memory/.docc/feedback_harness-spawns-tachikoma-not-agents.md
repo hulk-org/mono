@@ -15,8 +15,8 @@ carry the full system prompt, pollute the parent's context window with
 results, and burn tokens on inference that doesn't need judgment. A
 Tachikoma traverses a closed work graph, performs one scan per station, and
 returns a result. No system prompt overhead, no context pollution, no
-wasted tokens. (Vocabulary: "scan" replaces "trick"; see
-`feedback_no-pet-no-trick`.)
+wasted tokens. See `feedback_patrol-scan-vocabulary.md` for the macro/micro
+verb pair.
 
 **How to apply:**
 - When designing carrier features (S-5 self-awareness, heartbeat checks,
