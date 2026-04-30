@@ -2,8 +2,8 @@
 name: Tachikoma traverser vocabulary and field worlds
 description: Durable notes captured from hulk paste-cache a6426c920fff2a14 on 2026-04-10: traverser vs surveyor naming, Tachikoma as bounded graph workers, and host-ghost vs field-world execution doctrine
 type: project
+originSessionId: d8bf83a5-6455-41dc-86b8-ec518edcee54
 ---
-
 This note preserves the durable parts of the large paste capture now promoted
 to:
 
@@ -35,7 +35,7 @@ the stable ideas for fast recall.
 - They traverse a **closed projected work graph**, not the infinite knowledge
   graph.
 - They carry **working context**, not durable memory.
-- They should execute **one trick per node** against the projected world.
+- They should perform **one scan per station** against the projected world. (Vocabulary refined 2026-04-29: "scan" replaces "trick" as the per-station verb. See `feedback_no-pet-no-trick`.)
 - The right mental model is not "full agent in a shell" but "local actor with
   bounded context inside a finite universe."
 

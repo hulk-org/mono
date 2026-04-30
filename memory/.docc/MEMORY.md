@@ -1,6 +1,9 @@
 - [Clia app graduation](project_clia-app-graduation.md) — hex-grid-face IS Clia; graduate to clia-app in clia-app-org with menu bar, genome pipeline, and proper distribution
+- [Sprite avatars are characters](feedback_sprite-character-not-genome.md) — CLIA Sprite avatars = small character cursors (Robot/Clippy/Navi); NOT clia-face's AvatarKit genome system
+- [Face tracking roadmap](project_face-tracking-roadmap.md) — Vision capability tiers documented at apps/.docc/face-tracking-tiers.md; adopt in clia-face first (test bench), port to clia-sprite second
 - [Commit plus-tag attribution](feedback_commit-plus-tag-attribution.md) — mono commits use cmonterroza+<agent>@wrkstrm.com via repo-local default + koma-git session-aware override
 - [Don't lecture on small corrections](feedback_dont-lecture-on-small-corrections.md) — when user flags a grammar/style slip, acknowledge tersely; no essays, no style-guide cites, suppress the Explanatory Insight block
+- [Don't defend implementation](feedback_dont-defend-implementation.md) — when user shows a working example, propose adopting that engine, not a clever patch on the broken surface
 - [Preserve historical data](feedback_no-rewrite-history.md) — never rewrite harvest/receipt/vault contents when paths change
 - [Save insights to docc](feedback_save-insights-docc.md) — write insights to claude home memory/.docc/insights/
 - [Substrate layout](project_substrate-layout.md) — orchestrators/ category, dynamic resolution, vaults pattern
@@ -12,6 +15,9 @@
 - [Swift not Python](feedback_swift-not-python.md) — never use python3 heredocs in this substrate; Swift is the only sanctioned helper language
 - [No bash scripts either](feedback_no-bash-scripts.md) — bash for-loops, while-read pipelines, multi-step shell logic are also forbidden; save anything beyond a discrete command as a Swift CLI
 - [Swift Testing not XCTest](feedback_swift-testing-not-xctest.md) — all new tests use `import Testing` + `@Test` + `#expect`, never XCTestCase
+- [Swift identifiers stay romaji](feedback_swift-identifiers-romaji-not-katakana.md) — Swift types/files = romaji ASCII (Digikoma); katakana (デジコマ) only for human-facing prose; source reaches Foundation Models via tool reflection
+- [Login Driven Thinking (LDT)](feedback_test-driven-repl-proofs.md) — substrate-wide reasoning discipline at root AGENTS.md; every non-trivial structural claim becomes a compilable .swift proof under repl-proofs/, runs with `swift <file>`, asserts with precondition
+- [LDT proofs index](reference_repl-proofs.md) — TOC of LDT proof files under ~/.claude/memory/.docc/repl-proofs/; the .swift files ARE the artifacts
 - [Fix hygiene via app not CLI](feedback_fix-via-app-not-cli.md) — once a hygiene check is wired into schema-lab, stop running CLI sweeps; the long tail belongs to the app
 - [No bash grep -r on substrate](feedback_no-recursive-grep.md) — always use Grep tool (ripgrep); bash grep -rln across collectives hangs 20-30+ minutes
 - [localOrRemote defaults false](feedback_localOrRemote-default-false.md) — useLocalDeps must default false; only true on explicit truthy SPM_USE_LOCAL_DEPS; never invert
@@ -21,6 +27,7 @@
 - [App Store Connect credentials store](project_appstoreconnect-credentials-store.md) — interim credentials live at ~/.appstoreconnect/credentials/<bundle-id>.json (chmod 600), one file per app, outside the repo
 - [clia-mem app live](project_clia-mem-app.md) — substrate memory browser in clia-app-org; session cleanup moved to session-lab in wrkstrm-app
 - [Close, delete, then launch](feedback_close-delete-launch.md) — quit app, delete .app bundle, rebuild, then launch; never relaunch over stale binary
+- [Delete old apps every iteration](feedback_delete-old-apps-every-iteration.md) — close→trash→build→launch is a habit on every dev loop, not a one-off
 - [Source Control brand](project_source-control-brand.md) — Source Control (was clia-git) shipped under wrkstrm 2026-04-08; slug source-control-by-wrkstrm, bundle me.rismay.source-control, type prefix SourceControl
 - [git mv + Edit trap](feedback_git-mv-then-edit-trap.md) — git mv pre-stages with old content; always git add after Edits or commit captures only the rename
 - [Three legal entities](user_legal-entities.md) — Cristian A Monterroza (personal), Laussat Studio LLC, wrkstrm Inc (C corp); per-app entity assignment is durable, get it right before launch
@@ -36,6 +43,7 @@
 - [No deletion without confirmation](feedback_no-deletion-without-confirmation.md) — never `rm` files in the operator's tree without explicit per-file/per-batch authorization, even when a "lift" or "rollback" task seems to imply it
 - [Reshape preserves data](feedback_reshape-preserves-data.md) — "give the right structure" / "Pattern B" / "fix" instructions are about shape, NOT content; never destroy existing data inside a home being reshaped without per-item authorization
 - [Schema set binding model](project_schema-set-binding.md) — agents bind via private/universal/schemas/sets aggregator + identity.schemaSetRefs; per-file schemaVersion is family version, not stale
+- [Schema families placeholder audit](project_schema-families-placeholder-audit.md) — 36 versions across 28 families hold only FoundationSession placeholder fixtures; 19 families entirely empty, 4 partial gaps (2026-04-26)
 - [Schema-universal wrapper localOrRemote sweep](project_schema-universal-wrapper-sweep.md) — ~62 legacy wrappers still hard-code github URL; 8 fixed in core-triad-set v0.6.0 graph 2026-04-08; full sweep wants a Swift CLI
 - [Telemetry schemas in schema-universal](project_telemetry-schemas-in-schema-universal.md) — FoundationModels session telemetry data shapes belong as a schema family; ghost-shell-org keeps the XPC wire protocol only
 - [Purpose strings must be honest](feedback_purpose-strings-honest.md) — NS*UsageDescription must describe real behavior; never write disclaimer strings or assume a permission is only transitive without asking
@@ -54,12 +62,13 @@
 - [Swift mincore package treaty](project_swift-mincore-package-treaty.md) — minima of Swift systems: Package.swift is the treaty, Swift is conductor, C is knife, ASM is ignition spark; first milestone is swift-mincore with C shims, syscall target, optional ASM experiment, and size/startup/RSS metrics
 - [Tachikoma by wrkstrm scope](project_generable-studio-scope.md) — was Generable Studio → Tachikoma → Koma; graduated to koma-org as **koma-plant** (コマプラント); stale copy at wrkstrm-app/koma-by-wrkstrm
 - [koma-org collective](project_koma-org-collective.md) — canonical Komo home at collectives/koma-org; koma-plant app, 6 live komo specs, 41 domain komo packages across core/context/intelligence/meta/directory/build
-- [Tachikoma organism ontology](project_tachikoma-ontology.md) — Ghost/Shell/Sprite/Tachikoma/Trick hierarchy; ghosts project work graphs, tachis execute them; Apple Intelligence stays host-side; execution worlds via Apple Containerization → Firecracker
+- [Tachikoma organism ontology](project_tachikoma-ontology.md) — Ghost/Shell/Sprite/Tachikoma/Action hierarchy; ghosts project work graphs, tachis execute them; pet/trick vocabulary retired
 - [Tachikoma traverser vocabulary + field worlds](project_tachikoma-traverser-vocabulary-and-field-worlds.md) — preserves the 2026-04-10 paste-cache note on Traverser vs Surveyor naming, bounded Tachikoma traversal, and Ghost-on-host / field-world execution doctrine
-- [Komo execution units](project_komo-execution-units.md) — Komo (short for Tachikoma) deployed by Tau via CLIDE; species presets (Ant/Hound/Fox/Spider/Owl), one trick per node, context-only, no mid-term memory
+- [Komo execution units](project_komo-execution-units.md) — Komo (short for Tachikoma) deployed by Tau via CLIDE; species presets (Ant/Hound/Fox/Spider/Owl), one scan per station, context-only, no mid-term memory
 - [Koretsufu collective](project_gunchi-collective.md) — コレツフ (Koretsufu) = the Collective in four pure full-size katakana; ツ smiles at Americans, フ breathes out like French "collectif"; pairs with タチコマ (Tachikoma)
 - [Logikoma is the class](project_logikoma-is-the-class.md) — ロジコマ (Logikoma) is the canonical class name; Komo = chassis, Logikoma = chassis + logic contract; each individual has a slug; filesystem/schema stay `koma` for compat
-- [Tachikoma factory](project_tachikoma-factory.md) — carrier/harness layer should mint bounded workers from specs, work graphs, staged worlds, tricks, budgets, and receipts instead of spawning full agents for discrete work
+- [Tachikoma factory](project_tachikoma-factory.md) — carrier/harness layer should mint bounded workers from specs, work graphs, staged worlds, actions, budgets, and receipts instead of spawning full agents for discrete work
+- [Pet/trick vocabulary retired](feedback_no-pet-no-trick.md) — digikoma **patrol** chartered routes (macro) and **scan** at each station (micro); action = schema-field; trick banned; imprints gated on bookend receipts
 - [Design goals are not UI chrome](feedback_design-goals-not-chrome.md) — codenames like "Operator 2027" / "Collective 2027" are aspirational targets, never visible Text labels
 - [openclaw is compat surface, not our identity](project_openclaw-compatibility-not-identity.md) — harnesses/openclaw/ is the OpenAI-side upstream we mirror; our carrier identity belongs elsewhere (don't author doctrine in openclaw top-level files)
 - [Architect by wrkstrm](project_architect-by-wrkstrm.md) — flagship: operator draws on Metal 4 canvas with substrate organisms as primitives; output is a running application
@@ -114,3 +123,4 @@
 - [Inference Control NERV state](project_inference-metrics-nerv-state.md) — hex badge state machine needs Cadence review; STANDBY→LOADING→ONLINE→OFFLINE transitions + timeout
 - [common-process is infrastructure-grade](project_common-process-constraints.md) — hot path for entire substrate; every OS, 10yr compat, perf down to posix_spawn, C shim roadmap
 - [Backdrop by wrkstrm](project_backdrop-by-wrkstrm.md) — live Metal wallpaper at desktopIconWindow-2; COLLIDE is first scene; particles = real substrate events; separate from Desktop Utilities widget layer
+- [Suikoden II patterns for agents framework](project_suikoden-ii-agents-framework-patterns.md) — 108 Stars = roster gate, three combat scales, Unite Attacks, runes-as-bounded-charges, permadeath, cross-save
