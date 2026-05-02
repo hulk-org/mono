@@ -13,9 +13,9 @@ Decided 2026-04-12. Logikoma is the class. The slug is the individual.
 - When referring to the chassis/runtime: "Komo" is acceptable but secondary
 - When referring to an individual: use its slug ("the echo Logikoma", "vision-scan")
 - The substrate directory remains `koma/` (filesystem convention)
-- The schema family remains `koma-schemas` (already shipped)
-- The org remains `koma-org` (already created)
-- The organism aspect remains `KomaAspect` in the schema (backward compat)
+- The schema family remains `digikoma-schemas` (already shipped)
+- The org remains `digikoma-org` (already created)
+- The organism aspect remains `DigikomaAspect` in the schema (backward compat)
 - But documentation, conversation, and new code should use "Logikoma" as the class noun
 
 ```

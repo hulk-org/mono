@@ -115,7 +115,7 @@ piece sliding), (3) agents don't move (museum statues).
   floating platform)
 - 2-frame walk animation for player + agents
 - Distance-field agent AI (movement between desks, idle states)
-- NPC interaction via Koma profiles (Enter key near agent → dialogue
+- NPC interaction via Digikoma profiles (Enter key near agent → dialogue
   card from identity.json)
 - GPU-side palette (R8 texture + pal() remapping)
 - Door entry in sprite mode (walk to door + Enter → room transition)

@@ -1,9 +1,9 @@
-# Beads + wrkstrm + Koma: The Full Stack (2026-04-20)
+# Beads + wrkstrm + Digikoma: The Full Stack (2026-04-20)
 
 ## The Insight
 
 Beads (gastownhall/beads) is the missing work management layer for
-wrkstrm apps. Discovered during the Swarm vs Koma investigation when
+wrkstrm apps. Discovered during the Swarm vs Digikoma investigation when
 comparing how different frameworks handle task graphs vs execution graphs.
 
 ## The Stack
@@ -25,11 +25,11 @@ Beads (WHAT + WHEN — task graph)
 Ghost (INTERPRETS — bridges plan to execution)
      │
      │  reads ready Beads issue
-     │  projects a Koma work graph
+     │  projects a Digikoma work graph
      │  writes results back, closes issue
      │
      ▼
-Koma (HOW — execution graph)
+Digikoma (HOW — execution graph)
      │
      │  Spec → Traversal → FM cognition at each node
      │  fetch → split → summarize → synthesize
@@ -52,29 +52,29 @@ system. Beads already provides:
 - **Hash IDs** — collision-free multi-agent work
 - **Compaction** — semantic summarization of closed tasks
 
-Koma already provides the execution layer. The Ghost already bridges
+Digikoma already provides the execution layer. The Ghost already bridges
 planning to execution. Beads fills the gap between "what needs to happen"
 and "make it happen."
 
 ## The Three Systems Compared
 
-| | Beads | Ghost | Koma |
+| | Beads | Ghost | Digikoma |
 |---|---|---|---|
 | Concern | Task management | Interpretation | Execution |
 | Question | What + when? | What does this mean? | How? |
 | Graph type | Dependency (needs) | Knowledge → work projection | Traversal (BFS/DFS/priority) |
 | Persistence | Dolt SQL, versioned | Memory, identity | None (ephemeral, replayable) |
 | Coordination | Gates | Projection decisions | Budget enforcement |
-| Identity | Issue hash IDs | Ghost persona | Koma slug + version + lineage |
+| Identity | Issue hash IDs | Ghost persona | Digikoma slug + version + lineage |
 
 ## Prior Art in the Session
 
-- Swarm (christopherkarani/Swarm) comparison showed that Koma's
+- Swarm (christopherkarani/Swarm) comparison showed that Digikoma's
   separation of navigation from execution is the key architectural
   advantage. Beads takes this further by separating *planning* from
   both navigation and execution.
 - The research pipeline experiment (fetch → summarize → synthesize)
-  proved that Koma pipelines work as execution graphs. Beads would
+  proved that Digikoma pipelines work as execution graphs. Beads would
   be the system that decides *when* to run that pipeline and *which*
   issues it serves.
 

@@ -1,4 +1,4 @@
-# 2026-04-13 — Session-lab image toolkit, sessions vault unblocked, Source Control submodules + koma-plant port
+# 2026-04-13 — Session-lab image toolkit, sessions vault unblocked, Source Control submodules + digikoma-plant port
 
 ## Context
 
@@ -34,10 +34,10 @@ no submodule push management.
 - `git filter-repo --strip-blobs-bigger-than 100M` removed 12 blobs (largest
   6.4 GB) from history.
 - Per-session commits, each under 100 MiB, then force-pushed to GitHub.
-- Mono burn-down: koma-git applied 11 commits for mono-level files, then
+- Mono burn-down: digikoma-git applied 11 commits for mono-level files, then
   manual commits inside 19 submodules + pointer bump.
 
-### koma-git quoting fix
+### digikoma-git quoting fix
 
 - `parseGitChangedFile` in `SwiftUniversalGitCore/GitStatusSupport.swift`
   didn't strip double quotes from git's porcelain output for paths containing
@@ -53,15 +53,15 @@ no submodule push management.
 - Grouped by substrate folder (agents, collectives, harnesses, vaults).
 - gitignore filter for repo discovery (`git check-ignore --stdin`).
 
-### Source Control — koma-plant visual architecture port
+### Source Control — digikoma-plant visual architecture port
 
-- Replaced `List` + `NavigationLink` sidebar with koma-plant's `ZStack {
+- Replaced `List` + `NavigationLink` sidebar with digikoma-plant's `ZStack {
   LinearGradient; ScrollView { identityCard + routesCard } }`.
 - Replaced 3-pane `ModernSharedAppShell` (with inspector) with 2-pane
   `sidebar:` + `detail:`.
 - `.windowStyle(.hiddenTitleBar)` eliminated the title bar seam — the gradient
   header IS the window chrome now.
-- Amber/brown palette transposed from koma-plant's green at matching
+- Amber/brown palette transposed from digikoma-plant's green at matching
   luminance: sign(0.44,0.26,0.13) → signDeep(0.17,0.11,0.08).
 
 ## Errors and lessons
@@ -75,11 +75,11 @@ no submodule push management.
 - `.windowStyle(.hiddenTitleBar)` — one line, solved the title bar seam that
   no amount of gradient tuning could fix.
 
-## Session part 2: koma-memory + sandboxed eval runner
+## Session part 2: digikoma-memory + sandboxed eval runner
 
-### koma-memory
+### digikoma-memory
 
-New komo at `koma-org/private/universal/domain/meta/koma-memory/`. Four
+New komo at `digikoma-org/private/universal/domain/meta/digikoma-memory/`. Four
 commands: audit, cluster, split, reindex. Clustering uses a hardcoded
 `(domain, keywords)` lookup table — no model involvement. Applied split
 to hulk expertise: 4 domain articles created under
@@ -89,17 +89,17 @@ from multi-line bullet parsing. Root expertise.md rewritten as
 lightweight index with `@Links`.
 
 Tracked the FoundationModels judgment upgrade as 0.8.0 universal pattern
-in `koma.issues.docc/koma-memory-fm-judgment.md` — applies to
-koma-memory, koma-classify, koma-need, koma-audit.
+in `koma.issues.docc/digikoma-memory-fm-judgment.md` — applies to
+digikoma-memory, digikoma-classify, digikoma-need, digikoma-audit.
 
-### Sandboxed eval runner in koma-plant
+### Sandboxed eval runner in digikoma-plant
 
-Built `KomaSandboxRunner` — generates macOS Seatbelt `.sb` profiles per
+Built `DigikomaSandboxRunner` — generates macOS Seatbelt `.sb` profiles per
 run, launches via `sandbox-exec -f`, enforces timeout via
 `DispatchSource` timer. Profile: deny-default, restricted write paths,
 read-only substrate, network deny. `ResumeOnce` wrapper for Swift 6
-`CheckedContinuation` Sendable compliance. Wired into koma-plant
-Factory > Eval Run lane via `KomaEvalRunView`.
+`CheckedContinuation` Sendable compliance. Wired into digikoma-plant
+Factory > Eval Run lane via `DigikomaEvalRunView`.
 
 ## Artifacts
 
@@ -108,8 +108,8 @@ Factory > Eval Run lane via `KomaEvalRunView`.
   changed + 1 new (SourceControlSubmodules.swift)
 - `swift-universal/.../SwiftUniversalGitCore/GitStatusSupport.swift` — quoting fix
 - `codex-sessions` vault — 21 per-session commits, filter-repo, force-pushed
-- `koma-org/.../domain/meta/koma-memory/` — new komo (Package.swift, tool, CLI, tests, spec, katakana files)
-- `koma-org/.../koma.issues.docc/koma-memory-fm-judgment.md` — 0.8.0 upgrade pattern
-- `koma-org/.../apps/koma-plant/Sources/mac-app/KomaSandboxRunner.swift` — Seatbelt runner
-- `koma-org/.../apps/koma-plant/Sources/mac-app/KomaEvalRunView.swift` — eval UI
-- `hulk/memory/.docc/expertise/domains/` — 4 new domain articles from koma-memory split
+- `digikoma-org/.../domain/meta/digikoma-memory/` — new komo (Package.swift, tool, CLI, tests, spec, katakana files)
+- `digikoma-org/.../koma.issues.docc/digikoma-memory-fm-judgment.md` — 0.8.0 upgrade pattern
+- `digikoma-org/.../apps/digikoma-plant/Sources/mac-app/DigikomaSandboxRunner.swift` — Seatbelt runner
+- `digikoma-org/.../apps/digikoma-plant/Sources/mac-app/DigikomaEvalRunView.swift` — eval UI
+- `hulk/memory/.docc/expertise/domains/` — 4 new domain articles from digikoma-memory split

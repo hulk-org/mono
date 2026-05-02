@@ -1,7 +1,7 @@
 - [Clia app graduation](project_clia-app-graduation.md) — hex-grid-face IS Clia; graduate to clia-app in clia-app-org with menu bar, genome pipeline, and proper distribution
 - [Sprite avatars are characters](feedback_sprite-character-not-genome.md) — CLIA Sprite avatars = small character cursors (Robot/Clippy/Navi); NOT clia-face's AvatarKit genome system
 - [Face tracking roadmap](project_face-tracking-roadmap.md) — Vision capability tiers documented at apps/.docc/face-tracking-tiers.md; adopt in clia-face first (test bench), port to clia-sprite second
-- [Commit plus-tag attribution](feedback_commit-plus-tag-attribution.md) — mono commits use cmonterroza+<agent>@wrkstrm.com via repo-local default + koma-git session-aware override
+- [Commit plus-tag attribution](feedback_commit-plus-tag-attribution.md) — mono commits use cmonterroza+<agent>@wrkstrm.com via repo-local default + digikoma-git session-aware override
 - [Don't lecture on small corrections](feedback_dont-lecture-on-small-corrections.md) — when user flags a grammar/style slip, acknowledge tersely; no essays, no style-guide cites, suppress the Explanatory Insight block
 - [Don't defend implementation](feedback_dont-defend-implementation.md) — when user shows a working example, propose adopting that engine, not a clever patch on the broken surface
 - [Preserve historical data](feedback_no-rewrite-history.md) — never rewrite harvest/receipt/vault contents when paths change
@@ -15,7 +15,7 @@
 - [Swift not Python](feedback_swift-not-python.md) — never use python3 heredocs in this substrate; Swift is the only sanctioned helper language
 - [No bash scripts either](feedback_no-bash-scripts.md) — bash for-loops, while-read pipelines, multi-step shell logic are also forbidden; save anything beyond a discrete command as a Swift CLI
 - [Swift Testing not XCTest](feedback_swift-testing-not-xctest.md) — all new tests use `import Testing` + `@Test` + `#expect`, never XCTestCase
-- [Digikoma not Logikoma](feedback_digikoma-not-logikoma.md) — new komas conform to DigikomaIdentifiable; types/packages get Digikoma* prefix; KomaCore/KomaIdentity/KomaAction stay (they live in the unrenamed core)
+- [Digikoma not Logikoma](feedback_digikoma-not-logikoma.md) — new komas conform to DigikomaIdentifiable; types/packages get Digikoma* prefix; DigikomaCore/DigikomaIdentity/DigikomaAction stay (they live in the unrenamed core)
 - [Swift identifiers stay romaji](feedback_swift-identifiers-romaji-not-katakana.md) — Swift types/files = romaji ASCII (Digikoma); katakana (デジコマ) only for human-facing prose; source reaches Foundation Models via tool reflection
 - [Login Driven Thinking (LDT)](feedback_test-driven-repl-proofs.md) — substrate-wide reasoning discipline at root AGENTS.md; every non-trivial structural claim becomes a compilable .swift proof under repl-proofs/, runs with `swift <file>`, asserts with precondition; directory listing + git log are the index
 - [Teach the proof every time](feedback_teach-the-proof-every-time.md) — every LDT proof gets a structured walkthrough (claim, pieces, load-bearing line, how to extend) AND a positive+negative proof pair where possible; never just print "ok: passed" and move on
@@ -44,6 +44,7 @@
 - [No @_exported import](feedback_no-exported-import.md) — never `@_exported import Foo` to leak a dep's symbols; same anti-pattern as re-export typealias, breaks direct-deps rule
 - [No deletion without confirmation](feedback_no-deletion-without-confirmation.md) — never `rm` files in the operator's tree without explicit per-file/per-batch authorization, even when a "lift" or "rollback" task seems to imply it
 - [No submodule update --init without consent](feedback_no-submodule-update-init-without-consent.md) — `git submodule update --init` is destructive against any path with on-disk content; require explicit per-path authorization, prefer adding a new remote when local is more current
+- [Vault for credentials, not external tools](feedback_vault-for-credentials-not-gcm.md) — propose vault-by-wrkstrm for credential storage; never default to GCM, 1Password, Bitwarden when in-substrate credential surface is the doctrinal answer
 - [Reshape preserves data](feedback_reshape-preserves-data.md) — "give the right structure" / "Pattern B" / "fix" instructions are about shape, NOT content; never destroy existing data inside a home being reshaped without per-item authorization
 - [Schema set binding model](project_schema-set-binding.md) — agents bind via private/universal/schemas/sets aggregator + identity.schemaSetRefs; per-file schemaVersion is family version, not stale
 - [Schema families placeholder audit](project_schema-families-placeholder-audit.md) — 36 versions across 28 families hold only FoundationSession placeholder fixtures; 19 families entirely empty, 4 partial gaps (2026-04-26)
@@ -63,8 +64,8 @@
 - [LocalizeCore library carve](project_localize-core-carve.md) — wrkstrm-core/.../spm/localize split into LocalizeCore lib + localize exec on 2026-04-09; embed via LocalizeCore
 - [JSON hot-loop: simdjson via C shim](project_json-hot-loop-simdjson-shim.md) — Swift Decodable is 35-70× slower than parser; wrkstrm-performance cli-arg-bench-press proved 1.7 μs via SimdJsonShim vs 86 μs via JSONDecoder on 2026-04-09
 - [Swift mincore package treaty](project_swift-mincore-package-treaty.md) — minima of Swift systems: Package.swift is the treaty, Swift is conductor, C is knife, ASM is ignition spark; first milestone is swift-mincore with C shims, syscall target, optional ASM experiment, and size/startup/RSS metrics
-- [Tachikoma by wrkstrm scope](project_generable-studio-scope.md) — was Generable Studio → Tachikoma → Koma; graduated to koma-org as **koma-plant** (コマプラント); stale copy at wrkstrm-app/koma-by-wrkstrm
-- [koma-org collective](project_koma-org-collective.md) — canonical Komo home at collectives/koma-org; koma-plant app, 6 live komo specs, 41 domain komo packages across core/context/intelligence/meta/directory/build
+- [Tachikoma by wrkstrm scope](project_generable-studio-scope.md) — was Generable Studio → Tachikoma → Digikoma; graduated to digikoma-org as **digikoma-plant** (コマプラント); stale copy at wrkstrm-app/digikoma-by-wrkstrm
+- [digikoma-org collective](project_digikoma-org-collective.md) — canonical Komo home at collectives/digikoma-org; digikoma-plant app, 6 live komo specs, 41 domain komo packages across core/context/intelligence/meta/directory/build
 - [Tachikoma organism ontology](project_tachikoma-ontology.md) — Ghost/Shell/Sprite/Tachikoma/Action hierarchy; ghosts project work graphs, tachis execute them; Apple Intelligence stays host-side; execution worlds via Apple Containerization → Firecracker
 - [Tachikoma traverser vocabulary + field worlds](project_tachikoma-traverser-vocabulary-and-field-worlds.md) — preserves the 2026-04-10 paste-cache note on Traverser vs Surveyor naming, bounded Tachikoma traversal, and Ghost-on-host / field-world execution doctrine
 - [Komo execution units](project_komo-execution-units.md) — Komo (short for Tachikoma) deployed by Tau via CLIDE; species presets (Ant/Hound/Fox/Spider/Owl), one scan per station, context-only, no mid-term memory
@@ -72,6 +73,7 @@
 - [Logikoma is the class](project_logikoma-is-the-class.md) — ロジコマ (Logikoma) is the canonical class name; Komo = chassis, Logikoma = chassis + logic contract; each individual has a slug; filesystem/schema stay `koma` for compat
 - [Tachikoma factory](project_tachikoma-factory.md) — carrier/harness layer should mint bounded workers from specs, work graphs, staged worlds, actions, budgets, and receipts instead of spawning full agents for discrete work
 - [Patrol/scan vocabulary](feedback_patrol-scan-vocabulary.md) — digikoma **patrol** chartered routes (macro) and **scan** at each station (micro); action = schema-field; anatomy = traversal preset; imprints gated on bookend receipts
+- [Remote migration pause](project_remote-migration-pause.md) — do NOT git push; new GitHub remote being established 2026-04-30; commits + pointer bumps fine, push paused until user clears
 - [Design goals are not UI chrome](feedback_design-goals-not-chrome.md) — codenames like "Operator 2027" / "Collective 2027" are aspirational targets, never visible Text labels
 - [openclaw is compat surface, not our identity](project_openclaw-compatibility-not-identity.md) — harnesses/openclaw/ is the OpenAI-side upstream we mirror; our carrier identity belongs elsewhere (don't author doctrine in openclaw top-level files)
 - [Architect by wrkstrm](project_architect-by-wrkstrm.md) — flagship: operator draws on Metal 4 canvas with substrate organisms as primitives; output is a running application
@@ -84,16 +86,19 @@
 - [Modular test surfaces](feedback_modular-test-surfaces.md) — when A/B testing implementations, copy the file and swap at runtime via protocol; never inline if/else between strategies
 - [No hardcoded fps](feedback_no-hardcoded-fps.md) — never hardcode preferredFramesPerSecond; read NSScreen.main?.maximumFramesPerSecond at runtime
 - [Vault by wrkstrm](project_vault-by-wrkstrm.md) — Passwords + Wallet + Reminders hybrid; multi-vault trust compartments; keychain daemon; sealed agent artifacts; card-first UI; me.rismay.vault
-- [clia-rpg Game Dev Story mode](project_clia-rpg-game-dev-story.md) — Game Dev Story-style sim: agents are devs, directories are rooms, Koma get visual representation; main office + doors + navigable directory tree on Metal canvas
+- [swift-git-credential-vault Komo](project_swift-git-credential-vault-komo.md) — planned Komo implementing git credential helper protocol on top of VaultCore.TokenResolver; unifies forge auth (BB, GH, GitLab, Azure DevOps), no GCM/external tools
+- [clia-rpg Game Dev Story mode](project_clia-rpg-game-dev-story.md) — Game Dev Story-style sim: agents are devs, directories are rooms, Digikoma get visual representation; main office + doors + navigable directory tree on Metal canvas
 - [Hidden files as basement](project_hidden-files-as-basement.md) — dotfiles render as basement levels in Agent RPG: .docc=knowledge vault, .git=sewers, .wrkstrm=utility closet; trapdoor access
 - [wrkstrm-games collective](project_wrkstrm-games.md) — clia-rpg graduates to wrkstrm-games org; repo created at github.com/wrkstrm-games/mono, migration from clia-app-org pending
 - [AppDelegate not SwiftUI for Metal](feedback_appdelegate-not-swiftui.md) — Metal game apps start AppDelegate + NSWindow + MTKView; SwiftUI is a layer on top, not the foundation
 - [EGM Compendium vault](reference_egm-compendium-vault.md) — 368-page EGM history at vaults/egm-page-vault/; reference for review scoring, UI formats, agent-as-reviewer design in wrkstrm-games
-- [Logikoma training ground](project_logikoma-training-ground.md) — iso bench becomes the Koma training ground; Fuchi/Tachi/Logi families on the diamond grid; feeds into Agent RPG studio
-- [Koma katakana files](project_koma-katakana-files.md) — komo homes use アイディ.md (ID), インスト.md (instructions), レイ.md (directives); machine identity is *.organism.json with KomaAspect
-- [No throwaway — make a Koma](feedback_no-throwaway-make-koma.md) — never write throwaway scripts; if worth executing, create or invoke a Komo with spec, lineage, tests
-- [Use koma for discrete work](feedback_use-koma-for-work.md) — before doing mechanical work (file moves, renames, scaffolding), ask if a koma can do it
-- [Koma commits, not agent](feedback_koma-commits-not-agent.md) — never git commit directly; invoke koma-git commit; mechanical git ops belong to the komo
+- [Rankings are hero data](feedback_rankings-are-hero-data.md) — in EGM Compendium / wrkstrm-games review apps, ranking placement is hero treatment (top + large badge), never buried metadata
+- [EGM Compendium nav chaos](project_egm-compendium-nav-chaos.md) — detail-page nav is inconsistent across entity types; needs single skeleton (header + hero + identity stripe + body + cross-links)
+- [Logikoma training ground](project_logikoma-training-ground.md) — iso bench becomes the Digikoma training ground; Fuchi/Tachi/Logi families on the diamond grid; feeds into Agent RPG studio
+- [Digikoma katakana files](project_digikoma-katakana-files.md) — komo homes use アイディ.md (ID), インスト.md (instructions), レイ.md (directives); machine identity is *.organism.json with DigikomaAspect
+- [No throwaway — make a Digikoma](feedback_no-throwaway-make-koma.md) — never write throwaway scripts; if worth executing, create or invoke a Komo with spec, lineage, tests
+- [Use koma for discrete work](feedback_use-digikoma-for-work.md) — before doing mechanical work (file moves, renames, scaffolding), ask if a koma can do it
+- [Digikoma commits, not agent](feedback_digikoma-commits-not-agent.md) — never git commit directly; invoke digikoma-git commit; mechanical git ops belong to the komo
 - [Trash not rm -rf](feedback_trash-not-rm.md) — move to ~/.Trash instead of rm -rf; keeps deletions recoverable
 - [Never trash under investigation](feedback_never-trash-under-investigation.md) — build the inspection tool first, then let the operator decide what to delete
 - [Analysis before deletion](feedback_analysis-before-deletion.md) — scan→inspect→select→review→confirm→execute; never show delete buttons inline with scan results
@@ -103,21 +108,21 @@
 - [Directory Control app](project_directory-control-app.md) — unified filesystem watcher (15 routes, WrkstrmFont); observes git, links to Source Control for actions
 - [WrkstrmFSEvent package](project_wrk-fsevents-watcher.md) — actor+AsyncStream watcher in wrkstrm-core; wired into collectives-by-wrkstrm; four design proposals in wrkstrm-core/.docc/
 - [Session Lab sandbox telemetry](project_session-lab-sandbox-telemetry.md) — Sandbox route in Session Lab showing /private/tmp/claude-{uid}/ disk usage
-- [Koma domain architecture](project_koma-domain-architecture.md) — six domains (core/context/meta/directory/build/intelligence), DAG deps, Ghost spans all, Komo stay within
-- [koma-lab](project_koma-plant.md) — コマラブ (renamed from koma-plant 2026-04-15): lab + gym for the fleet. Stage World, TurnGraph, eval, profile persistence.
-- [Stage World Gym](project_stage-world-gym.md) — Factory → Stage World = gym for foundation sessions; fixture-staged isolated worlds for rehearsing Koma before live substrate
-- [Koma Gym Insight](project_koma-gym-insight.md) — 2026-04-15 breakthrough: fixture=prompt, allowlist=capability model, gym=training loop; organism is learnable not just deployable
-- [Next session pickup](project_next-session-pickup.md) — build koma-list first, replace 75-entry fixture with live 40-Komo fleet, wire koma-plant to real catalog
+- [Digikoma domain architecture](project_digikoma-domain-architecture.md) — six domains (core/context/meta/directory/build/intelligence), DAG deps, Ghost spans all, Komo stay within
+- [digikoma-lab](project_digikoma-plant.md) — コマラブ (renamed from digikoma-plant 2026-04-15): lab + gym for the fleet. Stage World, TurnGraph, eval, profile persistence.
+- [Stage World Gym](project_stage-world-gym.md) — Factory → Stage World = gym for foundation sessions; fixture-staged isolated worlds for rehearsing Digikoma before live substrate
+- [Digikoma Gym Insight](project_digikoma-gym-insight.md) — 2026-04-15 breakthrough: fixture=prompt, allowlist=capability model, gym=training loop; organism is learnable not just deployable
+- [Next session pickup](project_next-session-pickup.md) — build digikoma-list first, replace 75-entry fixture with live 40-Komo fleet, wire digikoma-plant to real catalog
 - [Source Control next](project_source-control-next.md) — submodule commit history, concurrent commit detection (index.lock), cross-submodule timeline
 - [Graph rendering needs Metal](project_graph-rendering-perf.md) — SpriteKit too slow for 900+ nodes; experiment with Metal renderer in wrkstrm-performance, then share across Source Control / Collectives / Foundry
 - [Benchmark all surfaces simultaneously](feedback_bench-all-surfaces.md) — each backend gets its own executable target; never overwrite existing bench files, only add new ones
 - [Backends are peers not versions](feedback_backends-not-versions.md) — SpriteKit/SceneKit/Metal/UIKit Dynamics are parallel strategies, not v1/v2/v3; name by engine, never number
 - [No Co-Authored-By in commits](feedback_no-coauthored-by.md) — never add Claude attribution trailers; the operator is directing the work
-- [Beads is the wrkstrm app work layer](project_beads-is-wrkstrm-app.md) — gastownhall/beads = task management backbone for wrkstrm apps; Beads orchestrates (what+when), Koma executes (how), Ghost bridges
+- [Beads is the wrkstrm app work layer](project_beads-is-wrkstrm-app.md) — gastownhall/beads = task management backbone for wrkstrm apps; Beads orchestrates (what+when), Digikoma executes (how), Ghost bridges
 - [Ghost shell file split](project_ghost-shell-file-split.md) — GhostShellMacApp.swift 1393→8 files; chrome extracted; tree-explorer sidebar for Single/Adversarial modes
 - [Show code directly](feedback_show-code-directly.md) — when user says "show me", paste code or open file; no summaries
 - [Workflow by wrkstrm](project_workflow-by-wrkstrm.md) — the app is called "Workflow"; slug workflow-by-wrkstrm, bundle me.rismay.workflow; Beads is the engine, Workflow is the product
-- [Ghost-shell + koma followups](project_ghost-shell-followups.md) — 14 items: concurrent stress test, subprocess XPC wiring, shared mode package, koma-plant glass pass, glyph-glitch exploration
+- [Ghost-shell + koma followups](project_ghost-shell-followups.md) — 14 items: concurrent stress test, subprocess XPC wiring, shared mode package, digikoma-plant glass pass, glyph-glitch exploration
 - [wrkstrm-app + perf sweep](project_wrkstrm-app-wrkstrm-perf-sweep.md) — architect merged, spiders trashed, tree-traversal-bench + metal-tetris relocated, TouchUpCore removed, chess UX fixes; build artifact cleanup still pending
 - [Beads CLI takes JSON not flags](feedback_beads-cli-json-input.md) — swift-beads-cli accepts schema-shaped JSON via file or stdin, not one flag per field
 - [Kozy home environment](feedback_kozy-home-environment.md) — workspace is a shared dwelling for operators and agents; kozy/cozy aesthetic is the design contract, not decoration

@@ -39,7 +39,7 @@ A dated log of notable events, decisions, and onboarding progress.
   agent AI to reach Game Dev Story.
 - Artifacts: <doc:articles/journal-2026-04-17-gamescene-layer-collision-review>
 - Next: Wall sprites, 2-frame walk animation, distance-field agent AI,
-  NPC interaction via Koma profiles, GPU-side palette.
+  NPC interaction via Digikoma profiles, GPU-side palette.
 
 ## 2026-04-16 — Sprite Forge pipeline: procedural sprites → PICO-8 editor → Metal game engine → agent-rpg
 
@@ -55,17 +55,17 @@ A dated log of notable events, decisions, and onboarding progress.
 - Next: GPU-side palette (R8 texture + pal() remap), template-based characters,
   distance-field AI, 8×8 mode, tilemap integration.
 
-## 2026-04-13 — session-lab image toolkit, sessions vault unblocked, Source Control submodules + koma-plant port
+## 2026-04-13 — session-lab image toolkit, sessions vault unblocked, Source Control submodules + digikoma-plant port
 
 - Context: S1 incident blocker — sessions vault couldn't push (files >100 MiB),
   session-lab could detect but not act, Source Control had no submodule push.
 - Actions: Built per-image strip/downscale/compress in session-lab, filter-repo
-  on sessions vault, per-session commits + force-push, koma-git quoting fix,
-  Source Control Submodules pane with push/reset-to-remote, koma-plant visual
+  on sessions vault, per-session commits + force-push, digikoma-git quoting fix,
+  Source Control Submodules pane with push/reset-to-remote, digikoma-plant visual
   architecture port with `.windowStyle(.hiddenTitleBar)`.
 - Artifacts: See
   [full article](articles/journal-2026-04-13-session-lab-sessions-vault-source-control.md).
-- Next: koma-push as a dedicated komo, WrkstrmFont integration in Source
+- Next: digikoma-push as a dedicated komo, WrkstrmFont integration in Source
   Control, S1 closer to closing.
 
 ## 2026-04-02 - commissioned Claude home scaffolded

@@ -1,5 +1,5 @@
 ---
-name: Ghost-shell and koma-plant session followups
+name: Ghost-shell and digikoma-plant session followups
 description: Post-session work items from the 2026-04-20/21 ghost-shell rebuild and clia-app-org condensation
 type: project
 originSessionId: 2a54098a-bc60-4237-aace-febc407917a3
@@ -18,14 +18,14 @@ Followup items from the ghost-shell observer rebuild and app surface condensatio
 4. **Long-hold progressive ramp** — currently fires once at a single tier. Should escalate 2→4→8→16→32→64 the longer you hold, not just cycle on repeated long-presses.
 5. **Per-run detail view** — clicking a run should show its full timing data, piece latencies, host snapshot, and terminus detail.
 6. **Session record saving path** — the hypothesis expects evidence at `~/Library/Application Support/ghost-shell/sessions/v000_000_000/`. Current code saves to `.../imprints/v000_000_001/`. Reconcile or document the divergence.
-7. **Shared KomaMode/GhostMode package** — identical enums in two repos. Extract to a shared domain package to make the vocabulary a type-level contract.
+7. **Shared DigikomaMode/GhostMode package** — identical enums in two repos. Extract to a shared domain package to make the vocabulary a type-level contract.
 8. **Clean DerivedData relics** — stale ghost-shell builds at `ghost-shell-fsyzfhvcmknzutdfjarkfkevsgib` and others in DerivedData can be removed.
 
-## Koma-plant
+## Digikoma-plant
 
-9. **Deeper Liquid Glass pass** — fleet graph background, Koma detail sections (Identity, Primitive role, Definition surfaces), and sub-views still use opaque green palette. Second pass needed.
-10. **Wire KomaMode into fleet/deployment views** — KomaMode.swift exists but isn't yet used in the UI. Per-Komo mode badges and deployment metric strips should appear in fleet detail.
-11. **KomaDeploymentMetricsStrip with real data** — currently defined but not wired to live signals. Needs telemetry from actual Komo runs to populate success rate, chaos, and contribution delta.
+9. **Deeper Liquid Glass pass** — fleet graph background, Digikoma detail sections (Identity, Primitive role, Definition surfaces), and sub-views still use opaque green palette. Second pass needed.
+10. **Wire DigikomaMode into fleet/deployment views** — DigikomaMode.swift exists but isn't yet used in the UI. Per-Komo mode badges and deployment metric strips should appear in fleet detail.
+11. **DigikomaDeploymentMetricsStrip with real data** — currently defined but not wired to live signals. Needs telemetry from actual Komo runs to populate success rate, chaos, and contribution delta.
 
 ## clia-app-org
 

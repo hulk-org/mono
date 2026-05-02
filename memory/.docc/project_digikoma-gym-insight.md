@@ -1,5 +1,5 @@
 ---
-name: Koma Gym Insight
+name: Digikoma Gym Insight
 description: 2026-04-15 breakthrough — Stage World + Seatbelt + allowlist = training loop for Foundation sessions, not just a test harness
 type: project
 ---
@@ -12,4 +12,4 @@ The moment Stage World + Seatbelt + tool allowlist composed on 2026-04-15. Key i
 
 **How to apply:** Before wiring any real Foundation session, always ask: can this be gymmed first? Stage the context the session would see, run the koma that would handle it, inspect the handoff. Only graduate to live inference when the gym passes.
 
-**Documented at:** `koma-plant.architecture.docc/koma-gym-insight.md`
+**Documented at:** `digikoma-plant.architecture.docc/digikoma-gym-insight.md`

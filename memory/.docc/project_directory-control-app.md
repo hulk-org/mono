@@ -15,6 +15,6 @@ Directory Control (directory-control-by-wrkstrm) is the unified filesystem watch
 - xcodegen-managed project.yml
 - Git Watcher observes commits; Source Control acts on git — link between the two, don't duplicate
 - Next: git commit detail in Configuration, deep link to Source Control for actions
-- Next: rename CliaDir* types to DirectoryControl* (koma-rename job)
+- Next: rename CliaDir* types to DirectoryControl* (digikoma-rename job)
 - Next: wire SwiftDirectoryTools into hygiene routes (replace inline scanners)
 - Next: add to rismay-substrate.xcworkspace

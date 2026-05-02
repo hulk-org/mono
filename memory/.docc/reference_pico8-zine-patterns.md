@@ -56,6 +56,6 @@ Key patterns extracted from picozine 1-4 (August 2015 – 2017):
 - Flood-fill distance from hero position, gated by `fget(mget(x,y), .solid)`
 - Monsters check 4 neighbors, move toward lower distance
 - Simple, no A* needed for most room-scale navigation
-- Directly applicable to agent-rpg Koma movement in rooms
+- Directly applicable to agent-rpg Digikoma movement in rooms
 
 **How to apply:** sprite-forge-editor layout should match the PICO-8 canonical layout (bottom strip, dominant canvas, compact palette). The procedural character generator should move to template + pal() remap model. Agent-rpg room navigation should use distance-field AI with fget+mget pattern. The cartridge is a creative artifact, not a config file.

@@ -134,7 +134,7 @@ You want this to compile cleanly into CLIs and run in minimal environments.
 
 Here’s a direction using Swift 6 actors + protocols:
 
-public protocol Koma {
+public protocol Digikoma {
   associatedtype Input
   associatedtype Output
   
@@ -142,9 +142,9 @@ public protocol Koma {
 }
 Now constrain it harder (no hidden global state):
 
-public protocol StatelessKoma: Koma where Self: Sendable {}
+public protocol StatelessDigikoma: Digikoma where Self: Sendable {}
 
-public protocol StatefulKoma: Koma {
+public protocol StatefulDigikoma: Digikoma {
   associatedtype State: Sendable
   
   func loadState() async throws -> State
@@ -152,7 +152,7 @@ public protocol StatefulKoma: Koma {
 }
 Example:
 
-struct VolSurfaceKoma: StatelessKoma {
+struct VolSurfaceDigikoma: StatelessDigikoma {
   struct Input: Sendable {
     let optionsChain: [OptionQuote]
   }
@@ -169,7 +169,7 @@ struct VolSurfaceKoma: StatelessKoma {
 }
 Now your LLM-backed KOMA:
 
-struct StrategySelectionKoma: StatelessKoma {
+struct StrategySelectionDigikoma: StatelessDigikoma {
   struct Input: Sendable {
     let volSurface: VolSurface
     let portfolioState: PortfolioState
@@ -220,7 +220,7 @@ Strategy modularity under volatility regime changes
 
 Example:
 
-Replace only StrategySelectionKoma
+Replace only StrategySelectionDigikoma
 
 Keep:
 
@@ -268,25 +268,25 @@ logging (use your WrkstrmLog)
 B. Define 10 canonical KOMA types
 For Tau:
 
-MarketDataKoma
+MarketDataDigikoma
 
-ChainBuilderKoma
+ChainBuilderDigikoma
 
-GreeksKoma
+GreeksDigikoma
 
-VolSurfaceKoma
+VolSurfaceDigikoma
 
-ExpectedMoveKoma
+ExpectedMoveDigikoma
 
-StrategyKoma
+StrategyDigikoma
 
-ExecutionKoma
+ExecutionDigikoma
 
-RiskKoma
+RiskDigikoma
 
-JournalKoma
+JournalDigikoma
 
-ReportKoma
+ReportDigikoma
 
 That becomes your standard library.
 

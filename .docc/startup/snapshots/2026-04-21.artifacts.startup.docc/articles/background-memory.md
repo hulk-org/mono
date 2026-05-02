@@ -90,7 +90,7 @@ struct MyOutput { ... }
 typealias MyOutput = MyOutput
 ```
 
-This satisfies both CLI compilation and koma-audit syntax probes.
+This satisfies both CLI compilation and digikoma-audit syntax probes.
 
 ## Graduation Policy
 
@@ -180,8 +180,8 @@ Patterns that apply across iOS/macOS apps in this substrate.
 
 - Dual-branch `@Generable` declarations for any type used in FM generation.
   `#if canImport(FoundationModels)` / `#else` plain fallback / `typealias`.
-- `KomaFoundationModelDocumented` conformance + `foundationSession(...)` for
-  Koma FM bridge. Satisfies koma-audit `wellBuilt (100)` while keeping CLI
+- `DigikomaFoundationModelDocumented` conformance + `foundationSession(...)` for
+  Digikoma FM bridge. Satisfies digikoma-audit `wellBuilt (100)` while keeping CLI
   `swift build` working.
 - `SystemDesignTemplate` pattern (Scope / Architecture / Deep Dive / Tradeoffs /
   Close) for structured interview or coaching generation. Session context shifts

@@ -1,26 +1,26 @@
 ---
 name: clia-rpg Game Dev Story mode
-description: clia-rpg becomes a Game Dev Story-style management sim where agents are the dev team, directories are rooms, and Koma get visual representation in a navigable game world
+description: clia-rpg becomes a Game Dev Story-style management sim where agents are the dev team, directories are rooms, and Digikoma get visual representation in a navigable game world
 type: project
 ---
 
 clia-rpg evolves from a static dashboard into a **Game Dev Story-style management sim** for the substrate. The game is the UI layer over real agent work.
 
 **Core mapping:**
-- **Hire devs** = commission agents / spawn Tachikoma (Koma)
+- **Hire devs** = commission agents / spawn Tachikoma (Digikoma)
 - **Pick genres** = choose which collective/package/directory to work on
 - **Train staff** = agent expertise growth (memory/.docc/expertise)
 - **Ship titles** = actual builds, deploys, PR merges
 - **Chase review scores** = test results, bench numbers, App Store ratings
 
-**Why:** This gives Koma a visual environment and representation. Instead of invisible CLI workers, they're pixel-art characters moving between rooms, picking up tasks, producing output. The operator sees the work happening spatially.
+**Why:** This gives Digikoma a visual environment and representation. Instead of invisible CLI workers, they're pixel-art characters moving between rooms, picking up tasks, producing output. The operator sees the work happening spatially.
 
 **Architecture:**
 - **Main office** = entry point, shows the active party + current project
 - **Doors** = directories in the collective the user chooses to explore
 - **Rooms** = subdirectories, each rendered as a game room on the Metal canvas
 - **Directory tree** = navigable game world (pan/zoom, enter/exit rooms)
-- **Agents/Koma** = sprites that move between rooms as they work on tasks
+- **Agents/Digikoma** = sprites that move between rooms as they work on tasks
 - **Files** = objects/NPCs in rooms (swift files = code scrolls, .docc = books, Package.swift = workbench)
 
 **Engine needs (metal-game-engine roadmap):**

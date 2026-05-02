@@ -14,7 +14,7 @@ CLIA organism ontology decided 2026-04-09/10. This is foundational doctrine. See
 - **Harness (Shell)** — embodied runtime container, hosts ghosts, wires sprites, mints Tachikoma
 - **Sprite** — sensory organism, file watchers, presubmit validators, event emitters. Gate Sprites can block state transitions
 - **Tachikoma** — bounded execution unit with context but NO mid-term memory. Traverses a closed work graph, performs one **scan** per station. Named after Ghost in the Shell think-tanks. Shorthand: "Tachis" (or "digikoma" when emphasizing the passenger-on-a-chartered-train framing)
-- **Action** — atomic operation (fetch, clean, mark, trace, validate, index, watch). Performed as a scan when the digikoma stops at a station during traversal. The schema-slot is `KomaAction`.
+- **Action** — atomic operation (fetch, clean, mark, trace, validate, index, watch). Performed as a scan when the digikoma stops at a station during traversal. The schema-slot is `DigikomaAction`.
 
 ## Key invariants
 

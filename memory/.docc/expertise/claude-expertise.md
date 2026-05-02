@@ -54,8 +54,8 @@ existing cast.
 
 ## Unclustered entries
 
-- **koma-plant visual architecture pattern.** `VStack(spacing:0) { LinearGradient header; ModernSharedAppShell(sidebar:, detail:) }` with `ZStack { gradient; ScrollView { identityCard + routesCard } }` sidebar, custom nav rows (white 0.08/0.16 fill), `.background(canvas.ignoresSafeArea()).tint(accent) .environment(\.colorScheme, .dark)`, and `.windowStyle(.hiddenTitleBar)` to eliminate the title bar seam.
-- **koma-memory: keyword-table domain clustering.** Audit a `memory/.docc/` bundle, extract bullets from "## Domains exercised", match against a `(domain, keywords)` lookup table, split into per-domain articles under `domains/`, rewrite the root as a lightweight index. Pattern: hardcoded table v1 → FoundationModels judgment v2 (tracked in koma.issues.docc 0.8.0).
+- **digikoma-plant visual architecture pattern.** `VStack(spacing:0) { LinearGradient header; ModernSharedAppShell(sidebar:, detail:) }` with `ZStack { gradient; ScrollView { identityCard + routesCard } }` sidebar, custom nav rows (white 0.08/0.16 fill), `.background(canvas.ignoresSafeArea()).tint(accent) .environment(\.colorScheme, .dark)`, and `.windowStyle(.hiddenTitleBar)` to eliminate the title bar seam.
+- **digikoma-memory: keyword-table domain clustering.** Audit a `memory/.docc/` bundle, extract bullets from "## Domains exercised", match against a `(domain, keywords)` lookup table, split into per-domain articles under `domains/`, rewrite the root as a lightweight index. Pattern: hardcoded table v1 → FoundationModels judgment v2 (tracked in koma.issues.docc 0.8.0).
 - **macOS Seatbelt sandbox for koma eval.** `sandbox-exec -f <profile>` with generated `.sb` profiles: deny-default, restricted write paths, read-only substrate, network deny, `DispatchSource` timer for timeout. `ResumeOnce` wrapper for Swift 6 `CheckedContinuation` Sendable compliance.
 
 ## Recent work
@@ -92,12 +92,12 @@ existing cast.
   live-reload watcher. CameraController rewrite: stored viewSize, cursor-
   anchored zoom, @inlinable AppKit bridges, @MainActor. PICO-8 zine study:
   pal() template model, distance-field AI, editor layout canon.
-- 2026-04-14 (continued): Built koma-memory (audit/cluster/split/reindex)
-  in koma-org/domain/meta/. Applied split to hulk expertise — 4 domain
+- 2026-04-14 (continued): Built digikoma-memory (audit/cluster/split/reindex)
+  in digikoma-org/domain/meta/. Applied split to hulk expertise — 4 domain
   articles created (git-operations, app-store-shipping, spm-packaging,
   ios-macos-frameworks), 50/51 bullets preserved (1 multi-line parse delta).
   Tracked FoundationModels judgment upgrade as 0.8.0 universal pattern in
-  koma.issues.docc. Built KomaSandboxRunner + KomaEvalRunView in koma-plant
+  koma.issues.docc. Built DigikomaSandboxRunner + DigikomaEvalRunView in digikoma-plant
   Factory > Eval Run lane — Seatbelt .sb profiles, sandbox-exec, timeout
   via DispatchSource, ResumeOnce for Swift 6 concurrency.
 - 2026-04-09 (UTC reflective codicil — **the naming key for the whole
@@ -432,12 +432,12 @@ existing cast.
   CodexSessionStoreCore, zstd compression estimate piped through CLI, .gitignore
   for unpushable rollouts, content analysis preload from disk cache). Sessions
   vault unblocked: `git filter-repo --strip-blobs-bigger-than 100M`, per-session
-  commits under 100 MiB, force-pushed. Fixed koma-git `parseGitChangedFile`
+  commits under 100 MiB, force-pushed. Fixed digikoma-git `parseGitChangedFile`
   quoting bug (git-quoted paths with spaces). Source Control: new Submodules
   pane (discover via .gitmodules, push/reset-to-remote, grouped by substrate
-  folder), gitignore filter for repo discovery, ported koma-plant visual
+  folder), gitignore filter for repo discovery, ported digikoma-plant visual
   architecture (LinearGradient header, ZStack sidebar, custom nav rows, 2-pane
-  shell, `.windowStyle(.hiddenTitleBar)`). Full mono burn-down via koma-git +
+  shell, `.windowStyle(.hiddenTitleBar)`). Full mono burn-down via digikoma-git +
   19 submodule bumps + all pushed.
 - 2026-04-08: Day-long substrate normalization sweep. Split clia-app-org and
   wrkstrm-performance out of clia-org with full history; promoted

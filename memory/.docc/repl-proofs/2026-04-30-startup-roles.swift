@@ -1,3 +1,5 @@
+import Testing
+
 // fixed 2026-04-30: original Embodiment for `constitution` claimed
 // harnesses/hulk/.docc/startup/startup.json. That file is a synopsis
 // (observational, with `synopsis: true` and a sibling snapshots/<date>.*
@@ -5,6 +7,9 @@
 // constitution role has no on-disk embodiment today — corrected below.
 // The role disjointness asserts (the body of this proof) were unaffected;
 // only the prose claim about substrate-side instance was wrong.
+
+// converted 2026-04-30: graduated from script-mode `precondition` to
+// Swift Testing `@Test func` + `#expect`.
 
 /// Claim: Startup observability splits into three disjoint roles. Each role
 /// does exactly one thing; no role does another role's job. Conflating roles
@@ -48,44 +53,43 @@
 /// other two. The negative half is what catches role-creep — if someone
 /// "improves" the stenographer to also retroactively observe, this proof
 /// fails.
-///
-/// Run: `swift <this-file>` — exits 0 with `ok: …` on success.
 
-enum StartupRole: String, CaseIterable {
-  case constitution
-  case stenographer
-  case courtReporter
+@Test("startup roles: 3 disjoint roles, 1:1 mapping with responsibilities")
+func startupRoles() {
+  enum StartupRole: String, CaseIterable {
+    case constitution
+    case stenographer
+    case courtReporter
 
-  var declares: Bool { self == .constitution }
-  var rendersHeader: Bool { self == .stenographer }
-  var observesRetroactively: Bool { self == .courtReporter }
+    var declares: Bool { self == .constitution }
+    var rendersHeader: Bool { self == .stenographer }
+    var observesRetroactively: Bool { self == .courtReporter }
+  }
+
+  // --- Positive: each role has its own distinguishing responsibility. ---
+  #expect(StartupRole.constitution.declares)
+  #expect(StartupRole.stenographer.rendersHeader)
+  #expect(StartupRole.courtReporter.observesRetroactively)
+
+  // --- Negative: each role does NOT carry the others' responsibilities. ---
+  #expect(!StartupRole.constitution.rendersHeader)
+  #expect(!StartupRole.constitution.observesRetroactively)
+  #expect(!StartupRole.stenographer.declares)
+  #expect(!StartupRole.stenographer.observesRetroactively)
+  #expect(!StartupRole.courtReporter.declares)
+  #expect(!StartupRole.courtReporter.rendersHeader)
+
+  // --- Cardinality: exactly one role per responsibility, three responsibilities total. ---
+  #expect(StartupRole.allCases.filter(\.declares).count == 1)
+  #expect(StartupRole.allCases.filter(\.rendersHeader).count == 1)
+  #expect(StartupRole.allCases.filter(\.observesRetroactively).count == 1)
+  #expect(StartupRole.allCases.count == 3)
+
+  // --- Disjointness: every role carries exactly one responsibility, no role is empty. ---
+  for role in StartupRole.allCases {
+    let count = [role.declares, role.rendersHeader, role.observesRetroactively]
+      .filter { $0 }
+      .count
+    #expect(count == 1, "role \(role.rawValue) carries \(count) responsibilities; expected 1")
+  }
 }
-
-// --- Positive: each role has its own distinguishing responsibility. ---
-precondition(StartupRole.constitution.declares)
-precondition(StartupRole.stenographer.rendersHeader)
-precondition(StartupRole.courtReporter.observesRetroactively)
-
-// --- Negative: each role does NOT carry the others' responsibilities. ---
-precondition(!StartupRole.constitution.rendersHeader)
-precondition(!StartupRole.constitution.observesRetroactively)
-precondition(!StartupRole.stenographer.declares)
-precondition(!StartupRole.stenographer.observesRetroactively)
-precondition(!StartupRole.courtReporter.declares)
-precondition(!StartupRole.courtReporter.rendersHeader)
-
-// --- Cardinality: exactly one role per responsibility, three responsibilities total. ---
-precondition(StartupRole.allCases.filter(\.declares).count == 1)
-precondition(StartupRole.allCases.filter(\.rendersHeader).count == 1)
-precondition(StartupRole.allCases.filter(\.observesRetroactively).count == 1)
-precondition(StartupRole.allCases.count == 3)
-
-// --- Disjointness: every role carries exactly one responsibility, no role is empty. ---
-for role in StartupRole.allCases {
-  let count = [role.declares, role.rendersHeader, role.observesRetroactively]
-    .filter { $0 }
-    .count
-  precondition(count == 1, "role \(role.rawValue) carries \(count) responsibilities; expected 1")
-}
-
-print("ok: 3 startup roles · 3 responsibilities · perfect 1:1 mapping · no role does another's job")

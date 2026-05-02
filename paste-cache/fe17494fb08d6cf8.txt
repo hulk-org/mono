@@ -39,7 +39,7 @@
 
 ⏺ The 75-entry catalog we built is in the app's bundled fixture, not in the kit:
 
-  koma-by-wrkstrm/Sources/mac-app/Resources/bundled.inventory.json   ← 75 entries (33 FM tools + 21 skills + 4 sub-agents + 2 MCP + 5 Codex + 10 non-tool)
+  digikoma-by-wrkstrm/Sources/mac-app/Resources/bundled.inventory.json   ← 75 entries (33 FM tools + 21 skills + 4 sub-agents + 2 MCP + 5 Codex + 10 non-tool)
   tool-eval-core/Tests/.../Resources/fixture.inventory.json           ← 3 entries (just for codec testing)
 
   The kit (ToolEvalManifestKit) is the types + loader — it defines the shape. The actual catalog data only lives as a bundled JSON in the app. It's hand-written, not generated.

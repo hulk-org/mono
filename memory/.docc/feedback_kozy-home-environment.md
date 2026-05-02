@@ -8,4 +8,4 @@ The workspace environment is a place both the operator and the agents inhabit. "
 
 **Why:** The agent and operator share the same visual/spatial context. A warm, textured, layered environment with soft light and rounded shapes isn't chrome — it's the room everyone works in. Cold minimalism or flashy maximalism both fail the hospitality test.
 
-**How to apply:** Every visual surface (Workflow graph, Architect canvas, tile shapes, backgrounds, chess board, koma-plant) should feel like a space you want to be in. Warm palettes, soft shadows, generous radii, subtle textures, gentle animations. The kozy/cozy 2026 design trend — comfort as luxury — is the aesthetic contract. When choosing between "looks professional" and "feels like home," choose home.
+**How to apply:** Every visual surface (Workflow graph, Architect canvas, tile shapes, backgrounds, chess board, digikoma-plant) should feel like a space you want to be in. Warm palettes, soft shadows, generous radii, subtle textures, gentle animations. The kozy/cozy 2026 design trend — comfort as luxury — is the aesthetic contract. When choosing between "looks professional" and "feels like home," choose home.

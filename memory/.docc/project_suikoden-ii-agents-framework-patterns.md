@@ -8,7 +8,7 @@ Design source for the substrate agents framework. Rismay flagged Suikoden II's m
 
 **Why:** the game solves three problems the framework still has open — bounded capability per worker, declarative multi-agent combos, and recruitment-as-progression-state. These aren't ornamental; the mappings are direct.
 
-**How to apply:** when designing new substrate primitives (factory output, roster gates, Stage World rehearsals, koma-plant/koma-lab evals), check against these analogues before inventing fresh terminology.
+**How to apply:** when designing new substrate primitives (factory output, roster gates, Stage World rehearsals, digikoma-plant/digikoma-lab evals), check against these analogues before inventing fresh terminology.
 
 **Mechanic map:**
 
@@ -27,6 +27,6 @@ Design source for the substrate agents framework. Rismay flagged Suikoden II's m
 
 - **Cross-save (Suikoden I → II).** Surviving heroes carry levels/equipment forward. Substrate has chronicle continuity; Unite Attack mastery + rune affinity could persist alongside it.
 
-- **Castle mini-games = lab/gym surfaces.** koma-lab, schema-lab, session-lab map onto cooking-duel/theater/card-game: optional sub-systems whose state matters for the broader run, not detached side content.
+- **Castle mini-games = lab/gym surfaces.** digikoma-lab, schema-lab, session-lab map onto cooking-duel/theater/card-game: optional sub-systems whose state matters for the broader run, not detached side content.
 
-**Related memories:** project_tachikoma-factory, project_komo-execution-units, project_stage-world-gym, project_koma-gym-insight, project_koma-domain-architecture, project_koma-plant.
+**Related memories:** project_tachikoma-factory, project_komo-execution-units, project_stage-world-gym, project_digikoma-gym-insight, project_digikoma-domain-architecture, project_digikoma-plant.

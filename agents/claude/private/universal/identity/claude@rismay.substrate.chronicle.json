@@ -757,31 +757,31 @@
           "by" : "claude",
           "types" : [
             {
-              "evidence" : "session-lab: per-image regex strip, downscale via CodexSessionStoreCore, zstd compression estimate, .gitignore button, dominant image loading state, content analysis preload. Source Control: Submodules pane with push/reset-to-remote, gitignore filter for repo discovery, koma-plant visual architecture port with .windowStyle(.hiddenTitleBar).",
+              "evidence" : "session-lab: per-image regex strip, downscale via CodexSessionStoreCore, zstd compression estimate, .gitignore button, dominant image loading state, content analysis preload. Source Control: Submodules pane with push/reset-to-remote, gitignore filter for repo discovery, digikoma-plant visual architecture port with .windowStyle(.hiddenTitleBar).",
               "type" : "code",
               "weight" : 3
             },
             {
-              "evidence" : "git filter-repo --strip-blobs-bigger-than 100M on codex-sessions vault, per-session commits all under 100 MiB, force-pushed to GitHub. Fixed koma-git parseGitChangedFile quoting bug for paths with spaces. Full mono burn-down via koma-git + manual submodule commits.",
+              "evidence" : "git filter-repo --strip-blobs-bigger-than 100M on codex-sessions vault, per-session commits all under 100 MiB, force-pushed to GitHub. Fixed digikoma-git parseGitChangedFile quoting bug for paths with spaces. Full mono burn-down via digikoma-git + manual submodule commits.",
               "type" : "tool",
               "weight" : 2
             }
           ]
         }
       ],
-      "summary" : "Unlocked the sessions vault push blocker by stripping oversized blobs with filter-repo, shipped inline image management in session-lab (strip, downscale, compress estimate, gitignore), built a Submodules pane in Source Control with push and reset-to-remote, fixed koma-git quoting for paths with spaces, and ported koma-plant's visual architecture to Source Control with hiddenTitleBar.",
+      "summary" : "Unlocked the sessions vault push blocker by stripping oversized blobs with filter-repo, shipped inline image management in session-lab (strip, downscale, compress estimate, gitignore), built a Submodules pane in Source Control with push and reset-to-remote, fixed digikoma-git quoting for paths with spaces, and ported digikoma-plant's visual architecture to Source Control with hiddenTitleBar.",
       "tags" : [
         "session-lab",
         "source-control",
         "filter-repo",
-        "koma-git",
+        "digikoma-git",
         "inline-images",
         "submodules",
         "burn-down",
         "visual-architecture"
       ],
       "timestamp" : "2026-04-14T11:34:19Z",
-      "title" : "Session-lab image toolkit, sessions vault unblocked, Source Control submodules pane + koma-plant port"
+      "title" : "Session-lab image toolkit, sessions vault unblocked, Source Control submodules pane + digikoma-plant port"
     },
     {
       "contributions" : [
@@ -789,22 +789,22 @@
           "by" : "claude",
           "types" : [
             {
-              "evidence" : "Built koma-memory in koma-org/domain/meta/ with audit, cluster, split, reindex commands. Keyword-table clustering, applied to hulk expertise (4 domain articles created, 0 content loss). Tracked FoundationModels judgment upgrade as 0.8.0 pattern in koma.issues.docc.",
+              "evidence" : "Built digikoma-memory in digikoma-org/domain/meta/ with audit, cluster, split, reindex commands. Keyword-table clustering, applied to hulk expertise (4 domain articles created, 0 content loss). Tracked FoundationModels judgment upgrade as 0.8.0 pattern in koma.issues.docc.",
               "type" : "tool",
               "weight" : 2
             },
             {
-              "evidence" : "Built KomaSandboxRunner (Seatbelt .sb profile generation, sandbox-exec launch, DispatchSource timeout, ResumeOnce for Swift 6 concurrency) and KomaEvalRunView wired into koma-plant Factory > Eval Run lane.",
+              "evidence" : "Built DigikomaSandboxRunner (Seatbelt .sb profile generation, sandbox-exec launch, DispatchSource timeout, ResumeOnce for Swift 6 concurrency) and DigikomaEvalRunView wired into digikoma-plant Factory > Eval Run lane.",
               "type" : "code",
               "weight" : 2
             }
           ]
         }
       ],
-      "summary" : "Built koma-memory (audit/cluster/split/reindex for commissioned home memory bundles) and applied it to hulk expertise, splitting into 4 domain articles. Built KomaSandboxRunner with macOS Seatbelt sandbox-exec profiles for koma eval execution in koma-plant. Tracked the keyword-table → FoundationModels judgment upgrade as a universal 0.8.0 pattern.",
+      "summary" : "Built digikoma-memory (audit/cluster/split/reindex for commissioned home memory bundles) and applied it to hulk expertise, splitting into 4 domain articles. Built DigikomaSandboxRunner with macOS Seatbelt sandbox-exec profiles for koma eval execution in digikoma-plant. Tracked the keyword-table → FoundationModels judgment upgrade as a universal 0.8.0 pattern.",
       "tags" : [
-        "koma-memory",
-        "koma-plant",
+        "digikoma-memory",
+        "digikoma-plant",
         "sandbox",
         "seatbelt",
         "eval",
@@ -812,7 +812,7 @@
         "foundation-models"
       ],
       "timestamp" : "2026-04-14T12:49:10Z",
-      "title" : "koma-memory + sandboxed eval runner in koma-plant"
+      "title" : "digikoma-memory + sandboxed eval runner in digikoma-plant"
     },
     {
       "contributions" : [
@@ -820,36 +820,36 @@
           "by" : "claude",
           "types" : [
             {
-              "evidence" : "Built and ran 5 core komo end-to-end (koma-echo, koma-scan-directory, koma-read-file, koma-git, koma-list). All 5 compile clean, execute with structured JSON output including identity/version/timestamp envelopes, and pass their full test suites (39 tests across 4 packages). Smart paths exercising on-device FoundationModels also pass (koma-echo triage/classify, koma-read-file smart read).",
+              "evidence" : "Built and ran 5 core komo end-to-end (digikoma-echo, digikoma-scan-directory, digikoma-read-file, digikoma-git, digikoma-list). All 5 compile clean, execute with structured JSON output including identity/version/timestamp envelopes, and pass their full test suites (39 tests across 4 packages). Smart paths exercising on-device FoundationModels also pass (digikoma-echo triage/classify, digikoma-read-file smart read).",
               "type" : "code",
               "weight" : 3
             },
             {
-              "evidence" : "Ran koma-list to produce a full fleet inventory: 56 komo across 7 domains, 21 built, 11 declared root koma. Core domain is 5/5 (100%), directory 5/9 (56%), meta 4/6 (67%), build 4/20 (20%), context 1/3, intelligence 1/12, gaming 1/1. The gap is in upper domains where 35 komo are scaffolded (identity files exist, no Package.swift or sources).",
+              "evidence" : "Ran digikoma-list to produce a full fleet inventory: 56 komo across 7 domains, 21 built, 11 declared root koma. Core domain is 5/5 (100%), directory 5/9 (56%), meta 4/6 (67%), build 4/20 (20%), context 1/3, intelligence 1/12, gaming 1/1. The gap is in upper domains where 35 komo are scaffolded (identity files exist, no Package.swift or sources).",
               "type" : "log",
               "weight" : 2
             },
             {
-              "evidence" : "Searched for a 'benchmark' koma at operator's request — none exists on disk or in any spec. The eval UI lane already exists in koma-plant (KomaEvalRunView.swift, KomaPlantLane.eval). Operator decided the benchmark concept should become koma-eval (not yet created this session).",
+              "evidence" : "Searched for a 'benchmark' koma at operator's request — none exists on disk or in any spec. The eval UI lane already exists in digikoma-plant (DigikomaEvalRunView.swift, DigikomaPlantLane.eval). Operator decided the benchmark concept should become digikoma-eval (not yet created this session).",
               "type" : "log",
               "weight" : 1
             },
             {
-              "evidence" : "Rebuilt and launched koma-plant factory app (quit, delete stale .app, xcodebuild, open). Build succeeded clean.",
+              "evidence" : "Rebuilt and launched digikoma-plant factory app (quit, delete stale .app, xcodebuild, open). Build succeeded clean.",
               "type" : "tool",
               "weight" : 1
             }
           ]
         }
       ],
-      "summary" : "Proved koma work end-to-end: 5 core komo build, run structured JSON, and pass all 39 tests (including on-device FoundationModels smart paths). Fleet inventory shows 56 komo across 7 domains with 21 built. Confirmed no benchmark koma exists — operator wants koma-eval created. Rebuilt koma-plant.",
+      "summary" : "Proved koma work end-to-end: 5 core komo build, run structured JSON, and pass all 39 tests (including on-device FoundationModels smart paths). Fleet inventory shows 56 komo across 7 domains with 21 built. Confirmed no benchmark koma exists — operator wants digikoma-eval created. Rebuilt digikoma-plant.",
       "tags" : [
         "koma",
         "proof-of-concept",
         "testing",
-        "koma-plant",
+        "digikoma-plant",
         "fleet-inventory",
-        "koma-eval"
+        "digikoma-eval"
       ],
       "timestamp" : "2026-04-14T13:33:02Z",
       "title" : "Prove koma work: 5 core komo green end-to-end"
@@ -860,7 +860,7 @@
           "by" : "claude",
           "types" : [
             {
-              "evidence" : "Added KomaAgentToolAdapter<K> in new ApplePiKomaBridge target — wraps any Logikoma (Input/Output: Codable) as an AgentTool via JSON round-trip. Factory extension .asAgentTool() on Logikoma. 9 tests.",
+              "evidence" : "Added DigikomaAgentToolAdapter<K> in new ApplePiDigikomaBridge target — wraps any Logikoma (Input/Output: Codable) as an AgentTool via JSON round-trip. Factory extension .asAgentTool() on Logikoma. 9 tests.",
               "type" : "code",
               "weight" : 2
             },
@@ -877,7 +877,7 @@
           ]
         }
       ],
-      "summary" : "Built the apple-pi plugin architecture: KomaAgentToolAdapter bridges Logikoma to AgentTool, AgentPlugin + TurnContext formalise turn-start/turn-end hooks, and ProcessPlugin makes any CLI tool a declarative JSON plugin participant in the agent turn lifecycle.",
+      "summary" : "Built the apple-pi plugin architecture: DigikomaAgentToolAdapter bridges Logikoma to AgentTool, AgentPlugin + TurnContext formalise turn-start/turn-end hooks, and ProcessPlugin makes any CLI tool a declarative JSON plugin participant in the agent turn lifecycle.",
       "tags" : [
         "apple-pi",
         "koma",
@@ -887,7 +887,7 @@
         "spm"
       ],
       "timestamp" : "2026-04-15T20:21:56Z",
-      "title" : "apple-pi plugin architecture: KomaAgentToolAdapter + AgentPlugin + ProcessPlugin"
+      "title" : "apple-pi plugin architecture: DigikomaAgentToolAdapter + AgentPlugin + ProcessPlugin"
     },
     {
       "contributions" : [
@@ -974,7 +974,7 @@
           "by" : "claude",
           "types" : [
             {
-              "evidence" : "koma-web-fetch (5/5 tests), koma-summarize-context (3/3 tests), koma-research-bench, Workflow app scaffold, session-scoped header state in harness-environment-cli",
+              "evidence" : "digikoma-web-fetch (5/5 tests), digikoma-summarize-context (3/3 tests), digikoma-research-bench, Workflow app scaffold, session-scoped header state in harness-environment-cli",
               "type" : "code",
               "weight" : 3
             },
@@ -991,7 +991,7 @@
           ]
         }
       ],
-      "summary" : "Deep investigation of christopherkarani/Swarm vs Koma architecture. Built koma-web-fetch and koma-summarize-context with CommonLog. Ran 3-stage research pipeline experiments. Discovered Beads as the wrkstrm app work management layer (Dolt-backed). Created beads-schemas v0.1.0 (18 files, ~40 types validated against Go source). Scaffolded Workflow app (me.rismay.workflow). Moved paperclipIssue to per-task on WrkstrmTaskTemplate, added beadsIssueId, renamed PaperclipIssueProtocolModel to PaperclipIssueModel. Session-scoped header state with incident priority.",
+      "summary" : "Deep investigation of christopherkarani/Swarm vs Digikoma architecture. Built digikoma-web-fetch and digikoma-summarize-context with CommonLog. Ran 3-stage research pipeline experiments. Discovered Beads as the wrkstrm app work management layer (Dolt-backed). Created beads-schemas v0.1.0 (18 files, ~40 types validated against Go source). Scaffolded Workflow app (me.rismay.workflow). Moved paperclipIssue to per-task on WrkstrmTaskTemplate, added beadsIssueId, renamed PaperclipIssueProtocolModel to PaperclipIssueModel. Session-scoped header state with incident priority.",
       "tags" : [
         "swarm",
         "beads",
@@ -1156,7 +1156,7 @@
           "by" : "claude",
           "types" : [
             {
-              "evidence" : "swift-rpn-cli (RPNCore 38 ops + definitions, 51 tests), koma-rpn (Logikoma 5 tests), koma-ghost-calc (standalone FM+tool proof), ghost-shell v001 binary, @Traced body macro (SwiftSyntax compiler plugin, 2 tests)",
+              "evidence" : "swift-rpn-cli (RPNCore 38 ops + definitions, 51 tests), digikoma-rpn (Logikoma 5 tests), digikoma-ghost-calc (standalone FM+tool proof), ghost-shell v001 binary, @Traced body macro (SwiftSyntax compiler plugin, 2 tests)",
               "type" : "code",
               "weight" : 3
             },
@@ -1173,10 +1173,10 @@
           ]
         }
       ],
-      "summary" : "Built swift-rpn-cli (38 ops + named definitions, 51 tests), koma-rpn (Logikoma, 5 tests), koma-ghost-calc (Ghost+calculator proof), ghost-shell v001 binary (tool-equipped subprocess), @Traced body macro (CommonLog injectable, 2 expansion tests). Fumbled ghost-shell.mac app refactor: rewrote working experimentation UI into clia-ask chat box, broke file split, lost code in git checkout. Restored original app, re-added v001 entries. Key lesson: ghost-shell is experimentation not chat — read the beats before touching.",
+      "summary" : "Built swift-rpn-cli (38 ops + named definitions, 51 tests), digikoma-rpn (Logikoma, 5 tests), digikoma-ghost-calc (Ghost+calculator proof), ghost-shell v001 binary (tool-equipped subprocess), @Traced body macro (CommonLog injectable, 2 expansion tests). Fumbled ghost-shell.mac app refactor: rewrote working experimentation UI into clia-ask chat box, broke file split, lost code in git checkout. Restored original app, re-added v001 entries. Key lesson: ghost-shell is experimentation not chat — read the beats before touching.",
       "tags" : [
         "rpn",
-        "koma-rpn",
+        "digikoma-rpn",
         "ghost-shell",
         "traced-macro",
         "common-log",

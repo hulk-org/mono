@@ -35,7 +35,7 @@ operator walks through rooms where agents physically work.
 | Sticky notes | GameLabel overlay (NSTextField on Metal) |
 | Floor plans | Domain architecture (core/context/meta/build/directory/intelligence) |
 | Apple Intelligence | Cognition bridge (--prompt at every node, Foundation Models on-device) |
-| Slop Jail | koma-validate-* family (validate before commit) |
+| Slop Jail | digikoma-validate-* family (validate before commit) |
 
 ## What we have that Maestri doesn't
 

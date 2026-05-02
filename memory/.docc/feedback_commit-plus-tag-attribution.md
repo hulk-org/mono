@@ -1,6 +1,6 @@
 ---
 name: Commit plus-tag attribution
-description: mono repo records operator+agent pairing via cmonterroza+<agent>@wrkstrm.com in git Author; koma-git commit resolves the tag dynamically from the synced-agents roster
+description: mono repo records operator+agent pairing via cmonterroza+<agent>@wrkstrm.com in git Author; digikoma-git commit resolves the tag dynamically from the synced-agents roster
 type: feedback
 ---
 
@@ -13,10 +13,10 @@ pairing. There are two wires in play:
    `user.email = cmonterroza+claude@wrkstrm.com` (set 2026-04-16).
    Applies to any `git commit` run inside mono regardless of entry point.
 
-2. **Session-aware override** in `koma-git commit` (koma-org, extended
+2. **Session-aware override** in `digikoma-git commit` (digikoma-org, extended
    2026-04-16): when invoked with a `--session-id` (or a
    `KOMA_GIT_SESSION_ID` / `CLIA_SESSION_ID` / `CODEX_SESSION_ID` env var),
-   koma-git reads `<repo>/.wrkstrm/tmp/synced-agents.jsonl`, finds the matching
+   digikoma-git reads `<repo>/.wrkstrm/tmp/synced-agents.jsonl`, finds the matching
    `{sessionId, attendees}` record, strips any existing `+tag` from the repo's
    `user.email`, and reattaches `+<first-attendee>` before invoking git via
    `git -c user.email=...`. Falls through silently when the file is missing,
@@ -31,19 +31,19 @@ override keeps the tag accurate even when pairings change mid-repo (claude ->
 codex etc.) without requiring manual `.git/config` mutations.
 
 **How to apply:**
-- Prefer `koma-git commit` over direct `git commit` (consistent with the
-  existing "Koma commits, not agent" feedback). Pass `--session-id <id>` or
+- Prefer `digikoma-git commit` over direct `git commit` (consistent with the
+  existing "Digikoma commits, not agent" feedback). Pass `--session-id <id>` or
   set `KOMA_GIT_SESSION_ID` so the roster lookup can fire.
 - Pass `--no-plus-tag` to suppress the override when you specifically want the
   repo-local default to win (rare - usually only for scripted back-dated
   commits the operator is running manually).
 - If a different agent joins the session mid-stream, update the synced-agents
-  roster (via `/sync >codex` etc.); the next `koma-git commit` will pick up
+  roster (via `/sync >codex` etc.); the next `digikoma-git commit` will pick up
   the new tag automatically. No `.git/config` edit needed.
-- When editing `koma-git` itself: `AgentRoster.swift` has the roster reader +
+- When editing `digikoma-git` itself: `AgentRoster.swift` has the roster reader +
   plus-tag resolver as pure functions covered by tests in
   `AgentRosterTests.swift`. The integration point is
-  `plusTagConfigArgs(repo:sessionID:disablePlusTag:)` in `KomaGitTool.swift`,
+  `plusTagConfigArgs(repo:sessionID:disablePlusTag:)` in `DigikomaGitTool.swift`,
   which returns `["-c", "user.email=..."]` or `[]`.
 
 **Scope / limits:**
@@ -53,11 +53,11 @@ codex etc.) without requiring manual `.git/config` mutations.
 - Global `~/.gitconfig` is NOT touched. Operator manual commits outside mono
   still use the GitHub privacy address.
 - Rollback of local default: `git config --local --unset user.email` in mono.
-- Rollback of koma-git plus-tag: revert the commit that added `AgentRoster.swift`
-  and its integration in `koma-git-cli/main.swift` + `KomaGitTool.swift`.
+- Rollback of digikoma-git plus-tag: revert the commit that added `AgentRoster.swift`
+  and its integration in `digikoma-git-cli/main.swift` + `DigikomaGitTool.swift`.
 
 **Still open:**
 - Auto-commit hook referenced in earlier memory is not in
   `~/.claude/settings.json`. When located, verify it routes through
-  `koma-git commit` so the session-aware tag logic applies.
+  `digikoma-git commit` so the session-aware tag logic applies.
 - Submodule coverage is a separate decision.

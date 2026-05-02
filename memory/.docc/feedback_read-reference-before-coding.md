@@ -6,7 +6,7 @@ type: feedback
 
 When the user says "make it look like X app," read the entire root view and palette system of X before touching any code. Don't skim a few lines, grab one color, and start iterating.
 
-**Why:** Repeated failure on Source Control header — user said "look at koma-plant" three times. Each time I skimmed fragments, guessed at colors, and shipped something wrong. The issue was never one color — it was the full palette system (canvas, paper, ink, steel, sign, signDeep), sidebar styling, shell configuration, and font choices all working together. I kept fixing the header while ignoring that the whole app needs the same palette discipline.
+**Why:** Repeated failure on Source Control header — user said "look at digikoma-plant" three times. Each time I skimmed fragments, guessed at colors, and shipped something wrong. The issue was never one color — it was the full palette system (canvas, paper, ink, steel, sign, signDeep), sidebar styling, shell configuration, and font choices all working together. I kept fixing the header while ignoring that the whole app needs the same palette discipline.
 
 **How to apply:** When matching a visual reference:
 1. Read the reference app's root view end-to-end
