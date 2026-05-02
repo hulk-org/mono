@@ -17,6 +17,7 @@ shell-snapshots/
 stats-cache.json
 tasks/
 telemetry/
+.build/
 
 # Vendor reference implementations live local-only by default. The
 # claude-code TypeScript leak (dead remote) is preserved on disk for the
