@@ -1,10 +1,10 @@
 ---
 name: Digikoma katakana file naming
-description: Komo homes use katakana filenames for human-readable surfaces — アイディ.md (identity), インスト.md (instructions), レイ.md (directives); machine identity is *.organism.json with DigikomaAspect
+description: Koma homes use katakana filenames for human-readable surfaces — アイディ.md (identity), インスト.md (instructions), レイ.md (directives); machine identity is *.organism.json with DigikomaAspect
 type: project
+originSessionId: 17bca72f-ee91-4f7a-8002-180df199eef5
 ---
-
-Komo home layout at `private/universal/substrate/koma/<slug>/`:
+Koma home layout at `private/universal/substrate/koma/<slug>/`:
 
 ```
 <slug>.organism.json    ← machine identity (DigikomaAspect inside organism doc)
@@ -23,4 +23,4 @@ The katakana files are the soul. The JSON is the body.
 - レベリ (reberi) = reverie (Ghost's transient thinking)
 - ケイフ (keifu) = lineage (系譜)
 
-**Why katakana:** matches コマ (Digikoma) and コレツフ (Koretsufu) naming — pure katakana, no modifiers, short, phonetically clear. The files ARE the Komo's voice.
+**Why katakana:** matches コマ (Digikoma) and コレツフ (Koretsufu) naming — pure katakana, no modifiers, short, phonetically clear. The files ARE the Koma's voice.

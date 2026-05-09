@@ -4,7 +4,7 @@ description: common-process is the hot path for the entire substrate — every O
 type: project
 originSessionId: 3f7ca7d5-00cd-4a21-babe-4039af3d2525
 ---
-common-process is the heart of the operation. Every CLI tool, komo, build step, and agent action goes through it.
+common-process is the heart of the operation. Every CLI tool, koma, build step, and agent action goes through it.
 
 **Why:** It's the most-called package in the substrate. Abstraction tax is multiplied by every process launch.
 

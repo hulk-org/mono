@@ -1,10 +1,10 @@
 ---
-name: Naming evolution from Pet to Komo
-description: Records the full naming journey for execution units — Pet/Trick/Species vocabulary retired in favor of Komo/Action/Anatomy; preserves the reasoning so dead terms don't resurface
+name: Naming evolution from Pet to Koma
+description: Records the full naming journey for execution units — Pet/Trick/Species vocabulary retired in favor of Koma/Action/Anatomy; preserves the reasoning so dead terms don't resurface
 type: insight
+originSessionId: 17bca72f-ee91-4f7a-8002-180df199eef5
 ---
-
-# Naming Evolution: Pet → Komo (2026-04-12)
+# Naming Evolution: Pet → Koma (2026-04-12)
 
 ## The journey
 
@@ -38,9 +38,9 @@ under the weight of the real system. The operator said: "I hate
 that I'm going to make Apple Intelligence seem like a Pet though."
 That was the kill signal.
 
-### Era 3: Komo (コマ) — current
+### Era 3: Koma (コマ) — current
 
-- **Komo** (コマ) = short for Tachikoma (タチコマ = 立ち駒, mobile
+- **Koma** (コマ) = short for Tachikoma (タチコマ = 立ち駒, mobile
   autonomous unit)
 - **Action** = what the unit does per node (replaces "trick")
 - **Anatomy** = algorithms as composable body parts (replaces
@@ -54,7 +54,7 @@ That was the kill signal.
 
 | Dead term | Replaced by | Why |
 | --- | --- | --- |
-| Pet | Komo (コマ) | Can't call Apple Intelligence a pet. The unit is a mobile autonomous piece, not a companion. |
+| Pet | Koma (コマ) | Can't call Apple Intelligence a pet. The unit is a mobile autonomous piece, not a companion. |
 | Trick | Action | "Trick" implies a pet doing a cute thing on command. An action is what a system unit performs per node. |
 | Species (Ant/Hound/Fox/Spider/Owl) | Anatomy presets (deferred) | Animal names were v1 placeholders. Real species names come from the anatomy system when it produces real code, not from a zoo metaphor. |
 | Familiar | killed | Displaced by Ghost in the Shell framing. |
@@ -64,7 +64,7 @@ That was the kill signal.
 
 | Term | Status | Notes |
 | --- | --- | --- |
-| Traverser | alive (internal) | The mechanical substrate. Komo IS a traverser internally. |
+| Traverser | alive (internal) | The mechanical substrate. Koma IS a traverser internally. |
 | Fetch/Clean/Mark/Trace/Validate/Index/Watch | alive as action values | The vocabulary survived; only the "trick" wrapper died. |
 | BFS/DFS/Priority/Adjacency/Ring buffer | alive as anatomy modules | The algorithms survived; only the animal names died. |
 | Spec | alive | The behavior envelope. Action is one field inside it. |

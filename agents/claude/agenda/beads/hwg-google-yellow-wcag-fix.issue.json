@@ -1,0 +1,17 @@
+{
+  "id": "hwg-google-yellow-wcag-fix",
+  "title": "Fix Google Yellow WCAG failure: #FBBC05 → passing color",
+  "description": "Google Yellow #FBBC05 on white has a contrast ratio of 1.71:1 — fails WCAG AA for both normal and large text. This is P1 because it blocks the wcagContrast gate which is required for Type 2 launches. Options: (1) #F9AB00 gives 3.12:1 (passes AA large text), (2) use a heavier font weight to qualify as large text, (3) accept the failure for colored decorative use only and add a WCAG exemption note. Decision needed before the gate can flip. Update google.tokens.json and regenerate.",
+  "assignee": "rismay",
+  "issueType": "decision",
+  "status": "open",
+  "priority": 1,
+  "labels": ["hwg-go-to-market", "wcag", "design-tokens", "google-palette"],
+  "createdAt": "2026-05-08T12:02:42Z",
+  "relatedChronicleEntry": "2026-05-08T12:02:42Z",
+  "sourceType": "thread-beat",
+  "sourceThreadId": "hwg-go-to-market",
+  "sourceBeatId": "p1-fix-google-yellow-wcag-failure",
+  "sourceLocation": "private/universal/substrate/collectives/schema-universal/private/universal/domain/design/schema-families/design-token-schemas/v0.1.0/json/design-token-schemas-v000-001-000/instances/google/google.tokens.json",
+  "schemaVersion": "0.1.0"
+}

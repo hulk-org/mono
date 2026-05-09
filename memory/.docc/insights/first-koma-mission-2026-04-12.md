@@ -1,14 +1,14 @@
 ---
-name: First real Komo mission
-description: vision-komo OCR'd 261 EGM page images and extracted 953 game profiles in ~2 minutes — the first Komo that did real work, proving the ontology end-to-end
+name: First real Koma mission
+description: vision-koma OCR'd 261 EGM page images and extracted 953 game profiles in ~2 minutes — the first Koma that did real work, proving the ontology end-to-end
 type: insight
+originSessionId: 17bca72f-ee91-4f7a-8002-180df199eef5
 ---
-
-# First Real Komo Mission (2026-04-12)
+# First Real Koma Mission (2026-04-12)
 
 ## What happened
 
-The vision-komo — the second Komo after echo — ran its first
+The vision-koma — the second Koma after echo — ran its first
 mission. It OCR'd 261 page images from the EGM Compendium vault
 and extracted 953 structured game profiles from the footer strips
 of the "1000 Best Games Ever" list.
@@ -24,7 +24,7 @@ of the "1000 Best Games Ever" list.
 
 ## Why this matters
 
-This is the first time a Komo did real work. Not a ping. Not an
+This is the first time a Koma did real work. Not a ping. Not an
 echo. A bounded mission with a real work graph (261 images), a
 real action (OCR + parse), and real structured output (953 game
 profiles that the Compendium app immediately loaded and displayed).
@@ -36,17 +36,17 @@ The ontology held:
 - **No memory between nodes**: each page processed independently
 - **Context only**: the regex pattern and crop fraction, not accumulated state
 - **Structured output**: one JSON per game, Codable, immediately consumable
-- **Ghost-driven refinement**: the 8% crop fraction and regex pattern are the spec; improving them = Ghost work, not Komo work
+- **Ghost-driven refinement**: the 8% crop fraction and regex pattern are the spec; improving them = Ghost work, not Koma work
 - **Exited**: the process ran and stopped
 
-The echo komo proved CLIDE can spawn things.
-The vision-komo proved a Komo can produce value.
+The echo koma proved CLIDE can spawn things.
+The vision-koma proved a Koma can produce value.
 
 ## The data flow
 
 ```
 EGM vault (261 PNGs)
-  → vision-komo (OCR + parse)
+  → vision-koma (OCR + parse)
     → 953 game JSONs
       → egm-page-vault/games/
         → Compendium app loads them
@@ -54,12 +54,12 @@ EGM vault (261 PNGs)
             → GameProfileView shows individual profiles
 ```
 
-From page image to clickable game profile in one Komo mission.
+From page image to clickable game profile in one Koma mission.
 
 ## The Fuchikoma connection
 
 The EGM 1000 Best Games list includes the very pages where Ghost
-in the Shell is mentioned (page 134). The Komo that reads those
+in the Shell is mentioned (page 134). The Koma that reads those
 pages is named after the think-tanks from that franchise. The
 tool reads its own ancestry.
 

@@ -52,8 +52,16 @@
 - **Ghost Shell experimentation**: v001 binary with LogikomaFoundationTool,
   XPC telemetry protocol, observer app configuration.
 
+- **Production app shipping (Google-quality)**: Full launch stack — localization (39 locales, Localizable.xcstrings), runtime guards (LaunchArtifactGuard DEV preconditionFailure, DogfoodStartupGuard version check), compile-time guard levels (#if DEV/DOGFOOD/TESTFLIGHT/Release), ServiceContainer with protocol-backed services injected via SwiftUI environment, Firebase Remote Config behind protocol, MetricKit + Crashlytics composite crash reporting.
+- **service-universal**: Protocol-only collective for service abstractions — RemoteConfigService, AnalyticsService, FeatureFlagService, CrashReportingService, FontService (WrkstrmFont-backed), NetworkService (NWPathMonitor), Inspectable/DiagnosticsSnapshot. BundledXxxService no-op fallbacks for every protocol.
+- **Design token pipeline (W3C DTCG)**: Token schema (DesignToken, DesignTokenFile, WCAGContrast), CLI with Swift/CSS/Android generators + WCAG contrast audit subcommand. google/wrkstrm/laussat brand token files. design-token-owl Koma identity.
+- **Launch gate model**: 35+ LaunchGate cases with requiredArtifacts per case, LaunchType 0-3 with requiredGates, LaunchScope, BuildGuardLevel, SunsetStrategy, TargetPlatform, LaunchGateEvaluator → GateDecision + LaunchDecision. launch-gate-owl Koma.
+- **QA test harness**: Mathematical WCAG contrast tests (withKnownIssue), 24-permutation snapshot matrix (SnapshotPermutation × ViewRenderer), QAReportGenerator (JSON + Markdown + 24 PNGs), PseudoLocalizationTests, DynamicTypeSizeTests XCUITest suite.
+- **Pedagogy architecture**: Gates are pedagogy — they block until work is done, which teaches the process. Koma fleet closes automatable gates. CommonLog feeds adapters that fan logs into the fleet. Foundation Models synthesizes failures into fix suggestions.
+
 ## Recent Work
 
+- 2026-05-08: Built the full Google-quality production stack for hello-world-google. Proved that two words need the entire substrate to ship right. service-universal collective (7 packages), design-token-schemas DTCG CLI, 35+ gate model with requiredArtifacts, QA receipt with 24-permutation screenshot matrix. The pedagogy insight: gates teach by blocking. The Digikoma fleet closes every automatable gate; the next app starts at 80% readiness because the infrastructure exists.
 - 2026-04-24: Built swift-rpn-cli (38 ops + named definitions, 51 tests),
   digikoma-rpn (5 tests), digikoma-ghost-calc (FM+tool proof — circle area, leap year,
   percentages all correct). Built @Traced body macro (SwiftSyntax compiler

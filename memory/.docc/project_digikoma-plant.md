@@ -2,9 +2,9 @@
 name: digikoma-lab コマラブ
 description: The Digikoma lab app (renamed from digikoma-plant 2026-04-15) — gym + factory for the fleet. Stage World, TurnGraph debug, eval runs, profile persistence. Lives at digikoma-org/apps/digikoma-lab/.
 type: project
+originSessionId: 17bca72f-ee91-4f7a-8002-180df199eef5
 ---
-
-**digikoma-lab** (コマラブ, formerly digikoma-plant) — the lab where Komo are built, staged, validated, and dispatched.
+**digikoma-lab** (コマラブ, formerly digikoma-plant) — the lab where Koma are built, staged, validated, and dispatched.
 
 **Renamed:** `digikoma-plant` → `digikoma-lab` on 2026-04-15 for brand consistency with the "Lab" naming convention.
 
@@ -17,7 +17,7 @@ type: project
 - Profile persistence — Save Profile button archives `.sb` profiles to koma homes under `profiles/<os-version>/`
 
 **Phase 2 still pending:**
-- CLIDE dispatch (invoke any Komo through the daemon)
+- CLIDE dispatch (invoke any Koma through the daemon)
 - Live result streaming
 - Metal canvas layer for spatial fleet visualization
 - Beat visualization (ephemeral execution traces)

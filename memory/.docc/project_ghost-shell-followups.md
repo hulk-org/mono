@@ -24,8 +24,8 @@ Followup items from the ghost-shell observer rebuild and app surface condensatio
 ## Digikoma-plant
 
 9. **Deeper Liquid Glass pass** — fleet graph background, Digikoma detail sections (Identity, Primitive role, Definition surfaces), and sub-views still use opaque green palette. Second pass needed.
-10. **Wire DigikomaMode into fleet/deployment views** — DigikomaMode.swift exists but isn't yet used in the UI. Per-Komo mode badges and deployment metric strips should appear in fleet detail.
-11. **DigikomaDeploymentMetricsStrip with real data** — currently defined but not wired to live signals. Needs telemetry from actual Komo runs to populate success rate, chaos, and contribution delta.
+10. **Wire DigikomaMode into fleet/deployment views** — DigikomaMode.swift exists but isn't yet used in the UI. Per-Koma mode badges and deployment metric strips should appear in fleet detail.
+11. **DigikomaDeploymentMetricsStrip with real data** — currently defined but not wired to live signals. Needs telemetry from actual Koma runs to populate success rate, chaos, and contribution delta.
 
 ## clia-app-org
 

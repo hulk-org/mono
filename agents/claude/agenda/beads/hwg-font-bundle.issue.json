@@ -1,0 +1,17 @@
+{
+  "id": "hwg-font-bundle",
+  "title": "License and bundle Nunito (OFL) for hello-world-google",
+  "description": "Google Sans is proprietary. The font slot is wired (ATSApplicationFontsPath = Fonts in Info.plist, CustomFontService(postScriptName:) ready in ServiceContainer), but no font file is bundled. Nunito is available from Google Fonts under the Open Font License and has similar rounded geometry to Google Sans. Task: download Nunito-Bold.ttf, place in Resources/Fonts/, update ServiceContainer to CustomFontService(postScriptName: 'Nunito-Bold', scale: .googleStyle), flip fontLicense gate to passed.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 1,
+  "labels": ["hwg-go-to-market", "font", "service-universal"],
+  "createdAt": "2026-05-08T12:02:42Z",
+  "relatedChronicleEntry": "2026-05-08T12:02:42Z",
+  "sourceType": "thread-beat",
+  "sourceThreadId": "hwg-go-to-market",
+  "sourceBeatId": "readiness-44-percent-6-gates-open",
+  "sourceLocation": "private/universal/substrate/collectives/wrkstrm-components/private/hello-world-google/demo-apps/hello-world-google.demo/macos/hello-world-google.mac.demo/Sources/ServiceContainer.swift",
+  "schemaVersion": "0.1.0"
+}

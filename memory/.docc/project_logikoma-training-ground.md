@@ -7,7 +7,7 @@ originSessionId: d8bf83a5-6455-41dc-86b8-ec518edcee54
 The metal-iso-bench evolves into the **Logikoma training ground** — the visual environment where Digikoma (Tachikoma workers) train before deployment.
 
 **Connection to substrate:**
-- Komo (short for Tachikoma) are bounded workers deployed by Tau via CLIDE
+- Koma (short for Tachikoma) are bounded workers deployed by Tau via CLIDE
 - Species presets: Ant/Hound/Fox/Spider/Owl — each should have a distinct silhouette on the iso grid
 - The training ground is where you see them practicing scans, learning expertise, running tasks
 - Feeds into Agent RPG's studio view — the training ground IS a room in the studio

@@ -1,0 +1,17 @@
+{
+  "id": "hwg-gate-sync-ant",
+  "title": "Build gate-sync-ant: reads all Koma receipts, updates launch-calendar.json",
+  "description": "The circuit is not closed yet. Koma (snapshot-owl, contrast-audit-owl, etc.) produce structured receipts but nothing reads them and syncs the gate statuses back to launch-calendar.json. gate-sync-ant is an Ant-species Koma that reads all receipt files from qa-receipts/ and koma output dirs, maps verdict to gate status, and patches the JSON. Once this exists, no gate requires manual JSON editing.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["hwg-gate-model-koma-fleet", "digikoma", "launch-calendar", "koma-fleet"],
+  "createdAt": "2026-05-08T12:02:42Z",
+  "relatedChronicleEntry": "2026-05-08T12:02:42Z",
+  "sourceType": "thread-beat",
+  "sourceThreadId": "hwg-gate-model-koma-fleet",
+  "sourceBeatId": "next-gate-sync-ant-closes-the-circuit",
+  "sourceLocation": "private/universal/substrate/collectives/todo3/private/threads/open/hwg-gate-model-koma-fleet/hwg-gate-model-koma-fleet.moments.thread.clia.jsonl",
+  "schemaVersion": "0.1.0"
+}
