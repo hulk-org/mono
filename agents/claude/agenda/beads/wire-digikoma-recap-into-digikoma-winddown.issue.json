@@ -1,0 +1,16 @@
+{
+  "id": "wire-digikoma-recap-into-digikoma-winddown",
+  "title": "Wire digikoma-recap into digikoma-winddown as the structured-output subroutine",
+  "description": "digikoma-recap (just landed at digikoma-org/private/universal/domain/intelligence/digikoma-recap/) is the pure transcript-to-RecapModel summarizer — read-only, no persistence. digikoma-winddown's spec already exists at intelligence/digikoma-winddown/ but has no implementation. The clean implementation path: digikoma-winddown calls digikoma-recap.run(transcript) to produce a RecapModel, then persists each field to the active agent's surfaces — recap.title + arcs + wins -> chronicle entry contributions, recap.openFollowups[] -> bead writes (one .issue.json per followup), recap.caveats[] -> surface in the recap output and possibly mint repair-* beads automatically. recap.rulesEmerged[] could feed into proposed memory entries. Tests should cover: (a) winddown calls recap once, (b) every persistence target is written, (c) malformations in recap.caveats[] don't silently corrupt downstream writes, (d) re-running winddown is idempotent for the same recap object.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["digikoma", "digikoma-recap", "digikoma-winddown", "intelligence", "wd"],
+  "createdAt": "2026-05-13T18:16:53Z",
+  "relatedChronicleEntry": "2026-05-13T18:16:53Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/digikoma-org/private/universal/domain/intelligence/",
+  "dependencies": [],
+  "schemaVersion": "0.1.0"
+}
