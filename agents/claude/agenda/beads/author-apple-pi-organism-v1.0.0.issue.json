@@ -1,0 +1,15 @@
+{
+  "id": "author-apple-pi-organism-v1.0.0",
+  "title": "Author apple-pi organism with engine binding + sessionSchemaRefs",
+  "description": "apple-pi is pi's identity executing on Apple FoundationModels via swift-apple-pi-cli's session model register — pi-semantics on a different inference engine. The harness needs its own v1.0.0 organism that articulates the engine binding: composition singular, profileType harness, aspects.harness only (no agent aspect, host-only like hulk/codex), runtimeKinds [\"cli\"], identity.inherits referencing pi, identity.extensions.engineBinding=FoundationModels with sessionSchemaRefs=[{family:pi-session-schemas, version:0.1.0}], implementation refs at swift-apple-pi-cli (ApplePiAgentTool, ApplePiSessionCompactionTool, ApplePiBeatCompactionTool, AppleIntelligenceAgentModel). Also fix the stale routing pointer in apple-pi's existing AGENTS.md/IDENTITY.md (\"../../collectives/pi/\" → \"../pi/\" since pi is now a harness, not a collective).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["harness-audit", "v1.0.0", "apple-pi", "foundation-models", "engine-binding"],
+  "createdAt": "2026-05-13T18:16:53Z",
+  "relatedChronicleEntry": "2026-05-13T18:16:53Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/harnesses/apple-pi/",
+  "schemaVersion": "0.1.0"
+}

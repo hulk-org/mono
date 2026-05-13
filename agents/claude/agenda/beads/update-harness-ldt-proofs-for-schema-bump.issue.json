@@ -1,0 +1,22 @@
+{
+  "id": "update-harness-ldt-proofs-for-schema-bump",
+  "title": "Update each harness LDT proof pair to assert the new harness-schemas v0.2 field",
+  "description": "After harness-schemas v0.2.0 ships and harness organisms backfill sessionSchemaRefs/deploymentSchemaRefs, each existing harness LDT proof pair under .tmp/repl-proofs/ needs a new predicate: assert aspects.harness.doc.schemaVersion == 0.2.0 AND assert sessionSchemaRefs (or deploymentSchemaRefs) is present and references the expected family. Per-harness proofs to update: 2026-05-11-digikoma-organism-v1.0.0-fit.swift, 2026-05-12-clide-organism-v1.0.0-fit.swift, 2026-05-12-pi-organism-v1.0.0-fit.swift, 2026-05-12-hulk-organism-v1.0.0-fit.swift, 2026-05-12-gemini-organism-v1.0.0-fit.swift, 2026-05-12-codex-organism-v1.0.0-fit.swift (plus future apple-pi proof). Each negative companion gets a corresponding new failure expectation for the missing-ref case.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": ["harness-audit", "ldt-proof", "repl-proofs", "harness-schemas", "v0.2.0"],
+  "createdAt": "2026-05-13T18:16:53Z",
+  "relatedChronicleEntry": "2026-05-13T18:16:53Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": ".tmp/repl-proofs/",
+  "dependencies": [
+    {
+      "issueId": "update-harness-ldt-proofs-for-schema-bump",
+      "dependsOnId": "populate-session-deployment-refs-on-all-harnesses",
+      "type": "blocks"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}

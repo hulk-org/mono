@@ -59,8 +59,26 @@
 - **QA test harness**: Mathematical WCAG contrast tests (withKnownIssue), 24-permutation snapshot matrix (SnapshotPermutation × ViewRenderer), QAReportGenerator (JSON + Markdown + 24 PNGs), PseudoLocalizationTests, DynamicTypeSizeTests XCUITest suite.
 - **Pedagogy architecture**: Gates are pedagogy — they block until work is done, which teaches the process. Koma fleet closes automatable gates. CommonLog feeds adapters that fan logs into the fleet. Foundation Models synthesizes failures into fix suggestions.
 
+- **Audit-driven CLIA organism commissioning**: LDT proof-pair pattern
+  (positive + negative `.swift` files under `.tmp/repl-proofs/`) for every
+  organism authoring/migration. v1.0.0 = "latest of all current schemas" —
+  organism-schemas v0.5.0, agent-schemas v0.4.0, harness-schemas v0.1.0,
+  identity-schemas v0.4.0. `OrganismComposition` enum is `{singular,
+  collective}` everywhere — `harness` is never valid. swift-agent-cli doctor
+  routes by detected schema-set; `--kind organism` runs the per-family
+  predicate checks.
+
 ## Recent Work
 
+- 2026-05-13: Commissioned six harnesses to v1.0.0 with LDT proof pairs:
+  digikoma, clide, pi, hulk, gemini, codex. Unblocked swift-agent-cli +
+  swift-incident-cli by retiring the `Charter` type (`charterRef` →
+  `missionRef`, dropped `.charter` decode case). Caught pi's long-standing
+  `composition: "harness"` bug (invalid at every organism-schemas version) +
+  pi's fictitious `agent-schemas v0.7.0` reference (family tops at v0.4.0
+  on disk). Established the LDT proof-pair pattern as substrate convention.
+  Designed but did not land: apple-pi organism, harness-schemas v0.2.0 bump
+  (sessionSchemaRefs + deploymentSchemaRefs), gemini-session-schemas family.
 - 2026-05-08: Built the full Google-quality production stack for hello-world-google. Proved that two words need the entire substrate to ship right. service-universal collective (7 packages), design-token-schemas DTCG CLI, 35+ gate model with requiredArtifacts, QA receipt with 24-permutation screenshot matrix. The pedagogy insight: gates teach by blocking. The Digikoma fleet closes every automatable gate; the next app starts at 80% readiness because the infrastructure exists.
 - 2026-04-24: Built swift-rpn-cli (38 ops + named definitions, 51 tests),
   digikoma-rpn (5 tests), digikoma-ghost-calc (FM+tool proof — circle area, leap year,

@@ -1,0 +1,16 @@
+{
+  "id": "bump-harness-schemas-v0.2.0-session-deployment-refs",
+  "title": "Bump harness-schemas v0.1.0 → v0.2.0 adding sessionSchemaRefs + deploymentSchemaRefs",
+  "description": "Promote session/deployment schema references from ad-hoc identity.extensions to first-class optional fields on HarnessAspectDoc. Design locked: two parallel optional fields. Add to schema-universal/private/universal/domain/system/schema-families/harness-schemas/v0.2.0/spm/harness-schemas-v000-002-000/Sources/HarnessSchemas_v000_002_000/HarnessModel.swift: `public var sessionSchemaRefs: [SchemaFamilyRef]?` (for session-hosting harnesses) and `public var deploymentSchemaRefs: [SchemaFamilyRef]?` (for factory/mint carriers like digikoma). Update HarnessSchemaVersion.current = \"0.2.0\". Add SchemaFamilyRef struct if not already present (family: String, version: String). Mirror v0.1.0 directory wholesale, find/replace v000_001 → v000_002 in module name + Package.swift, bump schemaVersion constant, author migrator under schema-migrators/. Then update core-entity-set freshness audit binding to harness-schemas v0.2.0.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["harness-audit", "schema-family", "harness-schemas", "v0.2.0", "session-schema", "deployment-schema"],
+  "createdAt": "2026-05-13T18:16:53Z",
+  "relatedChronicleEntry": "2026-05-13T18:16:53Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/schema-universal/private/universal/domain/system/schema-families/harness-schemas/v0.1.0/",
+  "dependencies": [],
+  "schemaVersion": "0.1.0"
+}
