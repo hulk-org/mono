@@ -1,9 +1,17 @@
+- [Catalyst is one iOS bundle on Mac](feedback_catalyst-is-ios-bundle-on-mac.md) — cross-platform = single iOS target with SUPPORTS_MACCATALYST=YES; the "macos" surface is just the Catalyst destination of that bundle, never a parallel AppKit target
+- [AppKit only when macOS APIs require it](feedback_appkit-only-for-macos-apis.md) — default is iOS+Catalyst; reach for AppKit only when a macOS-only API (NSMenu chrome, NSWorkspace, NSDocument, status bar utilities) genuinely forces it
+- [Two snapshot rendering paths](project_substrate-snapshot-rendering-paths.md) — substrate keeps both NSHostingView (AppKit-side) and SwiftUI ImageRenderer (iOS/Catalyst-side); neither replaces the other; apps pick by platform shape
+- [Release-tier feature CLI](project_release-features-cli.md) — planned digikoma owns the (debug/dogfood/testflight/release × feature) matrix; emits SWIFT_ACTIVE_COMPILATION_CONDITIONS + a generated ReleaseFeatures.swift; collapses today's drift across #if blocks, project.yml, and operator memory
 - [Clia app graduation](project_clia-app-graduation.md) — hex-grid-face IS Clia; graduate to clia-app in clia-app-org with menu bar, genome pipeline, and proper distribution
 - [Sprite avatars are characters](feedback_sprite-character-not-genome.md) — CLIA Sprite avatars = small character cursors (Robot/Clippy/Navi); NOT clia-face's AvatarKit genome system
 - [Face tracking roadmap](project_face-tracking-roadmap.md) — Vision capability tiers documented at apps/.docc/face-tracking-tiers.md; adopt in clia-face first (test bench), port to clia-sprite second
 - [Commit plus-tag attribution](feedback_commit-plus-tag-attribution.md) — mono commits use cmonterroza+<agent>@wrkstrm.com via repo-local default + digikoma-git session-aware override
 - [Don't lecture on small corrections](feedback_dont-lecture-on-small-corrections.md) — when user flags a grammar/style slip, acknowledge tersely; no essays, no style-guide cites, suppress the Explanatory Insight block
 - [Don't defend implementation](feedback_dont-defend-implementation.md) — when user shows a working example, propose adopting that engine, not a clever patch on the broken surface
+- [Audit not eyeball-clone](feedback_audit-not-eyeball-clone.md) — every organism/identity edit ends with passing `swift-agent-cli doctor`; never model by visual diff against a sibling home
+- [Stop defaulting to trash](feedback_stop-defaulting-to-trash.md) — working code stays even if unused right now; merge means preserve; trash needs explicit per-file authorization, not "feels orphaned"
+- [Harness runtime is lived state](feedback_harness-runtime-is-lived-state.md) — sqlite/sessions/cache/history files are an organism's lived work, not "debris"; respect personification cues ("him", "her") and never call legacy artifacts "old crap"
+- [Pi organism schema drift](project_pi-organism-schema-drift.md) — pi (and likely dott/eliza/mono sv=0.7) fail v0.9 doctor; authored against aspirational v1.0 cut not yet shipping in CLI
 - [Preserve historical data](feedback_no-rewrite-history.md) — never rewrite harvest/receipt/vault contents when paths change
 - [Save insights to docc](feedback_save-insights-docc.md) — write insights to claude home memory/.docc/insights/
 - [Beads are agency atoms](insights/beads-as-atoms-of-agency-2026-05-07.md) — beads stay durable; closure flips status:open->closed and adds closedAt + resolutionNote, never delete
@@ -19,7 +27,8 @@
 - [No bash scripts either](feedback_no-bash-scripts.md) — bash for-loops, while-read pipelines, multi-step shell logic are also forbidden; save anything beyond a discrete command as a Swift CLI
 - [Swift Testing not XCTest](feedback_swift-testing-not-xctest.md) — all new tests use `import Testing` + `@Test` + `#expect`, never XCTestCase
 - [Digikoma not Logikoma](feedback_digikoma-not-logikoma.md) — new komas conform to DigikomaIdentifiable; types/packages get Digikoma* prefix; DigikomaCore/DigikomaIdentity/DigikomaAction stay (they live in the unrenamed core)
-- [Koma not Komo](feedback_koma-not-komo.md) — standalone is `Koma` (-a) per Ghost in the Shell; never `Komo` (-o) in prose, slugs, or types
+- [Koma not Komo](feedback_koma-not-komo.md) — spelling rule only: never `Komo` (-o); standalone-`Koma` allowance superseded by always-digikoma rule below
+- [Always digikoma, never bare koma](feedback_always-digikoma-never-bare-koma.md) — in prose/slugs/types use full `digikoma`; standalone `Koma` shorthand is retired
 - [Swift identifiers stay romaji](feedback_swift-identifiers-romaji-not-katakana.md) — Swift types/files = romaji ASCII (Digikoma); katakana (デジコマ) only for human-facing prose; source reaches Foundation Models via tool reflection
 - [Login Driven Thinking (LDT)](feedback_test-driven-repl-proofs.md) — substrate-wide reasoning discipline at root AGENTS.md; every non-trivial structural claim becomes a compilable .swift proof under repl-proofs/, runs with `swift <file>`, asserts with precondition; directory listing + git log are the index
 - [Teach the proof every time](feedback_teach-the-proof-every-time.md) — every LDT proof gets a structured walkthrough (claim, pieces, load-bearing line, how to extend) AND a positive+negative proof pair where possible; never just print "ok: passed" and move on
@@ -30,6 +39,7 @@
 - [Prep Lab branding](project_prep-lab-brand.md) — Prep Lab = user-facing brand for the study-lab codename app; belongs to Laussat Studio or wrkstrm family, never clia
 - [Clia Day Pa distribution](project_clia-day-pa-distribution.md) — Pa-facing Clia Day builds ship via rismay's personal App Store account (team BM6B69ZQSR), not Laussat or wrkstrm
 - [App Store Connect credentials store](project_appstoreconnect-credentials-store.md) — interim credentials live at ~/.appstoreconnect/credentials/<bundle-id>.json (chmod 600), one file per app, outside the repo
+- [Bundle IDs via wrkstrm-identifier](project_bundle-id-standardization.md) — canonical bundle IDs derived by `wrkstrm-identifier` CLI in clia-org; shape `me.rismay.<app>.<platform>.<surface?>.<config>`; flat `me.rismay.<slug>` form is pre-tool drift
 - [clia-mem app live](project_clia-mem-app.md) — substrate memory browser in clia-app-org; session cleanup moved to session-lab in wrkstrm-app
 - [Close, delete, then launch](feedback_close-delete-launch.md) — quit app, delete .app bundle, rebuild, then launch; never relaunch over stale binary
 - [Delete old apps every iteration](feedback_delete-old-apps-every-iteration.md) — close→trash→build→launch is a habit on every dev loop, not a one-off
@@ -78,6 +88,7 @@
 - [Logikoma is the class](project_logikoma-is-the-class.md) — ロジコマ (Logikoma) is the canonical class name; Koma = chassis, Logikoma = chassis + logic contract; each individual has a slug; filesystem/schema stay `koma` for compat
 - [Tachikoma factory](project_tachikoma-factory.md) — carrier/harness layer should mint bounded workers from specs, work graphs, staged worlds, actions, budgets, and receipts instead of spawning full agents for discrete work
 - [Patrol/scan vocabulary](feedback_patrol-scan-vocabulary.md) — digikoma **patrol** chartered routes (macro) and **scan** at each station (micro); action = schema-field; anatomy = traversal preset; imprints gated on bookend receipts
+- [Koma species naming provisional](feedback_koma-species-naming-provisional.md) — Ant/Hound/Fox/Spider/Owl are placeholder; operator dislikes; don't leak into public copy without flagging
 - [Remote migration pause](project_remote-migration-pause.md) — do NOT git push; new GitHub remote being established 2026-04-30; commits + pointer bumps fine, push paused until user clears
 - [Design goals are not UI chrome](feedback_design-goals-not-chrome.md) — codenames like "Operator 2027" / "Collective 2027" are aspirational targets, never visible Text labels
 - [openclaw is compat surface, not our identity](project_openclaw-compatibility-not-identity.md) — harnesses/openclaw/ is the OpenAI-side upstream we mirror; our carrier identity belongs elsewhere (don't author doctrine in openclaw top-level files)
@@ -124,6 +135,9 @@
 - [Backends are peers not versions](feedback_backends-not-versions.md) — SpriteKit/SceneKit/Metal/UIKit Dynamics are parallel strategies, not v1/v2/v3; name by engine, never number
 - [No Co-Authored-By in commits](feedback_no-coauthored-by.md) — never add Claude attribution trailers; the operator is directing the work
 - [Beads is the wrkstrm app work layer](project_beads-is-wrkstrm-app.md) — gastownhall/beads = task management backbone for wrkstrm apps; Beads orchestrates (what+when), Digikoma executes (how), Ghost bridges
+- [Schema v0.x ratchets are additive](feedback_schema-vx-ratchets-additive.md) — v0.x schema bumps must add or refine; never collapse fields, soften validators, or rename back; v1.0.0 of share-record was rejected for doing all three
+- [Opinionated synthesis](feedback_opinionated-synthesis.md) — partial direction or "your call" wants named synthesis with multi-signal rationale + redirect affordances; NOT stepwise permission-asking
+- [Presense app](project_press-by-wrkstrm.md) — online-presence grading dashboard (renamed from press 2026-05-13: presence + sense + press); Editor+Publicist; 1/16 retina + A-F + Andover 0–6; worst-first EGM aesthetic; bundle me.rismay.presense-by-wrkstrm.macos.release
 - [Ghost shell file split](project_ghost-shell-file-split.md) — GhostShellMacApp.swift 1393→8 files; chrome extracted; tree-explorer sidebar for Single/Adversarial modes
 - [Show code directly](feedback_show-code-directly.md) — when user says "show me", paste code or open file; no summaries
 - [Workflow by wrkstrm](project_workflow-by-wrkstrm.md) — the app is called "Workflow"; slug workflow-by-wrkstrm, bundle me.rismay.workflow; Beads is the engine, Workflow is the product
@@ -137,3 +151,5 @@
 - [common-process is infrastructure-grade](project_common-process-constraints.md) — hot path for entire substrate; every OS, 10yr compat, perf down to posix_spawn, C shim roadmap
 - [Backdrop by wrkstrm](project_backdrop-by-wrkstrm.md) — live Metal wallpaper at desktopIconWindow-2; COLLIDE is first scene; particles = real substrate events; separate from Desktop Utilities widget layer
 - [Suikoden II patterns for agents framework](project_suikoden-ii-agents-framework-patterns.md) — 108 Stars = roster gate, three combat scales, Unite Attacks, runes-as-bounded-charges, permadeath, cross-save
+- [No -owl suffix on Komas](feedback_no-owl-suffix-on-komas.md) — never name a Koma with -owl (Harry-Potter-coded); use plain slugs (secret-labs, privacy-review); don't unilaterally rename existing -owl directories
+- [Human visual verification](feedback_human-visual-verification-before-user-visible-actions.md) — ALWAYS require human to SEE artifact before deploy/publish/submit/push (vapor-wares.com near-miss); automated PASS isn't sufficient

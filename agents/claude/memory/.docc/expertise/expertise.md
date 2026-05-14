@@ -97,6 +97,36 @@
 
 ## Recent Work
 
+- 2026-05-13 (evening): Forged the launch-gate proof grammar across six
+  schema families. Five new families under
+  `schema-universal/.../platforms/schema-families/`: `privacy-disclosure-schemas`
+  (40 tests, 11 suites; PrivacyDisclosureRelease + Diff + ReviewReceipt +
+  per-surface fan-out), `baseline-capability-schemas` (17/3; 3 monotonic
+  tiers, 50 capabilities surface-keyed), `user-feedback-schemas` (21/7;
+  Human + AI questionnaires with AI-only richer formats), `engineering-review-schemas`
+  (16/4; ReviewKind=architecture|code), `desktop-studio-plugin-schemas`
+  (15/4; open bundle-ID identity + closed primitive enums + sidecar
+  known-IDs after discovering the existing 10k LOC desktop-studio
+  prototype — pivoted from rebuild to schema-only addition).
+  `release-operations-schemas` extended (46/9): `GitHubOrgDecision`,
+  `ExpectedReachMetrics` with 3 confidence tiers, `HumanVisualVerification`
+  with verdict+notes invariants, `ReleaseTargetSurface` (9 surfaces incl.
+  backend/static-site/marketing-page), 6 new artifact kinds, 12+ new gates.
+  ~155 tests across 7 packages, all green.
+  Hello-world-google v1.0.0-b1 receipt bundle authored at
+  `release-receipts/2026-05-12-hello-world-google-v1.0.0-b1/`: privacy
+  disclosure + 4 review receipts (privacy / baseline-capability / secret-labs /
+  architecture / code) + catalog entry with 5 named blockers, 7 next-actions,
+  GitHubOrgDecision, ExpectedReachMetrics (50 DAU speculative, 39 locales,
+  175 countries). Repo-hygiene (README/LICENSE/CHANGELOG) at the
+  hello-world-google root. Six schema templates with placeholder
+  substitution + decode tests. Two new feedback memories saved:
+  `feedback_no-owl-suffix-on-komas.md` (Harry-Potter-coded; never name a
+  Koma -owl) + `feedback_human-visual-verification-before-user-visible-actions.md`
+  (vapor-wares.com near-miss; codified into schema as `HumanVisualVerification` +
+  `requiresHumanVisualVerification` LaunchGate marker on
+  `.appStoreConnect`/`.githubPagesPublished`/`.releaseArtifactHosted`/
+  `.stagedRolloutPlan`/`.goNoGo`/`.humanVisualReviewPassed`).
 - 2026-05-13 (afternoon): Authored and proved out `digikoma-recap` at
   `collectives/digikoma-org/.../intelligence/digikoma-recap/`. Pure
   transcript-to-RecapModel summarizer via Apple FoundationModels — 9 typed

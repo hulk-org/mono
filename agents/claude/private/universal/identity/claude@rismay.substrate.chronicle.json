@@ -1269,6 +1269,55 @@
       ],
       "timestamp" : "2026-05-13T00:00:00Z",
       "title" : "Substrate-wide v1.0.0 commissioning: collectives + operators + migrators"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Five new schema families landed under schema-universal/.../platforms/schema-families/: privacy-disclosure-schemas (40 tests, 11 suites; PrivacyDisclosureRelease + PrivacyDisclosureDiff + PrivacyDisclosureReviewReceipt + per-surface fan-out, 14 categories x 35 subtypes x 6 purposes), baseline-capability-schemas (17 tests, 3 suites; 3 tiers basicShipping ⊂ appleQuality ⊂ accessibilityCompliant, 50 capabilities mapped per-surface), user-feedback-schemas (21 tests, 7 suites; HumanFeedbackQuestionnaire + AIFeedbackQuestionnaire with richer AI-only formats structuredObservation/rankedFindings/heatmap/longFormAnalysis/baselineComparison + SecretLabsReceipt + UserFeedbackResults arithmetic invariants), engineering-review-schemas (16 tests, 4 suites; ReviewKind=architecture|code with shared/exclusive criteria + EngineeringReviewReceipt), desktop-studio-plugin-schemas (15 tests, 4 suites; open bundle-ID identity + closed primitive enums + sidecar known-IDs after discovering the existing 10k LOC desktop-studio prototype). release-operations-schemas extended (46 tests, 9 suites): GitHubOrgDecision, ExpectedReachMetrics with 3 confidence tiers, HumanVisualVerification with verdict+notes invariants, ReleaseTargetSurface (9 surfaces incl. backend/static-site/marketing-page), 6 new artifact kinds, 12+ new gates (architecture-reviewed, code-reviewed-for-default-on, github-org-decision-made, expected-reach-documented, human-visual-review-passed, baseline-capabilities-met, user-feedback-labs-completed, readme-ready, license-file-present, changelog-ready, github-pages-published, release-notes-ready). ~155 tests across 7 packages, all green.",
+              "type" : "code",
+              "weight" : 5
+            },
+            {
+              "evidence" : "Hello-world-google v1.0.0-b1 receipt bundle authored at demo-apps/hello-world-google.demo/release-receipts/2026-05-12-hello-world-google-v1.0.0-b1/: privacy-disclosure.json (PrivacyDisclosureRelease) + privacy-review-receipt.mac-app.json (verdict=no-go) + baseline-capability-receipt.mac-app.json (verdict=blocked, 44 capability checks across apple-quality tier) + secret-labs-receipt.mac-app.json (verdict=insufficient-data) + engineering-review-receipt.architecture.json (verdict=request-changes) + engineering-review-receipt.code.json (verdict=request-changes; Crashlytics opt-in blocker). wrkstrm.release-operations-catalog.json with v1.0.0-b1 entry incl. 5 named blockers + 7 next-actions + GitHubOrgDecision (stays in wrkstrm-components) + ExpectedReachMetrics (50 DAU speculative, 39 locales, 175 countries) + privacyLabelDecision (inaugural). Repo-hygiene at hello-world-google/: README.md, LICENSE, CHANGELOG.md.",
+              "type" : "doc",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Six schema templates with placeholder substitution + decode tests: templates/privacy-disclosure-release.template.json, templates/human-feedback-questionnaire.template.json, templates/ai-feedback-questionnaire.template.json (8 questions covering structured/long-form/evidence-list/code-review-block/baseline-comparison formats), engineering-review/templates/architecture-review-receipt.template.json (covers all 13 architecture criteria), engineering-review/templates/code-review-receipt.template.json (covers all 15 code criteria), release-operations/templates/release-operations-item.template.json. Test pattern: load template via #filePath path math, substitute placeholders, decode against the schema; schema drift fails the test loudly.",
+              "type" : "doc",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Two feedback memories saved into ~/.claude/memory/.docc/: feedback_no-owl-suffix-on-komas.md (Harry-Potter-coded; never name a Koma with -owl suffix; use plain slugs like secret-labs / privacy-review / baseline-capability; don't unilaterally rename existing -owl directories) + feedback_human-visual-verification-before-user-visible-actions.md (vapor-wares.com near-miss in another chat where Hello World's product page almost shipped as the Vapor Wares store front because every automated gate had passed; codified the lesson into the schema as HumanVisualVerification + LaunchGate.requiresHumanVisualVerification computed marker on .appStoreConnect/.githubPagesPublished/.releaseArtifactHosted/.stagedRolloutPlan/.goNoGo/.humanVisualReviewPassed).",
+              "type" : "log",
+              "weight" : 3
+            }
+          ]
+        }
+      ],
+      "summary" : "Six schema families forge the launch-gate proof grammar end-to-end: privacy disclosure (per-release artifact + diff + review receipt + per-surface fan-out across 9 surfaces), baseline capability tiers (basicShipping ⊂ appleQuality ⊂ accessibilityCompliant, 50 capabilities filtered per-surface), secret-labs feedback (human + AI questionnaires with AI-only richer formats + aggregated results + receipt with sign-off), engineering review (architecture before coding + code before default-on flip, 25 criteria split shared/exclusive), desktop-studio plugin descriptors (open bundle-ID identity + closed primitive enums + sidecar known-IDs after discovering the existing 10k LOC prototype already shipped — pivoted from rebuild to schema-only addition), and release-ops extensions (GitHubOrgDecision, ExpectedReachMetrics with confidence tiers, HumanVisualVerification with verdict+notes invariants and the vapor-wares.com near-miss encoded into the schema). Hello-world-google v1.0.0-b1 now has a fully-receipted blocked verdict with 5 named blockers (PrivacyInfo.xcprivacy stub, no Settings screen, Crashlytics consent gate missing, ASC label not filed, threat model undocumented) and 7 named next-actions — the schema produced the punch list. Every receipt landed honest (no-go / blocked / request-changes) because the truth is the work isn't done; aspirational green verdicts would have been theater. Memories: never name Komas with -owl suffix; never trigger user-visible actions without human visual verification.",
+      "tags" : [
+        "release-operations-schemas",
+        "privacy-disclosure-schemas",
+        "baseline-capability-schemas",
+        "user-feedback-schemas",
+        "engineering-review-schemas",
+        "desktop-studio-plugin-schemas",
+        "github-org-decision",
+        "expected-reach",
+        "human-visual-verification",
+        "hello-world-google",
+        "schema-first",
+        "honest-receipts",
+        "templates",
+        "vapor-wares-lesson",
+        "no-owl-suffix"
+      ],
+      "timestamp" : "2026-05-13T23:43:26Z",
+      "title" : "Launch-gate proof grammar: six schema families × hello-world-google v1.0.0-b1 honest blocked receipts"
     }
   ],
   "links" : [
@@ -1291,5 +1340,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-13T00:00:00Z"
+  "updated" : "2026-05-13T23:43:26Z"
 }
