@@ -9,7 +9,13 @@
         "runtimeKinds" : [
           "cli"
         ],
-        "schemaVersion" : "0.1.0"
+        "schemaVersion" : "0.2.0",
+        "sessionSchemaRefs" : [
+          {
+            "family" : "claude-session-schemas",
+            "version" : "0.1.0"
+          }
+        ]
       }
     }
   },
