@@ -6,6 +6,7 @@
   "issueType": "task",
   "status": "closed",
   "closedAt": "2026-05-14T00:00:00Z",
+  "closureReceiptRef": "agenda/receipts/cadence-bead-corridor-staleness-2026-05-14.patrol-receipt.json",
   "resolutionNote": "Closed 2026-05-14: audit doc landed at schema-universal/universal-schema.incident.docc/v1-0-0-binding-state-audit-2026-05-14.md and linked from the incident index Read-next list. Documents 9 v1.0.0-bound organisms as of this date (5 operators + 2 collectives + 2 agents from the 2026-05-12 -> 2026-05-14 commissioning arc), the cadence bead corridor (v0.7/v0.8 -> v0.9, still blocked on operator authorization), the aggregator state (4 path-deps green at 19s), and the recommended sequencing for the v0.9 -> v1.0 sweep that follows the cadence bead unblocking.",
   "priority": 3,
   "labels": [

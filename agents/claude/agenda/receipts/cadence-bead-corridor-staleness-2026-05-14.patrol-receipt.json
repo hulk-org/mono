@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "0.1.0",
+  "receiptId": "cadence-bead-corridor-staleness-2026-05-14",
+  "patrolId": "v1-0-0-binding-state-audit-doc",
+  "digikomaSlug": "claude",
+  "digikomaVersion": 0,
+  "boardedAt": "2026-05-14T00:00:00Z",
+  "declaredBudget": {
+    "maxStations": 50
+  },
+  "stationFilter": "every identity.json with schemaSetRefs across agents/, operators/, collectives/, orchestrators/, and harnesses/hulk/agents/claude/",
+  "debarkedAt": "2026-05-14T00:00:00Z",
+  "exitKind": "clean",
+  "stationsVisited": 24,
+  "consumedBudget": {
+    "maxStations": 24,
+    "maxFindings": 8
+  },
+  "findings": [
+    {
+      "stationRef": "agents/* identity.json with schemaSetRefs[0].set",
+      "severity": "info",
+      "code": "v0-6-0-population-enumerated",
+      "message": "11 agents bind core-triad-set-v0.6.0: claude, codex, carrie, cadence, tau, patch, claw, clia-wrkstrm, cloud, catch, chatgpt. Each verified by direct grep on 2026-05-14.",
+      "evidence": {
+        "agentsOnV060": ["claude", "codex", "carrie", "cadence", "tau", "patch", "claw", "clia-wrkstrm", "cloud", "catch", "chatgpt"],
+        "count": 11
+      }
+    },
+    {
+      "stationRef": "agents/* identity.json + organism.json with v1.0.0 binding (full)",
+      "severity": "info",
+      "code": "v1-0-0-full-bindings-enumerated",
+      "message": "9 organisms have FULL v1.0.0 binding (both identity.json AND organism.json): jakor, johnwhitecastle, khegh, tkoh, uptobat, wrkstrm, wrkstrm-components, prime, tempo. Landed across 2026-05-12 to 2026-05-14 commits 23e6e3f, 9af5b025, wrkstrm-components, 2c702bc1, a44c0ee0.",
+      "evidence": {
+        "fullV100Bindings": ["jakor", "johnwhitecastle", "khegh", "tkoh", "uptobat", "wrkstrm", "wrkstrm-components", "prime", "tempo"],
+        "count": 9
+      }
+    },
+    {
+      "stationRef": "agents/* identity.json with v1.0.0 binding (partial — no organism.json)",
+      "severity": "warning",
+      "code": "v1-0-0-partial-bindings-enumerated",
+      "message": "4 organisms have PARTIAL v1.0.0 binding (identity.json only, no organism.json on disk): alphonse, helm, spark, symphony. These predate the 2026-05-12 work and appear to come from a parallel commissioning workstream. Closing the partial-to-full gap means writing each one's organism.json.",
+      "evidence": {
+        "partialV100Bindings": ["alphonse", "helm", "spark", "symphony"],
+        "count": 4
+      }
+    },
+    {
+      "stationRef": "agents/* identity.json with v0.7/v0.8 binding (cadence bead corridor)",
+      "severity": "warning",
+      "code": "cadence-corridor-empty",
+      "message": "Zero agents found in core-entity-set-v0.7.0 or v0.8.0. The cadence bead `identity-schema-set-refs-sweep` (created 2026-05-01, status: blocked) targets the v0.7/v0.8 to v0.9 migration corridor. The corridor is empty — there's no population for that bead to migrate. The bead's premise is stale either because: (a) its intended population already moved through, (b) the bead was speculatively created before agents landed in v0.7/v0.8, or (c) the population skipped v0.7/v0.8 entirely (jumped from v0.6 triad-line to v1.0 entity-line directly).",
+      "evidence": {
+        "v070Population": [],
+        "v080Population": [],
+        "cadenceBeadLocation": "private/universal/substrate/agents/cadence/agenda/beads/issues/identity-schema-set-refs-sweep.issue.json",
+        "cadenceBeadStatus": "blocked",
+        "recommendation": "Surface this finding to whoever owns cadence's bead. Either retarget to v0.6.0 -> v1.0.0, close as no-population-to-migrate, or run investigation pass."
+      }
+    },
+    {
+      "stationRef": "substrate-wide schemaSetRefs declared population",
+      "severity": "info",
+      "code": "total-binding-population",
+      "message": "24 organisms declare schemaSetRefs total: 13 on v1.0.0 (9 full + 4 partial) + 11 on core-triad-v0.6.0. Substrate organisms with no schemaSetRefs field at all are out of scope for this audit."
+    },
+    {
+      "stationRef": "audit-doc/v1-0-0-binding-state-audit-2026-05-14.md",
+      "severity": "resolution",
+      "code": "audit-doc-landed",
+      "message": "Operator-readable audit doc landed at schema-universal/universal-schema.incident.docc/v1-0-0-binding-state-audit-2026-05-14.md and linked from the incident docc index Read-next list. Commit fa30e0a (initial) + 3da9ee64 (correction with full per-agent verification) in schema-universal submodule.",
+      "evidence": {
+        "schemaUniversalCommits": ["fa30e0a", "3da9ee64"],
+        "monoPointerBumps": ["96d24b38", "ce065fed48"]
+      }
+    }
+  ],
+  "imprintRef": "schema-universal/universal-schema.incident.docc/v1-0-0-binding-state-audit-2026-05-14.md",
+  "imprintedAt": "2026-05-14T00:00:00Z",
+  "extensions": {
+    "manualInvestigation": true,
+    "investigationKind": "agent-bead-closure-evidence",
+    "imprintNotAuthorizedFor": [
+      "private/universal/substrate/agents/cadence/agenda/beads/issues/identity-schema-set-refs-sweep.issue.json"
+    ],
+    "imprintNotAuthorizedNote": "Claude cannot touch cadence's bead without operator authorization. This receipt documents the finding for cadence's owner to decide what to do with their bead; the receipt itself does not modify cadence's substrate state."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "evidenced-bead-closures-doctrine",
+  "title": "Establish doctrine: every non-trivial bead closure cites a PatrolReceipt",
+  "description": "The 2026-05-14 cadence-bead-corridor-staleness investigation surfaced a doctrine gap: bead closures use a prose `resolutionNote` field, which is a weak receipt — it asserts the bead is done but doesn't point at typed evidence that can be re-verified. The substrate already has the typed shape (`PatrolReceipt` from receipt-schemas v0.1.0 in core-entity-set-v1.0.0; binding suffix `.patrol-receipt.json`). On 2026-05-14, we demonstrated the pattern by writing 3 PatrolReceipts (prime-tempo-commission, core-entity-migrator-chain-completeness, cadence-bead-corridor-staleness) and retroactively adding a `closureReceiptRef` field to the 3 closed beads pointing at the receipts. Doctrine proposal: every non-trivial bead closure cites a `closureReceiptRef`. Trivial closures (single-line tidy-up, no audit/investigation) can keep just `resolutionNote`. The cutoff between trivial and non-trivial needs operator definition.\n\nOpen questions for the doctrine:\n1. Where do receipts live? This session placed them under `<agent-home>/agenda/receipts/`. Should that path be canonical?\n2. PatrolReceipt has koma-shape (digikomaSlug, digikomaVersion). Manual claude investigations stretch the semantics. Do we need a non-koma receipt shape, or is the stretch acceptable with explicit `extensions.manualInvestigation: true`?\n3. Should `closureReceiptRef` be a new optional field on the bead schema, or stay informal via the resolutionNote prose?\n4. Should receipts be required for bead CREATION too (i.e., 'evidenced opens' as well as 'evidenced closes')?",
+  "assignee": "claude",
+  "issueType": "decision",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "doctrine",
+    "receipts",
+    "beads",
+    "patrol-receipt",
+    "evidence",
+    "audit-trail"
+  ],
+  "createdAt": "2026-05-14T00:00:00Z",
+  "relatedChronicleEntry": "2026-05-13T00:00:00Z",
+  "sourceType": "investigation",
+  "sourceLocation": "private/universal/substrate/harnesses/hulk/agents/claude/agenda/receipts/cadence-bead-corridor-staleness-2026-05-14.patrol-receipt.json",
+  "schemaVersion": "0.1.0"
+}

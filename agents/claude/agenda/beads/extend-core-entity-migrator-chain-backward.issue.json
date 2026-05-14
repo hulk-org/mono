@@ -6,6 +6,7 @@
   "issueType": "investigation",
   "status": "closed",
   "closedAt": "2026-05-14T00:00:00Z",
+  "closureReceiptRef": "agenda/receipts/core-entity-migrator-chain-completeness-2026-05-14.patrol-receipt.json",
   "resolutionNote": "No work needed. Investigation 2026-05-14: the core-entity migration chain is already complete end-to-end. core-triad-migrations/ covers v0.1.0 -> v0.2.0 -> v0.4.0 -> v0.5.0 -> v0.6.0 (the older triad line, 5 migrators). core-entity-migrations/v0.6.0-to-v0.7.0 bridges the LINE SPLIT (core-triad-v0.6.0 source -> core-entity-v0.7.0 target). core-entity-migrations/v0.7.0-to-v0.8.0, v0.8.0-to-v0.9.0, v0.9.0-to-v1.0.0 complete the entity line. No core-entity-set v0.6.0 or earlier exists because the entity-line itself was born at v0.7.0; the older lineage is the triad-line, which has its own complete migrator chain. Per memory feedback_beads-are-atoms-of-agency, closing flips status to closed and adds closedAt + resolutionNote; the bead is preserved durably.",
   "priority": 3,
   "labels": [
