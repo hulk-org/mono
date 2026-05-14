@@ -83,8 +83,33 @@
   routes by detected schema-set; `--kind organism` runs the per-family
   predicate checks.
 
+- **Structured-output digikoma via FoundationModels @Generable**: pattern
+  for authoring read-only summarizer komas that emit typed structs directly
+  from on-device FM. Define `@Generable` types with `@Guide(description:)`
+  on every field; call `LanguageModelSession.respond(to:generating: T.self)`
+  to get typed output without JSON parsing. Conditional compile with
+  `#if canImport(FoundationModels)` + fallback structs for non-Apple
+  platforms. Known failure modes from the digikoma-recap proving run:
+  backtick truncation in source content breaks String field boundaries;
+  list fields under-extract (3 items in → 1 out) unless `@Guide`
+  explicitly says "include every X mentioned"; FM may invent unrelated
+  decisions if not constrained to substring-grounded extraction.
+
 ## Recent Work
 
+- 2026-05-13 (afternoon): Authored and proved out `digikoma-recap` at
+  `collectives/digikoma-org/.../intelligence/digikoma-recap/`. Pure
+  transcript-to-RecapModel summarizer via Apple FoundationModels — 9 typed
+  `@Generable` structs, library + executable + tests, build green first try
+  (24.86s), 3 unit tests pass. Staged a fixture at
+  `.tmp/recap-fixtures/sample-session.txt` and ran the koma against it.
+  Four real quality bugs surfaced: backtick truncation in string fields,
+  list under-extraction (3 → 1 in `bugsCaught` and `caveats`), one
+  hallucinated decision conflating apple-pi with pi, expected
+  non-determinism between runs. Four follow-up beads spun for the specific
+  fix surfaces (strip-backticks, tighten-list-guides, grounding-validator,
+  promote-fixture-to-regression-test). Verdict: scaffold ~5/10, behavior
+  ~3/10 — compiles cleanly but not yet trustworthy as a chat-recap source.
 - 2026-05-13: Substrate-wide v1.0.0 commissioning landing. wrkstrm-components
   + wrkstrm commissioned as the first non-operator v1.0.0 organisms, with
   ikigai personas authored from brand mission and focusDomains (not

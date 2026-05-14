@@ -1,0 +1,15 @@
+{
+  "id": "digikoma-recap-add-grounding-post-validator",
+  "title": "Add Swift post-validation pass that drops ungrounded recap items into caveats",
+  "description": "Proving run produced a hallucinated decision: decisions[0] claimed 'How should we handle Pi's organism? -> Design an engine-binding shape' with rationale 'The validator did not catch Pi's bug'. The transcript discussed engine binding for apple-pi, not pi, and stated the validator DID catch all three bugs. This is the dangerous failure mode for any consumer (especially digikoma-winddown's bead-spawning): hallucinated decisions become phantom work items. Fix: after the FM call returns a DigikomaRecapModel, run a Swift post-validator that for each decision/bug/win/followup asserts a key phrase or noun appears as a substring in the original transcript (case-insensitive, allowing 1-2 char tolerance for stemming). Items that fail grounding move into `caveats` with description='ungrounded item dropped' and location pointing at the original FM output. Tests: verify a known-hallucinated decision is moved to caveats; verify a transcript-grounded decision passes through unchanged.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 1,
+  "labels": ["digikoma-recap", "foundation-models", "grounding", "hallucination", "post-validation", "proving-bug"],
+  "createdAt": "2026-05-14T00:22:34Z",
+  "relatedChronicleEntry": "2026-05-14T00:22:34Z",
+  "sourceType": "incident",
+  "sourceLocation": "private/universal/substrate/collectives/digikoma-org/private/universal/domain/intelligence/digikoma-recap/sources/DigikomaRecapTool/DigikomaRecapTool.swift",
+  "schemaVersion": "0.1.0"
+}
