@@ -1,0 +1,15 @@
+{
+  "id": "digikoma-recap-polarity-grounding",
+  "title": "Add polarity/tense grounding to digikoma-recap — wins are past-tense completed, not future-tense planned",
+  "description": "Smoke test of digikoma-winddown against .tmp/recap-fixtures/sample-session.txt on 2026-05-14 surfaced a real correctness bug in digikoma-recap that the current word-overlap grounding gate cannot catch: the FM is writing BLOCKED items as if they were COMPLETED WINS. Fixture explicitly states 'apple-pi organism not yet authored', 'harness-schemas v0.2.0 bump not landed', 'gemini-session-schemas family doesn't exist on disk' — recap returned three wins titled 'Pi's Organism Authored', 'Harness-Schemas v0.2.0 Bump Landed', 'Gemini-Session-Schemas Family Authored'. Same items also surfaced (correctly) as caveats. Word-overlap grounding passes them because 'Pi', 'organism', 'authored' all appear in the transcript; what fails is the polarity/tense of the surrounding context. Fix candidates: (a) tighten @Guide on DigikomaRecapWin to explicitly say 'wins are work the transcript states was COMPLETED — never include blocked, planned, or pending work; that goes to openFollowups or caveats'; (b) add a Swift post-validator that for each win checks the transcript for negation patterns ('not yet', 'pending', 'blocked', 'TODO', 'needs to', 'will be') within a window around the matched anchor word, demoting matching wins to caveats; (c) ask FM for a structured tense field on each win that the validator can check. Recommended order: try (a) first as a smaller change, run the smoke test, if polarity flip persists then add (b). Also affects bugsCaught and decisions to a lesser degree — same polarity check applies.",
+  "assignee": "claude",
+  "issueType": "bug",
+  "status": "open",
+  "priority": 2,
+  "labels": ["digikoma-recap", "foundation-models", "grounding", "polarity", "proving-bug", "hallucination", "smoke-test-finding"],
+  "createdAt": "2026-05-14T20:05:05Z",
+  "relatedChronicleEntry": "2026-05-14T00:22:34Z",
+  "sourceType": "incident",
+  "sourceLocation": "private/universal/substrate/collectives/digikoma-org/private/universal/domain/intelligence/digikoma-recap/sources/DigikomaRecapTool/DigikomaRecapTool.swift",
+  "schemaVersion": "0.1.0"
+}
