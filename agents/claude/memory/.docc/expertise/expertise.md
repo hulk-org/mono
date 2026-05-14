@@ -6,6 +6,21 @@
 
 ## Domains
 
+- **Substrate schema-set commissioning**: v1.0.0 binding via
+  `identity.schemaSetRefs` (aggregator + manifest + set + swiftProduct),
+  ikigai persona authoring with the canonical Katakana `イキガイ.md` file
+  per `identity-schemas v0.4.0`, operator/agent/role/collective separation,
+  the operators-belong-outside-collectives rule, and the
+  `core-entity-set-v1.0.0` + `task-backend-beads-set-v1.0.0` first-bindings
+  pattern.
+- **Sanity migrator authoring**: Declarative `SchemaMigratorModel`
+  descriptors capturing schema-set evolution (`preserves`, `synthesizes`,
+  `drops`, `warnings`) for set-version edges even when no live consumers
+  exist. Each migrator is a Swift package that depends on both source and
+  target set umbrellas; preserve-unchanged uplifts use a `JSONBridge`
+  encode-decode round-trip; tests assert canonical slugs + descriptor
+  metadata + the known set of synthesized/dropped families. Pattern:
+  `core-entity-migrations/vSRC-to-vTGT/spm/core-entity-migrations-vSRC-to-vTGT/`.
 - **Digikoma system**: Build, run, and test komo across the 7-domain fleet
   (core/build/directory/meta/context/intelligence/gaming). Familiar with spec
   format, identity surfaces, lineage, and the digikoma-primitives registry.
@@ -70,6 +85,23 @@
 
 ## Recent Work
 
+- 2026-05-13: Substrate-wide v1.0.0 commissioning landing. wrkstrm-components
+  + wrkstrm commissioned as the first non-operator v1.0.0 organisms, with
+  ikigai personas authored from brand mission and focusDomains (not
+  placeholders). 5 operators (jakor, johnwhitecastle, khegh, tkoh, uptobat)
+  commissioned in their canonical `substrate/operators/[slug]/` homes after
+  shadow profiles were cleared from `collectives/wrkstrm/identity/`.
+  `wrkstrm.collective.json.memberRefs` materialized from empty to
+  `[prime, tempo]` — closes the 2026-04-23 collective-as-roster gap entry.
+  4 misfiled role-shaped identities harvested into `wrkstrm/roles/` as proper
+  `OrgRoleModel` files (closes the broken `activeRoleRefs` in wrkstrm's
+  workstream block). Activated `core-entity-set-v1.0.0` +
+  `task-backend-beads-set-v1.0.0` in the `schemas/sets` aggregator. Built 2
+  sanity migrators (`v0.8.0` to `v0.9.0` and `v0.9.0` to `v1.0.0`) with
+  declarative `SchemaMigratorModel` descriptors and 9 smoke tests. Closed
+  the openclaw/discord shadow-profile investigation: the shadows were
+  artifacts of the operator's own `e7e34f2a` 2026-03-23 migration commit,
+  not a recurring connector. 16 commits across 7 repo boundaries.
 - 2026-05-13: Commissioned six harnesses to v1.0.0 with LDT proof pairs:
   digikoma, clide, pi, hulk, gemini, codex. Unblocked swift-agent-cli +
   swift-incident-cli by retiring the `Charter` type (`charterRef` →

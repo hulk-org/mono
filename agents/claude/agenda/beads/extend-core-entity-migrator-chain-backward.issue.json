@@ -1,0 +1,21 @@
+{
+  "id": "extend-core-entity-migrator-chain-backward",
+  "title": "Extend core-entity migrator chain backward (v0.5.0→v0.6.0 etc. if applicable)",
+  "description": "The core-entity migrator chain now covers v0.6.0→v0.7.0, v0.7.0→v0.8.0, v0.8.0→v0.9.0, and v0.9.0→v1.0.0. No earlier-version migrators exist. Phase 2 of the 1.5-hour autonomous block intended to build v0.5.0→v0.6.0 and v0.4.0→v0.5.0 if those source sets exist as SPM packages but did not start. Investigation needed: do v0.5.0 and v0.4.0 core-entity-set packages exist on disk (check schema-universal/.../core-entities/)? If yes, build the migrators using the same pattern as v0.8.0→v0.9.0; document family-level shape changes declaratively in SchemaMigratorModel; smoke-test for build + descriptor metadata; commit and bump pointer. If no earlier sets exist, close this bead as 'no work needed' with that finding.",
+  "assignee": "claude",
+  "issueType": "investigation",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "migrator",
+    "sanity-migrator",
+    "core-entity-set",
+    "schema-migrators",
+    "chain"
+  ],
+  "createdAt": "2026-05-13T00:00:00Z",
+  "relatedChronicleEntry": "2026-05-13T00:00:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/schema-universal/private/universal/schema-migrators/core-entity-migrations/",
+  "schemaVersion": "0.1.0"
+}

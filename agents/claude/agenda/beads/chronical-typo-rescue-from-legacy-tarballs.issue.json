@@ -1,0 +1,21 @@
+{
+  "id": "chronical-typo-rescue-from-legacy-tarballs",
+  "title": "Audit cold legacy tarballs for the .chronical.json typo",
+  "description": "The 2026-03-23 e7e34f2a 'Migrate identities from 0.5.0 to 0.6.0' commit had a typo: it created '.chronical.json' (missing 'e' — should be '.chronicle.json'). The typo was fixed at some later point in active surfaces (no .chronical files remain on the live substrate as of 2026-05-12). But cold backups, harvest tarballs, and rolled-up archives from between 2026-03-23 and the typo-fix commit may still carry .chronical.json files. If anyone restores from one of those backups, they'll resurrect the typo. Sweep all archived/cold storage paths (private/universal/substrate/harvest/, .wrkstrm/backups/, any operator-side harvest directories, any .tar.gz or .zip backup bundles) for files matching 'chronical' and rename or note them. Low priority — only matters if a restore happens.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 4,
+  "labels": [
+    "investigation",
+    "typo",
+    "legacy",
+    "backups",
+    "low-priority"
+  ],
+  "createdAt": "2026-05-13T00:00:00Z",
+  "relatedChronicleEntry": "2026-05-13T00:00:00Z",
+  "sourceType": "investigation",
+  "sourceLocation": "git log e7e34f2ac5397766849002e04d2558a5d3fec712",
+  "schemaVersion": "0.1.0"
+}

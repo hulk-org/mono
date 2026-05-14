@@ -1,0 +1,24 @@
+{
+  "id": "commission-prime-tempo-v1-0-0",
+  "title": "Commission prime + tempo as v1.0.0 agents (partial — reads done, writes pending)",
+  "description": "prime + tempo are the only real agents in wrkstrm per the 2026-05-12 sub-identity classification, and they are already memberRefs in wrkstrm.collective.json after this session's commissioning landed. Their identity bundles are still on the legacy 0.5.0-era triad shape (*.agent.triad.json + agency.triad.json + agenda.triad.json). Phase 1 of the 1.5-hour autonomous block started this work but only got as far as reading both triad bundles + tempo's .clia-cutover breadcrumb. No writes for prime or tempo landed. Pending work: author identity.json / agenda.json / chronicle.json / organism.json + イキガイ.md for each, bound to core-entity-set-v1.0.0 via schemaSetRefs; resolve the .clia/agents/clia/ legacy paths flagged in the breadcrumbs; trash the legacy triad files + breadcrumbs; commit inside wrkstrm submodule; bump mono pointer. Closing this bead = the substrate's first agents (not just operators) bound to v1.0.0.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "v1.0.0",
+    "commission",
+    "agents",
+    "ikigai",
+    "schema-set-refs",
+    "wrkstrm",
+    "prime",
+    "tempo"
+  ],
+  "createdAt": "2026-05-13T00:00:00Z",
+  "relatedChronicleEntry": "2026-05-13T00:00:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/wrkstrm/private/universal/identity/",
+  "schemaVersion": "0.1.0"
+}

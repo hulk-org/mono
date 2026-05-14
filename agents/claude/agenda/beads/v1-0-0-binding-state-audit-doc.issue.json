@@ -1,0 +1,22 @@
+{
+  "id": "v1-0-0-binding-state-audit-doc",
+  "title": "Generate substrate-wide v1.0.0 binding-state audit doc",
+  "description": "After the 2026-05-12 commissioning, the substrate has 7 organisms bound to core-entity-set-v1.0.0 (wrkstrm-components + wrkstrm + 5 operators) and most other agents still on core-triad-set-v0.6.0 or somewhere in the core-entity v0.7-v0.9 corridor. The cadence bead 'identity-schema-set-refs-sweep' is BLOCKED on operator authorization to migrate agents from v0.7/v0.8 to v0.9 — that needs to happen before v1.0.0 binding can sweep across the substrate. A short audit doc would help: who's bound where, what's the cadence-bead status, what's the recommended sequencing for closing the gap. Suggested home: schema-universal/universal-schema.incident.docc/ alongside the existing core-entity-v1-0-0-spec-investigation.md. Operator-readable snapshot, not new doctrine.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "v1.0.0",
+    "binding-state",
+    "audit",
+    "doc",
+    "schema-set-refs",
+    "cadence-bead"
+  ],
+  "createdAt": "2026-05-13T00:00:00Z",
+  "relatedChronicleEntry": "2026-05-13T00:00:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/schema-universal/universal-schema.incident.docc/",
+  "schemaVersion": "0.1.0"
+}

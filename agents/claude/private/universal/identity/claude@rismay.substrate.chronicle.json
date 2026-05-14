@@ -1185,6 +1185,90 @@
       ],
       "timestamp" : "2026-04-25T08:40:42Z",
       "title" : "RPN calculator + @Traced macro + ghost-shell v001 (and the fumble)"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "hello-world-google: 39-locale SwiftUI app, LaunchArtifactGuard, DogfoodStartupGuard, ServiceContainer (6 services), MetricKit+Firebase composite crash reporting, DebugScreen. service-universal collective: 7 protocol packages (remote-config, analytics, feature-flags, crash-reporting, font, network, diagnostics). wrkstrm-font + wrkstrm-color migrated from wrkstrm-components. design-token-schemas: DTCG model + CLI (Swift/CSS/Android + WCAG audit). release-operations-schemas expanded: 35+ LaunchGate cases with requiredArtifacts, LaunchType 0-3, LaunchScope, BuildGuardLevel, SunsetStrategy, TargetPlatform, LaunchGateEvaluator. launch-calendar app (renamed). GooglePaletteContrastTests, 24-permutation SnapshotTests, QAReportGenerator, PseudoLocalizationTests, DynamicTypeSizeTests.",
+              "type" : "code",
+              "weight" : 4
+            },
+            {
+              "evidence" : "cuj.docc, spec.docc, test-plan.docc, launch.docc, thesis.docc templates + hello-world-google instances. launch-gate-owl + design-token-owl Koma identities. google.tokens.json, wrkstrm.tokens.json, laussat.tokens.json. qa-receipts/2026-05-08-hello-world-google-v1.0.0-b1/ with 24 PNGs + JSON + Markdown report. hwg-* workstream threads spun.",
+              "type" : "doc",
+              "weight" : 3
+            }
+          ]
+        }
+      ],
+      "summary" : "Built the full Google-quality production stack for hello-world-google.",
+      "tags" : [
+        "hello-world-google",
+        "production-stack",
+        "launch-calendar",
+        "digikoma",
+        "qa-harness",
+        "wcag"
+      ],
+      "timestamp" : "2026-05-08T12:02:42Z",
+      "title" : "Hello World to Launch Stack: pedagogy-driven production infrastructure"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Commissioned wrkstrm-components + wrkstrm as v1.0.0 organisms with ikigai personas bound to core-entity-set-v1.0.0 (additionally task-backend-beads-set-v1.0.0 for wrkstrm-components). Commissioned 5 operators (jakor, johnwhitecastle, khegh, tkoh, uptobat) as v1.0.0 organisms in their canonical operators/[slug]/ submodules. Materialized wrkstrm.collective.json.memberRefs from empty array to [prime, tempo], closing the gap explicitly identified in wrkstrm's 2026-04-23 collective-as-roster chronicle entry. Harvested 4 misfiled role-shaped identities (ios-engineer, swift-architect, product-manager, project-manager) from wrkstrm/identity/ into proper OrgRoleModel files at wrkstrm/roles/.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Built 2 sanity migrators for the core-entity schema set: v0.8.0 to v0.9.0 and v0.9.0 to v1.0.0. Each carries a declarative SchemaMigratorModel descriptor enumerating the family-level shape changes (preserves, synthesizes, drops, warnings). v0.9.0 to v1.0.0 documents ikigai introduction, worldKind addition, AgendaAspect mounting, agency-schemas/chronicle-schemas split, and the org-company/collective-profile/entity-primitives/agenda-support/chronicle-support drops plus paperclip-issue/beads carve-outs. v0.8.0 to v0.9.0 documents the task-plane wave additions (ghost, collective, legal-entity, paperclip-issue, routine, koma-deployment, workstream, workstream-template, beads, receipt, mission) and warns about the CompanyAspect to legalEntity and CollectiveProfileAspect to collective renames as JSON-round-trip hazards. Both build green; 9 smoke tests total.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Activated core-entity-set-v1.0.0 + task-backend-beads-set-v1.0.0 in the schemas/sets aggregator at private/universal/schemas/sets/Package.swift as additive path-deps (not a replace). The substrate first v1.0.0 bindings landed in this session: 5 operators + wrkstrm + wrkstrm-components.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Investigated the openclaw/discord shadow-profile hypothesis: no connector exists. The 5 operator shadows in collectives/wrkstrm/private/universal/identity/ were artifacts of rismay's own 2026-03-23 e7e34f2a commit (Migrate identities from 0.5.0 to 0.6.0). Placed correctly under the doctrine at the time, then abandoned when operators moved to substrate/operators/[slug]/. No recurring source-fix needed; the cleanup is durable. Doctrine recommendation for future schema-set migrations: include a 'retire stale duplicates' step.",
+              "type" : "log",
+              "weight" : 1
+            },
+            {
+              "evidence" : "16 commits across 7 repo boundaries: wrkstrm submodule (web-deploy pre-existing + shadow deletions + commission), wrkstrm-components submodule (commission + gen-ui beads + .docc), 4 operator submodules (jakor/johnwhitecastle/khegh/tkoh commissions), schema-universal submodule (2 migrator packages), mono (5 submodule pointer bumps + aggregator + uptobat commission). No remote pushes (migration paused per memory). Repaired this chronicle's pre-existing JSON malformedness (orphan entry sitting outside the entries array since the 2026-05-08 append) as part of this winddown.",
+              "type" : "maintenance",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Substrate-wide v1.0.0 commissioning landing: wrkstrm + wrkstrm-components + 5 operators bound as the first v1.0.0 organisms in the substrate. core-entity-set-v1.0.0 + task-backend-beads-set-v1.0.0 activated in the schemas/sets aggregator. 4 misfiled role specs harvested into wrkstrm/roles/ as proper OrgRoleModel files. wrkstrm.collective.json memberRefs materialized from empty array to [prime, tempo]. 2 sanity migrators built (v0.8.0 to v0.9.0 and v0.9.0 to v1.0.0) capturing the schema-set evolution declaratively even without live consumers. openclaw/discord shadow-profile hypothesis disproven via git archaeology; root cause was a 2026-03-23 manual migration commit, not a recurring connector.",
+      "tags" : [
+        "commission",
+        "v1.0.0",
+        "ikigai",
+        "schema-set-refs",
+        "core-entity-set",
+        "task-backend-beads-set",
+        "organism-drift",
+        "shadow-cleanup",
+        "roles-harvest",
+        "migrator",
+        "sanity-migrator",
+        "investigation",
+        "wrkstrm",
+        "wrkstrm-components",
+        "operator-commissioning"
+      ],
+      "timestamp" : "2026-05-13T00:00:00Z",
+      "title" : "Substrate-wide v1.0.0 commissioning: collectives + operators + migrators"
     }
   ],
   "links" : [
@@ -1207,40 +1291,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-08T12:02:42Z"
-},
-{
-  "contributions" : [
-    {
-      "by" : "claude",
-      "types" : [
-        {
-          "evidence" : "hello-world-google: 39-locale SwiftUI app, LaunchArtifactGuard, DogfoodStartupGuard, ServiceContainer (6 services), MetricKit+Firebase composite crash reporting, DebugScreen. service-universal collective: 7 protocol packages (remote-config, analytics, feature-flags, crash-reporting, font, network, diagnostics). wrkstrm-font + wrkstrm-color migrated from wrkstrm-components. design-token-schemas: DTCG model + CLI (Swift/CSS/Android + WCAG audit). release-operations-schemas expanded: 35+ LaunchGate cases with requiredArtifacts, LaunchType 0-3, LaunchScope, BuildGuardLevel, SunsetStrategy, TargetPlatform, LaunchGateEvaluator. launch-calendar app (renamed). GooglePaletteContrastTests, 24-permutation SnapshotTests, QAReportGenerator, PseudoLocalizationTests, DynamicTypeSizeTests.",
-          "type" : "code",
-          "weight" : 4
-        },
-        {
-          "evidence" : "cuj.docc, spec.docc, test-plan.docc, launch.docc, thesis.docc templates + hello-world-google instances. launch-gate-owl + design-token-owl Koma identities. google.tokens.json, wrkstrm.tokens.json, laussat.tokens.json. qa-receipts/2026-05-08-hello-world-google-v1.0.0-b1/ with 24 PNGs + JSON + Markdown report. hwg-* workstream threads spun.",
-          "type" : "doc",
-          "weight" : 3
-        }
-      ]
-    }
-  ],
-  "summary" : "Built the full Google-quality production stack for hello-world-google — two words that needed the entire substrate to ship correctly. Proved the pedagogical thesis: gates block until work is done, which teaches the process. service-universal now has 7 protocol packages backed by real implementations. design-token-schemas has a W3C DTCG CLI generating Swift/CSS/Android from google/wrkstrm/laussat token files with WCAG contrast audit. launch-calendar gate model is complete (35+ gates, requiredArtifacts per case, LaunchGateEvaluator, launch-gate-owl Koma). QA receipt generated: 24-permutation snapshot matrix across 2 appearances × 3 font sizes × 4 locales. The Digikoma fleet will close every automatable gate; CommonLog feeds adapters; Foundation Models synthesizes failures into fix suggestions. The next app starts at 80% readiness because the infrastructure exists.",
-  "tags" : [
-    "hello-world-google",
-    "production-stack",
-    "pedagogy",
-    "service-universal",
-    "design-tokens",
-    "launch-calendar",
-    "digikoma",
-    "qa-harness",
-    "wcag",
-    "snapshot-testing",
-    "koma-fleet"
-  ],
-  "timestamp" : "2026-05-08T12:02:42Z",
-  "title" : "Hello World → Launch Stack: pedagogy-driven production infrastructure"
+  "updated" : "2026-05-13T00:00:00Z"
 }
