@@ -11,5 +11,7 @@
   "relatedChronicleEntry": "2026-05-13T18:16:53Z",
   "sourceType": "operator-intake",
   "sourceLocation": "private/universal/substrate/harnesses/clide/",
+  "investigation": "private/universal/substrate/harnesses/clide/memory/.docc/investigations/2026-05-14-session-schema-investigation.md",
+  "investigationSummary": "Four options surveyed (A: no schema with notes block; B: author clide-daemon-schemas v0.1.0 referenced via sessionSchemaRefs; C: reuse koma-deployment-schemas via deploymentSchemaRefs; D: hybrid requiring v0.3.0 bump). Recommendation: Option B with family slug clide-daemon-schemas — clide's actual artifact is a daemon lifecycle (pid + IPC commands per clide-v2 CLIDEBoot vocabulary), not a conversation. Awaiting operator pick of (1) option, (2) family slug if B, (3) scope (clide-v2 daemon vs also clide-v1 agent-merging tooling).",
   "schemaVersion": "0.1.0"
 }
