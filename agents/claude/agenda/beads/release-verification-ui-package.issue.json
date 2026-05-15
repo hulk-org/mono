@@ -1,0 +1,21 @@
+{
+  "assignee" : "claude",
+  "createdAt" : "2026-05-14T22:27:05Z",
+  "description" : "Shared SwiftUI package (proposed slug `release-verification-ui`) that any release app embeds to give humans a one-tap verification flow. Surface: a `ReleaseVerificationView` that shows the artifact preview (passed as a SwiftUI subview from the artifact-viewer-components package) + a primary button 'Looks correct — verify' + secondary buttons for the other verdicts (wrong-content / partial-issue / could-not-verify). On tap, captures verdict + notes (mandatory for wrong-content / partial-issue per the schema invariant), optionally a screenshot via macOS screencapture, then writes a `HumanVisualVerification` entry into the appropriate `ReleaseOperationItem.humanVerifications` array via JSON edit on disk. Package depends on `release-operations-schemas-v000-001-000` for the Codable types and on `WrkstrmReleaseArtifactUI` for the per-artifact viewers. First consumer: launch-calendar.\n\nDEPENDENCY SATISFIED 2026-05-15: release-artifact-viewer-components shipped as WrkstrmReleaseArtifactUI at wrkstrm-components/private/release-artifact-ui/spm/wrkstrm-release-artifact-ui/. Ready to start when next session picks it up.",
+  "id" : "release-verification-ui-package",
+  "issueType" : "task",
+  "labels" : [
+    "release-operations",
+    "human-in-the-loop",
+    "vapor-wares-lesson",
+    "swiftui",
+    "shared-package"
+  ],
+  "priority" : 2,
+  "relatedChronicleEntry" : "2026-05-13T23:43:26Z",
+  "schemaVersion" : "0.1.0",
+  "sourceLocation" : "private/universal/substrate/collectives/wrkstrm-app/private/apple/apps/launch-calendar/",
+  "sourceType" : "operator-intake",
+  "status" : "open",
+  "title" : "Build release-verification-ui SwiftUI package: button + verdict capture writes HumanVisualVerification"
+}

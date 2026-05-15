@@ -1,0 +1,30 @@
+{
+  "assignee" : "claude",
+  "closedAt" : "2026-05-15T02:47:28Z",
+  "createdAt" : "2026-05-14T22:27:05Z",
+  "dependencies" : [
+    {
+      "dependsOnId" : "release-verification-ui-package",
+      "issueId" : "release-artifact-viewer-components",
+      "type" : "blocks"
+    }
+  ],
+  "description" : "The 'UI for the things humans release' — shared SwiftUI package (proposed slug `release-artifact-viewer-components`) with one viewer per artifact kind we've schematized. Initial set: PrivacyDisclosureReleaseView (renders the disclosure as an App-Store-nutrition-label-shaped preview), BaselineCapabilityReceiptView (tier-tinted checklist with status badges per capability), SecretLabsReceiptView (NPS gauge + blocker count + themes summary), EngineeringReviewReceiptView (criteria-with-findings list, kind-tagged), GitHubOrgDecisionView (compact card showing org slug + requiresNewOrg + rationale), ExpectedReachMetricsView (DAU/MAU/install-base with confidence-tier badge), and a generic FallbackArtifactView for kinds without a dedicated viewer. Each view takes the Codable artifact directly + an optional `mode: .compact | .full | .preview`. Consumed by release-verification-ui-package above the verification button. Per-app embedders pick which viewers to surface via a `[ReleaseOperationArtifactKind: any View]` registry.",
+  "id" : "release-artifact-viewer-components",
+  "issueType" : "task",
+  "labels" : [
+    "release-operations",
+    "human-in-the-loop",
+    "swiftui",
+    "shared-package",
+    "artifact-rendering"
+  ],
+  "priority" : 2,
+  "relatedChronicleEntry" : "2026-05-13T23:43:26Z",
+  "resolutionNote" : "Shipped 2026-05-15 as `WrkstrmReleaseArtifactUI` SwiftUI package at `private/universal/substrate/collectives/wrkstrm-components/private/release-artifact-ui/spm/wrkstrm-release-artifact-ui/`. 7 viewers (PrivacyDisclosureReleaseView, BaselineCapabilityReceiptView, SecretLabsReceiptView, EngineeringReviewReceiptView, GitHubOrgDecisionView, ExpectedReachMetricsView, FallbackArtifactView) + ArtifactViewerMode enum (compact/preview/full). 9/9 instantiation tests pass; build green first try across 5 cross-package schema deps via SPM_USE_LOCAL_DEPS pattern. Workspace addition under wrkstrm-components. Unblocks release-verification-ui-package.",
+  "schemaVersion" : "0.1.0",
+  "sourceLocation" : "private/universal/substrate/collectives/wrkstrm-app/private/apple/apps/launch-calendar/",
+  "sourceType" : "operator-intake",
+  "status" : "closed",
+  "title" : "Build release-artifact-viewer-components: per-artifact-type SwiftUI views for what humans verify"
+}

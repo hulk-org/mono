@@ -1,0 +1,28 @@
+{
+  "assignee" : "claude",
+  "createdAt" : "2026-05-14T22:27:05Z",
+  "dependencies" : [
+    {
+      "dependsOnId" : "release-verification-ui-package",
+      "issueId" : "release-verification-notifications",
+      "type" : "depends-on"
+    }
+  ],
+  "description" : "Shared package (proposed slug `release-verification-notifications`) that any release app embeds. Watches the release-ops catalog for items where any LaunchGate.requiresHumanVisualVerification is reached AND no matching HumanVisualVerification exists yet. Schedules a local UNUserNotificationCenter notification with the release item's title + the artifact path + a deep-link URL that opens the embedding release app directly to the ReleaseVerificationView for that item. Re-fires every N hours until the human responds. Notification permission requested at app first-launch as part of the standard onboarding flow. Honors operator preference for quiet hours / batched delivery — schema TBD on this turn but a `verificationNotificationPolicy` field on the release-ops item is the natural place. First consumer: launch-calendar.",
+  "id" : "release-verification-notifications",
+  "issueType" : "task",
+  "labels" : [
+    "release-operations",
+    "human-in-the-loop",
+    "vapor-wares-lesson",
+    "notifications",
+    "shared-package"
+  ],
+  "priority" : 2,
+  "relatedChronicleEntry" : "2026-05-13T23:43:26Z",
+  "schemaVersion" : "0.1.0",
+  "sourceLocation" : "private/universal/substrate/collectives/wrkstrm-app/private/apple/apps/launch-calendar/",
+  "sourceType" : "operator-intake",
+  "status" : "open",
+  "title" : "Build release-verification-notifications: schedule UNUserNotification when a release item enters the human-verification gate"
+}

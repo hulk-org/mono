@@ -115,6 +115,20 @@
 
 ## Recent Work
 
+- 2026-05-15 (early UTC): Productize sprint round 1. Built `WrkstrmReleaseArtifactUI`
+  SwiftUI package at `wrkstrm-components/private/release-artifact-ui/spm/wrkstrm-release-artifact-ui/`
+  — 7 viewers (PrivacyDisclosureReleaseView, BaselineCapabilityReceiptView,
+  SecretLabsReceiptView, EngineeringReviewReceiptView, GitHubOrgDecisionView,
+  ExpectedReachMetricsView, FallbackArtifactView) consuming 5 cross-package
+  schema deps via SPM_USE_LOCAL_DEPS pattern. Each viewer renders its
+  Codable artifact in three modes (`.compact` / `.preview` / `.full`) via
+  the shared `ArtifactViewerMode` enum. ~1100 LOC across 8 source files,
+  9/9 instantiation tests pass, build green first try. Closed first of
+  three productize beads (`release-artifact-viewer-components`); unblocks
+  `release-verification-ui-package`. Spun new bead to scaffold a preview
+  app for eyeballing the viewers before stacking the verification flow on
+  top — human-visual-verification principle applied recursively to our
+  own tooling.
 - 2026-05-14 / 15: 14-bead push. Shipped `digikoma-recap` end-to-end
   (FoundationModels @Generable, grounding + polarity gates, fixture
   regression). Shipped `digikoma-winddown` (chronicle/bead persistence

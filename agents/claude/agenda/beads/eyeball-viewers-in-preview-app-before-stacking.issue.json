@@ -1,0 +1,28 @@
+{
+  "assignee" : "claude",
+  "createdAt" : "2026-05-15T02:47:28Z",
+  "dependencies" : [
+    {
+      "dependsOnId" : "eyeball-viewers-in-preview-app-before-stacking",
+      "issueId" : "release-verification-ui-package",
+      "type" : "should-precede"
+    }
+  ],
+  "description" : "Apply the human-visual-verification principle to our OWN tooling. The 7 viewers in WrkstrmReleaseArtifactUI shipped with 9/9 instantiation tests passing — but instantiation isn't visual confirmation. Before building release-verification-ui-package or release-verification-notifications on top of these viewers, scaffold a small macOS preview app (proposed slug `release-artifact-viewer-preview` under `wrkstrm-components/private/release-artifact-ui/demo-apps/`) that loads hello-world-google v1.0.0-b1's actual receipt JSONs and renders each viewer in all three modes (compact / preview / full). Operator launches it, sees the renders with their own eyes, then signs off via a HumanVisualVerification entry. Refusing to do this would be hypocritical given the vapor-wares.com lesson — automated PASS isn't sufficient for user-visible UI either, and these viewers ARE the user-visible UI for the verification flow. Bead surfaced from the late-evening 2026-05-15 chronicle entry where Claude offered the preview-app loop to the operator at end of session.",
+  "id" : "eyeball-viewers-in-preview-app-before-stacking",
+  "issueType" : "investigation",
+  "labels" : [
+    "wrkstrm-release-artifact-ui",
+    "human-in-the-loop",
+    "vapor-wares-lesson",
+    "preview-app",
+    "swiftui"
+  ],
+  "priority" : 2,
+  "relatedChronicleEntry" : "2026-05-15T02:47:28Z",
+  "schemaVersion" : "0.1.0",
+  "sourceLocation" : "private/universal/substrate/collectives/wrkstrm-components/private/release-artifact-ui/spm/wrkstrm-release-artifact-ui/Sources/WrkstrmReleaseArtifactUI",
+  "sourceType" : "operator-intake",
+  "status" : "open",
+  "title" : "Scaffold a tiny SwiftUI preview app so the operator SEES every WrkstrmReleaseArtifactUI viewer before the verification flow stacks on top"
+}
