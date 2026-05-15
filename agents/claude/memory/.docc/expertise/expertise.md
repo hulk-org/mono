@@ -93,10 +93,43 @@
   backtick truncation in source content breaks String field boundaries;
   list fields under-extract (3 items in → 1 out) unless `@Guide`
   explicitly says "include every X mentioned"; FM may invent unrelated
-  decisions if not constrained to substring-grounded extraction.
+  decisions if not constrained to substring-grounded extraction; polarity
+  flips (rendering "X not yet done" as a completed win) need a separate
+  window-scan gate (`isPolarityFlipped` + 31-marker negation vocabulary).
+
+- **Schema family evolution & sanity migrator authoring**: bumping a
+  schema family touches three coordinated layers — (1) the family SPM
+  package at the new version dir, (2) the set's JSON manifest binding
+  entry (e.g. `core-entity-set-v1.0.0.json`), (3) the set's Swift SPM
+  (`Package.swift` dep path + `@_exported import` in the exports file).
+  The 45-test `core-entity-set` suite enforces the freshness rule
+  ("members point at the latest published family line") — any future
+  bump that fails to propagate to the v1.0.0 binding fails the test.
+  Sanity migrator pattern: declarative `SchemaMigratorModel` descriptor
+  (preserves / synthesizes / drops / warnings) + Swift upgrade enum with
+  `rawValue`-mapped enum translation for forward-safety. Tests cover
+  descriptor metadata + JSON round-trip + schemaVersion strictness +
+  endpoint correctness. Even purely additive edges deserve a migrator —
+  the descriptor documents the version edge declaratively for future
+  schema-evolution audits.
 
 ## Recent Work
 
+- 2026-05-14 / 15: 14-bead push. Shipped `digikoma-recap` end-to-end
+  (FoundationModels @Generable, grounding + polarity gates, fixture
+  regression). Shipped `digikoma-winddown` (chronicle/bead persistence
+  with sidecar malformation guard). Published `harness-schemas v0.2.0`
+  (SchemaFamilyRef + session/deployment refs) + sanity migrator
+  v0.1→v0.2 + v1.0.0 set binding update. Populated session/deployment
+  refs across all 6 commissioned harness organisms; updated all 6 LDT
+  proofs. Authored `gemini-session-schemas v0.1.0` with castor/pollux
+  twin handling. Commissioned `apple-pi` as the substrate's first
+  engine-binding harness — pi semantics + Apple FoundationModels via
+  ApplePiAgentTool session model register. Reconciled claude chronicle
+  (malformation repaired upstream + 2 stranded entries migrated).
+  Wrote clide session-schema investigation (4 options, Option B
+  recommended, operator-gated). 1 new bead spun
+  (digikoma-recap-sanitize-bead-slugs).
 - 2026-05-13 (evening): Forged the launch-gate proof grammar across six
   schema families. Five new families under
   `schema-universal/.../platforms/schema-families/`: `privacy-disclosure-schemas`

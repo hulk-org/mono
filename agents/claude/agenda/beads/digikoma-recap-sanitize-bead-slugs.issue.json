@@ -1,0 +1,15 @@
+{
+  "id": "digikoma-recap-sanitize-bead-slugs",
+  "title": "Sanitize FM-returned bead proposedSlug from camelCase to kebab-case",
+  "description": "The 2026-05-14 digikoma-winddown smoke test (live, against a temp agent home) surfaced that the FM returns camelCase slugs in DigikomaRecapFollowup.proposedSlug despite the @Guide explicitly saying 'kebab-case'. Concrete example from the smoke-test output: 'authorPiOrganism', 'landHarnessSchemas', 'authorGeminiSessionSchemas' instead of the canonical 'author-pi-organism', 'land-harness-schemas', 'author-gemini-session-schemas'. The bead files written by digikoma-winddown then carry the camelCase id, which breaks the substrate's existing kebab-case convention and makes the slugs harder to grep across agenda surfaces. Fix: add a post-FM Swift sanitization pass on DigikomaRecapFollowup.proposedSlug that converts camelCase / PascalCase / snake_case to canonical kebab-case before the recap returns. Implementation idea: scan the string and insert '-' before every uppercase letter that follows a lowercase letter or digit, then lowercase everything, then collapse runs of '-'. Update the @Guide language to be even more explicit ('lowercase, kebab-case, no camelCase or PascalCase — example: author-pi-organism, not authorPiOrganism'). Verify via a new unit test that runs synthetic camelCase input through and asserts kebab-case output.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": ["digikoma-recap", "foundation-models", "post-validation", "kebab-case", "smoke-test-finding"],
+  "createdAt": "2026-05-15T02:11:46Z",
+  "relatedChronicleEntry": "2026-05-15T02:11:46Z",
+  "sourceType": "incident",
+  "sourceLocation": "private/universal/substrate/collectives/digikoma-org/private/universal/domain/intelligence/digikoma-recap/sources/DigikomaRecapTool/DigikomaRecapTool.swift",
+  "schemaVersion": "0.1.0"
+}

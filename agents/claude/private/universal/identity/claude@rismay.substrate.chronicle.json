@@ -1417,6 +1417,82 @@
       ],
       "timestamp" : "2026-05-14T00:22:34Z",
       "title" : "digikoma-recap landed end-to-end; first FM proof surfaced four quality bugs"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Shipped digikoma-recap end-to-end (9 @Generable typed structs, FoundationModels engine, grounding + polarity gates, fixture regression test, 11 unit tests pass).",
+              "type" : "code",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Shipped digikoma-winddown (calls digikoma-recap, persists chronicle entry + one bead per followup; sidecar malformation guard tested against the exact line-1211 break shape; 8 unit tests pass in <10ms).",
+              "type" : "code",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Published harness-schemas v0.2.0 (SchemaFamilyRef + session/deployment optional refs, 9 tests). Updated core-entity-set v1.0.0 binding to v0.2.0 per freshness rule; 45 set tests pass.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Populated session/deployment refs across 6 commissioned harness organisms; updated 6 LDT positive proofs to assert the new fields; re-run green.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Authored gemini-session-schemas v0.1.0 (5 types incl. twin handling; 11 tests). Commissioned apple-pi as the substrate's first engine-binding harness — pi semantics + Apple FoundationModels via ApplePiAgentTool session model register, identity.extensions.engineBinding + identity.inherits pi.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Authored harness-schemas-migrations v0.1.0-to-v0.2.0 sanity migrator with raw-data + typed upgrade APIs; 6 tests pass.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Polarity gate added to digikoma-recap: tightened past-tense @Guides + isPolarityFlipped scanner with 31-marker negation-context vocabulary; 5 new tests covering the smoke-test 'apple-pi organism not yet authored' -> 'Pi's Organism Authored' failure mode.",
+              "type" : "bugfix",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Claude chronicle reconciled: malformation repaired upstream; 2 stranded 2026-05-13 winddown entries migrated from clia via .tmp/chronicle-repair/ Swift one-shot. Chronicle 26 -> 28 entries.",
+              "type" : "bugfix",
+              "weight" : 2
+            },
+            {
+              "evidence" : "clide session-schema investigation at harnesses/clide/memory/.docc/investigations/2026-05-14-session-schema-investigation.md: 4 options surveyed (no-schema / clide-daemon-schemas / reuse-koma-deployment / hybrid), Option B recommended. Bead determine-clide-session-schema annotated with investigation link; remains open as operator-gated.",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "14 beads closed today. Spun 1 new (digikoma-recap-sanitize-bead-slugs — FM returns camelCase despite @Guide saying kebab-case; needs a Swift sanitization pass).",
+              "type" : "log",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Closed 14 beads in one session. Shipped digikoma-recap + digikoma-winddown koma pair (FoundationModels-backed structured recap + persistence with malformation sidecar guard). Published harness-schemas v0.2.0 (session/deployment refs) + matching sanity migrator + v1.0.0 set binding update. Authored gemini-session-schemas v0.1.0 with twin handling. Commissioned apple-pi as the substrate's first engine-binding harness. Reconciled claude chronicle after repair. Added polarity grounding gate to digikoma-recap. Wrote clide session-schema investigation (4 options, recommendation). One bead open: determine-clide-session-schema (operator-gated).",
+      "tags" : [
+        "harness-audit",
+        "v1.0.0",
+        "digikoma-recap",
+        "digikoma-winddown",
+        "harness-schemas-v0.2.0",
+        "gemini-session-schemas",
+        "apple-pi",
+        "polarity-grounding",
+        "sanity-migrator",
+        "clide-investigation",
+        "chronicle-repair",
+        "wd"
+      ],
+      "timestamp" : "2026-05-15T02:11:46Z",
+      "title" : "14 beads closed: digikoma-recap + winddown pair, harness-schemas v0.2.0 + migrator, gemini-session-schemas + apple-pi authored, polarity gate, clide investigation"
     }
   ],
   "links" : [
@@ -1439,5 +1515,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-14T00:22:34Z"
+  "updated" : "2026-05-15T02:11:46Z"
 }
