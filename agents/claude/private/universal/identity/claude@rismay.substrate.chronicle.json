@@ -1493,6 +1493,62 @@
       ],
       "timestamp" : "2026-05-15T02:11:46Z",
       "title" : "14 beads closed: digikoma-recap + winddown pair, harness-schemas v0.2.0 + migrator, gemini-session-schemas + apple-pi authored, polarity gate, clide investigation"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Shipped digikoma-audit-xcstrings-coverage v1 at digikoma-org/private/universal/domain/build/. Pure-Foundation Swift package (vendorized XCStrings model via JSONSerialization to avoid LocalizeCore + CommonAI weight). Regex extractor on 4 recognized localized-key forms, comment-line strip pre-pass, glob-based ignore, symlink-resolved file walk. 14 Swift Testing proofs green (6 LDT from bead spec + 6 KeyExtractor pure-function + 2 corner cases). JSON-in/JSON-out CLI mirrors leak-surface doctrine. Wired as Xcode preBuild script on hello-world-google.demo via project.yml preBuildScripts; env -u SDKROOT clears the iOS SDKROOT inherited from xcodebuild so swift run picks the host macOS toolchain. Three-cycle integration LDT: clean catalog BUILD SUCCEEDED; yank hero-accessibility-label entry via Edit BUILD FAILED with PhaseScriptExecution exit 1; restore entry BUILD SUCCEEDED.",
+              "type" : "tool",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Shipped digikoma-release-features v1 at digikoma-org/private/universal/domain/build/. Reads release-features.json declaring tiers as first-class entries (id, xcodeConfig, displayName, compilationCondition, border, features). Emits per-tier .xcconfig (SWIFT_ACTIVE_COMPILATION_CONDITIONS = $(inherited) TIER_X FEATURE_A FEATURE_B ...) + a single ReleaseFeatures.swift exposing activeTier: Tier enum, activeTierDisplayName, activeTierBorder: TierBorder?, and one static let xxx: Bool per feature. 13 Swift Testing proofs green: name validation, duplicate rejection, xcconfig rendering, Swift enum + #if chain + per-feature accessors, identifier helpers, end-to-end with idempotent SHA-256, invalid-name hard error. Tier topology is first-class manifest data, NOT source-code data — apps choose their own tier vocabulary (debug/dogfood/testflight/release is just one shape).",
+              "type" : "tool",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Migrated hello-world-google.demo end-to-end to manifest-driven topology. Authored Config/release-features.json (4 tiers × 7 features) covering every #if footprint in the app (FEATURE_TIER_BORDER / FEATURE_DEBUG_WINDOW / FEATURE_LAUNCH_ARTIFACT_GUARD / FEATURE_DOGFOOD_GATED_VIEW / FEATURE_FIREBASE_REMOTE_CONFIG / FEATURE_FIREBASE_CRASHLYTICS / FEATURE_PSEUDO_LOCALIZATION_TOGGLE). Ran the digikoma to materialize Config/xcconfigs/{Debug,Dogfood,TestFlight,Release}.xcconfig + Sources/ReleaseFeatures.swift. project.yml gained configFiles per build configuration; the inline SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEV $(inherited) / DOGFOOD $(inherited) / TESTFLIGHT $(inherited) lines disappeared. Refactored 7 Swift sources: HelloWorldGoogleApp.swift (init() service container, Debug WindowGroup, rootView gate, TierBorderModifier via runtime ReleaseFeatures.activeTierBorder, hidden Cmd+Shift+D Button via @Environment(\\.openWindow)), DebugScreen.swift (guardLevelString became ReleaseFeatures.activeTierDisplayName), DogfoodUpdateRequiredView.swift, LaunchArtifactGuard.swift, FirebaseRemoteConfigService.swift (FEATURE_FIREBASE_REMOTE_CONFIG outer + runtime ReleaseFeatures.activeTier == .dogfood for fetch-interval discriminator), FirebaseCrashReportingService.swift, DogfoodStartupGuard.swift. Verified end-to-end on Mac Catalyst: Release BUILD SUCCEEDED with clean hero + no border + no Debug window; Debug BUILD SUCCEEDED with purple-bordered hero + Cmd+Shift+D opens Debug WindowGroup with feature toggles working. No raw DEV/DOGFOOD/TESTFLIGHT compile-time conditions remain anywhere in Sources/.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Earlier in the same session (pre-compaction): accessibility-label refactored from Text(\"\\(hello) \\(world)\", comment:) to Text(LocalizedStringResource(\"hero-accessibility-label\", defaultValue: \"\\(hello) \\(world)\", comment: ...)). Localizable.xcstrings gained matching entry with extractionState: manual and en-only source value %1$@ %2$@. After the audit-koma's first real-world run surfaced 14 findings in conditionally-compiled debug UI (13 MISSING + 1 INTERPOLATED, all in DebugScreen.swift + DogfoodUpdateRequiredView.swift), switched all 14 Text(\"...\") calls to Text(verbatim:) so SwiftUI no longer treats them as LocalizedStringKey. Removed the ignoreGlobs paper-over from project.yml; the audit phase now enforces on the FULL source tree.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Beads delta this session: opened then closed in same session — digikoma-audit-xcstrings-coverage (shipped v1), hello-world-debug-ui-localization-cleanup (resolved via Text(verbatim:) sweep). Closed pre-existing open bead: release-features-cli (shipped as digikoma-release-features). Opened 5 new beads: audit-xcstrings-extend-callsite-vocabulary (v1 regex misses Section/Toggle/Picker/Button/Label/NavigationLink LocalizedStringKey overloads), release-features-xcodegen-prestep (wire digikoma-release-features into xcodegen), fleet-sweep-feature-manifest (port FEATURE_* + xcconfig pattern to other apps), fleet-sweep-xcstrings-audit-phase (port audit build phase to other apps), release-features-launch-status-integration (bundle audit + release-features receipts into swift-launch-status-cli attest gate).",
+              "type" : "request",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Substrate doctrine forged this session: (1) tier topology is first-class manifest data, NOT source-code data — apps choose their own tier vocabulary; (2) tier-as-runtime-discriminator (ReleaseFeatures.activeTier == .dogfood for fetch intervals, display names) is distinct from feature-as-compile-gate (#if FEATURE_X for Scene composition + heavy SDK imports) — both axes coexist in the same generated ReleaseFeatures.swift; (3) audit-koma + release-features-koma compose into a closed enforcement loop — neither can drift relative to source code. Self-correction: I violated feedback_swift-not-python.md by using python3 heredoc to mutate Localizable.xcstrings for an integration test; restored from .bak and redid via the Edit tool. Doctrine held; future-me reaches for Edit, Swift -e, or jq before defaulting to Python.",
+              "type" : "log",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "Shipped two new build-domain digikoma end-to-end (audit-xcstrings-coverage + release-features) and migrated Hello World to manifest-driven tier topology. Audit gates builds on missing/interpolated/orphan localizable-key findings (14 LDT proofs green; 3-cycle integration LDT confirms BUILD FAILED when catalog yanks a key). Release-features owns the (tier × feature) topology with tiers as first-class manifest entries (13 LDT proofs green). Hello World migrated: 7 source files refactored from #if DEV/DOGFOOD/TESTFLIGHT to #if FEATURE_* + runtime ReleaseFeatures.activeTier checks. Mac Catalyst Release + Debug builds verified. 3 beads closed + 5 new v2 beads filed.",
+      "tags" : [
+        "claude",
+        "digikoma",
+        "audit",
+        "build-time-flags",
+        "i18n",
+        "release-operations",
+        "ldt-proofs",
+        "tests",
+        "ship-quality",
+        "hello-world",
+        "catalyst",
+        "wd"
+      ],
+      "timestamp" : "2026-05-15T02:34:10Z",
+      "title" : "Audit + release-features dual-koma ships; Hello World migrated to manifest-driven tier topology"
     }
   ],
   "links" : [
@@ -1515,5 +1571,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-15T02:11:46Z"
+  "updated" : "2026-05-15T02:34:10Z"
 }
