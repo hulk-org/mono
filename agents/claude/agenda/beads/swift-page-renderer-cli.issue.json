@@ -1,0 +1,21 @@
+{
+  "id": "swift-page-renderer-cli",
+  "title": "Build swift-page-renderer-cli — Phase A of scaffold-app-from-web pipeline",
+  "description": "Swift-pure substrate-native CLI that takes a URL and emits visual captures for downstream view reconstruction. WKWebView headless rendering at three viewports (375x667, 1024x768, 1920x1080). Screenshots saved as PNG per viewport. Layout tree extracted via JavaScript bridge (WKUserScript injection that walks the DOM and returns serialized tree) into captures/visual/layout.json. Color palette + typography extracted (sample dominant pixel colors + window.getComputedStyle of every text element) into palette.json. NO Playwright, NO Node, NO Python — pure WebKit + Foundation + AppKit. Package location TBD: wrkstrm-research/.../generative-ui/spm/swift-page-renderer-cli/ likely. Per scaffold-app-from-web.docc/index.md design.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "scaffold-app-from-web",
+    "phase-a-visual-capture",
+    "wkwebview",
+    "swift-pure",
+    "generative-ui"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/scaffold-app-from-web.docc/index.md",
+  "schemaVersion": "0.1.0"
+}

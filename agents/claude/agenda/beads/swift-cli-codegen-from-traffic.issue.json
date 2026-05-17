@@ -1,0 +1,30 @@
+{
+  "id": "swift-cli-codegen-from-traffic",
+  "title": "Build swift-cli-codegen-from-traffic — Phase D of scaffold-app-from-web pipeline",
+  "description": "Swift-pure CLI codegen consuming analyzed traffic from Phase C. Inputs: endpoints.json + payload schema files. Outputs: complete Swift Package at packages/<slug>-cli/ with: Package.swift (composed-hash exec name via wrkstrm-identifier hash-name); Sources/<slug>-cli/Commands.swift (ArgumentParser AsyncParsableCommand per endpoint group); Sources/<slug>-cli/Models.swift (@Generable structs from Phase C); Sources/<slug>-cli/HTTPClient.swift (Foundation URLSession + auth model from Phase C); Sources/<slug>-cli/Auth.swift (cookie/oauth/bearer-token per endpoints.json); Tests/<slug>-cliTests/ (golden tests against captured traffic in Phase B). After codegen, calls SubstrateRegistryVault.upsert(entry) to register the new CLI in the substrate registry. The generated CLI is BOTH a binary AND a library — the binary on PATH for operator invocation, the library imported by the Phase F-generated app for typed data access.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "scaffold-app-from-web",
+    "phase-d-codegen",
+    "swift-codegen",
+    "argument-parser",
+    "generable",
+    "substrate-registry-vault",
+    "swift-pure"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/scaffold-app-from-web.docc/index.md",
+  "dependencies": [
+    {
+      "issueId": "swift-cli-codegen-from-traffic",
+      "dependsOnId": "swift-traffic-analyzer-cli",
+      "type": "blocks-on"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}
