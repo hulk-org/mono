@@ -1709,6 +1709,65 @@
       ],
       "timestamp" : "2026-05-17T21:55:00Z",
       "title" : "Codex moment-v2 alignment + ghost.app voice cloning planning-ontology end-to-end walk + operator-app painting opened + substrate-coherent ideation/creation SOP authored"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Built two production vaults under clia-org/private/universal/domain/tooling/spm/: SubstrateRegistryVault (9/9 tests, file-backed JSON, atomic save + .bak rotation, typed find/upsert/remove API) and SubstrateWorkspaceVault (7/7 tests, file-backed XML via XMLDocument, tracks <Group> hierarchy via WorkspaceFileRef.groupPath). Integrated both into wrkstrm-identifier by deleting local Registry/RegistryEntry duplicates and routing emit-aliases / install-cli / apply-cli-renames / workspace-sync / workspace-validate through the vault APIs.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Committed substrate-as-factorio operating doctrine at clia-org/private/substrate-as-factorio.docc/ — index.md (mapping table + when structural vs neutral), research-tiers.md (5-tier roadmap with Tier 1 Map view as current locus), operator-vocabulary.md (official terminology for Foundry UI strings, doctrine prose, agent prompts). The factorio framing is now load-bearing strategy, not decoration.",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Substrate xcworkspace swept healthy: workspace-sync added 265 missing FileRefs (669 -> 934, scoped via built-in allowlist that drops digikoma compiler-wrapper fleet of ~2528 shims), workspace-validate pruned 14 broken (1 missing project.pbxproj + 13 paths that no longer exist on disk, final 920 FileRefs). Backup files at .bak.xml; vault save() atomic rotation worked end-to-end.",
+              "type" : "maintenance",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Upgraded mono-xcode-cli (installed as df0f249d-cli post hash rename): default workspace path bumped from legacy code/mono/apple/mono.xcworkspace to current substrate layout private/universal/substrate/rismay-substrate.xcworkspace; list-schemes un-stubbed via Foundation Process directly (xcodebuild -list -json + parse workspace.schemes or project.schemes); common-shell dependency entirely removed (common-shell is currently in design-first state with documented-but-unimplemented Executable / EnvironmentModel / ProcessLogOptions / ExecutionHostKind types).",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Wired foundry-app-lib at wrkstrm-app/private/apple/apps/foundry/spm/foundry-app-lib/ to depend on both vaults; added FoundryFleet @MainActor ObservableObject facade with 11 typed query methods (find by slug/alias/execHash; entries by collective; workspace groups). Re-exports RegistryEntry + WorkspaceFileRef as FoundryRegistryEntry + FoundryWorkspaceFileRef so foundry consumers import a single FoundryAppLib module. Verified foundry already has substantial existing architecture (4 sidebar routes, FoundryDiscoveryModel walking the substrate live, FoundryDependencyGraphPanel, FoundryOperatorQueue) — next-session task is INTEGRATION (add .fleet sidebar route + FleetView.swift), not scaffolding from zero.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Mid-session app PRODUCT_NAME hash sweep (109 apps under wrkstrm-app + wrkstrm-components + clia-app-org + 7 other collectives) was subsequently corrected by operator: ApplyAppRenamesCommand became audit-only and rejects --execute with ValidationError. Composed-hash naming is CLI-only doctrine going forward; apps keep readable PRODUCT_NAME values. The 109 app renames now need revert as an open bead. Auto-memory project_composed-hash-naming-substrate-primitive.md needs update to reflect the corrected scope.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Saved 7 durable memory entries to ~/.claude/memory/.docc/ for next-session retrieval: composed-hash naming primitive, substrate-as-factorio doctrine pointer, wrkstrm-identifier subcommand reference card, substrate vaults shipped (registry + workspace), xcodebuild stderr-vs-stdout debugging lesson, foundry existing architecture, plus session-arc insight under insights/. Each indexed in MEMORY.md (now ~43KB and over the 24.4KB soft limit — compaction needed as a separate sweep).",
+              "type" : "log",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Substrate's data layer crossed a threshold this session: two production vaults shipped (SubstrateRegistryVault + SubstrateWorkspaceVault), substrate-as-factorio operating doctrine committed, substrate xcworkspace swept healthy (sync added 265 missing FileRefs, validate pruned 14 broken — 669 -> 934 -> 920), mono-xcode-cli upgraded (path + un-stub + drop common-shell), foundry-app-lib wired to vaults via FoundryFleet @MainActor facade. Substrate-grade insight: foundry already had substantial existing architecture (4 sidebar routes + discovery + dep graph + queue + status), so the next move is INTEGRATION (add .fleet route binding FoundryFleet), not scaffolding. Doctrine correction landed post-session: ApplyAppRenamesCommand became audit-only — composed-hash naming is CLI-only, apps keep readable PRODUCT_NAME; my mid-session 109-app hash sweep needs revert per the corrected policy. 7 durable memory entries saved for next-session retrieval. Long debugging dead-end on xcodebuild .swiftpm/xcode cache 'poison' resolved as a misdiagnosis — stderr warnings don't block stdout JSON; mono-xcode-cli's existing Process pipe separation already handled it correctly. Substrate is structurally healthier and finally legible: open Xcode, see 920 clean FileRefs; query the vaults, find any CLI/app by slug or hash.",
+      "tags" : [
+        "substrate-vaults-shipped",
+        "substrate-registry-vault",
+        "substrate-workspace-vault",
+        "substrate-as-factorio-doctrine",
+        "workspace-sync-and-validate",
+        "mono-xcode-cli-upgrade",
+        "foundry-fleet-facade",
+        "app-product-name-doctrine-correction",
+        "composed-hash-naming-cli-only",
+        "auto-memory-saves"
+      ],
+      "timestamp" : "2026-05-17T22:30:00Z",
+      "title" : "Substrate vaults + factorio doctrine + workspace sweep + foundry vault integration + composed-hash-app-rename audit-only correction"
     }
   ],
   "links" : [
@@ -1731,5 +1790,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-17T21:55:00Z"
+  "updated" : "2026-05-17T22:30:00Z"
 }

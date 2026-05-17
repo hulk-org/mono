@@ -1,0 +1,21 @@
+{
+  "id": "install-cli-execute-full-fleet",
+  "title": "Run install-cli --execute for the full 86-CLI substrate fleet (currently only pathfinder is installed)",
+  "description": "After the May 2026 composed-hash sweep, 86 CLIs have hashed `.executable(name:)` product names in their Package.swifts. End-to-end install verified for one (swift-install-path-cli → `cab802b8-cli` at `~/.swiftpm/bin/cab802b8-cli`, 1.7 MB Mach-O). The other 18 from tier-1 + 67 from the substrate-wide sweep need installing. Run `wrkstrm-identifier install-cli --registry .../substrate-cli-registry.json --mono-root /Users/sonoma/mono --execute` (no `--only` flag) to sweep all. Expect per-CLI failures from local-dep resolution issues (some packages need `SPM_USE_LOCAL_DEPS=true`), missing macOS 26 deployment targets, or transitive-schema dependencies. The installer's design tolerates per-CLI failures and reports at the end. After this lands, `~/.swiftpm/bin/` has 86 hashed binaries + `aliases.zsh` mapping human names → hashes. Operator runs `localize foo` and `cab802b8-cli foo` interchangeably (alias resolves to hash; shell finds it on PATH).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "install-cli",
+    "operational-rollout",
+    "substrate-cli-fleet",
+    "aliases-zsh",
+    "swiftpm-experimental-install"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/universal/domain/tooling/spm/wrkstrm-identifier/Sources/wrkstrm-identifier/InstallCLICommand.swift",
+  "schemaVersion": "0.1.0"
+}

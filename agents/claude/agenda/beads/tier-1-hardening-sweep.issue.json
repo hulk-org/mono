@@ -1,0 +1,21 @@
+{
+  "id": "tier-1-hardening-sweep",
+  "title": "Apply Tier 1 hardening build settings (strip / disable-reflection / WMO+LTO) across the renamed Package.swifts",
+  "description": "Per cli-rename-master-plan.docc/hardening-tiers.md, Tier 1 hardening is Apple-native build settings that close ~70% of the forensic surface: STRIP_INSTALLED_PRODUCT=YES, STRIP_STYLE=all, COPY_PHASE_STRIP=YES, DEBUG_INFORMATION_FORMAT=dwarf (release), SWIFT_REFLECTION_METADATA_LEVEL=none, DEAD_CODE_STRIPPING=YES, SWIFT_OPTIMIZATION_LEVEL=-O, LLVM_LTO=YES, OTHER_SWIFT_FLAGS=-disable-reflection-metadata, GCC_GENERATE_DEBUGGING_SYMBOLS=NO (release). Sweep across the 86 renamed Package.swifts — for SPM packages, use `swiftSettings` per-target; for xcodegen-managed apps, add to project.yml's `settings.base`. Cost: zero (build-settings change only). Payoff: post-Tier-1 binary `strings <exec>` shows mostly garbled mangled names, `nm <exec>` shows nothing useful, `class-dump` is blind (no Objective-C metadata, Swift reflection gone). Maintainability cost: keep separate dSYM bundles for crash symbolication, accessed via the registry — not bundled with binaries. Tier 2 (substrate-native symbol renaming via the hash scheme + string literal encryption) is a separate later bead.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "hardening-tier-1",
+    "build-settings",
+    "imitation-game",
+    "strip-symbols",
+    "disable-reflection-metadata"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/cli-rename-master-plan.docc/hardening-tiers.md",
+  "schemaVersion": "0.1.0"
+}

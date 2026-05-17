@@ -1,0 +1,23 @@
+{
+  "id": "revert-app-product-name-to-readable",
+  "title": "Revert 109 app PRODUCT_NAME hash renames back to readable values per audit-only doctrine",
+  "description": "Mid-session 2026-05-17, I ran `apply-app-renames --execute` against 109 substrate apps, converting PRODUCT_NAME from human-readable (Todo3, Choreograph, Architect, etc.) to 8-hex composed hashes (4f3a82b9, etc.). Operator subsequently corrected the doctrine: `ApplyAppRenamesCommand` is now audit-only and rejects `--execute` with `ValidationError`; composed-hash naming is CLI-only. The 109 app renames now violate the corrected policy. Need to revert each project.yml's PRODUCT_NAME back to its human-readable value. Affected collectives: wrkstrm-app (40), wrkstrm-components (40), clia-app-org (11), wrkstrm-research (7), todo3 (2), codeswiftly (1), digikoma-org (1), ghost-shell-org (1), switch-on-day (1), tau-app (1), wrkstrm (1). Source-of-truth for original readable names: `substrate-apps-input.json`'s `currentProductName` field at the time of the original sweep (now stale — would need to read pre-sweep git history). Alternative: walk each project.yml, find the hashed PRODUCT_NAME, look up the slug in the existing apps inventory, restore the readable value from there. New `apply-app-renames` audit mode can verify completion (zero hashed PRODUCT_NAMEs remaining). Verify with the AppProductNamePolicy.isOpaqueHashProductName helper that the corrected command uses.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 1,
+  "labels": [
+    "doctrine-correction",
+    "app-product-name",
+    "composed-hash-cli-only",
+    "revert",
+    "wrkstrm-app",
+    "wrkstrm-components",
+    "clia-app-org"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/universal/domain/tooling/spm/wrkstrm-identifier/Sources/wrkstrm-identifier/ApplyAppRenamesCommand.swift",
+  "schemaVersion": "0.1.0"
+}
