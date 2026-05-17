@@ -1582,6 +1582,80 @@
       ],
       "timestamp" : "2026-05-15T02:47:28Z",
       "title" : "WrkstrmReleaseArtifactUI: 7 SwiftUI viewers consume the launch-gate proof grammar"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Shipped typed-substrate-system.architecture.docc v0.1.0 in swift-universal as peer to state-machines.architecture.docc: index (5-tier adoption ladder + scope + 7 playbook list + 7 house rules) + 7 substantive playbooks (~1,900 lines total) — audit-before-scaffold-discipline, primitive-extraction-discipline, typed-orthogonal-dimensions, collision-rule-discipline, coherence-as-frame-of-understanding, four-layer-stack-discipline, typed-failure-epistemology. Cross-link added to swift-universal/.docc/index.md naming this bundle as data-truth peer to state-machines' lifecycle-truth.",
+              "type" : "doc",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Scaffolded ideation-schemas v0.1.0 NEW family at private/universal/schema-families/ — 6 record types (Exploration + Brainstorm + Concept + Hypothesis + Alternative + AlternativeRejection) with compact wire keys, integer ordinals, ChrononID time-pins, LinkRef v0.3.0 vault-record targets, ThreadLink for origin threads. Plus 2 ordinality tables, positive + negative + counterfactual fixtures (including canonical.exploration-this-thread.json using THIS conversation as a worked Exploration instance with 10 drawn-in Moments, 6 Concepts, 2 Alternatives with 1 typed rejection with reversible + reconsiderUnder clause). 12 files total.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Scaffolded specification-schemas v0.1.0 + path-schemas v0.1.0 — NEW timeless parents of PRD + CUJ at the planning-ontology layer. Both follow chronon-grade property-axiom discipline with compact wire keys + integer-ordinal Kind + Status enums + LinkRef refs. Plus ordinality tables for SpecificationKind (prd/paper/blueprint/legislation/recipe/composition/charter/brief/spec) and PathKind (cuj/orbital/experiential/service/ritual/workflow).",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Scaffolded deliverable-kind-schemas v0.1.0 NEW primitive at domain/primitives/schema-primitives/ — types the orthogonal dimension of WHAT KIND OF THING is being made (internal-library / public-app / public-service / internal-service / documentation / artifact-only / standard / platform / research-output / toolkit). Unifies what was previously local enums in release-operations (ReleaseLane) and harness-artifact-projection (artifactRoot.kind).",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Filled thread-link-schemas v0.1.0 + milestone-schemas v0.3.0 placeholders with real content. ThreadLink primitive composes LinkRef + linkKind ordinal + chrononID (typed back-pointer from any node to its originating thread). Milestone gains structured closure typing with milestoneKind ordinal + status ordinal + specRef + pathRefs + releaseRef + threadLinks + ChrononID. Plus per-family ordinality tables.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Refined PRD v0.1.0 + CUJ v0.1.0 JSON schemas in place — compact wire keys (slug→i, title→t, problemStatement→s, etc.), integer ordinals for KomaOrg / SpecificationKind / SpecificationStatus / PathStatus / GoalRank / RiskSeverity, ChrononID Int64 replacing String ISO timestamps, LinkRef v0.3.0 vault-record targets replacing ad-hoc PRDSlugRef, typed NonGoal with mandatory rationale, typed NFR concerns (performance/security/accessibility/privacy/reliability/observability/compliance/localization), ThreadLink for originatingThreadRef. Rewrote PRDModel.swift completely with full readable Swift property names + CodingKeys mapping to compact wire keys + local LinkRefModel/ThreadLinkModel mirrors for lightweight in-package use.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Closed 5 cross-family audits with typed resolutionNotes: scenario-exploration-audit (scenarios are role-performance envelopes, not deliberation; scaffold new exploration-schemas justified — became ideation-schemas), materialization-existing-audit (substrate covers Plan/Artifact/Verification/Release via 7+ existing families; doctrine wrapper instead of new family), ideation-interior-audit (ideation interior was genuinely sparse — scaffold new), plus initial enumeration audit + schema-universal family enumeration. Each closure carries cross-reference table of existing families mapped to the proposed concept's roles.",
+              "type" : "log",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Filed ~25 typed substrate beads in clia-org/agenda/beads/ across the session: scaffolding beads (12 initial for the planning-ontology work), 4 primitive-extraction beads (chronon-range, actor-ref adoption, falsification-condition, weighted-claim), audit closures (5), test-frame infrastructure (3: collision-rule + coherence-runner-cli + end-to-end-canonical-fixture), failure-epistemology (2: expected-failure + breakage-record), truth-system meta-theory (3: truth-system-primitive + per-truth-system-architecture-docc-trees + truth-claim-hilbert-space-typing), monitor-phase audit, PRD/CUJ SPM resync, LinkRef + beads-schemas drift sweeps. Beads-stay-durable discipline preserved; closures carry typed resolutionNotes per substrate doctrine.",
+              "type" : "tool",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Named eight major substrate doctrines from session discoveries: audit-before-scaffold (5-times-validated pattern); primitive-extraction (small types so primitives break out); typed-orthogonal-dimensions (KomaOrg / SpecificationKind / PathKind / DeliverableKind / MilestoneKind compose independently); collision-rule discipline (substrate property-based testing via typed forbidden-pair records); coherence-as-frame-of-understanding (one-pass typed validation); four-layer-stack (canonical Swift / small JSON / fast SQLite / compact Fleece); typed-failure-epistemology (failures as first-class accumulating substrate records via CollisionRule + ExpectedFailure + BreakageRecord three-layer corpus); substrate-as-typed-truth-system-host (meta-theory of hosting universal-computer / theoretical / real-world / game-world typed truth-systems, with operator-named Hilbert-space-grade typing reframing each truth-system as a logical Hilbert space with axioms / theorems / projection operators).",
+              "type" : "doc",
+              "weight" : 3
+            }
+          ]
+        }
+      ],
+      "summary" : "Session shipped the planning-ontology layer across schema-universal + the typed-substrate-system architecture-docc bundle in swift-universal as a Swift Universal adoption standard. 6 schema-universal families scaffolded or refined (specification-schemas, path-schemas, ideation-schemas, deliverable-kind-schemas, thread-link-schemas, milestone-schemas), PRD + CUJ v0.1.0 in-place discipline upgrade (compact keys + chronon + LinkRef + ordinals), 7-playbook architecture-docc bundle (~1,900 lines) shipped as data-truth peer to state-machines' lifecycle-truth, 5 cross-family audits closed with typed resolutions, ~25 substrate beads filed. Major doctrinal moment: substrate reframed as a meta-system hosting multiple typed truth-systems (universal-computer / theoretical / real-world / game-world), with each truth-system typed as a logical Hilbert space (axioms = basis vectors, theorems = linear combinations, projection operators between systems with documented information loss).",
+      "tags" : [
+        "schema-universal",
+        "swift-universal",
+        "architecture-docc",
+        "planning-ontology",
+        "ideation-schemas",
+        "specification-schemas",
+        "path-schemas",
+        "deliverable-kind-schemas",
+        "typed-failure-epistemology",
+        "collision-rule-discipline",
+        "audit-discipline",
+        "primitive-extraction",
+        "truth-system",
+        "hilbert-space",
+        "meta-theory"
+      ],
+      "timestamp" : "2026-05-17T05:27:14Z",
+      "title" : "Planning ontology scaffolding + typed-substrate-system architecture-docc bundle (the seven playbooks) + truth-system meta-theory"
     }
   ],
   "links" : [
@@ -1604,5 +1678,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-15T02:47:28Z"
+  "updated" : "2026-05-17T05:27:14Z"
 }

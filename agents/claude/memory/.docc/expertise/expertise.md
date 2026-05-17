@@ -6,6 +6,49 @@
 
 ## Domains
 
+- **Typed substrate system adoption standard** (swift-universal/typed-
+  substrate-system.architecture.docc): tiered adoption ladder (Tier 0
+  property docs → Tier 4 coherence runner integration). Seven
+  playbooks: audit-before-scaffold, primitive-extraction, typed-
+  orthogonal-dimensions, collision-rule-discipline, coherence-as-frame-
+  of-understanding, four-layer-stack, typed-failure-epistemology.
+  Authored as Swift Universal data-truth peer to state-machines'
+  lifecycle-truth.
+- **Planning ontology scaffolding** (schema-universal): specification-
+  schemas + path-schemas as timeless parents of PRD/CUJ; ideation-
+  schemas v0.1.0 with six record types (Exploration + Brainstorm +
+  Concept + Hypothesis + Alternative + AlternativeRejection);
+  deliverable-kind primitive; milestone + thread-link placeholder
+  fills; PRD + CUJ in-place discipline upgrades to compact-keys +
+  chronon + LinkRef + ordinals.
+- **Audit-before-scaffold discipline**: five-times-validated pattern.
+  Each "new family" proposal triggers enumeration of existing families;
+  most proposals turn out to be coverage gaps in existing vocabulary
+  rather than genuine net-new typing. Audit closures carry typed
+  cross-reference tables as substrate-grade artifacts.
+- **Primitive extraction discipline**: small types so primitives stay
+  primitive. Seven primitive extractions in one session — chronon-
+  range, actor-ref adoption, falsification-condition, weighted-claim,
+  deliverable-kind, expected-failure, breakage-record. Local-mirror
+  pattern for shipping consumers before primitive dependencies are
+  formalized.
+- **Typed-failure epistemology**: failures as first-class accumulating
+  substrate records, not bugs to triage. Three-layer typed-failure
+  surface — CollisionRule (declarative forbidden-pair rules),
+  ExpectedFailure (witness negative-fixture record), BreakageRecord
+  (incident with ternary recovery state: open-active / accepted-as-
+  eternal / resolved).
+- **Truth-system meta-theory**: substrate as typed host for multiple
+  truth-systems (universal-computer / theoretical / real-world / game-
+  world), each typed as a logical Hilbert space with axioms = basis
+  vectors, theorems = linear combinations, projection operators
+  between systems with documented information loss. TruthSystem +
+  TruthClaim primitives, per-system architecture-docc trees.
+- **Four-layer stack discipline**: canonical Swift in code / small JSON
+  on wire / fast SQLite query / compact Fleece storage. CodingKeys is
+  the seam between Layer 1 and Layer 2; projections are lossless in
+  the round-trip direction. SwiftCodable property names are
+  readable; JSON wire keys are compact (single-letter / two-letter).
 - **Substrate schema-set commissioning**: v1.0.0 binding via
   `identity.schemaSetRefs` (aggregator + manifest + set + swiftProduct),
   ikigai persona authoring with the canonical Katakana `イキガイ.md` file
