@@ -1768,6 +1768,60 @@
       ],
       "timestamp" : "2026-05-17T22:30:00Z",
       "title" : "Substrate vaults + factorio doctrine + workspace sweep + foundry vault integration + composed-hash-app-rename audit-only correction"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Multi-hour autonomous push following operator's 'work for hours maybe days' directive. Closed the substrate's first-ever scaffold-app-from-web rocket pattern end-to-end: orchestrator renamed to composed-hash form (be25de64-cli), self-registered in substrate-cli-input.json + substrate-cli-registry.json, installed at ~/.swiftpm/bin/. AppCodegen v2 emits Assets.xcassets + AppIcon.appiconset + AccentColor.colorset + Info.plist (CFBundleDisplayName + NSPrincipalClass + proper plist) + project.yml without legacy build-location settings (CONFIGURATION_BUILD_DIR + DEPLOYMENT_LOCATION moved to Release-only config so Debug builds can resolve SPM packages).",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Phase G expansion: Orchestrator.swift now writes to all THREE substrate vaults — SubstrateRegistryVault.upsert (CLI registry), AppsInputUpdater.upsert (substrate-apps-input.json), SubstrateWorkspaceVault.upsert (xcworkspace FileRefs for both generated packages). New main.swift flags: --apps-input, --workspace. Receipt JSON captures all three booleans.",
+              "type" : "code",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Hacker News satellite re-scaffolded with Phase G full. Generated hackernews.mac.app/ verified buildable via xcodegen + xcodebuild (BUILD SUCCEEDED). .app launched on macOS (PID 46274, then PID 46427 from ~/Applications/categories/news/) — SwiftUI ContentView rendered live HN Firebase data via HTTPClient on .task launch. Real Mac app from a config JSON, end to end. Substrate's first scaffold-from-web satellite is now BOTH a CLI fleet member AND a fully-built Mac app on disk.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Foundry FleetView shipped: added .fleet sidebar route to FoundrySidebarRoute (shippingbox.fill icon, 'Fleet' label), created FleetView.swift (~200 lines) with HSplitView sidebar/detail rendering @StateObject var fleet = FoundryFleet() — List of aliased entries with click-through to detail panel showing slug/hash/alias/sourcePackage/operator-invocation. Wired into FoundryContentView's detailContent switch. Foundry app built (after stripping legacy build-location settings from foundry/project.yml) + launched (PID 53335) + installed to ~/Applications/categories/developer-tools/foundry.debug.app + verified launches there too. Screenshot at /tmp/foundry-with-fleet-view-2026-05-17.png. The substrate's first really-visible artifact from the vault sessions.",
+              "type" : "code",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Beads closed during the push: scaffold-app-from-web-orchestrator-cli + first-web-to-app-target-pick (earlier in session) + foundry-fleet-sidebar-route (this push). Beads spun for documented blocks: substrate-project-yml-legacy-build-location-vs-spm (the categorized-install-path triplet conflicts with SPM packages, blocking foundry build until I stripped settings from foundry/project.yml; substrate-wide patch-install-path CLI needs revision).",
+              "type" : "log",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Bugs found + fixed during scaffold runs: (1) Commands.swift in library target couldn't see ArgumentParser - moved file to executable target. (2) Commands.swift couldn't see HTTPClient/Models - added 'import HackernewsKit'. (3) main.swift triggered Swift script-mode and rejected @main - renamed to entry.swift. (4) project.yml SYMROOT/CONFIGURATION_BUILD_DIR/DEPLOYMENT_LOCATION triplet triggered Xcode legacy build locations vs SPM packages - stripped from emitted project.yml + bead spun for substrate-wide remediation. (5) 158MB .derived xcodebuild output + generated xcodeproj accidentally committed to wrkstrm-research - .gitignore updated + git rm --cached cleaned.",
+              "type" : "code",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Autonomous multi-hour push driven by operator's 'work for hours maybe days, document blocks, switch tasks' directive. Closed the scaffold-app-from-web rocket pattern end-to-end: orchestrator be25de64-cli registered + installed, AppCodegen v2 emits complete xcodegen-ready apps (Assets.xcassets + Info.plist + project.yml without legacy build-location conflicts), Phase G writes all three substrate vaults (registry + apps-input + workspace), hackernews.mac.app verified built + launched + installed to ~/Applications/categories/news/, Foundry FleetView shipped (200-line SwiftUI view binding @StateObject FoundryFleet, integrated into FoundryContentView), foundry app built (after substrate-wide project.yml legacy-locations fix) + launched (PID 53335) + installed to ~/Applications/categories/developer-tools/. The substrate is no longer just typed infrastructure — it produces buildable+launchable+installable Mac apps from a single URL+config invocation. Foundry's cockpit is alive, FleetView ready to render the registered fleet. Three beads closed; one new bead spun (substrate-wide patch-install-path remediation). Five real bugs found + fixed in-flight during scaffold iterations. Screenshot at /tmp/foundry-with-fleet-view-2026-05-17.png is the visual receipt.",
+      "tags" : [
+        "autonomous-multi-hour-push",
+        "scaffold-app-from-web-rocket-shipped",
+        "hackernews-mac-app-built-launched-installed",
+        "foundry-fleet-view-shipped",
+        "foundry-built-launched-installed",
+        "phase-g-three-vault-writes",
+        "appcodegen-v2",
+        "substrate-project-yml-spm-conflict-fix",
+        "real-bugs-found-and-fixed-in-flight",
+        "first-substrate-shipped-mac-app"
+      ],
+      "timestamp" : "2026-05-17T23:59:00Z",
+      "title" : "Autonomous push: scaffold-app-from-web rocket closed end-to-end + foundry FleetView shipped + first substrate Mac app built+launched+installed"
     }
   ],
   "links" : [
@@ -1790,5 +1844,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-17T22:30:00Z"
+  "updated" : "2026-05-17T23:59:00Z"
 }
