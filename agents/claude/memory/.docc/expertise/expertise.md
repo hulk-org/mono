@@ -21,6 +21,16 @@
   deliverable-kind primitive; milestone + thread-link placeholder
   fills; PRD + CUJ in-place discipline upgrades to compact-keys +
   chronon + LinkRef + ordinals.
+- **Operator-agent collaboration SOP** (`schema-universal/.../substrate-coherent-ideation-and-creation.sop.docc/`):
+  two-mode workflow procedure for IDEATION (open-prose painting with
+  substrate-sourced questions, held canvas, no typed records yet) and
+  CREATION (typed-models-first scaffolding with audit, schema-family
+  gap surfacing, drift surfacing for operator yes/no). Modal-switch
+  triggers are operator-initiated only. Composes with Codex's
+  `property-survival.sop.docc/` + `schema-family.sop.docc/`. Authored
+  2026-05-17 after operator named the pattern. Paired feedback memory
+  at `~/.claude/memory/.docc/feedback_substrate-coherent-ideation-and-creation-sop-active.md`
+  so future agent sessions inherit the discipline at session open.
 - **Audit-before-scaffold discipline**: five-times-validated pattern.
   Each "new family" proposal triggers enumeration of existing families;
   most proposals turn out to be coverage gaps in existing vocabulary
@@ -157,6 +167,43 @@
   schema-evolution audits.
 
 ## Recent Work
+
+- 2026-05-17 (late UTC): Four-arc substrate session. (1) Codex moment-v2
+  alignment — refined `vaults-org/.../tier-adaptive-typed-storage.architecture.docc`
+  to cite Codex's actual primitives (`TimelineMomentIndexSegment` +
+  `TimelineMomentLinkSet` + `compact-representation-schemas` +
+  preservation-class enum from commits `3724e86` + `4fa6b8d`); closed
+  bead `schema-universal-temporal-page-primitive-scaffold` as
+  superseded-by-prior-work; refined quantization-policy + quantization-event
+  beads to compose Codex's preservation-class enum + CompactRepresentationPlan;
+  filed 2 future-refinement beads after Codex answered 4 asks (g enum
+  inline, vocabulary coexist, segment inlining is special case,
+  schema-test-obligation-schemas is canonical proof-obligation contract).
+  Commits `5003ab3` + `bea31bb219`. (2) Ghost.app voice cloning planning
+  ontology end-to-end walk — Exploration fixture (7 moments + 8 concepts +
+  2 hypotheses + 4 alternatives + 2 rejections), PRD fixture (7 goals +
+  6 success criteria + 5 non-goals + 8 FR + 8 NFR + 4 user stories +
+  6 risks + 6 open questions), CUJ fixture (10-step SUMMON walk + 7
+  failure modes + 4 forward-typed Swift Testing proofs), Materialization
+  Plan as typed-prose markdown when WorkstreamModel turned out to be
+  live-thread doc not typed Plan. 6 beads filed (5 ghost.app + 1
+  materialization-plan schema-gap). Commits `60236a6` + `665d95b` +
+  `e58b53b` + `7e9ce955` + mono pointers. Substrate's first end-to-end
+  test of typed planning ontology on a real banger feature, validated
+  the same session it was scaffolded. (3) Operator-app canvas opened —
+  flagship operator-facing app (distinct from Clia which is
+  chat-with-agents). 4 surfaces named in IDEATION mode (Open Questions
+  view, Apps × Rubric% × Stage view, Open Threads view, Provenance
+  lens); 5 typed primitives proposed un-filed pending canvas
+  completion. Critical reveal: Operator app = pre-ship command center
+  (planning ontology phases 1-6); Presence app = post-ship monitor
+  (phase 7). (4) Substrate-coherent ideation/creation SOP authored at
+  `schema-universal/.../substrate-coherent-ideation-and-creation.sop.docc/index.md` —
+  first explicit operator-agent collaboration SOP. Two-mode workflow
+  (IDEATION painting + CREATION typed-models-first scaffolding) with
+  modal-switch triggers, anti-patterns, worked example drawn from this
+  session. Paired feedback memory saved to claude home so future
+  sessions inherit at session open. Commits `b2682b1` + `e4d8847869`.
 
 - 2026-05-15 (early UTC): Productize sprint round 1. Built `WrkstrmReleaseArtifactUI`
   SwiftUI package at `wrkstrm-components/private/release-artifact-ui/spm/wrkstrm-release-artifact-ui/`

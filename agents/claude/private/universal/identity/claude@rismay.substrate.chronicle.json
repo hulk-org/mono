@@ -1656,6 +1656,59 @@
       ],
       "timestamp" : "2026-05-17T05:27:14Z",
       "title" : "Planning ontology scaffolding + typed-substrate-system architecture-docc bundle (the seven playbooks) + truth-system meta-theory"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Refined vaults-org/private/universal/docc/tier-adaptive-typed-storage.architecture.docc/index.md to cite Codex's actual moment-v2 primitives (TimelineMomentIndexSegment + TimelineMomentLinkSet + compact-representation-schemas + preservation-class enum) instead of theorized TemporalPage / abstract QuantizationPolicy shapes. Closed bead schema-universal-temporal-page-primitive-scaffold as superseded-by-prior-work (Codex commit 3724e86). Refined beads schema-universal-quantization-policy-primitive-scaffold + schema-universal-quantization-event-family-scaffold to compose Codex's preservation-class enum + CompactRepresentationPlan instead of redefining policy categories. Filed beads schema-universal-time-granularity-ordinal-shared-defs-refinement + schema-universal-timeline-segment-optional-compact-representation-plan-ref-refinement capturing Codex's four answers to my asks. Commits 5003ab3 vaults-org + bea31bb219 mono pointer + auto-committed bead edits in clia-org.",
+              "type" : "doc",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Authored full planning-ontology chain for ghost.app voice cloning v1 (the defining ghost.app feature per operator's 'ideation to feature' spark): Exploration fixture (7 decision-moments + 8 concepts + 2 hypotheses + 4 alternatives + 2 typed rejections, status=2 diverging), PRD fixture (7 goals + 6 success criteria + 5 non-goals + 8 functional requirements + 8 typed NFR concerns + 4 user stories + 6 risks + 6 open questions, status=1 drafted), CUJ fixture ('operator SUMMONs voice into their ghost' walk, 10 modeled steps + 7 typed failure modes + 4 forward-typed Swift Testing automated proofs, status=1 modeled). All forward-typed against each other + against ghost-shell-org chassis + acting.docc cast-packet vault. Substrate's first end-to-end test of the planning ontology authored 2026-05-17 by ths same session. Commits 60236a6 + 665d95b + e58b53b + d4ade423ea + a8719a908e schema-universal + mono pointers.",
+              "type" : "doc",
+              "weight" : 4
+            },
+            {
+              "evidence" : "Filed 6 typed beads for ghost.app voice cloning planning ontology: ghost-app-voice-cloning-specification-prd-scaffold, ghost-app-voice-cloning-path-cuj-scaffold, ghost-app-voice-cloning-materialization-plan-scaffold, schema-universal-voice-clone-checkpoint-receipt-primitive-scaffold, acting-docc-voice-cast-packet-authoring, schema-universal-materialization-plan-primitive-scaffold (the substrate-gap-surfacing bead authored when WorkstreamModel turned out to be the live-Discord-thread document, not the typed Plan record). Commits 60236a6 + 7e9ce955 + d4ade423ea + a600ddf9e1 + e4d8847869 clia-org + mono pointers.",
+              "type" : "tool",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Authored the Materialization Plan for ghost.app voice cloning v1 as typed-prose markdown at ghost-shell-org/private/universal/plans/v1-voice-cloning/plan.md when the substrate's canonical materialization-plan-schemas family didn't exist. 5 workstreams (substrate primitives / cast-packet doctrine / ghost.app SwiftUI surface / consumer integration / Monitor seed), 4 timeline gates, 8 closure criteria, 6 open-question gates. Plus a sibling open-questions-for-operator-review.md distilled doc so the operator can review out-of-band from the terminal. Both uncommitted as of session end — preserved on disk for next session.",
+              "type" : "doc",
+              "weight" : 2
+            },
+            {
+              "evidence" : "Authored substrate-coherent-ideation-and-creation.sop.docc/index.md at schema-universal/private/universal/ — the substrate's first explicit operator-agent collaboration SOP. Two-mode workflow (IDEATION painting + CREATION typed-models-first scaffolding) with modal-switch triggers, anti-patterns enumerated, worked example drawn from tonight's actual session. Paired feedback memory saved at ~/.claude/memory/.docc/feedback_substrate-coherent-ideation-and-creation-sop-active.md so future agent sessions inherit the discipline at session open. Commit b2682b1 schema-universal + e4d8847869 mono pointer.",
+              "type" : "doc",
+              "weight" : 3
+            },
+            {
+              "evidence" : "Opened the operator-app canvas with the operator after he caught the substrate using the terminal as the wrong review surface ('where can you raise these questions so I can review not through the terminal?'). Held canvas in IDEATION mode for ~6 turns; named 4 surfaces (Open Questions view, Apps × Rubric% × Stage view, Open Threads view, Provenance lens); proposed 5 typed substrate primitives (AppModel, ReleaseStageOrdinalityTable, ReleaseRubricModel, AppRubricEvaluationModel, ReleaseStageTransitionModel) held un-filed pending canvas completion. Critical discovery: Operator app = pre-ship command center (planning ontology phases 1-6); Presence app = post-ship monitor (phase 7). The split maps onto the substrate's typed planning ontology's pre/post-release split. Canvas explicitly held open for next session.",
+              "type" : "log",
+              "weight" : 2
+            }
+          ]
+        }
+      ],
+      "summary" : "Long substrate session covering four major arcs: (1) Codex moment-v2 alignment — refined doctrine doc + 5 beads to cite Codex's actual primitives instead of theorized shapes; (2) ghost.app voice cloning planning-ontology end-to-end walk — first substrate-wide test of the typed planning chain on a real banger feature, producing Exploration + PRD + CUJ + Plan + 6 beads; (3) operator-app canvas opening — 4 surfaces named in IDEATION mode after operator pivoted from voice cloning; canvas held explicitly open; (4) substrate-coherent ideation/creation SOP authored — two-mode collaboration discipline codified after operator asked 'how did you know to ask these questions?'. Substrate-grade insight: the planning ontology was validated end-to-end on a real feature THE SAME SESSION it was scaffolded; SOP authored captures the pattern for future sessions.",
+      "tags" : [
+        "codex-collaboration",
+        "moment-v2-alignment",
+        "ghost-app-voice-cloning",
+        "planning-ontology",
+        "ideation-creation-sop",
+        "operator-app-canvas-opened",
+        "schema-family-gap-surfaced",
+        "typed-evidence-vs-claims",
+        "biography-grade-corpus"
+      ],
+      "timestamp" : "2026-05-17T21:55:00Z",
+      "title" : "Codex moment-v2 alignment + ghost.app voice cloning planning-ontology end-to-end walk + operator-app painting opened + substrate-coherent ideation/creation SOP authored"
     }
   ],
   "links" : [
@@ -1678,5 +1731,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-17T05:27:14Z"
+  "updated" : "2026-05-17T21:55:00Z"
 }
