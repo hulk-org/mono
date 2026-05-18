@@ -1,0 +1,17 @@
+{
+  "id": "author-venture-capital-schema-family-v0.1.0",
+  "title": "Author venture-capital schema-family v0.1.0 in schema-universal (promote interim shape to typed family)",
+  "description": "vaults/venture-capital/ was seeded at 02d4dd3465 with 8 records using `schemaVersion: '0.1.0-interim'` pending a formal schema-family. Promote to typed family under schema-universal/private/universal/schema-families/. \n\nCandidate family names: 'investor-schemas' (focuses on the records) OR 'venture-capital-schemas' (focuses on the domain). 'venture-capital-schemas' is more domain-aligned; pick that.\n\nFamily contents:\n- FirmModel — slug, name, foundedYear, foundersRefs (LinkRef[]), headquartered, investmentStagesRefs (LinkRef[] to investment-stage ordinality table OR ordinal[]), investmentThesis, notableProgramsOrFunds (string[]), substrateBindings (LinkRef[]), notesAndProvenance\n- InvestorModel — slug, name, affiliatedFirmsRefs (LinkRef[]), knownFor, essaysOrPublicationsRefs (LinkRef[]), substrateBindings (LinkRef[]), notesAndProvenance\n- ProgramModel — slug, name, parentFirmRef (LinkRef), launchedYear, programShape, focusVerticals (string[]), substrateBindings (LinkRef[])\n- FirmKindOrdinalityTable — typed records for venture-capital-fund / seed-accelerator / growth-equity / corporate-venture / micro-vc / family-office / angel-collective. Per JSON-ordinality-tables-not-enums doctrine: closed-condensable catalog → ordinality table.\n- InvestmentStageOrdinalityTable — pre-seed / seed / series-a / series-b / series-c / series-d / growth / ipo-late-stage / long-hold-permanent-capital.\n\nFor founders + investors: LinkRef (open-extensible catalog per three-valued-logic doctrine — list grows over time). Consumers handle TRUE/FALSE/UNKNOWN per Kleene logic.\n\nClosure: family directory + descriptor JSON authored at schema-universal/private/universal/schema-families/venture-capital-schemas/v0.1.0/. All 8 existing records under vaults/venture-capital/ migrated from schemaVersion '0.1.0-interim' to a proper sf+sv reference. LDT proof asserting schemas validate against existing records.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["schema-universal", "venture-capital-schemas", "schema-family-promotion", "ontology-debt"],
+  "createdAt": "2026-05-17T22:00:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:00:00Z",
+  "sourceType": "thread-beat",
+  "sourceThreadId": "2026-05-17-venture-capital-vault-seed",
+  "sourceBeatId": "venture-capital-vault-needs-typed-family",
+  "sourceLocation": "private/universal/vaults/venture-capital/receipts/2026-05-17-venture-capital-vault-seed.json",
+  "schemaVersion": "0.1.0"
+}

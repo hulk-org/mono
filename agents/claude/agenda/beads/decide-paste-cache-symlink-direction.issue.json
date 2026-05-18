@@ -1,0 +1,17 @@
+{
+  "id": "decide-paste-cache-symlink-direction",
+  "title": "Operator decision: symlink direction for paste-cache vault (~/.claude/paste-cache/ <-> mono vault)",
+  "description": "vaults/paste-cache/ was seeded at 3e23ff564f as a non-destructive copy of ~/.claude/paste-cache/. 29 files (1.1MB) now mirrored at private/universal/vaults/paste-cache/files/. Original location at ~/.claude/paste-cache/ was preserved untouched.\n\nOperator decision needed before any destructive move on the original location:\n\nOption A — substrate canonical. Move files from ~/.claude/paste-cache/ to mono vault, symlink ~/.claude/paste-cache/ -> mono vault. Claude Code's future paste-cache writes land directly in mono vault for auto-tracking + auto-commit. Pro: substrate is canonical home. Con: depends on the mono-vault absolute path being stable.\n\nOption B — original canonical. Mono vault is a periodically-refreshed snapshot. ~/.claude/paste-cache/ stays canonical; substrate vault is mirror. Pro: matches Claude Code's existing assumption. Con: substrate vault becomes stale; needs sync mechanism.\n\nOption C — dual + sync via Swift CLI. Both stay separate; Swift CLI periodically syncs mono vault from original (or vice versa). Pro: zero coupling. Con: two sources of truth; divergence risk.\n\nClosure: operator picks A/B/C; execute the picked option; update vaults/paste-cache/index.md to reflect the decision; if A, do the destructive move + symlink atomically with backup beforehand; if C, author the Swift sync CLI.",
+  "assignee": "claude",
+  "issueType": "decision",
+  "status": "open",
+  "priority": 3,
+  "labels": ["paste-cache", "operator-decision", "symlink-direction"],
+  "createdAt": "2026-05-17T22:00:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:00:00Z",
+  "sourceType": "thread-beat",
+  "sourceThreadId": "2026-05-17-paste-cache-vault-seed",
+  "sourceBeatId": "paste-cache-symlink-decision-deferred",
+  "sourceLocation": "private/universal/vaults/paste-cache/receipts/2026-05-17-paste-cache-vault-seed.json",
+  "schemaVersion": "0.1.0"
+}
