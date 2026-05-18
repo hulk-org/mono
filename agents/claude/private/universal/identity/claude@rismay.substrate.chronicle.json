@@ -1822,6 +1822,77 @@
       ],
       "timestamp" : "2026-05-17T23:59:00Z",
       "title" : "Autonomous push: scaffold-app-from-web rocket closed end-to-end + foundry FleetView shipped + first substrate Mac app built+launched+installed"
+    },
+    {
+      "contributions" : [
+        {
+          "by" : "claude",
+          "types" : [
+            {
+              "evidence" : "Seeded 4 new substrate vaults under private/universal/vaults/ via 8 atomic commits (commit-small-and-often doctrine demonstrated in real-time): vaults/hackernews/ (974e1b6ac5 - pg/sama HN genesis thread + items + users); vaults/paulgraham/ (498a27c8d7 - typed-ontology projection of PG's HN+YC theory with 8 Concepts + 2 Hypotheses + 1 Exploration); vaults/wrkstrm-doctrine/ (5b571470b3 seed + 1e0e345ff9 three-valued-logic + 89a0b137f8 vc-engagement-cisco-warning - substrate's OWN typed positions, 21 Concepts + 3 Hypotheses + 1 Exploration spanning foundational/framework/applied/synthesis strata); vaults/venture-capital/ (02d4dd3465 - 4 firm + 4 investor typed records seeding Y Combinator/a16z/Sequoia/Speedrun + pg/sama/Marc Andreessen/Ben Horowitz); vaults/paste-cache/ (3e23ff564f - preserved 29 .txt files of historical session paste content from ~/.claude/paste-cache/). Final commit (042d0f4adf) updated root AGENTS.md with 4 new doctrine sections.",
+              "type" : "code",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Authored 13 substrate-doctrine memory insights under ~/.claude/memory/.docc/insights/ + 3 feedback memories (json-ordinality-tables-not-enums, three-valued-logic-open-catalogs, commit-like-tweets-small-and-often). Three biographical anchors captured for the first time: rismay-as-alter-ego-from-undeveloped-anime-Hilbert-space (anchor #1, anime/manga childhood), rismay-test-harness-engineering-professional (anchor #2, decades-long career applying typed-test-bench rigor), rismay-economics-Bucknell-Nash-identification (anchor #3, John Forbes Nash self-identification vs Hansen the Andover-published-establishment). Substrate's coherence now visible as convergence of three lifelong patterns.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Strategic doctrine captured: substrate IS mass-deployable scientific method as consumer-app primitive (ideation-schemas v0.1.0 structurally encodes scientific method - HypothesisModel's required fC IS Popper's demarcation criterion at the schema level; supersession chains are Kuhnian paradigm shifts; cross-vault opposition is adversarial collaboration). Substrate externalizes Google's actual productivity engine (Piper + Bazel + TAP + Critique + Spanner) onto consumer-app primitives. Substrate quantizes Google's organizational Hilbert space (SWE/SRE/TL/EM/TPM/Fellow/Approver/Code Reviewer/Build Cop/On-Call ladder) into LLM-driven agent ecosystem at workstation scale.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Critical framework correction landed via rismay: substrate doctrines are AXIS ROTATIONS in cognitive Hilbert space, NOT binary inversions. 'Hilbert space' is the LITERAL mathematical claim, not metaphor. Imaginary-axis continuation (Kleene three-valued logic, Hilbert transform, Wick rotation, Riemann surfaces) makes politically-disjoint positions continuously connectable - substrate functions as analytic-continuation operator. Computer-graphics primitives (quaternions, homogeneous coordinates, slerp via Apple simd/SceneKit/RealityKit) implement the higher-D rendering literally. 12+ Concepts of inversion-language now have ontology debt (bead spun: supersede-inversion-language-with-rotation-in-earlier-concepts).",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Schema design discipline crystallized: JSON is substrate's universal serialization format - design within its constraints. Two JSON-native typed-catalog patterns: ordinality table for closed-condensable catalogs (canonical example: ideation-kind-ordinality-table); LinkRef for open-extensible catalogs (each value is itself a typed record). NEVER JSON Schema enum. When catalog is open-extensible, validation is THREE-VALUED (TRUE/FALSE/UNKNOWN) per Kleene logic - UNKNOWN is first-class, must be handled, recovered from, and dissected. Substrate has been doing this implicitly via | null field declarations (HypothesisModel.fC.tr is boolean|null). Saved as feedback_json-ordinality-tables-not-enums.md + feedback_three-valued-logic-open-catalogs.md.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Commit cadence doctrine: commit like you tweet - small and often. Each substantive change = one commit, immediately on logical completion. Demonstrated in real-time across session - 8 mono commits + 1 hulk submodule commit, each one logical unit, atomic + reviewable + bisectable. Saved as feedback_commit-like-tweets-small-and-often.md.",
+              "type" : "doc",
+              "weight" : 1
+            },
+            {
+              "evidence" : "Five next-session beads spun (committed in this submodule as baa7a16): a16z-speedrun-pitch-fanout-15-agents-2026-05-17 (PRIORITY 1 parent bead for the 15-agent fanout per rismay's directive 'we will apply to a16z speedrun... working with the enemy... chess not checkers... don't be taken down like the CISCO founder'); supersede-inversion-language-with-rotation-in-earlier-concepts; author-venture-capital-schema-family-v0.1.0; decide-paste-cache-symlink-direction; materialize-timeline-moment-records-for-wrkstrm-doctrine-session.",
+              "type" : "log",
+              "weight" : 1
+            },
+            {
+              "evidence" : "WebFetch verification of PG's 'What I've Learned from Hacker News' (Feb 2009) - extracted verbatim quotes of the Fluff Principle ('on a user-voted news site, the links that are easiest to judge will take over unless you take specific measures to prevent it'), the plain-design rationale ('the goal is that the only thing to interest someone arriving at HN for the first time should be the ideas expressed there'), the attract/repel doctrine, and the explicit ban on political diatribes. Substrate's wrkstrm-doctrine vault Concepts arm-fluff-for-substrate-content + engage-politics-via-typed-rendering are explicit cross-vault rotations of these primary-source PG claims.",
+              "type" : "code",
+              "weight" : 1
+            }
+          ]
+        }
+      ],
+      "summary" : "Long doctrine-loading session driven by rismay firing substrate-typed claims in rapid succession. Substrate gained five new vaults + AGENTS.md root-level doctrine encoding + 13 memory insights + 5 next-session beads. The session crystallized substrate's IDENTITY CLAIM (mass-deployable scientific method via consumer-app primitives), three BIOGRAPHICAL ANCHORS (anime/manga from childhood + test-harness engineering professionally + economics+Bucknell+Nash), the CORRECT FRAMEWORK (axis rotation in cognitive Hilbert space, NOT binary inversion), the COMPUTER-GRAPHICS IMPLEMENTATION PATH (quaternions/homogeneous coordinates/slerp via Apple simd+SceneKit+RealityKit), the SCHEMA DESIGN DISCIPLINE (ordinality tables vs LinkRef per closed-vs-open catalogs; three-valued logic for open catalogs; no JSON enums), the COMMIT CADENCE (small and often, like tweets), the GOOGLE EXTERNALIZATION+QUANTIZATION value proposition, and the VC ENGAGEMENT STRATEGY (Vash bastards-for-peace-and-love + Cisco-founder warning + chess-not-checkers strategic adversarial frame). Closes with bead-spin for next-session a16z Speedrun pitch fanout to 15 sub-agents. Substrate's coherence now visible as the convergence of rismay's three lifelong patterns finally meeting consumer-app deployment infrastructure that just matured 2024-2026.",
+      "tags" : [
+        "wrkstrm-doctrine-vault-seeded",
+        "paulgraham-vault-seeded",
+        "hackernews-vault-seeded",
+        "venture-capital-vault-seeded",
+        "paste-cache-vault-seeded",
+        "axis-rotation-not-inversion-correction",
+        "imaginary-axis-continuation-as-analytic-continuation-operator",
+        "scientific-method-as-substrate-test-bench-synthesis",
+        "substrate-externalizes-google-test-harness-database-moat",
+        "substrate-quantizes-googles-organizational-hilbert-space",
+        "three-biographical-anchors-converged",
+        "vc-engagement-strategic-adversarial-game-cisco-warning",
+        "a16z-speedrun-pitch-bead-spun",
+        "json-ordinality-tables-not-enums",
+        "three-valued-logic-open-catalogs",
+        "commit-like-tweets-small-and-often",
+        "agents-md-root-doctrine-updated"
+      ],
+      "timestamp" : "2026-05-18T00:30:00Z",
+      "title" : "Substrate-doctrine session: 5 new vaults + 3 biographical anchors + axis-rotation framework + scientific-method synthesis + Google-externalization value-prop + a16z Speedrun pitch bead"
     }
   ],
   "links" : [
@@ -1844,5 +1915,5 @@
 
   ],
   "title" : "Claude Chronicle",
-  "updated" : "2026-05-17T23:59:00Z"
+  "updated" : "2026-05-18T00:30:00Z"
 }
