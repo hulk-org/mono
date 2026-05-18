@@ -1,9 +1,0 @@
-A crash report for the source-control application (version 0.1.0) on macOS 26.5 is provided. The crash occurred due to an abort trap (SIGABRT) in the PhysicsKit framework, specifically during a collision detection process. The report includes details about the application, system, and the thread where the crash occurred.
-
-A crash report for the “source-control” application on macOS 26.5 (25F5053d) is provided. The crash occurred due to an “Abort trap: 6” signal in the libdispatch.dylib library. The report includes details about the application, system, and the crashing thread.
-
-A crash report is provided, detailing the thread state and stack trace leading up to the crash. The crash occurred during a call to `b2CollideEdgeAndCircle` in the `b2World::Step` function. The report includes information about the symbols and locations involved in the crash.
-
-A crash report is provided, detailing the crash of the “source-control” application. The report includes thread states, frames, and used images, with a focus on the main thread and the AGXMetalG13X.bundle. The crash occurred due to a signal 11 (SIGSEGV) at address 0x0000000000000000.
-
-The provided text is a JSON object containing information about a system dump, including details about shared libraries, virtual memory, and system configuration. It lists various frameworks and libraries with their sizes, UUIDs, and other metadata. The JSON object also includes information about the system’s hardware, such as the processor, graphics, memory, and network interfaces.
