@@ -16,7 +16,7 @@
               "weight" : 1
             },
             {
-              "evidence" : "Surfaced and recovered from a JSON-edit anchor failure during winddown — first chronicle Edit landed in `notes` array because multiple top-level arrays share closing-bracket shape; recovered via two-edit shift (insert into `entries`, remove from `notes`). Lesson preserved as 7th detail bullet on the clia entry.",
+              "evidence" : "Surfaced and recovered from a JSON-edit anchor failure during winddown \u2014 first chronicle Edit landed in `notes` array because multiple top-level arrays share closing-bracket shape; recovered via two-edit shift (insert into `entries`, remove from `notes`). Lesson preserved as 7th detail bullet on the clia entry.",
               "type" : "log",
               "weight" : 1
             }
@@ -62,7 +62,7 @@
       "title" : "Winddown - hosting clia-sprite modularization (carrier view)"
     }
   ],
-  "schemaVersion" : "0.1.0",
+  "schemaVersion" : "0.3.0",
   "slug" : "hulk",
   "sourcePath" : "private/universal/substrate/harnesses/hulk/private/universal/identity/hulk@rismay.substrate.chronicle.json",
   "status" : "active",
