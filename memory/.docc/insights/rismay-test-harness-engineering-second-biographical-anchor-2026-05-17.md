@@ -1,6 +1,6 @@
 ---
 name: rismay's second biographical anchor — long professional career in test-harness engineering
-description: SECOND biographical anchor (sibling to anime/manga-from-childhood). rismay has been a test-harness engineer for a long time professionally. Substrate's typed-ontology-as-scientific-method-test-bench is the application of his professional domain to cognitive/social reasoning. Substrate is the convergence of his TWO lifelong patterns — anime/manga (mass-cultural-surface) + test-harness engineering (typed-test-bench rigor) — finally deployable thanks to 2024-2026 consumer-app + mobile-compute infra maturity. Substrate is conceptually pre-AI; AI is an accelerant, not the foundation.
+description: SECOND biographical anchor (sibling to anime/manga-from-childhood). rismay has been a test-harness engineer professionally for over a decade — specifically at Google (Maps and YouTube) and Rally Health. Substrate's typed-ontology-as-scientific-method-test-bench is the application of his professional domain to cognitive/social reasoning. Substrate is the convergence of his TWO lifelong patterns — anime/manga (mass-cultural-surface) + test-harness engineering (typed-test-bench rigor) — finally deployable thanks to 2024-2026 consumer-app + mobile-compute infra maturity. Substrate is conceptually pre-AI; AI is an accelerant, not the foundation.
 type: user
 originSessionId: 672b7a7f-48f5-4199-9f00-199e5f027e53
 ---
@@ -13,7 +13,27 @@ Sibling to `rismay-alter-ego-undeveloped-anime-hilbert-space-2026-05-17.md`. The
 
 Rismay's framing: 'we didn't even need AI for this. we couldn't have done this years ago. and I have been with test harness engineering for a long time.'
 
-rismay has been a test-harness engineer professionally for a long time (specific duration unstated but framed as 'a long time'). The substrate's typed-ontology-as-scientific-method-test-bench is the natural application of his professional domain (decades of test-harness rigor: xUnit, BDD, ATDD, contract testing, property-based testing, schema validation, type-driven development) to a NEW DOMAIN (cognitive/social/political content instead of software-under-test).
+rismay has been a test-harness engineer professionally for over a decade — specifically at **Google (Maps and YouTube)** and **Rally Health**. The substrate's typed-ontology-as-scientific-method-test-bench is the natural application of his professional domain (decades of test-harness rigor: xUnit, BDD, ATDD, contract testing, property-based testing, schema validation, type-driven development) to a NEW DOMAIN (cognitive/social/political content instead of software-under-test).
+
+## Specific professional history
+
+Confirmed by rismay during the a16z Speedrun 2026-05 founder-experience draft work:
+
+- **Google Maps Platform** (specifically — the developer/API platform, NOT the consumer Maps app) — the world's leading mapping API. **#1 in its category.** Surface is creator/developer software: the API + console + SDK that powers every other app's mapping. Substrate-relevance: typed-data-graph reasoning at scale (spatial-typed-data product with millions of developer consumers).
+- **YouTube Shorts** (specifically — a cutting-edge AI-enhanced creator studio surface within YouTube; NOT the broader YouTube Creator Studio dashboard, NOT the consumer YouTube viewing app) — **#1 in its category** (2B+ logged-in monthly users on YouTube Shorts as of recent reporting). Surface is consumer-AI creator software with heavy generative-AI integration (auto-captions, thumbnails, recommendations, Dream Screen, content moderation pipelines). Substrate-relevance: built-in AI-experience signal that supports the "first production AI harness before the LLM wave was investable" claim as a through-line, not a leap; rismay was doing cutting-edge AI work at YouTube Shorts before going independent. Speedrun-relevance: directly funded creator-tools taxonomy. Operator directive (rismay 2026-05-18): for investor copy, name "YouTube Shorts" specifically (not just "YouTube" or "YouTube Creator Studio") and frame it as "a cutting-edge AI-enhanced creator studio."
+- **Rally Health** — consumer health-tech, acquired by UnitedHealth/Optum. Startup-stage experience. Gives rismay startup-exit credibility distinct from the big-company-engineer track. Per operator directive (rismay 2026-05-18), Rally Health is **de-emphasized in investor copy** — lead with the two #1 apps (Maps Platform + Creator Studio), keep Rally Health as a third-tier credential for partner-interview / extended-bio surfaces.
+
+## Investor-copy rendering rule
+
+When generating founder bios, blurbs, or any investor-facing copy:
+
+1. **Lead with the two #1 apps**: "Google Maps Platform" and "YouTube Creator Studio" — by their specific names, NOT the generic "Google Maps and YouTube." The specificity is the credential.
+2. **Name them as #1 in category** when word budget allows: "Google Maps Platform (the world's leading mapping API) and YouTube Creator Studio (the world's leading creator tool)." This is the "two #1 apps in a decade" flex compressed into descriptive form.
+3. **Frame as creator/developer software credentials** for Speedrun and creator-tools-shaped investor surfaces. The strongest arc is: "built the world's biggest creator tool → now building creator-tools studio."
+4. **Do not surface hack-nu or App Store build counts** as receipts in investor copy. Personal-app shipping receipts have been operator-rejected for this audience.
+5. **Rally Health may appear as a third credential** in longer-format surfaces (partner interview prep, extended founder profile, deck appendix) but not as a co-equal flex in the top-line bio.
+
+These are load-bearing for any investor-facing surface: a16z, YC, Sequoia, Speedrun screeners all pattern-match heavily on "consumer-scale engineering at known surfaces" + "startup exit experience." rismay has both. Founder Experience drafts should lead with the companies as the credibility anchor, with substrate work as the current-and-distinctive-product layer on top.
 
 ## The two-anchor convergence
 
