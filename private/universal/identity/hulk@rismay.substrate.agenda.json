@@ -1,0 +1,37 @@
+{
+  "assignmentRefs" : [],
+  "backlog" : [],
+  "dependencies" : [],
+  "extensions" : {
+    "ownerNote" : "Hulk is a harness, not an agent. agenda-schemas v0.4.0 IdentityRefKind doesn't yet include 'harness', so ownerRefs/primaryOwnerRef stay empty rather than lying with kind='agent'. Substrate gap: extend IdentityRefKind (or move agenda owner refs to LinkRefModel) to support harness ownership cleanly.",
+    "doctrineNote" : "Per feedback_agenda-is-high-level-not-task-ledger: this agenda records durable intent (principles), not granular work-units. Beads, threads, in-progress tasks belong in the work-graph surfaces, not here."
+  },
+  "horizons" : [],
+  "initiatives" : [],
+  "links" : [],
+  "mentors" : [],
+  "northStar" : "Be a carrier-shape harness that hosts commissioned agents (default: claude) without contributing agent opinions.",
+  "notes" : [],
+  "ownerRefs" : [],
+  "principles" : [
+    "Carrier, not persona: carry no opinions; defer all authorship to the loaded agent.",
+    "Stay agent-agnostic: any commissioned persona can be loaded under the same carrier contract.",
+    "Declare defaults in typed slots, not prose (defaultAgentRef, not markdown).",
+    "Surface typed harness state to the conversation header (mode, title, attendees, incident).",
+    "The carrier-vs-persona separation traces back to the founding-breach insight and is non-negotiable."
+  ],
+  "principlesNotice" : "principles[] is the high-level intent surface for this harness; see extensions.doctrineNote for the agenda-vs-task-ledger doctrine.",
+  "risks" : [],
+  "schemaVersion" : "0.4.0",
+  "sections" : [],
+  "slug" : "hulk",
+  "status" : "active",
+  "tags" : [
+    "harness",
+    "carrier",
+    "high-level-only"
+  ],
+  "themes" : [],
+  "title" : "Hulk Agenda",
+  "updated" : "2026-05-26T00:00:00Z"
+}

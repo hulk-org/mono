@@ -1,12 +1,27 @@
 {
-  "IdentityModel" : "0.5.0",
+  "IdentityModel" : "0.6.0",
   "agendaRefs" : [
     {
-      "kind" : "agenda",
-      "slug" : "hulk"
+      "LinkRefModel" : "0.3.0",
+      "s" : ["agenda", "hulk"],
+      "tg" : [
+        { "k" : "rp", "v" : "" }
+      ]
     }
   ],
   "agentRefs" : [],
+  "defaultAgentRef" : {
+    "LinkRefModel" : "0.3.0",
+    "t" : "Claude agent persona",
+    "s" : ["agent", "claude"],
+    "tg" : [
+      {
+        "k" : "rp",
+        "v" : "agents/claude/private/universal/identity/claude@rismay.substrate.identity.json",
+        "rt" : "private/universal/substrate"
+      }
+    ]
+  },
   "contributionMix" : {
     "primary" : [
       {
@@ -40,7 +55,7 @@
   "operationModes" : [
     "local"
   ],
-  "purpose" : "Hulk is the harness host that loads commissioned agents (default: claude) inside the rismay substrate workspace. It provides the runtime shell \u2014 sandboxing, tool wiring, and conversation header rendering \u2014 without contributing agent opinions of its own.",
+  "purpose" : "Hulk is the harness host that loads commissioned agents inside the rismay substrate workspace. It provides the runtime shell \u2014 sandboxing, tool wiring, and conversation header rendering \u2014 without contributing agent opinions of its own. The default agent persona is declared in the typed `defaultAgentRef` slot.",
   "responsibilities" : [
     "Host the active agent roster within the substrate workspace.",
     "Surface harness-level metadata (mode, title, attendees, incident state) to the conversation header."
@@ -53,7 +68,7 @@
       "swiftProduct" : "CoreEntity_Set_v001_000_000"
     }
   ],
-  "schemaVersion" : "0.5.0",
+  "schemaVersion" : "0.6.0",
   "slug" : "hulk",
   "sourcePath" : "private/universal/substrate/harnesses/hulk/private/universal/identity/hulk@rismay.substrate.identity.json",
   "status" : "active",
