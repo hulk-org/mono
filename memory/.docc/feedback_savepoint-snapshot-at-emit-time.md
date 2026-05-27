@@ -114,16 +114,16 @@ Target paths (canonical as of 2026-05-26 migration commits):
 
 | Component | Old path | New path |
 |---|---|---|
-| Agent-side emitter CLI | `clia-org/private/universal/domain/tooling/spm/savepoint-emit/` | `kura-org/private/universal/tools/savepoint@kura-org.cli/` |
-| Sleeping daemon | `clia-org/private/universal/domain/tooling/spm/savepointd/` | `kura-org/private/universal/tools/savepoint@kura-org.sd/` |
+| Agent-side emitter CLI | `clia-org/private/universal/domain/tooling/spm/savepoint-emit/` | `kura-org/private/universal/tools/savepoint.cli/` |
+| Sleeping daemon | `clia-org/private/universal/domain/tooling/spm/savepointd/` | `kura-org/private/universal/tools/savepoint.sd/` |
 | Commit-request schema | `schema-universal/.../schema-families/commit-request-schemas/` | unchanged (stays in schema-universal) |
 | Digikoma worker | `digikoma-org/private/universal/domain/core/digikoma-savepoint/` | unchanged (stays in digikoma-org; only agent-side CLI + daemon moved) |
 
 Note: kura-org's tooling layout is `private/universal/tools/<name>/`, NOT `private/universal/domain/tooling/spm/<name>/` (clia-org's layout). Each owner home picks its own internal tools convention. Same package gets a shorter relative-path dependency chain in kura-org (5 ups vs 7 ups) because of the shallower depth.
 
-Both savepoint packages share the slug `savepoint`; the form-factor (`.cli` vs `.sd`) disambiguates. **No `d` suffix on the slug** — the `.sd` form-factor already carries the sleeping-daemon semantic per [[feedback_sd-sleeping-daemon-form-factor]] (operator-corrected 2026-05-26: "savepoint should be moved too... savepoint@kura-org.sd"). The Unix-convention `<slug>d` binary name (`savepointd` executable target) can still ship inside the package for downstream-script familiarity, but the PACKAGE name is just `savepoint@kura-org.sd`.
+Both savepoint packages share the slug `savepoint`; the form-factor (`.cli` vs `.sd`) disambiguates. **No `d` suffix on the slug** — the `.sd` form-factor already carries the sleeping-daemon semantic per [[feedback_sd-sleeping-daemon-form-factor]] (operator-corrected 2026-05-26: "savepoint should be moved too... savepoint.sd"). The Unix-convention `<slug>d` binary name (`savepointd` executable target) can still ship inside the package for downstream-script familiarity, but the PACKAGE name is just `savepoint.sd`.
 
-The `<slug>@<org>.<form-factor>` naming makes ownership + shape legible at glance (no need to follow imports): `savepoint@kura-org.cli` reads as "savepoint, owned by kura-org, in CLI shape" and `savepoint@kura-org.sd` as "savepoint, owned by kura-org, in sleeping-daemon shape." Same discipline as [[feedback_org-prefix-on-module-names]].
+The `<slug>@<org>.<form-factor>` naming makes ownership + shape legible at glance (no need to follow imports): `savepoint.cli` reads as "savepoint, owned by kura-org, in CLI shape" and `savepoint.sd` as "savepoint, owned by kura-org, in sleeping-daemon shape." Same discipline as [[feedback_org-prefix-on-module-names]].
 
 The OLD `clia-org/.../savepoint-cli/` + `clia-org/.../savepointd/` are RETIRED — edits there will get silently wiped by background substrate-restructure passes (same hazard as the `harness@clia-org.cli` migration). Author new code only at the kura-org paths.
 

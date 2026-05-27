@@ -26,29 +26,29 @@ OPTIONS:
 
 ## Root cause
 
-The `savepoint@kura-org.sd` package builds TWO executable targets:
+The `savepoint.sd` package builds TWO executable targets:
 
 - `savepointd` (legacy) — interface: `savepointd --process-intent <path> [--worker-path <path>]`
 - `savepoint.sd` (new) — interface: `savepoint.sd [--working-tree <path>] [--lane <commit|push>] [--commit-worker <path>]`
 
 The legacy daemon's contract is "process this one intent file"; the new daemon's contract is "drain the queue at this working-tree, sleep briefly for late arrivals, exit."
 
-`savepoint-cli emit` (the agent-side CLI in `savepoint@kura-org.cli`) currently only knows the LEGACY contract — it writes a CommitRequestModel to a staging path and invokes the daemon with `--process-intent <staging-path>`. Pointing the symlink at `savepoint.sd` makes `savepoint-cli emit` fail because `--process-intent` isn't recognized.
+`savepoint-cli emit` (the agent-side CLI in `savepoint.cli`) currently only knows the LEGACY contract — it writes a CommitRequestModel to a staging path and invokes the daemon with `--process-intent <staging-path>`. Pointing the symlink at `savepoint.sd` makes `savepoint-cli emit` fail because `--process-intent` isn't recognized.
 
 ## Workaround applied (2026-05-26)
 
 ```bash
-ln -sf '/Users/sonoma/mono/private/universal/substrate/collectives/kura-org/private/universal/tools/savepoint@kura-org.sd/.build/release/savepointd' \
+ln -sf '/Users/sonoma/mono/private/universal/substrate/collectives/kura-org/private/universal/tools/savepoint.sd/.build/release/savepointd' \
        ~/.local/bin/savepointd
 ```
 
-The legacy `savepointd` binary lives in the new home (`savepoint@kura-org.sd/.build/release/savepointd`); pointing the install symlink at it keeps the CLI working while the substrate completes the source-side migration.
+The legacy `savepointd` binary lives in the new home (`savepoint.sd/.build/release/savepointd`); pointing the install symlink at it keeps the CLI working while the substrate completes the source-side migration.
 
 `savepoint.cli` (the new agent-side CLI binary) is also at the new home and matches the OLD savepointd's interface (verified: `savepoint-cli emit` calls landed three commits successfully — `clia-org@2efa00c3`, `kura-org@9864d7c`, `mono@321633439c`).
 
 ## Real fix
 
-Update `savepoint@kura-org.cli/Sources/SavepointEmitterCore/SavepointEmitter.swift` (and `PushEmitter.swift`) to invoke `savepoint.sd` with the new `--lane <commit|push>` interface:
+Update `savepoint.cli/Sources/SavepointEmitterCore/SavepointEmitter.swift` (and `PushEmitter.swift`) to invoke `savepoint.sd` with the new `--lane <commit|push>` interface:
 
 ```swift
 // Replace:
@@ -67,7 +67,7 @@ Order of operations for the real fix:
 4. Update the default `--savepointd` arg in savepoint-cli to point at `savepoint.sd` instead of `savepointd`
 5. Rebuild + re-link symlinks: `~/.local/bin/savepointd → savepoint.sd`
 6. Smoke-test: `savepoint-cli emit --dry-run` should succeed
-7. Then: remove the legacy `savepointd` executable target from `savepoint@kura-org.sd/Package.swift` (keep only `savepoint.sd`)
+7. Then: remove the legacy `savepointd` executable target from `savepoint.sd/Package.swift` (keep only `savepoint.sd`)
 8. Then: update the savepoint skill to call `savepoint.sd` not `savepointd` (or keep `savepointd` as the install symlink name pointing at `savepoint.sd` for Unix-convention familiarity)
 
 ## How to apply
@@ -86,7 +86,7 @@ Surfaced 2026-05-26 by an agent attempting to use the new `savepoint.sd` binary 
 - [[feedback_savepoint-snapshot-at-emit-time]] — the kura-org migration this issue surfaced under
 - [[feedback_sd-sleeping-daemon-form-factor]] — defines the `.sd` form-factor; the new lane interface is part of what makes a daemon truly sleeping (queue-driven vs intent-driven)
 - [[feedback_harness-canonical-home-clia-org]] — precedent for "old paths retired, new paths canonical, dependents migrate in waves"
-- savepoint-cli source: `kura-org/private/universal/tools/savepoint@kura-org.cli/Sources/SavepointEmitterCore/`
-- savepoint.sd source: `kura-org/private/universal/tools/savepoint@kura-org.sd/Sources/savepoint-sd/Main.swift`
-- savepointd legacy source: `kura-org/private/universal/tools/savepoint@kura-org.sd/Sources/savepointd/Main.swift`
+- savepoint-cli source: `kura-org/private/universal/tools/savepoint.cli/Sources/SavepointEmitterCore/`
+- savepoint.sd source: `kura-org/private/universal/tools/savepoint.sd/Sources/savepoint-sd/Main.swift`
+- savepointd legacy source: `kura-org/private/universal/tools/savepoint.sd/Sources/savepointd/Main.swift`
 - Migration commits: clia-org `2efa00c3`, kura-org `9864d7c`, mono root `321633439c`
