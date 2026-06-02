@@ -27,7 +27,7 @@
           "tg" : [
             {
               "k" : "rp",
-              "v" : "private/universal/kura/collections/s-types/code.s-type.json"
+              "v" : "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/roles/s-type-contributions/code.s-type.json"
             }
           ]
         },
@@ -41,7 +41,7 @@
           "tg" : [
             {
               "k" : "rp",
-              "v" : "private/universal/kura/collections/s-types/ops.s-type.json"
+              "v" : "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/roles/s-type-contributions/ops.s-type.json"
             }
           ]
         },

@@ -23,10 +23,17 @@ If the persona's distinctive content is *what to do* rather than *who to be*, it
 - Reverse-the-promotion is a real substrate operation. Preserve every byte (SHAs in a DEFRAG_AUDIT receipt), route content into typed v0.5+ fields, and leave HARVEST_AUDIT files intact alongside DEFRAG_AUDIT files so the decision history remains auditable.
 - **Cohort lesson**: substrate promotions often happen in batches because harvest tools sweep at once. One wrong heuristic produces N wrong decisions in one commit. When reversing one, check the cohort it came from.
 
-**Live cohort status (2026-05-23):**
-- clip → `roles/operator-onboarding-steward/` ✓ (this session)
-- pollux → `collectives/google/private/universal/assignments/design-system-steward-castor/` ✓ (this session)
-- dott → already absorbed in prior pass (commit `33dc10622f`) ✓
-- mono → still unbound at `--→1.0 ?` in roster, MAY need similar review
+**Live cohort status (updated 2026-05-26):**
+- clip → `roles/operator-onboarding-steward/` ✓ (reversed)
+- pollux → `collectives/google/private/universal/assignments/design-system-steward-castor/` ✓ (reversed)
+- dott → already absorbed in prior pass (commit `33dc10622f`) ✓ (reversed)
+- mono → **KEPT AS AGENT** ✓ (review concluded 2026-05-26: schema 1.0 bound, 7.8M footprint, 🎯·⚖️·💻 orchestrator/governance/code-judgment emoji roles read as durable "who-I-am" character, not "what-I-do-for-anyone" behavior contract; operator confirmed "mono should still be there" during the eliza/spark sweep)
+
+**Second harvest-correction cohort (agents-have-forms doctrine, 2026-05-25/26):**
+- codex → chatgpt's `codex` form ✓ (reversed)
+- eliza → chatgpt's `eliza` form ✓ (reversed 2026-05-26)
+- spark → chatgpt's `spark` form ✓ (reversed 2026-05-26)
+
+These three were the standalone-overpromotion cohort that needed form-shape, NOT role-shape. Different correction than clip/pollux/dott (those needed `roles/<slug>/`; codex/eliza/spark needed `agents/chatgpt/forms/<slug>/`). Both cohorts share the same root pattern (harvest heuristic over-promoted coherent named bundles to agents) but the corrective destination differs: ROLE for behavior contracts, FORM for capacity bindings of an existing agent.
 
 **Second worked example (separate cohort, same correction):** codex → chatgpt agent merge, 2026-05-23. Codex was the harness all along but was double-promoted as `agents/codex/` AND `harnesses/codex/`. The agent half had the same shape as the clip/pollux mistake: persona, contributionMix, roles, focusDomains — all looked agent-like, but the *identity content* was describing the Codex CLI carrier's behavior contract, not a durable named character. The substrate already declared the correction on paper (`chatgpt/AGENTS.historical-codex.md`) before this session; what was missing was the filesystem cleanup. Migrated 9 open beads + 11 winddown journals + 12 shinji-techo entries + 2 expertise notes into chatgpt; archived 304K typed identity bundle under `chatgpt/historical/codex/`; removed `agents/codex` submodule. Commits eb7be3dfe5 + 8ee727dada. **Cohort lesson reinforced**: this is now a multi-batch pattern across two distinct harvests (2026-03-16 produced clip/pollux/dott/mono; an earlier pass produced agent-vs-harness codex confusion). Whenever you find ONE over-promotion, check both (a) the cohort it came from AND (b) whether there's an even earlier batch with the same mistake shape.
