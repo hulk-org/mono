@@ -1,0 +1,20 @@
+{
+  "id": "author-agent-capability-catalog-typed-shape",
+  "title": "Author AgentCapabilityCatalog typed shape — per-agent ability roster",
+  "description": "Gap from [[agent-abilities-pokemon-mechanics-with-topology-2026-05-26]]. Substrate needs a typed AgentCapabilityCatalog that enumerates which abilities a given agent CAN acquire (capability catalog) vs which it CURRENTLY HAS acquired (active roster). Likely shape: `{ agentSlug, catalogVersion, starterAbilities: [LinkRefModel], acquirableAbilities: [LinkRefModel], currentlyAcquired: [LinkRefModel], classification: { hmEquivalents: [...], tmEquivalents: [...], specialty: [...] } }`. Per the topology-not-hard-cap doctrine, NO budget field — counts are descriptive, not prescriptive. Location: schema-universal under domain/ai/schema-families/ (probably). Audit existing capability-adjacent shapes first per [[audit-schema-universal-before-authoring-new-types]] — substrate has WorkflowRoleFrontierCapability and baseline-capability-schemas; neither matches this shape exactly. Tests at Tier 3.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- LinkRefModel (link-ref-schemas v0.3.0) — every ability reference uses LinkRef wire format\n- (no direct cost-type composition — capability catalog is metadata, not cost-bearing)",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "agent-abilities-pokemon-topology",
+    "schema-universal",
+    "new-typed-shape",
+    "capability-catalog"
+  ],
+  "createdAt": "2026-05-26T11:18:52Z",
+  "relatedChronicleEntry": "2026-05-26T11:18:52Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/agent-abilities-pokemon-mechanics-with-topology-2026-05-26.md",
+  "schemaVersion": "0.1.0"
+}

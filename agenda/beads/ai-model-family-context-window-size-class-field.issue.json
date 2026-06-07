@@ -1,0 +1,20 @@
+{
+  "id" : "ai-model-family-context-window-size-class-field",
+  "title" : "Add contextWindowSizeClass typed-enum field to AIModelFamily entry",
+  "description" : "Substrate's lens-app and form-design economics depend on context window size (8K vs 128K vs 1M behaves very differently). Add `contextWindowSizeClass: AIModelFamilyContextWindowSizeClass` field on the Entry struct. Proposed enum cases (FROZEN once first-shipped): `small` (≤8K), `medium` (8K-32K), `large` (32K-128K), `xlarge` (128K-512K), `xxlarge` (512K-2M), `million-plus` (≥2M). Populate per-family: Apple Foundation ~`medium`; Claude 3.5 Sonnet `xlarge` (200K); Gemini 1.5/2.0 `million-plus` (1M+); GPT-5 `xlarge` (128K); Llama 4 `xlarge` (128K-1M depending on variant); Mistral `large`; Phi `medium`; DeepSeek `large`. Add the new typed enum file `AIModelFamilyContextCapability.swift` next to `AIModelFamilyCapabilities.swift`. Update doctrine tests. Table currently in state 1 (pre-shipped) so adding the field is safe — but the new enum's case ordinals freeze at first commit.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "ai-model-family-dna",
+    "schema-universal",
+    "new-field",
+    "ai-model-catalog-schemas"
+  ],
+  "createdAt" : "2026-05-26T09:36:59Z",
+  "relatedChronicleEntry" : "2026-05-26T09:36:59Z",
+  "sourceType" : "operator-intake",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/ai/schema-families/ai-model-catalog-schemas/v0.1.0/spm/ai-model-catalog-schemas-v000-001-000/sources/AIModelFamilyOrdinalityTable.swift",
+  "schemaVersion" : "0.1.0"
+}

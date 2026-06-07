@@ -1,0 +1,36 @@
+{
+  "id" : "fork-typelift-algebraic-typeclasses",
+  "title" : "Fork typelift Algebra → substrate-owned algebraic-typeclass primitives",
+  "description" : "Phase C.3 (PRIORITY 3) of typelift-substrate-modernization. typelift's Algebra and Abstract packages, plus the broomburgo/swift-abstract successor line, form the algebraic-law lineage substrate now needs to bring into 2026. Substrate's `[[substrate-refinement-primitive-vocabulary]]` (NonEmpty, Bounded, NonZero, Trimmed, Slug, AbsolutePath, RelativePath, Sorted, Unique, etc.) traces philosophically to this lineage — refinement types are algebraic invariants over base types. The runtime JSON expectation layer also needs this lineage: issue accumulation behaves like a monoid, severity joins behave like bounded semilattices, and unknown/known/invalid reference states behave like evidence lattices. Fork scope: audit Algebra, Abstract, and swift-abstract API surfaces; identify which typeclasses substrate genuinely needs that aren't subsumed by Swift stdlib; fork or freshly reimplement the missing pieces — likely Semigroup, Monoid, bounded semilattice, lawful evidence lattices, and law-checking helpers. Land at `private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/<slug>/`. Modernization per the TypeLift 2026 fork standard. Possible name: `wrkstrm-algebra` or `swift-algebra-primitives`. Do not copy code from unlicensed sources; use them as design references until license provenance is explicit.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "typelift-modernization",
+    "phase-c",
+    "fork",
+    "algebraic-typeclasses",
+    "refinement-primitives",
+    "wrkstrm-core"
+  ],
+  "createdAt" : "2026-05-26T10:21:34Z",
+  "relatedChronicleEntry" : "2026-05-26T10:21:34Z",
+  "sourceType" : "thread-beat",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "phase-c-algebra-fork",
+  "dependencies" : [
+    {
+      "issueId" : "fork-typelift-algebraic-typeclasses",
+      "dependsOnId" : "typelift-2026-fork-standard",
+      "type" : "blocks-until-complete"
+    },
+    {
+      "issueId" : "fork-typelift-algebraic-typeclasses",
+      "dependsOnId" : "typelift-per-package-substrate-audit",
+      "type" : "blocks-until-complete"
+    }
+  ],
+  "sourceLocation" : "private/universal/substrate/maintainers/typelift/public/universal/tooling/spm/Algebra/",
+  "schemaVersion" : "0.1.0"
+}

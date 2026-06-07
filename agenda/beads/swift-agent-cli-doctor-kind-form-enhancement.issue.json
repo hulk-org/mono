@@ -1,0 +1,15 @@
+{
+  "id": "swift-agent-cli-doctor-kind-form-enhancement",
+  "title": "Add --kind form to swift-agent-cli doctor for clarity + slug-collision disambiguation",
+  "description": "swift-agent-cli doctor's --kind options today are: agent|identity|organism|agenda|chronicle|agency. NO form kind. Forms (agent personas nested inside host agents' forms/ dirs) currently route through the default agent kind and pass cleanly, because forms share the agent identity shape.\n\nHowever, when a form's slug collides with another organism kind's slug (concrete case: spark form in chatgpt/forms/spark/ AND spark in models/codex-spark/ AND models/openai-gpt-5-3-codex-spark/), `doctor --slug spark` finds 3 candidate files and reports errors from the unrelated models even though the form itself passes. Adding --kind form would let callers disambiguate: `doctor --slug spark --kind form` would only consider form candidates, ignoring the model collisions.\n\nProposed change: extend the --kind enum to include `form`, with semantics 'find identity.json files under <agent>/forms/<slug>/...'. Default --kind agent stays the same (current behavior). The validator routes through the same agent-shape decoder since forms have the same schema shape.\n\nLocation: swift-agent-cli's doctor subcommand source under clia-org/private/universal/domain/tooling/spm/swift-agent-cli (or wherever DoctorCommand lives in the CLI source tree).\n\nNot a blocker: forms work today via default routing. This is an ergonomics + disambiguation enhancement.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": ["swift-agent-cli", "doctor", "forms", "ergonomics", "slug-disambiguation"],
+  "createdAt": "2026-05-26T11:00:00Z",
+  "relatedChronicleEntry": "2026-05-26T11:00:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/universal/domain/tooling/spm/swift-agent-cli",
+  "schemaVersion": "0.1.0"
+}

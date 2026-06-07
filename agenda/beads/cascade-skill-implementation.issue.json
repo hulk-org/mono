@@ -1,0 +1,15 @@
+{
+  "id": "cascade-skill-implementation",
+  "title": "Author /cascade skill at substrate/skills/cascade/ that chains cascade-task-creation + cascade-execution workflows",
+  "description": "Two typed workflows landed 2026-05-31 at private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/: (1) cascade-task-creation.workflow.json (diagnostic, produces typed cascade-task artifact); (2) cascade-execution.workflow.json (consumes cascade-task, walks per-submodule commits + mono-root umbrella + verification + report). The /cascade skill would chain these back-to-back: operator types /cascade, skill invokes cascade-task-creation (8 stages: trigger-detection → handoff), awaits operator-approval at stage 7, persists the cascade-task, then invokes cascade-execution (5 stages: validate → per-submodule-loop → mono-root → verification → report). Skill home: substrate/skills/cascade/SKILL.md (community-shared per share-by-default doctrine). Critical surfaces: (a) SKILL.md registration with pointers to both workflows; (b) maybe a thin Swift CLI wrapper at swift-universal/.../cascade-cli that orchestrates the workflows by reading the workflow.json's x-stages and walking each gate; (c) operator-facing prompts at stages requiring confirmation (stage 4 session-scope filter; stage 7 final approval; mid-walk rollback). Reuses existing typed primitives: harness header for session-start snapshot (if /sync captured one); agent-timeline-cli for chronicle write at execution receipt. Estimated 4-6 hours including SKILL.md + CLI wrapper + integration tests against a synthetic cascade-task. Originally surfaced 2026-05-31 in conversation: operator asked 'where is your dream command?' and authoring agent named /cascade as the dream. Two workflows authored in same session; skill implementation deferred to keep session bounded.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["skill-implementation", "cascade", "workflow-orchestration", "share-by-default", "dream-command"],
+  "createdAt": "2026-05-31T04:00:00Z",
+  "relatedChronicleEntry": "2026-05-31T04:00:00Z",
+  "sourceType": "operator-surfaced-pattern",
+  "sourceLocation": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/cascade-task-creation/v0.1.0/cascade-task-creation.workflow.json",
+  "schemaVersion": "0.1.0"
+}

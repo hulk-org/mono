@@ -1,0 +1,17 @@
+{
+  "id": "determine-clide-session-schema",
+  "title": "Determine clide's session schema (WIP per operator)",
+  "description": "When mapping session schemas to harnesses, operator marked clide as \"sort of undetermined at the moment. work in progress.\" Decide whether clide gets a dedicated clide-session-schemas family (its own conversation/daemon contract) or whether it composes inference-session-schemas / conversation-protocol-schemas without authoring a clide-specific family. Clide is the CLIA-native daemon harness (runtimeKinds: daemon + service + cli per its organism); the session shape may need to capture daemon lifecycle moments (start/stop/reload) that aren't in conversation-shaped families. Surface the decision to operator before authoring.",
+  "assignee": "claude",
+  "issueType": "decision",
+  "status": "open",
+  "priority": 3,
+  "labels": ["harness-audit", "schema-family", "clide", "session-schema", "decision-pending"],
+  "createdAt": "2026-05-13T18:16:53Z",
+  "relatedChronicleEntry": "2026-05-13T18:16:53Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/harnesses/clide/",
+  "investigation": "private/universal/substrate/harnesses/clide/memory/.docc/investigations/2026-05-14-session-schema-investigation.md",
+  "investigationSummary": "Four options surveyed (A: no schema with notes block; B: author clide-daemon-schemas v0.1.0 referenced via sessionSchemaRefs; C: reuse koma-deployment-schemas via deploymentSchemaRefs; D: hybrid requiring v0.3.0 bump). Recommendation: Option B with family slug clide-daemon-schemas — clide's actual artifact is a daemon lifecycle (pid + IPC commands per clide-v2 CLIDEBoot vocabulary), not a conversation. Awaiting operator pick of (1) option, (2) family slug if B, (3) scope (clide-v2 daemon vs also clide-v1 agent-merging tooling).",
+  "schemaVersion": "0.1.0"
+}

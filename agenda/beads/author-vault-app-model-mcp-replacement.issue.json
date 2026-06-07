@@ -1,0 +1,21 @@
+{
+  "id": "author-vault-app-model-mcp-replacement",
+  "title": "Author VaultAppModel typed primitive — substrate's MCP replacement for local-machine vault operations",
+  "description": "Per [[agent-abilities-pokemon-mechanics-with-topology-2026-05-26]] corollary: 'MCP is a misplaced vaults app.' Most current MCP tools (screenshot, clipboard, file-read, keyboard, browser-control, application-control) are local-machine vault operations that should be typed kura-tier primitives, NOT external protocol registrations. Typed shape proposal: `VaultAppModel { slug, kuraVaultRef: LinkRefModel, exposedOperations: [VaultOperationModel], requiredEntitlements: [...], runtimeSurface: enum (apple-platform / cross-platform / linux-server) }`. Where kura-tier vault is the substrate-canonical storage primitive. Concrete vault-apps to model: screen.vault, clipboard.vault, keyboard.vault, browser.vault, agentify.vault, notion.vault. Each becomes a typed Codable record an agent's ability can declare as required-acquisition. Substrate-architecture migration: existing MCP tool registrations replaced with VaultApp declarations. Substantial substrate-architecture work — coordinate via thread.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- (NEW typed primitive — composition surface TBD; will likely reference InferenceUsageEvent for vault-call cost tracking via the sync-cost expansion)",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "agent-abilities-pokemon-topology",
+    "schema-universal",
+    "vault-app",
+    "mcp-replacement",
+    "kura"
+  ],
+  "createdAt": "2026-05-26T11:18:52Z",
+  "relatedChronicleEntry": "2026-05-26T11:18:52Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/agent-abilities-pokemon-mechanics-with-topology-2026-05-26.md",
+  "schemaVersion": "0.1.0"
+}

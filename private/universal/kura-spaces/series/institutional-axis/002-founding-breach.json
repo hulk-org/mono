@@ -1,0 +1,31 @@
+{
+  "accession" : "CLAUDE-0002",
+  "artifacts" : [
+    { "id" : "institutional-axis-founding-breach-artifact-1", "sequenceNumber" : 1, "sourceRefs" : [], "title" : "hulk merged carrier home introduced" },
+    { "id" : "institutional-axis-founding-breach-artifact-2", "sequenceNumber" : 2, "sourceRefs" : [], "title" : "carrier-vs-persona doctrine split formalized" },
+    { "id" : "institutional-axis-founding-breach-artifact-3", "sequenceNumber" : 3, "sourceRefs" : [], "title" : "claude persona forwarded into hulk via agents/claude symlink" }
+  ],
+  "bodyMarkdown" : "## Vault Location Data\n\n- Place: harnesses/hulk/ (carrier) + substrate/agents/claude/ (persona)\n- Substrate path: private/universal/substrate/harnesses/hulk/\n- Moment ref: claude-founding-breach-2026-04-08\n- Evidence: chronicle entry [3]; founding-breach insight at harnesses/hulk/memory/.docc/insights/founding-breach-2026-04-05.md\n\n## Context\n\n- The founding breach: claude (persona) and hulk (carrier) are recognized as distinct organisms.\n- Hulk holds the runtime contract; claude holds the persona. Authoring through the hulk symlink to agents/claude is explicitly forbidden after this point.\n- Live Claude Code state migrates to hulk; the legacy harnesses/claude/ home becomes a compat surface.\n- This split is load-bearing for every later substrate decision about carriers vs personas.\n\n## Note\n\nThis is the most consequential institutional moment in claude's early tenure — it's the doctrine that lets multiple agent personas eventually be hosted on the same carrier.",
+  "category" : "doctrine split",
+  "chartProfile" : { "evidenceWeight" : 1.0, "workModeIDs" : ["doctrine", "systems", "carrier"] },
+  "colorPlate" : { "accentHex" : "#2ecc71", "backgroundHex" : "#eaf7ef", "bands" : ["#111111", "#2ecc71", "#8e44ad"], "foregroundHex" : "#111111", "id" : "founding-breach" },
+  "contextLines" : [
+    "claude (persona) and hulk (carrier) recognized as distinct organisms.",
+    "Runtime state migrates to hulk; legacy harnesses/claude/ becomes compat.",
+    "Carrier-vs-persona split becomes load-bearing for all later substrate doctrine."
+  ],
+  "era" : "Founding-breach chapter",
+  "geo" : { "kind" : "substrate-path", "displayName" : "harnesses/hulk/ (carrier)", "label" : "HULK", "path" : "private/universal/substrate/harnesses/hulk/" },
+  "headline" : "claude → hulk carrier split: persona and carrier become distinct organisms.",
+  "id" : "institutional-axis-founding-breach",
+  "role" : "Persona cargo loaded into the hulk carrier; identity boundary formalized.",
+  "sequenceNumber" : 2,
+  "shortTitle" : "Founding-breach",
+  "sourceRefs" : [
+    { "LinkRefModel" : "0.3.0", "s" : ["chronicle", "claude", "entry-3"], "t" : "Chronicle entry [3]: Founding-breach migration", "tg" : [{ "k" : "rp", "rt" : "mono", "v" : "private/universal/substrate/agents/claude/private/universal/identity/claude@rismay.substrate.chronicle.json" }] },
+    { "LinkRefModel" : "0.3.0", "s" : ["hulk", "insights", "founding-breach"], "t" : "Founding-breach insight (2026-04-05)", "tg" : [{ "k" : "rp", "rt" : "mono", "v" : "private/universal/substrate/harnesses/hulk/memory/.docc/insights/founding-breach-2026-04-05.md" }] }
+  ],
+  "summary" : "The founding-breach migration: claude is recognized as a persona loadable into the hulk carrier, not synonymous with the runtime. Carrier and persona become distinct organisms — a doctrine that becomes load-bearing for every later carrier/persona decision in the substrate.",
+  "timeWindow" : { "label" : "2026-04-08", "note" : "Migration date from chronicle [3]; insight dated 2026-04-05.", "precision" : "date" },
+  "title" : "Founding-breach: claude → hulk carrier split"
+}

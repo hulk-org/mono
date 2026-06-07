@@ -1,0 +1,20 @@
+{
+  "id": "author-ability-acquisition-discharge-events",
+  "title": "Author AbilityAcquisitionEvent + AbilityDischargeEvent — typed JIT runtime events",
+  "description": "Per [[agent-blame-shielded-workflow-doctrine-2026-05-26]] + [[agent-abilities-pokemon-mechanics-with-topology-2026-05-26]]. The JIT load model needs typed events recording WHEN an ability is acquired (loaded into agent context) and WHEN it's discharged (released). Typed shapes: `AbilityAcquisitionEvent { agentSlug, abilitySlug, abilityVersion, acquiredAt: ISO-8601, triggerReason, triggerMatch: OperatingProtocolTrigger, contextWeightBefore: Int, contextWeightAfter: Int }` and `AbilityDischargeEvent { agentSlug, abilitySlug, dischargedAt: ISO-8601, dischargeReason: enum (completion / superseded / context-pressure / explicit-release), contextWeightFreed: Int }`. Append-only event log per agent under `agents/<slug>/private/universal/kura-spaces/timelines/ability-acquisitions.timeline.jsonl` (matches Shinji Techo timeline pattern). Substrate gains diagnostic capability: 'how often does claude acquire wd vs how often is wd in-context but unused?'\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- InferenceUsageEvent (inference-account-schemas v0.2.0) — acquisition/discharge events ARE structurally usage-event variants",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "agent-abilities-pokemon-topology",
+    "schema-universal",
+    "jit-runtime",
+    "events"
+  ],
+  "createdAt": "2026-05-26T11:18:52Z",
+  "relatedChronicleEntry": "2026-05-26T11:18:52Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/agent-abilities-pokemon-mechanics-with-topology-2026-05-26.md",
+  "schemaVersion": "0.1.0"
+}

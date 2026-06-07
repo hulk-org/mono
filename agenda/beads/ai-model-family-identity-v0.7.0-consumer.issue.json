@@ -1,0 +1,21 @@
+{
+  "id" : "ai-model-family-identity-v0.7.0-consumer",
+  "title" : "Cut IdentityModel v0.7.0 with acceptedModelFamilies / excludedModelFamilies on harness profiles",
+  "description" : "The AIModelFamily DNA table is currently in freeze-gradient state 1 (pre-shipped — no substrate-internal consumer persists ordinals yet). Cutting IdentityModel v0.7.0 with the consumer fields moves the table to state 2 (substrate-internal with mapping layer). Concrete work: (1) Copy `identity-schemas/v0.6.0/` → `v0.7.0/`. (2) Bump `IdentitySchemaVersion.current = \"0.7.0\"`. (3) Add `acceptedModelFamilies: [Int]?` and `excludedModelFamilies: [Int]?` fields on harness-profile identities (use `profileType == \"harness\"` discriminator). (4) Codable invariant: at most one of `acceptedModelFamilies` / `excludedModelFamilies` is non-empty (enforced at decode time). (5) Author migrator `v0.6.0-to-v0.7.0`. (6) Tests in `identity-model-v7-tests.swift`. (7) Update harness identity JSON files (hulk, gemini, codex, openclaw, apple-pi, clide, digikoma, hermes-harness, pi) with their accepted/excluded values per the doctrine (hulk: `[2]` for anthropic-claude; gemini: `[1]` for google-gemini; codex: `[3, 4]` for openai-gpt + openai-codex; apple-pi: `[0]` for apple-foundation; openclaw: `excludedModelFamilies: [0, 1, 2]` for apple/google/anthropic exclusive cluster). (8) Once IdentityModel v0.7.0 ships and a harness identity persists `acceptedModelFamilies: [3]`, the AIModelFamily ordinality table is then in state 2 — any subsequent renumber requires a Migration entry in `AIModelFamilyOrdinalityMappings.migrations[]`.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 2,
+  "labels" : [
+    "ai-model-family-dna",
+    "identity-schemas",
+    "schema-universal",
+    "v0.7.0-cut",
+    "consumer-wiring"
+  ],
+  "createdAt" : "2026-05-26T09:36:59Z",
+  "relatedChronicleEntry" : "2026-05-26T09:36:59Z",
+  "sourceType" : "operator-intake",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/identity/schema-families/identity-schemas/v0.6.0/",
+  "schemaVersion" : "0.1.0"
+}

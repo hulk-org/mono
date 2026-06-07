@@ -1,0 +1,27 @@
+{
+  "id" : "graduate-thread-close-skill-to-typed-workflow",
+  "title" : "Graduate `thread-close` skill to typed WorkflowModel + OperatingProtocolModel",
+  "description" : "Application bead 4/5 for agent-blame-shielded-workflow-doctrine. thread-close is the KG promotion event per [[threads-bridge-knowledge-and-work-graphs]]; making it a typed workflow ensures the doctrine of 'closed thread becomes a stable KG node' is structurally enforced. Read ~/.claude/skills/thread-close/SKILL.md; author thread-close-workflow.json + SOP. Tier 3 tests. End-to-end validation. After wd-graduation pilot.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "agent-blame-shielded-workflow-doctrine",
+    "application",
+    "thread-close-skill",
+    "graduation"
+  ],
+  "createdAt" : "2026-05-26T10:48:09Z",
+  "relatedChronicleEntry" : "2026-05-26T10:48:09Z",
+  "sourceType" : "investigation-finding",
+  "sourceLocation" : "~/.claude/skills/thread-close/SKILL.md",
+  "dependencies" : [
+    {
+      "issueId" : "graduate-thread-close-skill-to-typed-workflow",
+      "dependsOnId" : "graduate-wd-skill-to-typed-workflow",
+      "type" : "blocks-until-complete"
+    }
+  ],
+  "schemaVersion" : "0.1.0"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "digikoma-recap-add-grounding-post-validator",
+  "title": "Add Swift post-validation pass that drops ungrounded recap items into caveats",
+  "description": "Proving run produced a hallucinated decision: decisions[0] claimed 'How should we handle Pi's organism? -> Design an engine-binding shape' with rationale 'The validator did not catch Pi's bug'. The transcript discussed engine binding for apple-pi, not pi, and stated the validator DID catch all three bugs. This is the dangerous failure mode for any consumer (especially digikoma-winddown's bead-spawning): hallucinated decisions become phantom work items. Fix: after the FM call returns a DigikomaRecapModel, run a Swift post-validator that for each decision/bug/win/followup asserts a key phrase or noun appears as a substring in the original transcript (case-insensitive, allowing 1-2 char tolerance for stemming). Items that fail grounding move into `caveats` with description='ungrounded item dropped' and location pointing at the original FM output. Tests: verify a known-hallucinated decision is moved to caveats; verify a transcript-grounded decision passes through unchanged.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "closed",
+  "closedAt": "2026-05-14T03:35:00Z",
+  "resolutionNote": "Landed: DigikomaRecapTool.groundRecap is a post-FM pass that for each list item (decisions/bugs/wins/openFollowups) requires at least one anchor word (lowercase token of length >=4, non-stop) to overlap with the original transcript. Ungrounded items are demoted to caveats with a [ungrounded] prefix so the operator sees what was dropped. Anchor extraction handles alphanumeric+hyphen tokens (so 'pi-session-schemas' anchors as a single token). 3 new unit tests cover the gate in isolation (anchorWordsSkipShortAndStopWords, isGroundedFindsAnchorWord, groundingDropsUngroundedItemsToCaveats) — none need FM, all run in <1ms. Note: this is a substrate-floor gate. Semantic checks like polarity flips ('did NOT catch X' when transcript says it did) are out of scope for word-overlap and need a separate bead if they recur.",
+  "priority": 1,
+  "labels": ["digikoma-recap", "foundation-models", "grounding", "hallucination", "post-validation", "proving-bug"],
+  "createdAt": "2026-05-14T00:22:34Z",
+  "relatedChronicleEntry": "2026-05-14T00:22:34Z",
+  "sourceType": "incident",
+  "sourceLocation": "private/universal/substrate/collectives/digikoma-org/private/universal/domain/intelligence/digikoma-recap/sources/DigikomaRecapTool/DigikomaRecapTool.swift",
+  "schemaVersion": "0.1.0"
+}

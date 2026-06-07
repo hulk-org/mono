@@ -1,0 +1,20 @@
+{
+  "id" : "ai-model-family-primary-use-case-field",
+  "title" : "Add primaryUseCase typed-enum field to AIModelFamily entry",
+  "description" : "Substrate's harness scheduler will benefit from a typed primary-use-case dimension when filtering families per form's needs. Proposed enum cases: `generalPurpose` (broad chat / completion — Claude, GPT, Gemini, Llama, Mistral), `codeSpecialty` (code-generation focused — Codex, possibly Phi-code variants), `reasoningTier` (explicit thinking models — o1/o3, R1, Gemini thinking, Claude extended thinking — note this overlaps but isn't identical to `reasoningCapability == providerExposedReasoning`), `multimodalNative` (vision/audio/video natively integrated — Gemini, Qwen-multimodal), `smallOnDevice` (small models optimized for local — Phi, Apple Foundation), `enterpriseFocused` (Cohere, Bedrock-tier). Populate per family. Add as enum file. Note: this is partially derivable from existing fields (reasoningCapability + modalities + archProfile), but the explicit type makes scheduler logic cleaner.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 4,
+  "labels" : [
+    "ai-model-family-dna",
+    "schema-universal",
+    "new-field",
+    "ai-model-catalog-schemas"
+  ],
+  "createdAt" : "2026-05-26T09:36:59Z",
+  "relatedChronicleEntry" : "2026-05-26T09:36:59Z",
+  "sourceType" : "operator-intake",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/ai/schema-families/ai-model-catalog-schemas/v0.1.0/spm/ai-model-catalog-schemas-v000-001-000/sources/AIModelFamilyOrdinalityTable.swift",
+  "schemaVersion" : "0.1.0"
+}

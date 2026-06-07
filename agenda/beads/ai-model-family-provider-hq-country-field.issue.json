@@ -1,0 +1,21 @@
+{
+  "id" : "ai-model-family-provider-hq-country-field",
+  "title" : "Add providerHQCountry typed-enum field to AIModelFamily entry (procurement-compliance trait)",
+  "description" : "Increasingly load-bearing for enterprise procurement compliance: which jurisdiction does the provider headquarter in? Affects data-sovereignty, GDPR / EU AI Act exposure, US executive-order compliance, and increasingly export-control posture. Proposed enum: ISO 3166 country code (`US`, `CN`, `FR`, `IL`, etc.) as either typed enum (frozen set of relevant countries) OR free-form string. Probably string for forward-flexibility. Populate per-family: Apple `US`, Google `US`, Anthropic `US`, OpenAI `US`, Meta `US`, Mistral `FR`, xAI `US`, DeepSeek `CN`, Cohere `CA`, Alibaba `CN`, Microsoft `US`, Amazon `US`. Substrate's VC-facing or enterprise-customer-facing surfaces will read this for procurement filters.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 4,
+  "labels" : [
+    "ai-model-family-dna",
+    "schema-universal",
+    "new-field",
+    "procurement-compliance",
+    "ai-model-catalog-schemas"
+  ],
+  "createdAt" : "2026-05-26T09:36:59Z",
+  "relatedChronicleEntry" : "2026-05-26T09:36:59Z",
+  "sourceType" : "operator-intake",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/ai/schema-families/ai-model-catalog-schemas/v0.1.0/spm/ai-model-catalog-schemas-v000-001-000/sources/AIModelFamilyOrdinalityTable.swift",
+  "schemaVersion" : "0.1.0"
+}

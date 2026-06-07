@@ -1,0 +1,22 @@
+{
+  "id": "md-formatter-lib-test-coverage",
+  "title": "Author lib-level test coverage for md format (SwiftMDFormatter) in tests/md-core-tests/",
+  "description": "md format audit + md format fix subcommands were absorbed from the legacy swift-md-formatter-cli package (deleted during Phase 2 consolidation 2026-05-31). The legacy package's tests, if any, were not migrated. Currently the test target tests/md-core-tests/ has 50 tests covering FrontmatterParser, MarkdownBlockExtractor, ShinjiTechoEntryDerivation, MirrorRenderer, ReflectAbsorber, MarkdownToHTMLRenderer — but ZERO coverage of SwiftMDFormatter (MarkdownHeadingCapitalization, SwiftMDFormatter, SwiftMDCodeBlockFormatter, MarkdownSwiftCodeBlocks, MarkdownFormatEvent, MarkdownFormattingPreview, MarkdownFormatResult). md.qa-evidence-packet.json marks this as smoke-tested-only with a futureFollowOnBead pointing here. Resolution: add tests/md-core-tests/SwiftMDFormatterTests.swift exercising the heading-capitalization pass + swift-codeblock-formatting pass + the FormattingCommandRunner contract; add tests/md-core-tests/MDFixCommandTests.swift exercising the audit-vs-fix-mode delta. Pairs with [[bead:md-lint-lib-test-coverage]] (sibling absorption gap).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "closed",
+  "priority": 3,
+  "labels": [
+    "md-cli",
+    "qa-evidence",
+    "absorbed-from-legacy",
+    "test-coverage"
+  ],
+  "createdAt": "2026-05-31T02:30:00Z",
+  "relatedChronicleEntry": "2026-05-31T02:30:00Z",
+  "sourceType": "spawn-software-qa-evidence-gap",
+  "sourceLocation": "private/universal/substrate/collectives/wrkstrm/private/universal/kura-spaces/spaces/workstreams/collections/spawn-software/instances/md.qa-evidence-packet.json",
+  "schemaVersion": "0.1.0",
+  "closedAt": "2026-05-31T03:30:00Z",
+  "closedNote": "Test files recovered via git show from parent of Phase 2 absorption deletion commit (0c495a23) and ported to tests/md-core-tests/. 66 total tests passing. qa-evidence-packet coverageMap updated to coverageStatus: covered."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "savepointd-daemon-mode-v0.2",
+  "title": "savepointd v0.2 --daemon mode: subscribe to substrate event bus",
+  "description": "Today savepointd is one-shot (synchronous handle of a single .commitIntent per CLI invocation). v0.2 should subscribe to the substrate event bus as a long-running daemon, registering SavepointService and processing per-.git queue entries asynchronously. Requires recon of the substrate event-bus dispatcher (digikoma-watcher-kernel-style host or similar) \u2014 I haven't located it as a runnable surface. Investigation needed before authoring.",
+  "assignee": "claude",
+  "issueType": "investigation",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "savepoint",
+    "savepointd",
+    "v0.2",
+    "event-bus",
+    "substrate-service-pattern"
+  ],
+  "createdAt": "2026-05-24T02:01:23Z",
+  "relatedChronicleEntry": "2026-05-24T02:01:23Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/kura-org/private/universal/tools/savepoint.sd/",
+  "schemaVersion": "0.1.0"
+}

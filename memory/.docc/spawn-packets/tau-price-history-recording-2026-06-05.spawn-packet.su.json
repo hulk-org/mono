@@ -1,0 +1,105 @@
+{
+  "SpawnPacketModel": "0.1.0-informal",
+  "slug": "tau-price-history-recording-2026-06-05",
+  "title": "Spawn-packet — Tau price-history recording capability (shipping-app graduation onto substrate's chronon-typed timeline tools)",
+  "spawnedAt": "2026-06-05",
+  "spawnVariant": "spawn-shipping-app-capability-addition (informal — substrate has 5 named variants; this is a 6th shape warranting separate typed promotion)",
+  "spawnVariantRationale": "Tau is a shipping options-trading app (NOT new spawn); the price-history-recording capability is a substrate-graduation of existing PollingDaemon → CoreData pipeline onto chronon-typed timeline-storage-matrix backend. Not spawn-runnable-app (Tau exists) + not spawn-typed-primitive-light (substrate tools exist already). The substrate's typed-workstream catalog may want a 6th variant — informal-for-now per [[deferral-is-drift-do-it-now]] balanced against turn-scope.",
+
+  "operatorAttestation": "i want tau to start recording price history now that we know we have tools which we can begin to use for this...",
+
+  "substrateDoctrinalRecognition": {
+    "summary": "Tau-price-history-recording isn't new substrate work — it's the meeting of two substrate-doctrinal arcs the substrate has been building separately for a year. Arc A: Tau's PollingDaemon-Quote pipeline (year-old; shipping). Arc B: substrate's chronon-schemas family (v0.1.0 → v0.4.0; 9 storage variants benchmarked in timeline-storage-matrix). The substrate just realized the two were always meant to compose.",
+    "siblingToFoundingConsumerRecognition": "[[founding-consumer-precedes-typed-primitive-by-substrate-pacing]] — substrate's year-long doctrine-refinement → typed-primitive-extraction → founding-consumer-graduation cycle. Today's session recognized Tau as the founding consumer of constraint-solver (matrix-solver). This packet recognizes Tau as the founding consumer of chronon-schemas (time-series). Same cycle, different typed primitive, same year-old founding app."
+  },
+
+  "doctrinalBackground": {
+    "primarySpawnDoctrine": "[[spawn-software-workstream-required-for-tool-authoring]]",
+    "sequenceDoctrine": "[[design-and-product-first-code-last]] — packet authors position 1 (Design + Product) prospectively. No code this turn.",
+    "checklistDoctrine": "[[substrate-modern-composition-checklist-is-required-spawn-software-proof-gate]] — checklist applies if recording surfaces new UI; recording-only is daemon-level work but visualization is checklist-gated",
+    "graduationDoctrine": "[[time-series-recording-substrate-graduation-strategy]] (just-landed child pattern) — invoked for this packet's storage / schema / integration decisions",
+    "preservationDoctrine": "[[preserve-prior-schema-versions]] + [[Preserve historical data]] + [[Never trash data under investigation]] — CoreData lineage preserved; chronon-typed graduation honors the year-old pipeline",
+    "vaultDoctrine": "[[vaultd-fleece-couchbase-lite]] + [[substrate-fork-cbl-3-2-1-data-engine]] + [[vendored-couchbase-lite-1-4-4]] — substrate's typed-storage backend doctrine"
+  },
+
+  "spawned": {
+    "kind": "shipping-app-capability-addition (typed time-series recording layer + integration)",
+    "host": "tau-app collective (existing)",
+    "newSurfaces": [
+      "tau-app/.../private/apple/kits/TauHistoryKit (new SPM kit — proposed; chronon-typed bridge primitives for Tau)",
+      "tau-app/.../catalyst-app/Recording/ (new directory — PollingDaemon write-through callback target)",
+      "instances of chronon-typed QuoteMoment records (live; CBL store)"
+    ],
+    "existingSurfacesTouched": [
+      "tau-app/.../cross/PollingDaemon.swift (add write-through callback)",
+      "tau-app/.../cross/resources/Trader.xcdatamodeld (potentially: add QuoteHistoryTick entity OR leave untouched per hybrid-bridge candidate)",
+      "tau-app/.../catalyst-app/QuoteViewModel.swift + FetchedQuotes.swift (read-path bridge to chronon-typed store for charts)"
+    ]
+  },
+
+  "designTruth": {
+    "designTruthShape": "narrative + child-pattern-validated graduation strategy",
+    "childPatternRefs": [
+      {
+        "LinkRefModel": "0.3.0",
+        "s": ["kind:workflow-template", "slug:time-series-recording-substrate-graduation-strategy"],
+        "t": "Primary child pattern this packet invokes",
+        "tg": [{"k": "rp", "rt": "mono", "v": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/creative-selection-specialized-patterns/time-series-recording-substrate-graduation-strategy.workflow.json"}]
+      },
+      {
+        "LinkRefModel": "0.3.0",
+        "s": ["kind:workflow-template", "slug:privacy-posture-selection"],
+        "t": "Composes — storage-tier intersects privacy-posture; chronon-typed CBL + CloudKit shadow needs defender posture claim",
+        "tg": [{"k": "rp", "rt": "mono", "v": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/creative-selection-specialized-patterns/privacy-posture-selection.workflow.json"}]
+      },
+      {
+        "LinkRefModel": "0.3.0",
+        "s": ["kind:workflow-template", "slug:existing-lineage-treatment"],
+        "t": "Composes — shipping-app capability addition crosses storage boundary; lineage-preservation-plan applies",
+        "tg": [{"k": "rp", "rt": "mono", "v": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/creative-selection-specialized-patterns/existing-lineage-treatment.workflow.json"}]
+      }
+    ],
+    "engineeringRecommendation": {
+      "graduationStrategy": "(c) hybrid-bridge — PollingDaemon writes-through to BOTH CoreData (current path, CloudKit-compat) AND chronon-typed CBL shadow store (substrate-typed queries enabled)",
+      "chrononVersion": "v0.4.0 (latest; store-projection variant benchmarked in timeline-storage-matrix)",
+      "storageBackend": "chronon-v000-004-000-store-projection via Fleece+CBL per timeline-storage-matrix benchmark",
+      "schemaBindingShape": "TauQuoteMoment ← chronon-schemas.MomentModel v0.4.0 ← Fleece+CBL store-projection backend",
+      "retentionPosture": "tiered — last 30 days hot (live-query CBL); 30-365 days warm (CBL reduced indexes); >1 year cold (Fleece-archived projections)",
+      "privacyPosture": "local-only files for prototype-bound recording (substrate-honest per [[adversarial-audience-the-entity]]); CoreData CloudKit sync remains as user-facing path; chronon-typed shadow store is local-only",
+      "uiComponentLift": "PriceScatterView (constraint-selection-lab/MatrixViews/) + stock-template-guide candlestick chart module — both read chronon-typed records via TauHistoryKit bridge"
+    }
+  },
+
+  "ldtProofsShape": {
+    "preCodeLdtCommitment": "Per [[Login Driven Thinking (LDT)]] — every structural claim above lands as a Swift Testing test in TauHistoryKit/tests/. Round-trip tests (CoreData QuoteHistoryTick ↔ chronon-typed QuoteMoment ↔ Fleece-CBL store) are required.",
+    "estimatedSuiteCount": "5-6 suites: TauQuoteMomentTests + ChrononBridgeTests + PollingDaemonWriteThroughTests + RetentionTierTests + LiftedViewIntegrationTests"
+  },
+
+  "productManagerSpinUp": {
+    "perDoctrine": "[[non-concrete-definitions-trigger-product-manager-spin-up]] — same PM as tau-prototype (creative-selection-pattern-spawner extended with time-series-recording role-class)",
+    "openOperatorCreativeSelectionQuestions": [
+      "1. Confirm engineering recommendation (c) hybrid-bridge OR direct full-adopt-chronon-typed OR extend-existing-CoreData-only?",
+      "2. Confirm chronon-schemas v0.4.0 store-projection variant — OR walk the 9-variant timeline-storage-matrix benchmark first?",
+      "3. Recording scope — all symbols polled OR subset (per watchlist) OR all + retention-tier filtering?",
+      "4. Sampling rate — every PollingDaemon tick OR throttled (e.g., 1/sec, 1/min)?",
+      "5. Lift the recorded data into LIT prototype (matrix-solver verdict view consumes price history) NOW or DEFER to LIT prototype build?"
+    ]
+  },
+
+  "launchReviewGate": {
+    "status": "deferred-until-position-5-code-passes",
+    "perDoctrine": "[[release-gate-audience-review]] — UI surfacing recording (e.g., 'History' tab; chart in matrix-solver verdict view) gates the launch review; recording-daemon-only work has lighter audience-review burden"
+  },
+
+  "maintenanceHandoff": {
+    "owningOrg": "tau-app (existing collective)",
+    "primaryConsumer": "Tau's existing AI helpers (StrategyAuditor + WhisperExit + TradeJournaler) gain typed price-history access; LIT prototype's matrix-solver verdict view consumes the same chronon-typed store",
+    "supersessionPolicy": "Hybrid-bridge graduation path: when LIT-prototype validates + Tau's UI graduates to chronon-typed reads, retire CoreData QuoteHistoryTick entity. CoreData schema preserved as historical-data per [[preserve-historical-data]]."
+  },
+
+  "monitoringPosture": {
+    "compileRegressions": "TauHistoryKit + tau-app builds in CI; PollingDaemon write-through must not break existing CoreData CloudKit sync",
+    "dataRegressions": "Per-tick round-trip tests verify chronon-typed write matches CoreData write within tolerance; retention-tier migration tests verify no data loss across hot→warm→cold transitions",
+    "performanceRegressions": "PollingDaemon write-through must not exceed N ms per tick (target: <1ms write-through overhead; benchmark via timeline-storage-matrix's existing performance fixtures)"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "graduate-thread-spin-skill-to-typed-workflow",
+  "title" : "Graduate `thread-spin` skill to typed WorkflowModel + OperatingProtocolModel",
+  "description" : "Application bead 3/5 for agent-blame-shielded-workflow-doctrine. thread-spin is structurally rich (creates thread JSON, validates boundary, optionally creates derived beads, optionally spawns phases). Read ~/.claude/skills/thread-spin/SKILL.md; author thread-spin-workflow.json with typed WorkflowGraphNodes for: input validation, slug generation, thread JSON authoring, boundary population, optional phase creation, optional derived bead spawning, validation, commit, pointer bump. Author SOP. Tier 3 tests. End-to-end validation. After wd-graduation pilot proves the pattern.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "agent-blame-shielded-workflow-doctrine",
+    "application",
+    "thread-spin-skill",
+    "graduation"
+  ],
+  "createdAt" : "2026-05-26T10:48:09Z",
+  "relatedChronicleEntry" : "2026-05-26T10:48:09Z",
+  "sourceType" : "investigation-finding",
+  "sourceLocation" : "~/.claude/skills/thread-spin/SKILL.md",
+  "dependencies" : [
+    {
+      "issueId" : "graduate-thread-spin-skill-to-typed-workflow",
+      "dependsOnId" : "graduate-wd-skill-to-typed-workflow",
+      "type" : "blocks-until-complete"
+    }
+  ],
+  "schemaVersion" : "0.1.0"
+}

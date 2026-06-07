@@ -1,0 +1,55 @@
+{
+  "SpawnPacketModel": "0.1.0-informal",
+  "slug": "decide-kit-2026-06-04",
+  "title": "Retroactive spawn-packet — decide-kit consumer SwiftUI library",
+  "spawnedAt": "2026-06-04",
+  "spawnVariant": "spawn-typed-primitive-light",
+  "spawnVariantRationale": "Matrix-solver verdict (MULTI between light/medium) → operator-judged lean answer. decide-kit is a typed library that composes constraint-solver with consumer-facing SwiftUI views; the views are themselves typed projections of substrate primitives. Light variant honors the substrate-doctrinal posture; the runnable surface graduates to spawn-runnable-app in decide-app.",
+  "violationAcknowledgment": "Authored without invoking the canonical spawn-software-workstream prospectively. This packet is the retroactive substrate-doctrinal repair.",
+
+  "spawned": {
+    "kind": "typed-primitive-library",
+    "package": "decide-kit",
+    "home": "private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/decide-kit",
+    "consumerFacingClaim": "Domain-agnostic matrix-solver primitives + per-domain seed templates + SwiftUI views that ANY consumer-Mac/iOS shell composes into a decide-app surface.",
+    "shippedSurface": {
+      "typedPrimitives": [
+        "Domain (typed catalog of 4 consumer decision categories)",
+        "DomainTemplate (per-domain inventory + starter constraints)",
+        "ElicitedConstraint (typed prose → ConstraintModel bridge)",
+        "ElicitationSource (typed provenance enum)",
+        "ConstraintElicitationPrompt (typed elicitation batch)",
+        "DecideStore (@MainActor ObservableObject driver)"
+      ],
+      "swiftUIViews": [
+        "DomainPickerView (grid of typed domain cards)",
+        "ConstraintElicitationView (source-badged rows + drop)",
+        "OptionEditorView (inventory editor — append / remove / update)",
+        "VerdictView (singleton/multi/empty + audit + Markdown copy)"
+      ]
+    }
+  },
+
+  "designTruth": {
+    "designTruthShape": "narrative — derived from constraint-solver's recursion fixture but specialized for the consumer-facing layer",
+    "consumerFirstClaim": "Three views compose without xcodeproj. SwiftPM Mac app target (decide-app) is the runnable shell; iOS / Catalyst shells would compose differently without library changes — substrate-doctrinal one-truth-many-lenses.",
+    "domainAgnosticClaim": "Nothing in the library references a specific domain. Adding a new Domain case (laptop / apartment / job / restaurant / ANY future case) is a typed enum extension + a new DomainTemplate inventory; library API surface unchanged."
+  },
+
+  "ldtProofs": {
+    "testCount": 18,
+    "suiteCount": 5,
+    "lastVerified": "2026-06-04",
+    "ldtProofRef": "Tests/DecideKitTests/DecideKitTests.swift (all suites green)"
+  },
+
+  "maintenanceHandoff": {
+    "owningOrg": "wrkstrm-core",
+    "ownerSurface": "private/cross/spm/decide-kit",
+    "primaryConsumer": "decide-app (runnable shell) + future iOS / Catalyst shells",
+    "supersessionPolicy": "Same as constraint-solver — additive evolution; breaking changes require versioned package."
+  },
+
+  "launchReviewGate": "omitted-per-spawn-typed-primitive-light-variant",
+  "monitoringPosture": "omitted-per-spawn-typed-primitive-light-variant — view-level regressions surface via downstream decide-app compilation + DecideKitTests"
+}

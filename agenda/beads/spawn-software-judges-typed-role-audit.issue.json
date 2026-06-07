@@ -1,0 +1,22 @@
+{
+  "id": "spawn-software-judges-typed-role-audit",
+  "title": "Audit whether spawn-software gate-set judges have typed role homes",
+  "description": "spawn-software.gate-set.json references 5 judges by slug across its 15 gates: spawn-ontology-judge, spawn-artifact-plan-judge, spawn-lane-routing-judge, spawn-evidence-coverage-judge, spawn-launch-readiness-judge, spawn-true-blockage-judge, spawn-unblock-routing-judge. During md@swift-universal.cli retroactive gate-walk 2026-05-31, packets cited these judges in their `judge:` field, but I did NOT verify each judge has a typed role home at substrate/roles/<judge-slug>/ or substrate/collectives/wrkstrm/.../digikoma/<judge-slug>.digikoma.json. Resolution: walk each judge slug; check for typed-role home; for any missing, decide either (a) author the missing typed role per substrate/roles/<slug>/.../role-template.json convention, or (b) document in ontology-review-receipt that judges are NOTIONAL (named in gate-set but not typed as roles) and that this is the substrate's current state. Either way, the gate-set's judge references should resolve OR be honestly documented as forward-pointing. Probably 30-90 min of read-only audit + decisions.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "closed",
+  "priority": 2,
+  "labels": [
+    "spawn-software",
+    "role-typing",
+    "audit",
+    "doctrine-discipline"
+  ],
+  "createdAt": "2026-05-31T02:30:00Z",
+  "relatedChronicleEntry": "2026-05-31T02:30:00Z",
+  "sourceType": "spawn-software-retroactive-walk",
+  "sourceLocation": "private/universal/substrate/collectives/wrkstrm/private/universal/kura-spaces/spaces/workstreams/collections/spawn-software/spawn-software.gate-set.json",
+  "schemaVersion": "0.1.0",
+  "closedAt": "2026-05-31T03:45:00Z",
+  "closedNote": "Audit finding 2026-05-31: all 7 judges (spawn-ontology-judge, spawn-artifact-plan-judge, spawn-lane-routing-judge, spawn-evidence-coverage-judge, spawn-launch-readiness-judge, spawn-true-blockage-judge, spawn-unblock-routing-judge) are NOTIONAL — named in spawn-software.gate-set.json but not materialized as standalone typed roles. The spawn-software-steward typed role home at substrate/roles/spawn-software-steward/ already carries them as states in its role-workflow.json + role-surface-manifest.json. No further typing required; gate-set references resolve through the steward role-workflow."
+}

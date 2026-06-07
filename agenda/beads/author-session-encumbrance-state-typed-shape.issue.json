@@ -1,0 +1,27 @@
+{
+  "id": "author-session-encumbrance-state-typed-shape",
+  "title": "Author SessionEncumbranceState typed shape — running totals + derived pressure level",
+  "description": "Per [[substrate-sync-cost-pattern-2026-05-26]] Layer 5. Typed shape tracking the running TOTAL of accumulated cost across all encumbrance axes during a session, plus the derived `EncumbrancePressureLevel`. Proposed shape: `SessionEncumbranceState { sessionId, ceilingRef: LinkRefModel<SessionStaminaCeiling>, observedAt: ISO-8601, accumulatedContextTokens: Int, accumulatedWallClockSeconds: Int, accumulatedFinancialUSD: Double, perAxisPercentages: { context: Double, wallClock: Double, financial: Double, rateLimit: Double }, overallPressureLevel: EncumbrancePressureLevel /* see ordinality table bead */, contributingInvoices: [LinkRefModel<AbilityPerformanceInvoice>] }`. Emitted/updated after every cost-bearing invocation. Composes with `inference-account-schemas v0.2.0` ledger as data source.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- InferenceUsageEvent (inference-account-schemas v0.2.0) — aggregates streams of these as contributingInvoices\n- SessionStaminaCeiling (this cohort) — ceiling reference for percentage computations",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "substrate-sync-cost-pattern",
+    "encumbrance",
+    "schema-universal",
+    "running-state"
+  ],
+  "createdAt": "2026-05-26T11:36:31Z",
+  "relatedChronicleEntry": "2026-05-26T11:36:31Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/substrate-sync-cost-pattern-2026-05-26.md",
+  "dependencies": [
+    {
+      "issueId": "author-session-encumbrance-state-typed-shape",
+      "dependsOnId": "author-session-stamina-ceiling-typed-shape",
+      "type": "blocks-until-complete"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}

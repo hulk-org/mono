@@ -1,0 +1,22 @@
+{
+  "id" : "author-maintainer-vendor-audit-schema-family",
+  "title" : "Author maintainer-vendor-audit-schemas family for typed per-package substrate-relevance reports",
+  "description" : "Phase B supporting work for typelift-substrate-modernization. The per-package audit needs a typed shape; without it, audits become ad-hoc prose. Author `maintainer-vendor-audit-schemas` family at schema-universal under `private/universal/domain/system/schema-families/maintainer-vendor-audit-schemas/v0.1.0/`. Proposed Codable record `MaintainerVendorAuditModel`: { maintainerSlug, packageSlug, license, lastCommitDate, ideaSubstrateRelevant: enum (yes/no/marginal), implementationLoadBearing: enum (yes/AppleSubsumed/SubstrateAlreadyHas/SuperficiallySimilar), recommendedAction: enum (fork-modernize/adopt-pattern-fresh/archive-as-reference/skip), forkPriority: ordinal 1-5, forkDestination: optional path, auditorAgent: SlugRef, auditedAt: ISO-8601, rationale: prose, openQuestions: [string] }. Plus 4-5 ordinality tables for the enum fields. Plus tests at the substrate-DNA Tier 3 standard. Once landed, drives Phase B audit work (per-package audit beads can be marked as 'authoring MaintainerVendorAudit instance for X').",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "typelift-modernization",
+    "phase-b",
+    "schema-universal",
+    "new-schema-family"
+  ],
+  "createdAt" : "2026-05-26T10:21:34Z",
+  "relatedChronicleEntry" : "2026-05-26T10:21:34Z",
+  "sourceType" : "thread-beat",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "phase-b-typed-shape",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/system/schema-families/",
+  "schemaVersion" : "0.1.0"
+}

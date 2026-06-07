@@ -1,0 +1,15 @@
+{
+  "id": "digikoma-git-push-recursive-fanout-tests",
+  "title": "Add bare-pair-with-submodules fixture covering PushService.handleRecursive children-first ordering",
+  "description": "digikoma-git-push v0.1 ships with 5 tests but ALL exercise the single-repo path: alreadyUpToDate, pushed, dryRun, dirty-tree rejection, artifact-alongside-intent. The recursive-fanout path in PushService.handleRecursive (kura-org/private/universal/tools/savepoint.sd/Sources/SavepointdCore/PushService.swift) — git-submodule-foreach discovery, deepest-first ordering, children-then-parent gating, child-intent synthesis with recurseSubmodules=false — has zero test coverage. Author a test that sets up: outer bare + work, inner bare + work, work-inner registered as submodule of work-outer with a tracking remote. Emit a PushIntentModel against work-outer with applyOptions.recurseSubmodules=true. Verify: (1) inner bare's main advances first, (2) outer bare's main advances second + matches local HEAD, (3) PushImprint ledger has 2 entries (one per child + one for parent aggregate), (4) DigikomaGitPushImprint ledger has 2 entries (one per repo actually pushed), (5) aggregate TriggerImprint outcome is .completed with non-zero durationSeconds. Optional second variant: child push fails (force a dirty tree in inner) → parent push is skipped + aggregate outcome is .failed with summary containing 'parent: skipped'.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["digikoma-git-push", "tests", "fanout", "savepointd"],
+  "createdAt": "2026-05-24T03:35:55Z",
+  "relatedChronicleEntry": "2026-05-24T03:35:55Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/kura-org/private/universal/tools/savepoint.sd/Sources/SavepointdCore/PushService.swift",
+  "schemaVersion": "0.1.0"
+}

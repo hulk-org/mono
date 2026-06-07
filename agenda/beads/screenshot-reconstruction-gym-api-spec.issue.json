@@ -1,0 +1,21 @@
+{
+  "id": "screenshot-reconstruction-gym-api-spec",
+  "title": "Document screenshot-reconstruction-gym's API for Phase E integration of scaffold-app-from-web",
+  "description": "screenshot-reconstruction-gym exists at wrkstrm-research/private/universal/domain/generative-ui/gym/screenshot-reconstruction-gym.mac.app/. For Phase E of scaffold-app-from-web (reconstruct-views), need to invoke its engine programmatically: inputs (layout tree JSON from Phase A + screenshots at multiple viewports + color palette + typography) -> outputs (SwiftUI source files representing the reconstructed view tree). Bead is to (a) read the gym's existing Sources/ + identify its core reconstruction engine, (b) document its public API + invocation surface, (c) determine whether it currently has a CLI / library product or whether scaffold-app-from-web needs to add one, (d) document the JSON contract between Phase A's layout.json and the engine's input format. Output: API spec doc at wrkstrm-research/.../generative-ui/threads/screenshot-reconstruction-gym-api.docc/index.md.",
+  "assignee": "claude",
+  "issueType": "investigation",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "scaffold-app-from-web",
+    "phase-e-reconstruct-views",
+    "screenshot-reconstruction-gym",
+    "api-spec",
+    "generative-ui-existing-research"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/wrkstrm-research/private/universal/domain/generative-ui/gym/screenshot-reconstruction-gym.mac.app/",
+  "schemaVersion": "0.1.0"
+}

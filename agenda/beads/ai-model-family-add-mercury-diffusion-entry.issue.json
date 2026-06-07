@@ -1,0 +1,21 @@
+{
+  "id" : "ai-model-family-add-mercury-diffusion-entry",
+  "title" : "Add Inception Labs Mercury (diffusion architecture) as AIModelFamily ordinal 13",
+  "description" : "`AIModelFamilyInferenceArchitecture.diffusion` slot was reserved when the table shipped 2026-05-26, but no current row carries `diffusion` as inference architecture. Mercury (Inception Labs, 2024) is the first commercial diffusion language model and should be the catalog's first diffusion entry. Append at ordinal 13 (next-available, append-only per the freeze doctrine). Verify Mercury's current genotype: API access via Inception Labs API → `apiAvailable`; closed weights → `weightsLicenseTier = closed`; hosted-only → `archProfile = none`; provider-dependent durability; `diffusion` inference architecture; modalities likely text-out + tool-use only. Also worth tracking: `databricks-dbrx` (ordinal 14?), `ai21-jamba` (state-space-transformer hybrid, exercises the `hybrid` enum value), `stability-stable-lm`. Per `[[ordinality-table-entries-immutable-once-released]]` the table is in state 1 (pre-shipped) so renumber-free append is safe. Add doctrine tests in `AIModelFamilyDoctrineTests.swift` for the new entries.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "ai-model-family-dna",
+    "schema-universal",
+    "new-family-entry",
+    "diffusion-architecture",
+    "ai-model-catalog-schemas"
+  ],
+  "createdAt" : "2026-05-26T09:36:59Z",
+  "relatedChronicleEntry" : "2026-05-26T09:36:59Z",
+  "sourceType" : "operator-intake",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/ai/schema-families/ai-model-catalog-schemas/v0.1.0/spm/ai-model-catalog-schemas-v000-001-000/sources/AIModelFamilyOrdinalityTable.swift",
+  "schemaVersion" : "0.1.0"
+}

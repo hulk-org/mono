@@ -1,0 +1,15 @@
+{
+  "id": "mono-root-stale-merge-conflicts-cleanup",
+  "title": "Resolve 34 stale unmerged paths in mono root (left over from prior abandoned merge) so mono can push to origin",
+  "description": "mono root sits at 'ahead 1387, behind 27' but cannot merge or push because 34 paths are unmerged in the index from a prior abandoned merge attempt (no MERGE_HEAD or REBASE_HEAD active, but `git diff --diff-filter=U` lists them and `git ls-files --unmerged` returns 92 stage entries averaging ~2.7 per path). Touched paths span 4 categories requiring operator judgement: (a) .gitmodules — corruption risk if wrong choice, (b) ~10 submodule pointers including the four I just pushed (clia-org, digikoma-org, schema-universal, wrkstrm-core) plus cadence/carrie/clia-text-allora/hermes/koma-org/openclaw/swift-universal/vaults-org~HEAD/wrkstrm/wrkstrm-app/wrkstrm-components/wrkstrm-games/wrkstrm-performance/wrkstrm-research, (c) codex runtime state (auth.json, goals_1.sqlite + shm/wal, .codex-global-state.json, sqlite/codex-dev.db, rules/default.rules, vendor_imports/skills-curated-cache.json) — lived state where 'theirs' could overwrite working codex auth/session, (d) 3 skills/.system/plugin-creator files + 2 maintainer pointers (christopherkarani/swarm, steipete/codex-bar) + a 'vaults-org~HEAD' path that suggests an octopus-merge artifact. \n\nMy push factory work IS already upstream via autonomous chore-sync commits on each submodule — origin/main of all 4 touched collectives includes my factory commits plus newer sync commits. The 27 commits 'behind' on mono root are likely the upstream chore commits that already include the new submodule pointers. The fastest resolution is probably: (1) `git merge --abort` (no-op if no merge active; safe), (2) attempt fresh merge with origin/main, (3) for new conflicts: favor origin for submodule pointer / .gitmodules conflicts (already includes my work + newer sync state), keep ours for codex runtime state (don't sweep live codex auth/sqlite), case-by-case for skills/.system + maintainer pointers. Operator must drive — autonomously bulk-resolving risks codex auth.json overwrite or .gitmodules corruption.",
+  "assignee": "rismay",
+  "issueType": "decision",
+  "status": "open",
+  "priority": 1,
+  "labels": ["mono-root", "merge-conflicts", "push-blocked", "operator-decision", "codex-runtime", "submodule-pointers"],
+  "createdAt": "2026-05-25T03:50:00Z",
+  "relatedChronicleEntry": "2026-05-24T03:35:55Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "/Users/sonoma/mono",
+  "schemaVersion": "0.1.0"
+}

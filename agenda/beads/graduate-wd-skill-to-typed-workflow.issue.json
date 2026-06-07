@@ -1,0 +1,21 @@
+{
+  "id" : "graduate-wd-skill-to-typed-workflow",
+  "title" : "Graduate `wd` (winddown) skill from markdown SKILL.md to typed WorkflowModel + OperatingProtocolModel",
+  "description" : "Application bead 1/5 — PILOT for the agent-blame-shielded-workflow-doctrine. wd is the most-frequently-invoked skill (every session-end) — highest leverage for typed validation. Concrete deliverables: (1) read ~/.claude/skills/wd/SKILL.md to understand current prose-defined behavior; (2) author `wd-workflow.json` — a typed WorkflowModel instance with the wd procedure's WorkflowGraphNodes (each ledger write: chronicle / journal / expertise; each lint pass; each commit step) + edges; (3) author `wd-sop.md` — companion human-readable SOP for the operator-facing description, paired with an OperatingProtocolModel JSON instance encoding the same SOP typed; (4) location: probably under `private/universal/substrate/agents/claude/private/universal/skills/wd/` or operator-decided home; (5) Tier 3 coverage tests on the workflow definition (truth-table on dispatch strategies, decoder rejection of malformed instances, lifecycle invariant tests); (6) validate by running wd's actual operation as a workflow instance and producing a WorkflowCompletionPacket. PILOT — once this pattern is proven, the other 4 skill-graduation beads fan out.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 1,
+  "labels" : [
+    "agent-blame-shielded-workflow-doctrine",
+    "application",
+    "pilot",
+    "wd-skill",
+    "graduation"
+  ],
+  "createdAt" : "2026-05-26T10:48:09Z",
+  "relatedChronicleEntry" : "2026-05-26T10:48:09Z",
+  "sourceType" : "investigation-finding",
+  "sourceLocation" : "~/.claude/skills/wd/SKILL.md",
+  "schemaVersion" : "0.1.0"
+}

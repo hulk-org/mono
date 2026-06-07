@@ -1,0 +1,23 @@
+{
+  "assignee" : "claude",
+  "closedAt" : "2026-05-31T00:45:00Z",
+  "createdAt" : "2026-05-31T00:30:00Z",
+  "description" : "The typelift 2026 modernization doctrine (private/universal/substrate/maintainers/typelift/.docc/modernization-2026.md) names fork queue item #1 as 'wrkstrm-property-testing from the SwiftCheck lineage.' The actual fork landed 2026-05-30 at private/universal/substrate/collectives/swift-universal/private/universal/domain/build/spm/swift-check/ — under the upstream project name, not the doctrine-suggested wrkstrm- prefix. Both are reasonable defenses (preserve upstream name for provenance trail vs adopt wrkstrm- prefix for clean substrate ownership signal). Operator decision needed: rename the fork to align with doctrine, OR update doctrine to bless the actual name. The flagged inconsistency is documented in the modernization-2026.md fork queue entry (DONE 2026-05-30) but left for separate resolution. No urgency — both names work in code today; the fork is stable. Consider when the substrate ships another typelift-lineage fork (queue item #2: wrkstrm-algebra) and a consistent naming convention becomes useful.",
+  "id" : "swift-check-vs-wrkstrm-property-testing-naming-reconciliation",
+  "issueType" : "decision",
+  "labels" : [
+    "typelift",
+    "swiftcheck",
+    "naming",
+    "doctrine-vs-actual",
+    "fork-mechanics"
+  ],
+  "priority" : 3,
+  "relatedChronicleEntry" : "2026-05-31T00:09:36Z",
+  "resolution" : "RESOLVED 2026-05-31: doctrine updated to bless the actual fork name (swift-check). Reasoning: swift-universal/.../build/spm/ convention is descriptive what-it-does names (common-cli, common-process, swift-json-formatter, swift-installer); none are wrkstrm-prefixed because wrkstrm- is the wrkstrm-collective prefix and we're in swift-universal. The modernization-2026.md fork queue item #1 now reflects this. Closed without code rename.",
+  "schemaVersion" : "0.1.0",
+  "sourceLocation" : "private/universal/substrate/maintainers/typelift/.docc/modernization-2026.md",
+  "sourceType" : "operator-intake",
+  "status" : "closed",
+  "title" : "Reconcile fork name: swift-check (actual) vs wrkstrm-property-testing (doctrine)"
+}

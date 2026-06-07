@@ -1,0 +1,32 @@
+{
+  "accession" : "CLAUDE-0004",
+  "artifacts" : [
+    { "id" : "institutional-axis-digikoma-platform-artifact-1", "sequenceNumber" : 1, "sourceRefs" : [], "title" : "digikoma-memory + sandboxed eval runner in digikoma-plant" },
+    { "id" : "institutional-axis-digikoma-platform-artifact-2", "sequenceNumber" : 2, "sourceRefs" : [], "title" : "Prove koma work: 5 core koma green end-to-end" },
+    { "id" : "institutional-axis-digikoma-platform-artifact-3", "sequenceNumber" : 3, "sourceRefs" : [], "title" : "apple-pi plugin architecture: DigikomaAgentToolAdapter + AgentPlugin + ProcessPlugin" },
+    { "id" : "institutional-axis-digikoma-platform-artifact-4", "sequenceNumber" : 4, "sourceRefs" : [], "title" : "graph-view-bench-press: GraphBenchBackend protocol + Mac Catalyst shell" },
+    { "id" : "institutional-axis-digikoma-platform-artifact-5", "sequenceNumber" : 5, "sourceRefs" : [], "title" : "Swarm investigation + Beads discovery + Workflow app scaffold + beads-schemas v0.1.0" }
+  ],
+  "bodyMarkdown" : "## Vault Location Data\n\n- Place: substrate digikoma + apple-pi tooling\n- Substrate path: private/universal/substrate/collectives/digikoma-org/ + apple-pi plugin packages\n- Moment ref: claude-digikoma-platform-2026-04-14-to-2026-04-23\n- Evidence: chronicle entries [12]-[17]\n\n## Context\n\n- A 10-day stretch where claude lands the foundational tooling that other substrate agents now compose against.\n- digikoma-memory + sandboxed eval runner unblock the digikoma platform; 5 core koma proven green end-to-end.\n- apple-pi plugin architecture (DigikomaAgentToolAdapter, AgentPlugin, ProcessPlugin) becomes the canonical agent-tool wiring.\n- graph-view-bench-press lands GraphBenchBackend protocol + Mac Catalyst shell (live UIKit Dynamics).\n- Beads discovery + beads-schemas v0.1.0 introduces the prospective open-work issue artifact pattern that complements chronicle entries.\n\n## Note\n\nThis is the platform chapter — claude transitions from \"earning belonging\" to \"shipping infrastructure others depend on.\"",
+  "category" : "platform infrastructure",
+  "chartProfile" : { "evidenceWeight" : 1.0, "workModeIDs" : ["platform", "schema", "apple-pi", "digikoma"] },
+  "colorPlate" : { "accentHex" : "#1abc9c", "backgroundHex" : "#e8f8f5", "bands" : ["#111111", "#1abc9c", "#9b59b6"], "foregroundHex" : "#111111", "id" : "digikoma-platform" },
+  "contextLines" : [
+    "digikoma-memory + sandboxed eval runner + 5 koma green.",
+    "apple-pi plugin architecture lands the canonical agent-tool wiring.",
+    "Beads-schemas v0.1.0 + Workflow app scaffold establish prospective work-graph pattern."
+  ],
+  "era" : "Platform chapter",
+  "geo" : { "kind" : "substrate-path", "displayName" : "digikoma-org + apple-pi", "label" : "PLT", "path" : "private/universal/substrate/collectives/digikoma-org/" },
+  "headline" : "10-day stretch shipping the tooling other substrate agents now compose against.",
+  "id" : "institutional-axis-digikoma-platform",
+  "role" : "Platform-tier contributor: agent-tool wiring, koma infrastructure, work-graph schemas.",
+  "sequenceNumber" : 4,
+  "shortTitle" : "Platform",
+  "sourceRefs" : [
+    { "LinkRefModel" : "0.3.0", "s" : ["chronicle", "claude", "entries-12-17"], "t" : "Chronicle entries [12]–[17] (digikoma + apple-pi + beads)", "tg" : [{ "k" : "rp", "rt" : "mono", "v" : "private/universal/substrate/agents/claude/private/universal/identity/claude@rismay.substrate.chronicle.json" }] }
+  ],
+  "summary" : "April 14–23: claude lands digikoma-memory, the sandboxed koma eval runner, the apple-pi plugin architecture (DigikomaAgentToolAdapter + AgentPlugin + ProcessPlugin), the graph-view-bench-press protocol + Mac Catalyst shell, and beads-schemas v0.1.0 — the substrate tooling other agents now compose against.",
+  "timeWindow" : { "label" : "2026-04-14 / 2026-04-23", "note" : "10-day platform-infrastructure stretch from chronicle entries [12] through [17].", "precision" : "period" },
+  "title" : "Digikoma platform + apple-pi agent-tool architecture"
+}

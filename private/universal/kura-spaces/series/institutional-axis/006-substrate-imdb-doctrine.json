@@ -1,0 +1,32 @@
+{
+  "accession" : "CLAUDE-0006",
+  "artifacts" : [
+    { "id" : "institutional-axis-substrate-imdb-doctrine-artifact-1", "sequenceNumber" : 1, "sourceRefs" : [], "title" : "5 new vaults seeded (wrkstrm-doctrine, paulgraham, hackernews, venture-capital, paste-cache)" },
+    { "id" : "institutional-axis-substrate-imdb-doctrine-artifact-2", "sequenceNumber" : 2, "sourceRefs" : [], "title" : "axis-rotation framework + scientific-method-as-substrate-test-bench synthesis" },
+    { "id" : "institutional-axis-substrate-imdb-doctrine-artifact-3", "sequenceNumber" : 3, "sourceRefs" : [], "title" : "Substrate-IMDB trifecta: character + worldline schemas + first LDT proof green" },
+    { "id" : "institutional-axis-substrate-imdb-doctrine-artifact-4", "sequenceNumber" : 4, "sourceRefs" : [], "title" : "Vash the Stampede + Tony Stark + substrate worldline character records" },
+    { "id" : "institutional-axis-substrate-imdb-doctrine-artifact-5", "sequenceNumber" : 5, "sourceRefs" : [], "title" : "Multi-timeline-rendering concept + XOR+Ternary+Optional algebra + second LDT proof green" }
+  ],
+  "bodyMarkdown" : "## Vault Location Data\n\n- Place: substrate vaults + character/worldline schemas surface\n- Substrate path: private/universal/vaults/ + collectives/schema-universal/.../character-schemas/ + worldline-schemas/\n- Moment ref: claude-substrate-imdb-doctrine-2026-05-17-to-2026-05-18\n- Evidence: chronicle entries [31]-[37]\n\n## Context\n\n- A 48-hour doctrine stretch driven by rismay firing substrate-typed claims in rapid succession.\n- Five new vaults seeded (wrkstrm-doctrine, paulgraham, hackernews, venture-capital, paste-cache).\n- Axis-rotation framework (not inversion) lands as the substrate's analytic-continuation operator analog.\n- Scientific-method synthesized as substrate test bench; Google-externalization value-prop articulated.\n- Substrate-IMDB trifecta: character-schemas v0.1.0 + worldline-schemas v0.1.0 + first Logic of Dialogue Theory (LDT) proof green; Vash, Tony Stark, Jessica Livingston co-founder, and substrate-worldline records materialize.\n- Multi-timeline-rendering + XOR+Ternary+Optional algebra concepts land with the second LDT proof.\n- This is the chapter where claude moves from \"shipping substrate primitives\" to \"absorbing operator-fired doctrine claims into typed substrate concepts.\"\n\n## Note\n\nThis is the most recent room — the active room as of 2026-05-29. The institutional axis I'm now scaffolding for cameron + the other 17 agents traces its lineage to this chapter's biographical-anchors realization.",
+  "category" : "doctrine synthesis",
+  "chartProfile" : { "evidenceWeight" : 1.0, "workModeIDs" : ["doctrine", "vault", "schema", "ldt", "biographical-anchor"] },
+  "colorPlate" : { "accentHex" : "#d35400", "backgroundHex" : "#fdf2e9", "bands" : ["#111111", "#d35400", "#3498db", "#2ecc71"], "foregroundHex" : "#111111", "id" : "substrate-imdb-doctrine" },
+  "contextLines" : [
+    "5 vaults + axis-rotation + scientific-method test-bench synthesis in one session.",
+    "Substrate-IMDB trifecta: character + worldline schemas + first LDT proof green.",
+    "Multi-timeline-rendering + XOR/Ternary/Optional algebra + second LDT proof land 24h later."
+  ],
+  "era" : "Doctrine chapter",
+  "geo" : { "kind" : "substrate-path", "displayName" : "substrate vaults + schema-universal", "label" : "IMD", "path" : "private/universal/vaults/" },
+  "headline" : "Substrate-IMDB doctrine trifecta + axis-rotation + LDT proofs land in 48 hours.",
+  "id" : "institutional-axis-substrate-imdb-doctrine",
+  "role" : "Doctrine synthesizer turning rapid operator-fired claims into typed substrate concepts.",
+  "sequenceNumber" : 6,
+  "shortTitle" : "IMDB",
+  "sourceRefs" : [
+    { "LinkRefModel" : "0.3.0", "s" : ["chronicle", "claude", "entries-31-37"], "t" : "Chronicle entries [31]–[37] (vaults + axis-rotation + IMDB trifecta + LDT proofs)", "tg" : [{ "k" : "rp", "rt" : "mono", "v" : "private/universal/substrate/agents/claude/private/universal/identity/claude@rismay.substrate.chronicle.json" }] }
+  ],
+  "summary" : "May 17–18: a 48-hour doctrine stretch. Five vaults seeded, axis-rotation framework landed, scientific-method test-bench synthesis articulated, substrate-IMDB trifecta closed (character + worldline schemas + first LDT proof), multi-timeline-rendering + XOR/Ternary/Optional algebra concepts shipped with second LDT proof. Claude shifts from shipping primitives to absorbing operator-fired doctrine into typed substrate concepts.",
+  "timeWindow" : { "label" : "2026-05-17 / 2026-05-18", "note" : "48-hour doctrine stretch across chronicle entries [31]–[37].", "precision" : "period" },
+  "title" : "Substrate-IMDB doctrine trifecta + axis-rotation + LDT proofs"
+}

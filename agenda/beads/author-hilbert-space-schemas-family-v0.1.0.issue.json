@@ -1,0 +1,17 @@
+{
+  "id": "author-hilbert-space-schemas-family-v0.1.0",
+  "title": "Author hilbert-space-schemas family v0.1.0 in schema-universal — type each Hilbert space as first-class record (real-world, MCU, Trigun, GitS, Borderlands, Greek myth, YC org, Google org, etc.)",
+  "description": "Per substrate-multi-timeline-rendering-and-comparison Concept (mono 5eacbdec52) + N-parallel-Hilbert-spaces realization. Substrate currently uses Hilbert-space refs as free-form strings (character.sH and worldline.hS fields are `type: string`). Promote to LinkRef-typed via a hilbert-space-schemas family.\n\nFamily contents:\n- HilbertSpaceModel — slug, name, kind (real | fictional | organizational | doctrinal), canonicalRules (free-form prose for now), foundingYear (if known), substrateBindings (LinkRef[] to substrate Concepts), notesAndProvenance.\n- HilbertSpaceKindOrdinalityTable — closed-condensable catalog: real-world | fictional-narrative | fictional-game | mythological | organizational | doctrinal.\n\nFirst-instance records to materialize after family lands:\n- vaults/hilbert-spaces/real-world.json\n- vaults/hilbert-spaces/marvel-cinematic-universe.json (Tony Stark, JARVIS, Iron Man suit)\n- vaults/hilbert-spaces/trigun.json (Vash, Plant biology)\n- vaults/hilbert-spaces/ghost-in-the-shell.json (logikoma, Section 9)\n- vaults/hilbert-spaces/borderlands.json (claptrap)\n- vaults/hilbert-spaces/greek-myth.json (Castor/Pollux, Olympian hierarchy)\n- vaults/hilbert-spaces/a-beautiful-mind.json (Nash, Hansen)\n- vaults/hilbert-spaces/y-combinator-org.json (Andover/Bucknell-formed founders, batches)\n- vaults/hilbert-spaces/a16z-org.json (Speedrun, fund vintages, GP roles)\n- vaults/hilbert-spaces/google-org.json (L3-L9, Piper, TAP — the substrate-quantizes-googles-organizational-hilbert-space Concept's source)\n- vaults/hilbert-spaces/substrate-doctrine.json (substrate's own Hilbert space, with its canonical-rules being the wrkstrm-doctrine vault contents)\n\nClosure: family lands; 8+ instance records lands; character.sH + worldline.hS fields migrate from string to LinkRef references; LDT proof asserts all existing characters' sH fields resolve to known HilbertSpaceModel records (three-valued-logic UNKNOWN → TRUE).\n\nPriority-1 alongside a16z-speedrun-pitch-fanout — the Hilbert-space-typed substrate is what the a16z pitch leverages (substrate is a typed multiverse-IMDB; this family makes the multiverse part real).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 1,
+  "labels": ["schema-universal", "hilbert-space-schemas", "substrate-imdb-closure", "n-parallel-hilbert-spaces"],
+  "createdAt": "2026-05-18T02:30:00Z",
+  "relatedChronicleEntry": "2026-05-18T02:30:00Z",
+  "sourceType": "thread-beat",
+  "sourceThreadId": "2026-05-17-substrate-imdb-trifecta-closure-session-extension",
+  "sourceBeatId": "n-parallel-hilbert-spaces-realization",
+  "sourceLocation": "private/universal/vaults/wrkstrm-doctrine/concepts/substrate-multi-timeline-rendering-and-comparison.json",
+  "schemaVersion": "0.1.0"
+}

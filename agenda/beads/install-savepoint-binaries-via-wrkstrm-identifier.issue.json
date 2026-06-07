@@ -1,0 +1,20 @@
+{
+  "id": "install-savepoint-binaries-via-wrkstrm-identifier",
+  "title": "Install savepointd + digikoma-savepoint + fs-touchd + savepoint-cli via wrkstrm-identifier install-cli",
+  "description": "Currently the 4 binaries are installed via manual `swift build -c release` + `ln -sf` to ~/.local/bin/. The canonical path is wrkstrm-identifier's install-cli flow: discover-clis (walk substrate emit input JSON) \u2192 bootstrap-registry (compute composed-hash names) \u2192 install-cli --execute (SPM install per registry entry). This formalizes the install + lets the substrate emit-aliases.zsh include them + survives swift package clean cycles without symlink rot. The 4 CLIs aren't in substrate-cli-registry.json yet; needs a discover-clis pass first or manual registry entry author.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "savepoint",
+    "install",
+    "wrkstrm-identifier",
+    "cli-rename-master-plan"
+  ],
+  "createdAt": "2026-05-24T02:01:23Z",
+  "relatedChronicleEntry": "2026-05-24T02:01:23Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/cli-rename-master-plan.docc/substrate-cli-registry.json",
+  "schemaVersion": "0.1.0"
+}

@@ -1,0 +1,32 @@
+{
+  "accession" : "CLAUDE-0005",
+  "artifacts" : [
+    { "id" : "institutional-axis-v100-launch-gate-artifact-1", "sequenceNumber" : 1, "sourceRefs" : [], "title" : "Hello World to Launch Stack: pedagogy-driven production infrastructure" },
+    { "id" : "institutional-axis-v100-launch-gate-artifact-2", "sequenceNumber" : 2, "sourceRefs" : [], "title" : "Substrate-wide v1.0.0 commissioning: collectives + operators + migrators" },
+    { "id" : "institutional-axis-v100-launch-gate-artifact-3", "sequenceNumber" : 3, "sourceRefs" : [], "title" : "Six harnesses commissioned to v1.0.0 with LDT proof-pair audit pattern" },
+    { "id" : "institutional-axis-v100-launch-gate-artifact-4", "sequenceNumber" : 4, "sourceRefs" : [], "title" : "Launch-gate proof grammar: six schema families × hello-world-google v1.0.0-b1" },
+    { "id" : "institutional-axis-v100-launch-gate-artifact-5", "sequenceNumber" : 5, "sourceRefs" : [], "title" : "WrkstrmReleaseArtifactUI: 7 SwiftUI viewers consume the proof grammar" }
+  ],
+  "bodyMarkdown" : "## Vault Location Data\n\n- Place: substrate-wide v1.0.0 commissioning surface\n- Substrate path: private/universal/substrate/collectives/ + harnesses/ (six)\n- Moment ref: claude-v100-launch-gate-2026-05-08-to-2026-05-15\n- Evidence: chronicle entries [23]-[30]\n\n## Context\n\n- A week-long substrate-wide commissioning push.\n- Hello-World-to-Launch-Stack establishes pedagogy-driven production infrastructure (educational on-ramp → real production gates).\n- Substrate-wide v1.0.0 commissioning lands across collectives, operators, and migrators.\n- Six harnesses commissioned to v1.0.0 with LDT proof-pair audit pattern.\n- The launch-gate proof grammar (six schema families × hello-world-google v1.0.0-b1 honest-blocked receipts) lands as the canonical release-gate contract.\n- WrkstrmReleaseArtifactUI ships 7 SwiftUI viewers that consume the proof grammar — first end-to-end loop from gate → typed receipt → renderer.\n\n## Note\n\nThis chapter establishes claude as substrate-wide release-discipline contributor, not just per-package shipper.",
+  "category" : "substrate commissioning",
+  "chartProfile" : { "evidenceWeight" : 1.0, "workModeIDs" : ["release", "v100", "launch-gate", "ldt"] },
+  "colorPlate" : { "accentHex" : "#3498db", "backgroundHex" : "#ebf5fc", "bands" : ["#111111", "#3498db", "#e74c3c"], "foregroundHex" : "#111111", "id" : "v100-launch-gate" },
+  "contextLines" : [
+    "Hello-World-to-Launch-Stack: pedagogy → production-infrastructure pipeline.",
+    "Substrate-wide v1.0.0 across collectives + operators + migrators + six harnesses.",
+    "Launch-gate proof grammar + WrkstrmReleaseArtifactUI close the gate→receipt→renderer loop."
+  ],
+  "era" : "v1.0.0 chapter",
+  "geo" : { "kind" : "substrate-path", "displayName" : "substrate-wide v1.0.0", "label" : "V10", "path" : "private/universal/substrate/" },
+  "headline" : "Substrate-wide v1.0.0 commissioning + launch-gate proof grammar lands the release-discipline contract.",
+  "id" : "institutional-axis-v100-launch-gate",
+  "role" : "Substrate-wide release-discipline contributor.",
+  "sequenceNumber" : 5,
+  "shortTitle" : "v1.0.0",
+  "sourceRefs" : [
+    { "LinkRefModel" : "0.3.0", "s" : ["chronicle", "claude", "entries-23-30"], "t" : "Chronicle entries [23]–[30] (Hello-World, v1.0.0 commissioning, launch-gate, WrkstrmReleaseArtifactUI)", "tg" : [{ "k" : "rp", "rt" : "mono", "v" : "private/universal/substrate/agents/claude/private/universal/identity/claude@rismay.substrate.chronicle.json" }] }
+  ],
+  "summary" : "May 8–15: claude pushes Hello-World-to-Launch-Stack pedagogy, substrate-wide v1.0.0 commissioning across collectives + operators + migrators + six harnesses, the launch-gate proof grammar (six families × hello-world-google honest-blocked receipts), and WrkstrmReleaseArtifactUI with 7 SwiftUI viewers — closing the first gate → typed receipt → renderer loop.",
+  "timeWindow" : { "label" : "2026-05-08 / 2026-05-15", "note" : "Week-long substrate v1.0.0 commissioning stretch from chronicle entries [23]–[30].", "precision" : "period" },
+  "title" : "Substrate-wide v1.0.0 + launch-gate proof grammar"
+}

@@ -1,0 +1,36 @@
+{
+  "id" : "fork-swiftcheck-as-wrkstrm-property-testing",
+  "title" : "Fork SwiftCheck → substrate-owned wrkstrm-property-testing (Swift 6.3 + Swift Testing native)",
+  "description" : "Phase C.1 (PRIORITY 1) of typelift-substrate-modernization. Operator decision on 2026-05-28 upgraded this from a possible fork to the first required 2026 fork lane. Tier 4 coverage doctrine prerequisite — without a substrate-owned property-testing library compatible with Swift Testing, no schema family can reach Tier 4 (per `[[ordinality-table-entries-immutable-once-released]]` companion coverage-tiering doctrine). Fork scope: (1) author new SPM package at `private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/wrkstrm-property-testing/` (name negotiable — propcheck / swift-testing-prop / swift-property-testing also candidates); (2) carry forward SwiftCheck's core ideas: `Gen<T>` (random generator monad), `Property` (property assertions), `Arbitrary` protocol (random-instance providers), shrinking strategies, and replayable seeds; (3) replace XCTest integration with native Swift Testing — `@Test(.property(...))` or result-builder syntax for property declarations; (4) use Swift tools 6.3 and Sendable conformance throughout (Gen, Property, Arbitrary all Sendable when crossing tasks); (5) async/await for generator composition where async setup is needed; (6) result-builder DSL for property composition; (7) substrate-typed shrinkers — LinkRefModel, SlugRefModel, AIModelFamilyOrdinalityTable.Entry, OptionSet bitmasks, typed-enum ordinalities all get domain-specific shrinkers that produce substrate-shaped minimal counterexamples; (8) meta-tests for the library itself (the library's own tests at Tier 3 standard); (9) integration POC: re-author one AIModelFamily exhaustive test as a property-based test using the new library, demonstrate Tier 4 ascent.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 1,
+  "labels" : [
+    "typelift-modernization",
+    "phase-c",
+    "fork",
+    "property-testing",
+    "tier-4-prerequisite",
+    "wrkstrm-core"
+  ],
+  "createdAt" : "2026-05-26T10:21:34Z",
+  "relatedChronicleEntry" : "2026-05-26T10:21:34Z",
+  "sourceType" : "thread-beat",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "phase-c-swiftcheck-fork",
+  "dependencies" : [
+    {
+      "issueId" : "fork-swiftcheck-as-wrkstrm-property-testing",
+      "dependsOnId" : "typelift-2026-fork-standard",
+      "type" : "blocks-until-complete"
+    },
+    {
+      "issueId" : "fork-swiftcheck-as-wrkstrm-property-testing",
+      "dependsOnId" : "typelift-per-package-substrate-audit",
+      "type" : "blocks-until-complete"
+    }
+  ],
+  "sourceLocation" : "private/universal/substrate/maintainers/typelift/public/universal/tooling/spm/SwiftCheck/",
+  "schemaVersion" : "0.1.0"
+}

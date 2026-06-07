@@ -1,0 +1,22 @@
+{
+  "id" : "typelift-org-catalog-audit",
+  "title" : "Audit the typelift GitHub org — enumerate actual repos, license, last-commit dates",
+  "description" : "Phase A.1 of the typelift-substrate-modernization thread. Fetch https://github.com/typelift to enumerate every repo currently in the org. For each, capture: repo name, description, license (permissive license required; SwiftCheck is MIT, other repos must be verified), last-commit date, archive status, primary language, star count (interest proxy), open-issue count (maintenance signal). Output: a typed audit report (likely as a single JSON file) under `private/universal/substrate/collectives/clia-org/agenda/typelift-org-catalog-2026-05-26.json` or similar. Substrate has cached recall of these repos (SwiftCheck, Swiftx, Operadics, Aquila, Algebra, Basis, Concurrent, Focus, TypeLift, Forge, Slip) but the recall is unverified — direct WebFetch is the discipline. Output drives Phase A.2 (vendor submodule list) and Phase B (per-package audit scope). Use `gh repo list typelift` if GitHub CLI is authorized, OR WebFetch the org page directly. License confirmation per-repo is critical — non-permissive or unlicensed repos should not be vendored at maintainers/ without operator approval.",
+  "assignee" : "claude",
+  "issueType" : "investigation",
+  "status" : "open",
+  "priority" : 1,
+  "labels" : [
+    "typelift-modernization",
+    "phase-a",
+    "audit",
+    "maintainers"
+  ],
+  "createdAt" : "2026-05-26T10:21:34Z",
+  "relatedChronicleEntry" : "2026-05-26T10:21:34Z",
+  "sourceType" : "thread-beat",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "phase-a-org-audit",
+  "sourceLocation" : "https://github.com/typelift",
+  "schemaVersion" : "0.1.0"
+}

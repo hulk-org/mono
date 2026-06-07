@@ -1,0 +1,15 @@
+{
+  "id": "retroactive-packetization-typed-workflow",
+  "title": "Author retroactive-packetization workflow-series and (if needed) runtime workflow.json binding",
+  "description": "Workstream-template + index.md now landed at substrate/collectives/wrkstrm/.../kura-spaces/spaces/workstreams/collections/retroactive-packetization/ (2026-05-31). Doctrine-level extraction is complete; this bead is downgraded to cover the next-layer-down: (a) author retroactive-packetization.workflow-series.json under kura-spaces/series/workflows/retroactive-packetization/ if the workstream's task sequence needs to be a typed series rather than just an inline tasks[] array; (b) if the substrate ever needs to runtime-bind retroactive-packetization to a specific session (operator + agent + binding profile), author the heavy workflow.json instance at substrate/workflows/v0.1.0/ following the existing 20-field shape. Both (a) and (b) are deferrable until a real need arises — the workstream-template + axiom are sufficient for the current substrate-doctrine layer. Pairs with [[bead:library-extraction-for-testability-typed-workflow]].",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 1,
+  "labels": ["typed-workflow", "doctrine", "axiom-projection", "wd-extraction-gap"],
+  "createdAt": "2026-05-31T02:35:00Z",
+  "relatedChronicleEntry": "2026-05-31T02:30:00Z",
+  "sourceType": "wd-extraction-gap",
+  "sourceLocation": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/axioms/retroactive-packetization-is-the-recovery-protocol.axiom.su.json",
+  "schemaVersion": "0.1.0"
+}

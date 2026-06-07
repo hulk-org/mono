@@ -1,0 +1,19 @@
+{
+  "id": "claude-md-architecture-bullet-stale",
+  "title": "CLAUDE.md Architecture line 44-46 still references claude/skills/openclaw as harnesses",
+  "description": "Repo-root CLAUDE.md's Repository Architecture section (lines 44-46) still says 'codex, gemini, claude, skills, openclaw, and SPM harnesses, including merged harness-backed homes such as Claude'. Stale on multiple counts: claude is no longer a harness (it's a persona inside hulk per the founding-breach split + this session's home graduation); skills isn't a harness; openclaw isn't a harness either. Actual harnesses now: apple-pi, clide, codex, digikoma, gemini, hermes-harness, hulk, pi. Surface this fix as a small focused commit; touched briefly during the claude home graduation but not corrected.",
+  "assignee": "claude",
+  "issueType": "bug",
+  "status": "open",
+  "priority": 4,
+  "labels": [
+    "doctrine",
+    "CLAUDE.md",
+    "documentation-drift"
+  ],
+  "createdAt": "2026-05-24T02:01:23Z",
+  "relatedChronicleEntry": "2026-05-24T02:01:23Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "CLAUDE.md",
+  "schemaVersion": "0.1.0"
+}

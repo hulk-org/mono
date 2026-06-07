@@ -1,0 +1,30 @@
+{
+  "id": "first-web-to-app-target-pick",
+  "title": "Pick first URL/site to scaffold as proof of the scaffold-app-from-web pipeline",
+  "description": "After the 7 implementation beads land, the substrate needs a FIRST target to scaffold as the proof-of-concept app. Operator decision required. Criteria (per scaffold-app-from-web.docc/index.md): operator daily-use service (high retention motivation), public APIs preferred over auth-required (lower Phase B complexity), visually simple (cleaner Phase E reconstruction), stable backend (lower regression risk). Candidate set: Hacker News (REST/Firebase API, public, simple visual), GitHub Trending (HTML scraping but stable), Pinboard (REST API, auth via API token), personal RSS reader, Are.na (REST API + visual focus), IndieHackers, Substack reader. Output of this bead: operator names the target + substrate ships its first scaffolded app per the rocket pattern. Likely will be a P2 graduation moment — first satellite launched.",
+  "assignee": "claude",
+  "issueType": "decision",
+  "status": "closed",
+  "closedAt": "2026-05-17T23:45:00Z",
+  "resolutionNote": "Closed 2026-05-17. First target: Hacker News. Config hand-written at wrkstrm-research/.../generative-ui/gym/scaffolded/hackernews-config.json (9 endpoints against hacker-news.firebaseio.com Firebase REST API + Item + User models). scaffold-app-from-web-cli executed end-to-end: 9 endpoints captured (all succeeded), CLI package generated, app package generated, SubstrateRegistryVault entry added. Generated CLI installed at ~/.swiftpm/bin/312d7253-cli (1.7 MB Mach-O). Live verification: topstories returned current HN ID array; item --id 1 returned Y Combinator (pg, score 57, original HN post); maxitem returned 48167723 (current largest item ID). First satellite is in orbit.",
+  "priority": 3,
+  "labels": [
+    "scaffold-app-from-web",
+    "first-target",
+    "operator-decision",
+    "proof-of-concept",
+    "rocket-launch"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/scaffold-app-from-web.docc/index.md",
+  "dependencies": [
+    {
+      "issueId": "first-web-to-app-target-pick",
+      "dependsOnId": "scaffold-app-from-web-orchestrator-cli",
+      "type": "blocks-on"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}

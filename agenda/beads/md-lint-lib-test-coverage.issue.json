@@ -1,0 +1,22 @@
+{
+  "id": "md-lint-lib-test-coverage",
+  "title": "Author lib-level test coverage for md lint (SwiftMDLint) in tests/md-core-tests/",
+  "description": "md lint audit subcommand was absorbed from the legacy swift-md-lint-cli package (deleted during Phase 2 consolidation 2026-05-31). The legacy package's tests, if any, were not migrated. Currently zero test coverage in tests/md-core-tests/ for SwiftMDLint (MDLint.swift, TypingPracticeInputNormalizer.swift). md.qa-evidence-packet.json marks this as smoke-tested-only with a futureFollowOnBead pointing here. Resolution: add tests/md-core-tests/MDLintTests.swift covering the lint rules (typing-practice violations, normalizer edge cases, --scope filtering, --fail-on-unsupported behavior); add tests/md-core-tests/TypingPracticeInputNormalizerTests.swift covering normalization invariants (idempotence, character-class equivalence). Pairs with [[bead:md-formatter-lib-test-coverage]] (sibling absorption gap).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "closed",
+  "priority": 3,
+  "labels": [
+    "md-cli",
+    "qa-evidence",
+    "absorbed-from-legacy",
+    "test-coverage"
+  ],
+  "createdAt": "2026-05-31T02:30:00Z",
+  "relatedChronicleEntry": "2026-05-31T02:30:00Z",
+  "sourceType": "spawn-software-qa-evidence-gap",
+  "sourceLocation": "private/universal/substrate/collectives/wrkstrm/private/universal/kura-spaces/spaces/workstreams/collections/spawn-software/instances/md.qa-evidence-packet.json",
+  "schemaVersion": "0.1.0",
+  "closedAt": "2026-05-31T03:30:00Z",
+  "closedNote": "Test files recovered via git show from parent of Phase 2 absorption deletion commit (0c495a23) and ported to tests/md-core-tests/. 66 total tests passing. qa-evidence-packet coverageMap updated to coverageStatus: covered."
+}

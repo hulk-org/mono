@@ -1,0 +1,15 @@
+{
+  "id": "agent-timeline-cli-validate-kind-enum",
+  "title": "agent-timeline-cli ingest should reject non-canonical --kind values + suggest the canonical form",
+  "description": "The wd skill documents canonical kinds per lane: chronicle uses 'winddown.session', journal uses 'winddown.journal', expertise uses 'winddown.expertise'. agent-timeline-cli ingest silently accepts ANY string for --kind, so a typo like 'winddown.chronicle' (which looks plausible but is non-canonical) lands in the ledger without warning. Caught this session: a loop passing --kind \"winddown.${lane}\" produced winddown.chronicle/winddown.journal/winddown.expertise, the first of which is wrong; had to post-hoc rewrite the last entry's k.t + k.s + k.tg fields via inline python to canonicalize. Resolution: add a kind ordinality table at schema-universal/private/universal/domain/system/schema-families/shinji-techo-schemas/v0.2.0/json/kinds/ enumerating the valid kinds (winddown.session, winddown.journal, winddown.expertise, plus any other shinji-entry-kind values already present in ordinality), and have agent-timeline-cli ingest validate --kind against that table on entry, rejecting unknown kinds with a helpful 'did you mean winddown.session?' suggestion. Pairs with feedback_json-ordinality-tables-not-enums doctrine (closed-condensable catalog → ordinality table, not enum). Extends to Codable validation if/when the kind moves from string to typed enum.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": ["agent-timeline-cli", "shinji-techo", "validation", "developer-experience"],
+  "createdAt": "2026-05-26T04:31:36Z",
+  "relatedChronicleEntry": "2026-05-26T04:31:36Z",
+  "sourceType": "incident",
+  "sourceLocation": "private/universal/substrate/collectives/schema-universal/private/universal/domain/system/spm/agent-timeline-cli",
+  "schemaVersion": "0.1.0"
+}

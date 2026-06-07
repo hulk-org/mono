@@ -2,27 +2,27 @@
 
 ## Purpose
 
-Track the real onboarding and operating work for the `hulk` organism — the
-carrier-shape that holds inference-engine + personality bundles.
+This agenda should track the real onboarding and operating work for `claude`.
+
+## Current bootstrap work
+
+- Absorb the onboarding route:
+  - `private/universal/vaults/claptrap/claptrap.docc/`
+  - `private/universal/vaults/acting/acting.docc/`
+- Understand the existing OpenClaw relationship surfaces:
+  - `private/universal/substrate/agents/claw/`
+  - `private/universal/substrate/collectives/openclaw/`
+- Keep the repo root `CLAUDE.md` and this commissioned home aligned.
 
 ## Current work
 
-- **Contract v0.1.0** — initial draft of bones + skin clauses written.
-  Refine based on observed breaches.
-- **claude-code compliance audit** — measure the Anthropic reference
-  implementation against the contract. The first observed breach is the
-  S-1 (Bounded Memory) and S-7 (Host Citizenship) failure on 2026-04-04 and
-  2026-04-05 (160GB host RAM leak crashing the operator's machine).
-- **claw-code bootstrap** — second hulk implementation under `ultraworkers`,
-  to be measured against the same contract.
-- **Witness suite** — `hulk-org/witness` test harness that exercises each
-  contract clause against an implementation. Not yet started.
-- **Compliance manifest format** — define `hulk-compliance.json` schema.
-- **Breach report format** — define the structure of a breach report for
-  publication to an implementation's `breaches/` directory.
+- Apple Pi Bench Press tool explorer:
+  - 36 Foundation Models tools cataloged, 3 invocable.
+  - Beat dedup bug found and fixed.
+  - Next: canonical fixtures + expected results.
+- Keep the harness home in git so it survives runtime resets.
 
 ## Maintenance rule
 
-When the hulk gains real operating threads (a witness suite, a compliance
-audit, a published breach report), update this agenda to reflect active work
-instead of generic wishlist items.
+When `claude` gains real operating threads, update this agenda so it reflects
+active work instead of a generic wishlist.

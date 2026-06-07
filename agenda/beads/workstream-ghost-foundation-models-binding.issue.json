@@ -1,0 +1,15 @@
+{
+  "id": "workstream-ghost-foundation-models-binding",
+  "title": "Wire workstream CLI `chat` to Apple FoundationModels for ghost-form on-device conversation",
+  "description": "Per operator 2026-05-31: 'when you get this Package.swift... what do you get? I think you should get a CLI... and that CLI should allow you to instantiate the workstream... but also... maybe chat with the avatar ghost form?' Each typed workstream Swift Package ships an executable CLI; the CLI's `chat` subcommand surfaces the workstream's GHOST FORM — a typed persona that represents the workstream and carries its typed records as system context. Phase 1 (landed 2026-05-31): the CLI's chat command renders the ghost's typed introduction + composition graph + Swift Package usage. Phase 2 (this bead): wire to Apple FoundationModels (per project_typed-models-quantum-state-machines-generative-ui memory) for on-device conversation. The ghost-form's system context = the workstream's typed records (states + events + transitions + workflow-series + workstream-template + axiom-citations). User asks 'what stage am I in given <inventory>?' → FoundationModels session responds in substrate vocabulary grounded by the typed records. Composition with feedback_codex-is-a-form-of-chatgpt (codex IS a typed form of chatgpt) + feedback_form-is-universal-binding-pattern (form is universal binding pattern) — workstream-ghost is a NEW form-of-workstream variant joining agent-form, audience-form, collective-form. Estimated 6-10 hours: design system-prompt-as-typed-records loader; bind FoundationModels session; per-message constrained decoding via the workstream's allowlist (typed states + events + artifacts); test conversational coherence across the 5 typed stages. Composes with [[bead:clia-rpg-phase-1-swiftui-read-only-views]] (CLIA RPG's UI could embed workstream ghost chats in detail screens).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["workstream-cli", "ghost-form", "foundation-models", "on-device", "generative-ui", "phase-2"],
+  "createdAt": "2026-05-31T08:00:00Z",
+  "relatedChronicleEntry": "2026-05-31T08:00:00Z",
+  "sourceType": "workstream-cli-extension",
+  "sourceLocation": "private/universal/substrate/collectives/wrkstrm/private/universal/domain/system/spm/creative-selection@wrkstrm.workstream/Sources/CreativeSelectionCLI/CreativeSelectionCLI.swift",
+  "schemaVersion": "0.1.0"
+}

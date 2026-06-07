@@ -1,0 +1,21 @@
+{
+  "id" : "audit-operating-protocol-schemas-v0.1.0-surface",
+  "title" : "Audit operating-protocol-schemas v0.1.0 typed surface — SOP layer comprehension",
+  "description" : "Comprehension bead 2/4 for agent-blame-shielded-workflow-doctrine. Read every public type in operating-protocol-schemas v0.1.0: OperatingProtocolModel (central SOP), OperatingProtocolAxiom (declared invariants), OperatingProtocolAxiomContextRef, OperatingProtocolStep, OperatingProtocolTrigger, OperatingProtocolOutcome, OperatingProtocolSchemaVersion. Produce a typed audit report covering: how Axioms compose with Steps; how Triggers fire (event-typed? state-typed? scheduled?); how Outcomes are verified at the end of a step or protocol; whether substrate has any concrete OperatingProtocolModel instances anywhere; the relationship between OperatingProtocolModel and WorkflowModel (is one a refinement of the other? are they independent? do they compose?). Output: extend the investigation report.",
+  "assignee" : "claude",
+  "issueType" : "investigation",
+  "status" : "open",
+  "priority" : 2,
+  "labels" : [
+    "agent-blame-shielded-workflow-doctrine",
+    "comprehension",
+    "schema-universal",
+    "operating-protocol-schemas",
+    "sop"
+  ],
+  "createdAt" : "2026-05-26T10:48:09Z",
+  "relatedChronicleEntry" : "2026-05-26T10:48:09Z",
+  "sourceType" : "investigation-finding",
+  "sourceLocation" : "private/universal/substrate/agents/claude/memory/.docc/investigation.docc/workflow-schema-universal-landscape-2026-05-26.md",
+  "schemaVersion" : "0.1.0"
+}

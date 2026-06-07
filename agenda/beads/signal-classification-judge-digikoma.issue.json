@@ -1,0 +1,15 @@
+{
+  "id": "signal-classification-judge-digikoma",
+  "title": "Author signal-classification-judge digikoma for unknown-workflow stage 3 (classify-signals)",
+  "description": "Surfaced 2026-05-31 by unknown-workflow.x-tools-by-stage missingTools[] catalog. Stage 3 of unknown-workflow (classify-signals-to-candidate-workflows) walks x-candidate-workflow-mapping.patterns[] against captured signals. When matches are AMBIGUOUS (multiple candidates with similar-strength signal matches OR a candidate matches partial signals only), a bounded judgment digikoma should evaluate the candidate list and emit a classification verdict. Currently this judgment lives in agent inference; a typed digikoma would (a) make the judgment reproducible, (b) make ambiguous-classification-frequency metric (per x-minimization-program) more measurable, (c) close the typed gap at substrate/roles/unknown-workflow-conductor/.../role-surface-manifest.json.digikomaToolRefs. Candidate home: digikoma-org or wrkstrm digikoma collection. Required surfaces: fixture taking (signals, candidateWorkflows), allowlist (substrate-vocabulary), no system prompt, emits ClassificationVerdict { selectedWorkflow, confidence, rationale, alternatesConsidered }. Est 2-3 hours including fixture + tests + integration into unknown-workflow stage 3 instructions.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["digikoma", "unknown-workflow", "tools-back-derivation-gap", "classification-judge"],
+  "createdAt": "2026-05-31T04:55:00Z",
+  "relatedChronicleEntry": "2026-05-31T04:55:00Z",
+  "sourceType": "tools-back-derivation-gap",
+  "sourceLocation": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/unknown-workflow/v0.1.0/unknown-workflow.workflow.json",
+  "schemaVersion": "0.1.0"
+}

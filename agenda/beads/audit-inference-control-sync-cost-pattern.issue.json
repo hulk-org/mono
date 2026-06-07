@@ -1,0 +1,21 @@
+{
+  "id": "audit-inference-control-sync-cost-pattern",
+  "title": "Audit inference-control sync-cost pattern as canonical substrate-doctrine reference (READ-FIRST)",
+  "description": "PRIORITY-1 prerequisite for the ability-cost cohort + every future cost-sync expansion per [[substrate-sync-cost-pattern-2026-05-26]]. Substrate's first practiced cost-sync shipped 2026-05-22 (commit `2be1bb9bc4 wd 2026-05-22: sync-cost observability`) on the wrkstrm-app inference-control surface, backed by `inference-account-schemas v0.2.0`. Operator named this as the canonical pattern substrate expands across every cost-bearing operation — NOT a one-off. Audit scope: (1) read `inference-account-schemas/v0.2.0/spm/.../sources/` Swift sources thoroughly — every typed cost-event shape, invoice shape, ledger shape; (2) read the inference-control implementation at `private/universal/substrate/collectives/wrkstrm-app/private/apple/apps/inference-control/` — how the app actually wires invocation-to-invoice-to-ledger; (3) read `agents/chatgpt/memory/.docc/expertise/inference-control-gemini-shader-pacing.md` — operator-captured lessons learned (the gotchas substrate already paid for); (4) read `harnesses/hulk/memory/.docc/project_inference-control.md` + `project_inference-control-nerv-session.md` — project-level memories on what was tried + what shipped. Output: typed audit report in `agents/claude/memory/.docc/investigation.docc/sync-cost-pattern-2026-05-26.md` capturing the 4-layer pattern as extracted from inference-control, plus identifying which existing primitives ability-cost (and other expansions) should COMPOSE WITH, not parallel. Blocks all 5 ability-cost authoring beads.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- (COMPLETED 2026-05-26; investigation report at agents/claude/memory/.docc/investigation.docc/sync-cost-pattern-as-practiced-2026-05-26.md)",
+  "assignee": "claude",
+  "issueType": "investigation",
+  "status": "open",
+  "priority": 1,
+  "labels": [
+    "substrate-sync-cost-pattern",
+    "agent-abilities-pokemon-topology",
+    "audit",
+    "canonical-reference",
+    "blocks-cost-cohort"
+  ],
+  "createdAt": "2026-05-26T11:18:52Z",
+  "relatedChronicleEntry": "2026-05-26T11:18:52Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/substrate-sync-cost-pattern-2026-05-26.md",
+  "schemaVersion": "0.1.0"
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "graduate-agent-setup-skill-to-typed-workflow",
+  "title" : "Graduate `agent-setup` skill to typed WorkflowModel + OperatingProtocolModel",
+  "description" : "Application bead 5/5 for agent-blame-shielded-workflow-doctrine. agent-setup creates new agents — its operations have cascading consequences (identity authoring, kura tree materialization, persona binding). Read ~/.claude/skills/agent-setup/SKILL.md (or substrate-side equivalent if skill is gone); author agent-setup-workflow.json with typed WorkflowGraphNodes for each step. Author SOP. Tier 3 tests including invariants like 'agent-setup never proceeds if identity slug collides with existing commissioned home.' End-to-end validation. After wd-graduation pilot.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "agent-blame-shielded-workflow-doctrine",
+    "application",
+    "agent-setup-skill",
+    "graduation"
+  ],
+  "createdAt" : "2026-05-26T10:48:09Z",
+  "relatedChronicleEntry" : "2026-05-26T10:48:09Z",
+  "sourceType" : "investigation-finding",
+  "sourceLocation" : "~/.claude/skills/agent-setup/SKILL.md",
+  "dependencies" : [
+    {
+      "issueId" : "graduate-agent-setup-skill-to-typed-workflow",
+      "dependsOnId" : "graduate-wd-skill-to-typed-workflow",
+      "type" : "blocks-until-complete"
+    }
+  ],
+  "schemaVersion" : "0.1.0"
+}

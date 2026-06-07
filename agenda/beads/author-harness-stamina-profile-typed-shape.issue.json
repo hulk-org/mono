@@ -1,0 +1,28 @@
+{
+  "id": "author-harness-stamina-profile-typed-shape",
+  "title": "Author HarnessStaminaProfile typed shape — per-harness rate-limit / wall-clock / session conventions",
+  "description": "Per [[substrate-sync-cost-pattern-2026-05-26]] Layer 5 encumbrance refinement. SessionStaminaCeiling is COMPOSITE — depends on (harness × model × operator-policy). The harness contribution gets its own typed shape. Proposed `HarnessStaminaProfile { harnessSlug, wallClockSessionMaxSeconds: Int?, rateLimitTokensPerMinute: Int?, contextWindowSoftCap: Int?, harnessNativeCostAxes: [enum: wallClock / contextWeight / financial / rateLimits] }`. Per-harness instances: hulk-harness (Claude Sonnet 5h wall-clock + 200K context); codex-harness (different rate-limits + context); apple-pi-harness (no financial / large local context / electricity-only); gemini-harness (Google rate-limits + context). Each harness identity gains a stamina-profile reference. The SessionStaminaCeiling computation is then `combine(HarnessStaminaProfile, AIModelFamilyDNA, OperatorPolicy)`. BLOCKS on inference-control sync-cost audit (read the precedent first).\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- InferenceProvider (inference-account-schemas v0.2.0) — root declaration; carries nested rateLimit + quota + hosting\n- InferenceConnection (same) — provider connection metadata\n- InferenceRateLimit (same) — rpm/tpm/maxConcurrent ceilings\n- InferenceQuota (same) — token-budget ceiling",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "substrate-sync-cost-pattern",
+    "encumbrance",
+    "harness-layer",
+    "schema-universal",
+    "composite-ceiling"
+  ],
+  "createdAt": "2026-05-26T11:36:31Z",
+  "relatedChronicleEntry": "2026-05-26T11:36:31Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/substrate-sync-cost-pattern-2026-05-26.md",
+  "dependencies": [
+    {
+      "issueId": "author-harness-stamina-profile-typed-shape",
+      "dependsOnId": "audit-inference-control-sync-cost-pattern",
+      "type": "blocks-until-complete"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}

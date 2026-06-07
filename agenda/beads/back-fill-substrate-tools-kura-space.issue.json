@@ -1,0 +1,15 @@
+{
+  "id": "back-fill-substrate-tools-kura-space",
+  "title": "Back-fill substrate-tools kura space + back-derive remaining META-ROLEs",
+  "description": "kura-spaces/tools/v0.1.0/ landed 2026-05-31 with 8 canonical classifier-grade tools authored as individual files. Tool-exclusivity-registry.json has 19 tools total; 11 remain to be exploded into individual files (4 wd-related already authored as 3 tools; 5 spawn-software, retroactive, workflow-creation, cascade-execution authored; remaining ~11 are mix of classifier-grade + shared). Back-fill work: (a) explode remaining 11 tools from tool-exclusivity-registry.json into individual <slug>.tool.json files at kura-spaces/tools/v0.1.0/; (b) for each tool's usedByRoles[] forward-pointing LinkRef, back-derive the corresponding META-ROLE at substrate/roles/<slug>-conductor/ following unknown-workflow-conductor pattern (manifest + role-workflow + index.md); (c) populate usedByRoles[] in tool files with the now-typed LinkRefs (replace forward-pointing status with materialized). Estimated 6-8 hours total: 11 tool files (~30 lines each = 330 lines) + ~5 META-ROLEs (~100-150 lines per role home = 500-750 lines). Closes the substrate's typed dispatch graph (tool → role → workflow lookup direction completes; closes recursion with the existing role-surface-manifest.digikomaToolRefs reverse direction). Composes with bead [[bead:cascade-skill-implementation]] (META-ROLEs are the skill's role-binding source) + [[bead:unknown-workflow-skill-implementation]] (same).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["kura-space", "tools-back-derivation", "dispatch-graph", "share-by-default"],
+  "createdAt": "2026-05-31T05:30:00Z",
+  "relatedChronicleEntry": "2026-05-31T05:30:00Z",
+  "sourceType": "tools-kura-space-back-fill",
+  "sourceLocation": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/tools/v0.1.0/index.md",
+  "schemaVersion": "0.1.0"
+}

@@ -1,0 +1,21 @@
+{
+  "id" : "audit-cost-related-beads-add-composition-declarations",
+  "title" : "Audit cost-related beads + add composesWithExistingTypes[] declarations per non-divergence discipline",
+  "description" : "Per [[cost-model-non-divergence-discipline]] (operator-stated 2026-05-26). Substrate's `inference-account-schemas v0.2.0` has 25+ typed cost primitives the encumbrance + ability-cost cohort MUST compose with — not redefine. Author this session left composition declarations as prose hand-waves ('composes with inference-account-schemas') rather than explicit type-by-type lists. This housekeeping bead enumerates each cost-related bead and adds a structured 'composesWithExistingTypes[]' section to each description.\n\n## Cost-related beads to update (13)\n\nEncumbrance cohort (6):\n- author-harness-stamina-profile-typed-shape\n- author-session-stamina-ceiling-typed-shape\n- author-session-encumbrance-state-typed-shape\n- author-encumbrance-pressure-level-ordinality-table\n- author-session-encumbrance-lens-app\n- wire-substrate-policy-responses-to-encumbrance-levels\n\nAbility cohort (6):\n- author-agent-capability-catalog-typed-shape\n- author-ability-classification-ordinality-table\n- author-ability-fleet-topology-report\n- author-vault-app-model-mcp-replacement\n- author-ability-acquisition-discharge-events\n- investigate-harness-side-ability-jit-loader\n\nSync-cost audit (1):\n- audit-inference-control-sync-cost-pattern\n\n## Type bindings to declare per bead\n\nharness-stamina-profile -> InferenceProvider, InferenceConnection, InferenceRateLimit\nsession-stamina-ceiling -> InferenceQuota, InferenceRateLimit, InferenceCircuitBreaker, InferenceContextClass\nsession-encumbrance-state -> InferenceUsageEvent (aggregates streams)\nencumbrance-pressure-level-ordinality -> InferenceCircuitBreaker (transitions trigger breaker logic)\nsession-encumbrance-lens-app -> reads SessionEncumbranceState + InferenceUsageEvent stream\nwire-substrate-policy-responses -> InferenceCircuitBreaker policy enforcement\nability-cost-shape (if authored) -> InferenceCostEstimate + InferenceTokenPriceBand + InferenceTokenUse\nability-performance-invoice (if authored) -> EXTENDS InferenceUsageEvent\nagent-ability-cost-ledger (if authored) -> kura-timeline of InferenceUsageEvent (aggregates per-agent)\nability-listing-model (if authored) -> InferenceModel + InferenceModelCapabilities + InferenceWorkloadClass\n\n## Output format per bead description\n\n```\n## Composes with existing types\n- InferenceUsageEvent (inference-account-schemas v0.2.0)\n- InferenceCostEstimate (same)\n- InferenceTokenPriceBand (same)\n\n## Rationale for any NEW fields\n<prose explaining why each new field has no existing equivalent>\n```\n\nSPM-dependency declarations also added: the authored schema family must declare a Package.swift dependency on inference-account-schemas v0.2.0 (or whichever cost-primitive family). Compilation enforces.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 1,
+  "labels" : [
+    "substrate-sync-cost-pattern",
+    "cost-model-non-divergence",
+    "housekeeping",
+    "audit",
+    "blocks-cost-cohort"
+  ],
+  "createdAt" : "2026-05-26T11:36:31Z",
+  "relatedChronicleEntry" : "2026-05-26T11:36:31Z",
+  "sourceType" : "doctrine-derivation",
+  "sourceLocation" : "/Users/sonoma/.claude/memory/.docc/feedback_cost-model-non-divergence-discipline.md",
+  "schemaVersion" : "0.1.0"
+}

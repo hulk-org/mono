@@ -1,0 +1,20 @@
+{
+  "id": "author-encumbrance-pressure-level-ordinality-table",
+  "title": "Author EncumbrancePressureLevel ordinality table — typed enum (idle / light / moderate / heavy / at-ceiling / over-ceiling)",
+  "description": "Per [[substrate-sync-cost-pattern-2026-05-26]] Layer 5. Typed ordinality table classifying session encumbrance pressure. Proposed cases with FROZEN ordinals per [[ordinality-table-entries-immutable-once-released]]: `0 = idle` (< 20%) / `1 = light` (20-50%) / `2 = moderate` (50-75%) / `3 = heavy` (75-90%) / `4 = atCeiling` (90-100%) / `5 = overCeiling` (>100%). Each row carries: slug, displayName, lowerBoundPercent, upperBoundPercent, substratePolicyResponse (typed enum: normal / confirm-acquisitions / warn-on-acquire / auto-discharge-unused / auto-trigger-winddown / refuse-new-work), description. Locked at first commit per ordinality-immutability discipline. NOT a hard cap on substrate operations — it's a typed-level for substrate-policy decisions (consistent with [[agent-abilities-pokemon-mechanics-with-topology-2026-05-26]] no-hard-budget-just-warnings).\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- (no direct composition — NEW typed catalog) — but transitions trigger InferenceCircuitBreaker policy logic at runtime per wire-substrate-policy-responses-to-encumbrance-levels",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "substrate-sync-cost-pattern",
+    "encumbrance",
+    "ordinality-table",
+    "schema-universal"
+  ],
+  "createdAt": "2026-05-26T11:36:31Z",
+  "relatedChronicleEntry": "2026-05-26T11:36:31Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/substrate-sync-cost-pattern-2026-05-26.md",
+  "schemaVersion": "0.1.0"
+}

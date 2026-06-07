@@ -1,0 +1,21 @@
+{
+  "id": "update-playwright-skill-to-use-substrate-swift-playwright",
+  "title": "Rewrite playwright SKILL.md to use substrate's swift-playwright instead of npx playwright-cli",
+  "description": "Operator-stated 2026-05-26 during the skills migration: 'playwright: we have a swift-playwright and we need to add this to root agents.' Playwright is confirmed HM-equivalent (root-keep in substrate/skills/), but its current SKILL.md depends on `npx playwright-cli` which violates substrate's [[brew OK, npm not]] doctrine. Substrate has the Swift-native equivalent vendored at `private/universal/substrate/maintainers/m1guelpf/public/universal/tooling/swift/swift-playwright/` (git submodule). Scope: (1) read substrate's swift-playwright Package.swift + README + cli surface to understand the Swift CLI's command shape; (2) rewrite `substrate/skills/playwright/SKILL.md` to invoke swift-playwright via `swift run --package-path` per substrate convention (or via brew-installed binary if substrate offers one); (3) update the bundled wrapper script in `substrate/skills/playwright/scripts/` to use swift-playwright; (4) remove the npx-prerequisite-check section; (5) preserve the skill's high-level usage (browser automation, navigation, screenshots, etc.) — only the implementation layer changes; (6) validate by running 1-2 browser automation tasks via the rewritten skill.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- swift-playwright (maintainers/m1guelpf vendored submodule) — Swift-native CLI replacement for playwright-cli\n- (no direct cost-type composition — skill update is content authoring, not cost-tracked operation)\n\n## Substrate-doctrine alignment\n\n- [[brew OK, npm not]] — substrate prefers Swift/brew tooling over npm; playwright via npx violates this. swift-playwright is the substrate-aligned replacement.\n- [[gstack-belongs-in-maintainers]] — swift-playwright correctly lives under maintainers/m1guelpf/ as upstream-vendored. The skill composes with it via substrate-path reference.\n- [[agent-abilities-pokemon-mechanics-with-topology-2026-05-26]] — playwright as HM-equivalent (every agent doing browser work needs it) confirmed root-keep. Skill stays at substrate/skills/.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "skills-migration",
+    "playwright",
+    "swift-playwright",
+    "brew-allowed-npm-not",
+    "hm-equivalent"
+  ],
+  "createdAt": "2026-05-26T12:00:00Z",
+  "relatedChronicleEntry": "2026-05-26T12:00:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/skills/playwright/SKILL.md",
+  "schemaVersion": "0.1.0"
+}

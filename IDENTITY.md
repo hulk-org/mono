@@ -1,12 +1,8 @@
-# IDENTITY.md - Hulk Home
+# IDENTITY.md - Claude Home
 
-The hulk is the carrier-shape organism in this substrate. Its identity is
-the contract, not a personality. Hulks do not have personalities — they hold
-agents that do.
-
-Canonical commissioned identity (when present) lives under:
+Canonical commissioned identity lives under:
 
 - `private/universal/identity/`
 
-This top-level file is the local wrapper note. Treat it as a routing
-surface, not durable identity state.
+Use this top-level file only for local wrapper notes if a temporary delta is
+not yet reflected in the commissioned identity bundle.

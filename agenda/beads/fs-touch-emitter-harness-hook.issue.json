@@ -1,0 +1,21 @@
+{
+  "id": "fs-touch-emitter-harness-hook",
+  "title": "Design + install fs-touch emitter as harness PostToolUse hook",
+  "description": "fs-touchd v0.1 ingests FileTouchEventModel JSON files but nothing yet WRITES those events. The natural emission point is a harness PostToolUse hook on Edit/Write/Bash file-mutation tools \u2014 captures agent, session, tool, callId, worktask context that fs-watcher (anonymous filesystem watcher) cannot. Per CLAUDE.md / settings.json, hooks are configured by the operator. Design needed: which exact tools to hook, how to detect a file write vs read, where to stage the JSON file before invoking fs-touchd, error handling when fs-touchd is unavailable. Output of this bead: a proposed settings.json hook entry + a small emitter script.",
+  "assignee": "claude",
+  "issueType": "decision",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "fs-touch",
+    "fs-touchd",
+    "harness-hook",
+    "settings.json",
+    "PostToolUse"
+  ],
+  "createdAt": "2026-05-24T02:01:23Z",
+  "relatedChronicleEntry": "2026-05-24T02:01:23Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/universal/domain/tooling/spm/fs-touchd/",
+  "schemaVersion": "0.1.0"
+}

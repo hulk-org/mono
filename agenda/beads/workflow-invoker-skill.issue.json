@@ -1,0 +1,15 @@
+{
+  "id": "workflow-invoker-skill",
+  "title": "Author workflow-invoker skill/CLI for unknown-workflow stages 5 + 6 (handoff)",
+  "description": "Surfaced 2026-05-31 by unknown-workflow.x-tools-by-stage missingTools[] catalog. Stages 5 (handoff-to-known-workflow) + 6 (handoff-to-workflow-creation) currently invoke target workflows via manual operator-explicit instructions. A typed workflow-invoker skill/CLI would: (a) take a workflow.json path + session context as input; (b) read the workflow's x-stages + bindingProfiles; (c) walk the stages with the appropriate role-holder; (d) persist execution receipt to writebackDestination. Companion to cascade-skill-implementation bead — same shape of work (skill over typed workflow). Skill home: substrate/skills/workflow-invoker/SKILL.md (community-shared per share-by-default). Possibly thin Swift CLI wrapper at swift-universal/.../workflow-invoker-cli that consumes any workflow.json with x-stages and executes mechanically. Est 4-6 hours including SKILL.md + CLI + integration tests against unknown-workflow + cascade-execution as initial consumers. Closes the workflow-handoff-conductor sub-role's tooling gap in unknown-workflow-conductor META-ROLE.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["skill-implementation", "workflow-invoker", "tools-back-derivation-gap", "share-by-default"],
+  "createdAt": "2026-05-31T04:55:00Z",
+  "relatedChronicleEntry": "2026-05-31T04:55:00Z",
+  "sourceType": "tools-back-derivation-gap",
+  "sourceLocation": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/unknown-workflow/v0.1.0/unknown-workflow.workflow.json",
+  "schemaVersion": "0.1.0"
+}

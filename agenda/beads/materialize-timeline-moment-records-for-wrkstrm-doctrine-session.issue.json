@@ -1,0 +1,17 @@
+{
+  "id": "materialize-timeline-moment-records-for-wrkstrm-doctrine-session",
+  "title": "Materialize TimelineMomentModel records for all forward-referenced Sparks in 2026-05-17 wrkstrm-doctrine + paulgraham + venture-capital vaults",
+  "description": "Substrate doctrine ontology debt. The wrkstrm-doctrine + paulgraham + venture-capital vaults committed 2026-05-17 contain many Concepts whose sR (sourceSparkRefs) fields point at forward-typed slugs (e.g., spark-rismay-arm-the-fluff-directive, spark-rismay-vash-bastards-peace-love, spark-rismay-googlers-text-transformers-test-harness-as-database, etc.) that don't have materialized TimelineMomentModel records yet. \n\nPattern: per the canonical fixture at schema-universal/.../ideation-schemas/v0.1.0/fixtures/canonical.exploration-this-thread.json, Sparks are TimelineMomentModel records with fields t (title), s (tags array), tg (target LinkRef array). Substrate-canonical home is vaults/session-corpora/<harness-or-agent>/.\n\nConcrete materialization: \n1. Create vaults/session-corpora/claude/ if it doesn't exist (substrate doctrine: session-corpora vaults are per-agent + per-session).\n2. For each forward-referenced spark slug in 2026-05-17's typed Concepts, write a TimelineMomentModel record with the operator quote that spawned it + correct chrononID + tags + cross-vault LinkRef back to the Concept it was Spark for.\n3. Run schema-lab validation: every Concept's sR LinkRefs should resolve to materialized TimelineMomentModel records (TRUE per three-valued logic; UNKNOWN means a Spark is still forward-referenced).\n\nApproximate Spark count: 25+ forward-references across all three vaults seeded 2026-05-17. Substantial but mechanical work — can be done by a single agent in one session.\n\nClosure: schema-lab validation reports zero UNKNOWN sR references for the 2026-05-17 vault contents; chronicle entry updated; receipt written.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": ["session-corpora", "timeline-moment-records", "three-valued-logic-resolution", "ontology-debt"],
+  "createdAt": "2026-05-17T22:00:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:00:00Z",
+  "sourceType": "thread-beat",
+  "sourceThreadId": "2026-05-17-wrkstrm-doctrine-session",
+  "sourceBeatId": "forward-typed-sparks-need-materialization",
+  "sourceLocation": "private/universal/vaults/wrkstrm-doctrine/",
+  "schemaVersion": "0.1.0"
+}

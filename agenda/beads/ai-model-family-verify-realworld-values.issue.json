@@ -1,0 +1,20 @@
+{
+  "id" : "ai-model-family-verify-realworld-values",
+  "title" : "Verify AIModelFamily per-row genotype values against real-world product facts",
+  "description" : "The 13 model-family entries in `AIModelFamilyOrdinalityTable` were populated with substrate-doctrine genotype values during the 2026-05-26 design conversation, but several rows carry judgment calls or `?` placeholders that need verification against current provider state. Concrete rows to verify: (1) `openai-codex` `providerHostedOverlay` — does OpenAI actually expose fine-tuning for the Codex line distinct from GPT-4? Currently set TRUE. (2) `deepseek` `providerHostedOverlay` — DeepSeek's API quietly added fine-tuning in 2025; currently set FALSE, likely needs flip. (3) `apple-foundation` `modalities.visionIn` — Apple Intelligence has image-understanding but limited; might be cleaner to set FALSE at family-level. (4) `xai-grok` `reasoningCapability` — set `providerExposedReasoning` for Grok-3 thinking; verify against current Grok-3 API. (5) `cohere` `trainingDataProvenance` — set `declared`; check whether Cohere has audited-clean claim now. (6) `amazon-nova` `providerHostedOverlay` — set FALSE; verify whether Bedrock Nova fine-tuning has shipped. Once verified, update the entry values in `AIModelFamilyOrdinalityTable.swift` and update any failing doctrine tests in `AIModelFamilyDoctrineTests.swift`.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "ai-model-family-dna",
+    "schema-universal",
+    "verification",
+    "ai-model-catalog-schemas"
+  ],
+  "createdAt" : "2026-05-26T09:36:59Z",
+  "relatedChronicleEntry" : "2026-05-26T09:36:59Z",
+  "sourceType" : "operator-intake",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/ai/schema-families/ai-model-catalog-schemas/v0.1.0/spm/ai-model-catalog-schemas-v000-001-000/sources/AIModelFamilyOrdinalityTable.swift",
+  "schemaVersion" : "0.1.0"
+}

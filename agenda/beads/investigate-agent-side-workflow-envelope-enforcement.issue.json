@@ -1,0 +1,21 @@
+{
+  "id" : "investigate-agent-side-workflow-envelope-enforcement",
+  "title" : "Investigate how substrate enforces 'agents never operate outside a workflow envelope'",
+  "description" : "Gap 2 from the workflow-schema-universal-landscape investigation. The agent-blame-shielding doctrine claims 'agents never operate outside a workflow envelope.' Substrate has the typed workflow contract, but agent-side RUNTIME enforcement is implicit. Investigation scope: (1) does substrate's harness layer (harness-header-schemas, ai-harness-schemas) already have a workflow-envelope check? Read the existing harness schemas; (2) does the runtime (clia-agent-cli, swift-harness-cli, openclaw) bind agent operations to WorkflowModel instances at invocation time? Trace what happens when a skill is invoked; (3) is there a typed AgentExecutionContextRequirement primitive we'd need, or is this purely runtime discipline? (4) author findings in investigation.docc + recommend whether new typed primitives are needed OR whether agent-runtime lint checks are sufficient. Important: this might surface as a HARNESS doctrine, not a schema-universal one — the answer could be 'every harness must validate WorkflowModel binding before executing agent ops' as harness-layer policy.",
+  "assignee" : "claude",
+  "issueType" : "investigation",
+  "status" : "open",
+  "priority" : 2,
+  "labels" : [
+    "agent-blame-shielded-workflow-doctrine",
+    "agent-runtime",
+    "harness-layer",
+    "enforcement",
+    "investigation"
+  ],
+  "createdAt" : "2026-05-26T10:48:09Z",
+  "relatedChronicleEntry" : "2026-05-26T10:48:09Z",
+  "sourceType" : "investigation-finding",
+  "sourceLocation" : "private/universal/substrate/agents/claude/memory/.docc/investigation.docc/workflow-schema-universal-landscape-2026-05-26.md",
+  "schemaVersion" : "0.1.0"
+}

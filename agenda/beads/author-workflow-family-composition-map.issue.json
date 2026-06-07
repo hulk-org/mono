@@ -1,0 +1,21 @@
+{
+  "id" : "author-workflow-family-composition-map",
+  "title" : "Author typed composition map of the 20+ workflow/operation schema families",
+  "description" : "Comprehension bead 4/4 for agent-blame-shielded-workflow-doctrine. Author a typed report showing how substrate's ~20 workflow/operation-layer families compose: workflow-schemas + operating-protocol-schemas + workflow-graph-doctrine-schemas + substrate-compound-schemas + work-graph-schemas + work-graph-event-schemas + mission-schemas + scenario-schemas + scenario-session-schemas + workstream-schemas + workstream-template-schemas + role-workflow-schemas + kickoff-receipt-schemas + kickoff-review-schemas + execution-receipt-schemas + receipt-schemas + operating-rhythm-schemas + ifttt-directive-schemas + conversation-protocol-schemas + release-operations-schemas + paperclip-issue-protocol-schemas. For each, identify: layer (contract / SOP / doctrine / events / receipts / etc.); what it references via LinkRef; what references it; whether it's a primary type or supporting. Output: a typed JSON composition graph (could be a SubstrateCompoundModel instance) + a markdown landscape diagram in the investigation.docc bundle. This is the work that prevents future agents from re-authoring redundant families.",
+  "assignee" : "claude",
+  "issueType" : "investigation",
+  "status" : "open",
+  "priority" : 2,
+  "labels" : [
+    "agent-blame-shielded-workflow-doctrine",
+    "comprehension",
+    "schema-universal",
+    "composition-map",
+    "substrate-doctrine"
+  ],
+  "createdAt" : "2026-05-26T10:48:09Z",
+  "relatedChronicleEntry" : "2026-05-26T10:48:09Z",
+  "sourceType" : "investigation-finding",
+  "sourceLocation" : "private/universal/substrate/agents/claude/memory/.docc/investigation.docc/workflow-schema-universal-landscape-2026-05-26.md",
+  "schemaVersion" : "0.1.0"
+}

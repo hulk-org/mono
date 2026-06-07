@@ -1,0 +1,15 @@
+{
+  "id": "unknown-workflow-skill-implementation",
+  "title": "Author /start or /classify skill that explicitly invokes unknown-workflow.workflow for mid-session re-classification",
+  "description": "The unknown-workflow.workflow.json landed 2026-05-31 at private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/unknown-workflow/v0.1.0/ as the substrate's META-WORKFLOW. It's IMPLICITLY active at every session start (per executionTarget.kind: implicit + x-meta-workflow-status.appliesAtSessionStart: true). The /start (or /classify) skill would let an operator EXPLICITLY re-trigger classification mid-session — useful when (a) the session's initial classification got stale (operator pivoted topics), (b) a no-match surfaced earlier and got deferred but now needs resolution, (c) an existing workflow handed back to unknown-workflow because its scope was exceeded. Skill home: substrate/skills/start/SKILL.md (community-shared per share-by-default doctrine). Should chain: inventory-signals → classify-signals → confirm-classification → handoff. Open question: skill name — '/start' implies session-start (could be misleading mid-session) vs '/classify' (clearer mid-session semantics). Operator preference. Estimated 2-3 hours including SKILL.md + harness integration (so harness can auto-invoke at session start) + receipt-write to chronicle. Composes with [[bead:cascade-skill-implementation]] (both are skill-over-typed-workflow patterns).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["skill-implementation", "unknown-workflow", "meta-workflow", "harness-integration", "share-by-default"],
+  "createdAt": "2026-05-31T04:30:00Z",
+  "relatedChronicleEntry": "2026-05-31T04:30:00Z",
+  "sourceType": "meta-workflow-extension",
+  "sourceLocation": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/unknown-workflow/v0.1.0/unknown-workflow.workflow.json",
+  "schemaVersion": "0.1.0"
+}

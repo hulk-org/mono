@@ -1,0 +1,17 @@
+{
+  "id": "digikoma-recap-tighten-list-guides",
+  "title": "Strengthen @Guide strings on every list field for extraction-coverage",
+  "description": "Proving run produced severe list under-extraction: fixture explicitly listed 3 bugs, recap returned 1 in bugsCaught; fixture listed 3 blocked items, recap returned 1 in caveats; fixture implied 3+ followups, recap returned 1. Diagnosis: the current @Guide strings describe shape ('array of bugs caught', 'array of caveats') but not extraction policy. The FM defaults to summarizing/picking a representative rather than enumerating. Fix: tighten every list field's @Guide with extraction-coverage language. Examples: bugsCaught -> @Guide(description: 'Include EVERY bug, failure, or invalid value mentioned in the transcript. Do not condense, do not pick a representative.'). Same treatment for arcs, wins, decisions, rulesEmerged, openFollowups, caveats. Verify with re-run against the same fixture; expected: bugsCaught.count >= 3, caveats.count >= 3, openFollowups.count >= 3.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "closed",
+  "closedAt": "2026-05-14T01:00:00Z",
+  "resolutionNote": "Landed: tightened every @Guide string on the DigikomaRecapModel list fields (arcs, wins, decisions, bugsCaught, rulesEmerged, openFollowups, caveats) with explicit extraction-coverage language ('include EVERY X mentioned', 'do not condense', 'if the transcript names 3 bugs return 3 entries'). Also added an EXTRACTION POLICY block in the prompt covering exhaustive/grounded/specific extraction. Re-run against the same fixture: bugsCaught 1->3, caveats 1->3, arcs 2->5. List under-extraction effectively resolved for fixture-sized inputs.",
+  "priority": 2,
+  "labels": ["digikoma-recap", "foundation-models", "generable", "prompt-engineering", "extraction-coverage", "proving-bug"],
+  "createdAt": "2026-05-14T00:22:34Z",
+  "relatedChronicleEntry": "2026-05-14T00:22:34Z",
+  "sourceType": "incident",
+  "sourceLocation": "private/universal/substrate/collectives/digikoma-org/private/universal/domain/intelligence/digikoma-recap/sources/DigikomaRecapTool/DigikomaRecapTool.swift",
+  "schemaVersion": "0.1.0"
+}

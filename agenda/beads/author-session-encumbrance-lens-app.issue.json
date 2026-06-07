@@ -1,0 +1,27 @@
+{
+  "id": "author-session-encumbrance-lens-app",
+  "title": "Author SessionEncumbranceLens lens-app — operator-visible real-time encumbrance dashboard",
+  "description": "Per [[lens-apps-substrate-pattern-2026-05-18]] + [[substrate-sync-cost-pattern-2026-05-26]] Layer 5. Typed lens-app rendering SessionEncumbranceState as operator-visible diagnostic. Outputs: per-axis encumbrance bars (context-weight / wall-clock / financial / rate-limit); overall EncumbrancePressureLevel badge; remaining-stamina projection ('at current burn rate, session reaches at-ceiling in X minutes'); top-N most-encumbering abilities active in context (TES-style 'heaviest items in your inventory'); substrate-policy-response indicator (what substrate will do at the next pressure threshold). Multiple render formats: terminal-ascii (for CLI), swiftui-view (for substrate apps), markdown (for chat-rendered status). Reads from SessionEncumbranceState; doesn't author new data — pure projection per [[lens-apps-substrate-pattern]] doctrine.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- SessionEncumbranceState (this cohort) — source of truth\n- InferenceUsageEvent stream (inference-account-schemas v0.2.0) — for per-axis encumbrance projections\n- EncumbrancePressureLevel ordinality (this cohort) — for badge rendering",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "substrate-sync-cost-pattern",
+    "encumbrance",
+    "lens-app",
+    "diagnostic-surface"
+  ],
+  "createdAt": "2026-05-26T11:36:31Z",
+  "relatedChronicleEntry": "2026-05-26T11:36:31Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/substrate-sync-cost-pattern-2026-05-26.md",
+  "dependencies": [
+    {
+      "issueId": "author-session-encumbrance-lens-app",
+      "dependsOnId": "author-session-encumbrance-state-typed-shape",
+      "type": "blocks-until-complete"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}

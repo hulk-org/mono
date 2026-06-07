@@ -1,0 +1,15 @@
+{
+  "id": "clia-org-public-launch-checklist",
+  "title": "Complete clia-org's public-launch checklist (Pages site live, README polished, App Store presence)",
+  "description": "Successor bead to legacy incident 2026-02-04-clia-org-init (S1 CODE RED: CLIA-ORG INIT — 'let the world know about CLIA'). Reclassified 2026-05-26 from incident shape to bead because the original work isn't a reactive crisis with stop-world authority — it's the org's product launch, which now has a proper typed home: clia-org's founding mission statement at clia-org/private/universal/identity/clia-org@rismay.substrate.mission.json (typed OrgMissionStatementModel; declares CLIA bundle factory ikigai with digikoma/agent/ghost product axes).\n\nThe mission statement IS the launch's foundational typed record. This bead tracks the remaining launch CHECKLIST items — concrete burn-down work to make clia-org publicly visible:\n\n1. CLIA-ORG Pages site live + reachable: verify https://clia-org.github.io/clia-org/ (or canonical URL) loads + DocC `/documentation/clia-org` landing page renders. Pages workflow at clia-org/public/gh-pages/clia-org.github.io/.github/workflows/publish.yml should be green on main.\n2. Public README polished: clia-org/public/readmes/public-readme should explain CLIA = Command Line Interface Assistant, the .digikoma/.agent/.ghost taxonomy, and the substrate's CLIA bundle factory product line in operator-facing terms.\n3. App Store presence: confirm clia-org's Apple apps (clia-agents, clia-app, clia-cli, etc.) at clia-org/private/apple/apps/ have App Store-distributable surfaces. Identify which is the canonical 'Operator app' the legacy incident referenced.\n4. README + DocC cross-references: substrate-wide search for 'CLIA' should surface the typed mission statement + the .clia bundle architecture. Update Notion / public-facing docs to match.\n5. Public messaging: when sites + apps are live, schedule social/blog publication. (Operator decision on cadence.)\n\nNOT IN SCOPE for this bead:\n- The .clia bundle implementation arc (separate bead: clia-bundle-suffix-grammar-substrate-adoption.issue.json — that's the typed-record + tooling work)\n- Other substrate orgs' founding missions (separate bead: substrate-org-mission-statements-founding-sweep.issue.json)\n- Any actual launch event marketing / amplification (operator-driven, not agent-burndown)\n\nThis bead is burn-down: each numbered item gets ticked off, the bead closes when all 5 are done or the operator declines remaining items. Closure transitions status:open → status:closed with resolutionNote citing what landed.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["clia-org", "public-launch", "checklist", "incident-successor", "follow-on"],
+  "createdAt": "2026-05-26T05:50:00Z",
+  "relatedChronicleEntry": "2026-05-26T04:31:36Z",
+  "sourceType": "incident",
+  "sourceLocation": "private/universal/substrate/collectives/todo3/private/operations/incidents/2026-02-04-clia-org-init.json",
+  "schemaVersion": "0.1.0"
+}

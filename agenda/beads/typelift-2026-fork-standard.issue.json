@@ -1,0 +1,23 @@
+{
+  "id" : "typelift-2026-fork-standard",
+  "title" : "Define and enforce the TypeLift-lineage 2026 fork standard",
+  "description" : "Operator decision from 2026-05-28: TypeLift-lineage packages should be forked or reimplemented into the current substrate toolchain when the idea remains load-bearing. This bead defines the common gate for Phase C of typelift-substrate-modernization: Swift tools 6.3, strict concurrency / Sendable discipline, Swift Testing primary integration, deterministic randomized replay, law definitions independent from their test runner, named APIs over operator-only APIs, substrate-typed shrinkers, and explicit license provenance before copied code enters a substrate-owned fork. Maintainer copies stay provenance-only; product code depends on substrate-owned forks under the correct collective.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 1,
+  "labels" : [
+    "typelift-modernization",
+    "phase-c",
+    "fork-standard",
+    "swift-6-3",
+    "wrkstrm-core"
+  ],
+  "createdAt" : "2026-05-28T00:00:00Z",
+  "relatedChronicleEntry" : "2026-05-28T00:00:00Z",
+  "sourceType" : "operator-intake",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "phase-c-2026-fork-standard",
+  "sourceLocation" : "private/universal/substrate/maintainers/typelift/.docc/modernization-2026.md",
+  "schemaVersion" : "0.1.0"
+}

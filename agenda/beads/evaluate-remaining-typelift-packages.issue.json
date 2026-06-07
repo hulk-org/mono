@@ -1,0 +1,29 @@
+{
+  "id" : "evaluate-remaining-typelift-packages",
+  "title" : "Evaluate remaining typelift packages (Swiftx / Basis / Concurrent / TypeLift / Forge / Slip) for substrate-action",
+  "description" : "Phase C.4 (PRIORITY 4) catch-all for typelift packages not prioritized as immediate forks: Swiftx (functional Swift: functors/monads/applicatives — likely mostly subsumed by modern Swift stdlib), Basis (Haskell-style Either/Maybe — also mostly subsumed by Result/Optional), Concurrent (pre-Swift-Concurrency primitives — DEFINITELY obsoleted by Apple's structured concurrency), TypeLift (the org's flagship — type-level programming utilities; needs direct read to assess), Forge (type-level operations — needs direct read), Slip (possibly parser combinators — substrate has hand-rolled parsing in places). For each, the audit (Phase B) recommends one of: fork-modernize (graduate to its own bead), adopt-pattern-fresh (write substrate-flavored equivalent without forking), archive-as-reference (keep in maintainers/ but no fork), skip (uninteresting). This bead closes when every remaining package has a recorded disposition. Likely outcome: Concurrent → skip, Swiftx/Basis → archive-as-reference, TypeLift/Forge → fork-if-genuinely-useful (graduate to new beads), Slip → adopt-pattern-fresh-or-skip.",
+  "assignee" : "claude",
+  "issueType" : "investigation",
+  "status" : "open",
+  "priority" : 4,
+  "labels" : [
+    "typelift-modernization",
+    "phase-c",
+    "evaluation",
+    "catch-all"
+  ],
+  "createdAt" : "2026-05-26T10:21:34Z",
+  "relatedChronicleEntry" : "2026-05-26T10:21:34Z",
+  "sourceType" : "thread-beat",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "phase-c-remaining-evaluation",
+  "dependencies" : [
+    {
+      "issueId" : "evaluate-remaining-typelift-packages",
+      "dependsOnId" : "typelift-per-package-substrate-audit",
+      "type" : "blocks-until-complete"
+    }
+  ],
+  "sourceLocation" : "private/universal/substrate/maintainers/typelift/",
+  "schemaVersion" : "0.1.0"
+}

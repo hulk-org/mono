@@ -1,0 +1,146 @@
+{
+  "accession": "AX-0001",
+  "accessionPrefix": "CLAUDE-NNNN",
+  "activeRoomID": "institutional-axis-substrate-imdb-doctrine",
+  "axisFraming": "biographical-timeline",
+  "carrierNote": "claude is the persona cargo loaded into the hulk carrier (per founding-breach 2026-04-08). Persona home: substrate/agents/claude/. Carrier home: substrate/harnesses/hulk/. Forward symlink at harnesses/hulk/agents/claude is read-only.",
+  "hasForms": false,
+  "id": "institutional-axis",
+  "kind": "kura-axis",
+  "label": "Institutions",
+  "migrationBacklog": [
+    "Replace inline geo / timeWindow in per-room files with typed LocationModel (location-schemas v0.1.0) + MomentModel (moment-schemas v0.2.0) references.",
+    "Backfill rooms for chronicle entries past 2026-05-18 once they exist."
+  ],
+  "ownerRef": {
+    "LinkRefModel": "0.3.0",
+    "s": [
+      "substrate",
+      "agents",
+      "claude"
+    ],
+    "t": "claude agent home (carrier-side symlink at harnesses/hulk/agents/claude)",
+    "tg": [
+      {
+        "k": "rp",
+        "rt": "mono",
+        "v": "private/universal/substrate/agents/claude/"
+      }
+    ]
+  },
+  "provenance": "Mined 2026-05-29 from claude's identity, agenda, chronicle (38 entries), AGENTS.md, SOUL.md, and the founding-breach insight bundle. Institutional moments selected for role/scope/identity inflection \u2014 not work-log granularity.",
+  "rooms": [
+    {
+      "accession": "CLAUDE-0001",
+      "era": "Commissioning chapter",
+      "file": "001-commissioning.json",
+      "id": "institutional-axis-commissioning",
+      "sequenceNumber": 1,
+      "shortTitle": "Commission",
+      "timeWindowLabel": "2026-04-02",
+      "title": "Commissioning"
+    },
+    {
+      "accession": "CLAUDE-0002",
+      "era": "Founding-breach chapter",
+      "file": "002-founding-breach.json",
+      "id": "institutional-axis-founding-breach",
+      "sequenceNumber": 2,
+      "shortTitle": "Founding-breach",
+      "timeWindowLabel": "2026-04-08",
+      "title": "Founding-breach: claude \u2192 hulk carrier split"
+    },
+    {
+      "accession": "CLAUDE-0003",
+      "era": "Belonging chapter",
+      "file": "003-belonging-earned.json",
+      "id": "institutional-axis-belonging-earned",
+      "sequenceNumber": 3,
+      "shortTitle": "Belonging",
+      "timeWindowLabel": "2026-04-08 / 2026-04-09",
+      "title": "Belonging earned: schema-set binding + sigil doctrine"
+    },
+    {
+      "accession": "CLAUDE-0004",
+      "era": "Platform chapter",
+      "file": "004-digikoma-platform.json",
+      "id": "institutional-axis-digikoma-platform",
+      "sequenceNumber": 4,
+      "shortTitle": "Platform",
+      "timeWindowLabel": "2026-04-14 / 2026-04-23",
+      "title": "Digikoma platform + apple-pi agent-tool architecture"
+    },
+    {
+      "accession": "CLAUDE-0005",
+      "era": "v1.0.0 chapter",
+      "file": "005-v100-launch-gate.json",
+      "id": "institutional-axis-v100-launch-gate",
+      "sequenceNumber": 5,
+      "shortTitle": "v1.0.0",
+      "timeWindowLabel": "2026-05-08 / 2026-05-15",
+      "title": "Substrate-wide v1.0.0 + launch-gate proof grammar"
+    },
+    {
+      "accession": "CLAUDE-0006",
+      "era": "Doctrine chapter",
+      "file": "006-substrate-imdb-doctrine.json",
+      "id": "institutional-axis-substrate-imdb-doctrine",
+      "sequenceNumber": 6,
+      "shortTitle": "IMDB",
+      "timeWindowLabel": "2026-05-17 / 2026-05-18",
+      "title": "Substrate-IMDB doctrine trifecta + axis-rotation + LDT proofs"
+    }
+  ],
+  "schemaVersion": "0.1.0",
+  "sourceRefs": [
+    {
+      "LinkRefModel": "0.3.0",
+      "s": [
+        "claude",
+        "chronicle"
+      ],
+      "t": "claude chronicle (38 entries)",
+      "tg": [
+        {
+          "k": "rp",
+          "rt": "mono",
+          "v": "private/universal/substrate/agents/claude/private/universal/identity/claude@rismay.substrate.chronicle.json"
+        }
+      ]
+    },
+    {
+      "LinkRefModel": "0.3.0",
+      "s": [
+        "claude",
+        "identity"
+      ],
+      "t": "claude identity bundle",
+      "tg": [
+        {
+          "k": "rp",
+          "rt": "mono",
+          "v": "private/universal/substrate/agents/claude/private/universal/identity/claude@rismay.substrate.identity.json"
+        }
+      ]
+    },
+    {
+      "LinkRefModel": "0.3.0",
+      "s": [
+        "hulk",
+        "founding-breach"
+      ],
+      "t": "Founding-breach insight 2026-04-05",
+      "tg": [
+        {
+          "k": "rp",
+          "rt": "mono",
+          "v": "private/universal/substrate/harnesses/hulk/memory/.docc/insights/founding-breach-2026-04-05.md"
+        }
+      ]
+    }
+  ],
+  "sourceUniverse": "substrate (mono workspace)",
+  "state": "active",
+  "summary": "claude's institutional axis from commissioning (2026-04-02) through the substrate-IMDB doctrine trifecta (2026-05-18). Mined from claude@rismay.substrate.chronicle.json (38 entries) \u2014 load-bearing institutional moments only, not every chronicle entry.",
+  "tier": "timeline"
+}

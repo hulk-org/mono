@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "0.1.0",
+  "slug": "thread-spin",
+  "title": "Thread Spin — parse %thread-spin directives and create canonical thread artifacts",
+  "updated": "2026-05-26T10:48:09Z",
+  "summary": "Substrate's canonical procedure for spinning a new thread record. Parses operator-issued %thread-spin directives, validates the opener contract (WHO / ORG / SCOPE / GOAL / DONE-WHEN), canonicalizes owner metadata, builds a deterministic slug from GOAL, writes the canonical thread state files (thread.json + summary + moments JSONL + contributions JSONL), and updates the substrate's thread index. Keeps Discord-side thread creation as a separate downstream step to avoid coupling the canonical persistence to room-side state.",
+  "doccPath": "private/universal/substrate/agents/claude/private/universal/skills/thread-spin/thread-spin-sop.md",
+  "sourcePath": "~/.claude/skills/thread-spin/SKILL.md",
+  "axioms": [
+    {
+      "ordinal": 0,
+      "slug": "opener-contract-required",
+      "title": "Opener contract is required",
+      "statement": "Thread spin REQUIRES five fields: WHO, ORG, SCOPE, GOAL, DONE-WHEN. If any are missing, stop and ask for exactly the missing fields — do not infer them.",
+      "rationale": "Threads are durable substrate artifacts that other agents read. Missing opener fields produce ambiguous threads that downstream agents cannot reliably consume. The five required fields are the minimal viable contract for thread legibility.",
+      "obligations": [
+        "Halt thread creation if any required field is absent",
+        "Echo back exactly which fields are missing — operator should not have to compare against schema",
+        "Never silently default missing required fields"
+      ],
+      "sourceRefs": [],
+      "contextRefs": [],
+      "projectionAnchors": []
+    },
+    {
+      "ordinal": 1,
+      "slug": "deterministic-slug",
+      "title": "Slug is deterministic from GOAL",
+      "statement": "The thread slug is derived from GOAL via kebab-case + short stable token budget + short hash suffix when collisions are possible. Same GOAL produces same slug barring collision.",
+      "rationale": "Deterministic slugs enable cross-agent thread reference without coordination. LinkRef-by-slug lookups stay stable; thread retrieval doesn't depend on who created the thread or when.",
+      "obligations": [
+        "Use kebab-case",
+        "Budget the slug short for legibility",
+        "Append hash suffix only when collision detected"
+      ],
+      "sourceRefs": [],
+      "contextRefs": [],
+      "projectionAnchors": []
+    },
+    {
+      "ordinal": 2,
+      "slug": "canonical-state-on-disk",
+      "title": "Canonical state lives on disk before any room-side action",
+      "statement": "Substrate's filesystem is the canonical thread state. Discord/room-side thread creation is a separate downstream step that updates substrate state after-the-fact, not before-the-fact.",
+      "rationale": "Coupling thread creation to room-side state would make threads dependent on third-party-service availability and would conflate substrate's canonical record with ephemeral room IDs. Substrate-first writes preserve sovereignty per the local-model-doctrine.",
+      "obligations": [
+        "Write substrate state first",
+        "Set discord.threadId: pending until the room exists",
+        "Update via thread.discord.thread-created event after IDs are known"
+      ],
+      "sourceRefs": [],
+      "contextRefs": [],
+      "projectionAnchors": []
+    },
+    {
+      "ordinal": 3,
+      "slug": "bead-provenance",
+      "title": "Beads created from thread flow carry sourceThreadId + sourceBeatId",
+      "statement": "When a thread beat produces a concrete open-work bead, the bead must carry sourceThreadId and sourceBeatId so the agenda artifact references the exact thread moment that produced it.",
+      "rationale": "Without provenance, beads become orphan work-units; the substrate cannot reconstruct which thread decision spawned them. Per [[bead-vs-thread-vs-beat-shapes]] beads carry sourceType='thread-beat' + sourceThreadId + sourceBeatId.",
+      "obligations": [
+        "Bead.sourceType = 'thread-beat'",
+        "Bead.sourceThreadId set to the spawning thread's slug",
+        "Bead.sourceBeatId set to the specific beat id"
+      ],
+      "sourceRefs": [],
+      "contextRefs": [],
+      "projectionAnchors": []
+    }
+  ],
+  "triggers": [
+    {
+      "kind": "operator-directive",
+      "label": "%thread-spin directive in operator chat",
+      "details": "Any operator message containing '%thread-spin' (or a line beginning with it) in a context where a new thread is intended."
+    },
+    {
+      "kind": "scope-shift",
+      "label": "New intent or objective starts",
+      "details": "Substrate detects that a new intent or thread objective is starting and the existing thread should not continue. Owner / scope / lane / risk-posture changes also fire this trigger."
+    },
+    {
+      "kind": "handoff",
+      "label": "Durable thread handoff required",
+      "details": "A handoff artifact is needed on disk so a different agent can pick up the thread context."
+    }
+  ],
+  "steps": [
+    {
+      "slug": "parse-directive",
+      "title": "Parse %thread-spin directive + fields from current message context",
+      "instructions": [
+        "Extract WHO / ORG / SCOPE / GOAL / DONE-WHEN from the message",
+        "Capture optional fields: LANE / CONTEXT / OPEN-QUESTIONS / NEXT / STATE",
+        "If any required field is missing, halt and ask"
+      ],
+      "tasks": []
+    },
+    {
+      "slug": "canonicalize-owner",
+      "title": "Canonicalize owner + profile metadata from WHO",
+      "instructions": [
+        "Resolve WHO to substrate canonical owner slug",
+        "Validate profile metadata exists for the owner",
+        "If unknown owner, confirm before creating files"
+      ],
+      "tasks": []
+    },
+    {
+      "slug": "build-slug",
+      "title": "Build deterministic slug from GOAL",
+      "instructions": [
+        "kebab-case the GOAL phrase",
+        "Apply short token budget",
+        "Append short hash suffix if collision detected"
+      ],
+      "tasks": []
+    },
+    {
+      "slug": "write-canonical-state",
+      "title": "Write canonical thread state files",
+      "instructions": [
+        "Create directory at private/universal/substrate/collectives/todo3/private/threads/open/<slug>/",
+        "Write thread.json with bucket=open, owners=[<owner>], discord.threadId=pending",
+        "Write <slug>.summary.thread.clia.json with the opener contract",
+        "Initialize <slug>.moments.thread.clia.jsonl with thread.created and an initial thread.beat (goal + done-when + next)",
+        "Initialize <slug>.contributions.thread.clia.jsonl with at least one contribution record"
+      ],
+      "tasks": []
+    },
+    {
+      "slug": "add-evidence-moments",
+      "title": "Optionally add thread.evidence.added moments for evidence references",
+      "instructions": [
+        "If evidence paths or URLs were provided in CONTEXT, append thread.evidence.added moments",
+        "Preserve deterministic ordering"
+      ],
+      "tasks": []
+    },
+    {
+      "slug": "update-index",
+      "title": "Update index.threads.clia.json entry",
+      "instructions": [
+        "Update the thread index file at private/universal/substrate/collectives/todo3/private/threads/index.threads.clia.json",
+        "Preserve existing index entries"
+      ],
+      "tasks": []
+    },
+    {
+      "slug": "trigger-docc-rebuild",
+      "title": "Optionally regenerate thread DocC via swift-triage-cli",
+      "instructions": [
+        "Build swift-triage-cli if not built: swift build -c release at the substrate-canonical path",
+        "Run: swift-triage-cli triage docc-site rebuild with the routing map + docc-root paths"
+      ],
+      "tasks": []
+    }
+  ],
+  "outcomes": [
+    {
+      "label": "Thread directory created on disk under todo3/private/threads/open/<slug>/",
+      "details": "All four canonical files present: thread.json, <slug>.summary.thread.clia.json, <slug>.moments.thread.clia.jsonl, <slug>.contributions.thread.clia.jsonl."
+    },
+    {
+      "label": "Initial thread.beat captured",
+      "details": "First beat records the opening direction (goal + done-when + next) so downstream agents can read the thread's intent without re-asking."
+    },
+    {
+      "label": "Substrate-internal canonical state — Discord-side state pending",
+      "details": "discord.threadId remains 'pending' until the Discord room thread is created and ID is known. Downstream thread.discord.thread-created event updates it later."
+    },
+    {
+      "label": "Thread index updated",
+      "details": "index.threads.clia.json reflects the new thread for cross-agent discoverability."
+    }
+  ],
+  "workstreamTemplates": []
+}

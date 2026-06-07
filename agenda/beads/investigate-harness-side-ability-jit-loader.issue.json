@@ -1,0 +1,20 @@
+{
+  "id": "investigate-harness-side-ability-jit-loader",
+  "title": "Investigate harness-side JIT ability loader — where does the trigger-matching runtime live",
+  "description": "Gap from [[agent-abilities-pokemon-mechanics-with-topology-2026-05-26]] + [[agent-blame-shielded-workflow-doctrine-2026-05-26]]. The data layer can be authored (catalog + classification + events). The RUNTIME that watches incoming context, matches against OperatingProtocolTrigger declarations, and JIT-acquires the matched ability is harness-layer concern. Investigation scope: (1) does substrate's existing harness layer (harness-header-schemas, ai-harness-schemas, hulk carrier home) already have any context-watch hooks? (2) where does trigger-matching live in the agent runtime — pre-LLM-call substrate code, or LLM-side reasoning? (3) what's the substrate-doctrine path: a new typed primitive (`AbilityRuntimeBinding`?), or pure-harness-side discipline backed by documentation; (4) MCP-as-vault-app migration interacts with this — vault-apps register typed operations that abilities declare as required-acquisition. Output: typed investigation report in claude's investigation.docc bundle + recommended next moves.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- (investigation only — no authoring; report identifies runtime-layer types needed)",
+  "assignee": "claude",
+  "issueType": "investigation",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "agent-abilities-pokemon-topology",
+    "harness-layer",
+    "runtime",
+    "investigation"
+  ],
+  "createdAt": "2026-05-26T11:18:52Z",
+  "relatedChronicleEntry": "2026-05-26T11:18:52Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/agent-abilities-pokemon-mechanics-with-topology-2026-05-26.md",
+  "schemaVersion": "0.1.0"
+}

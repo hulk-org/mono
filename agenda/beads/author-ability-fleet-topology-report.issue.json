@@ -1,0 +1,28 @@
+{
+  "id": "author-ability-fleet-topology-report",
+  "title": "Author AbilityFleetTopologyReport typed shape + CLI — computed (agent × ability) matrix diagnostics",
+  "description": "Per [[agent-abilities-pokemon-mechanics-with-topology-2026-05-26]]. The substrate-quantifiable answer to 'is this agent over/under-equipped?' Typed shape computed from the per-agent AgentCapabilityCatalog files across the substrate. Outputs: per-agent count + classification distribution; per-ability coverage (how many agents hold it); fleet-wide aggregates (total abilities tracked, coverage gaps, concentration-risk SPOFs, near-ubiquitous candidates for substrate-share promotion); typed warnings (over-equipped vs fleet median, under-equipped, archetype-mismatch acquisitions). Modeled on the existing `roster analyze` pattern which already does this at the role layer (Specialists / Core Roles / Fleet Baseline). Implementation: typed Codable struct + a CLI (probably `swift-ability-topology-cli` under wrkstrm-core) that consumes all agent CapabilityCatalog files and emits the report. NO hard caps per operator doctrine — diagnostics only.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- AgentCapabilityCatalog (this cohort) — aggregates across agents\n- (no direct cost-type composition — pure topology report; cost-aware version is a future expansion)",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "agent-abilities-pokemon-topology",
+    "schema-universal",
+    "topology-diagnostics",
+    "fleet-analysis",
+    "cli"
+  ],
+  "createdAt": "2026-05-26T11:18:52Z",
+  "relatedChronicleEntry": "2026-05-26T11:18:52Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/agent-abilities-pokemon-mechanics-with-topology-2026-05-26.md",
+  "dependencies": [
+    {
+      "issueId": "author-ability-fleet-topology-report",
+      "dependsOnId": "author-agent-capability-catalog-typed-shape",
+      "type": "blocks-until-complete"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}

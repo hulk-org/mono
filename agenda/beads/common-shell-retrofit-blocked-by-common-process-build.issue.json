@@ -1,0 +1,46 @@
+{
+  "id": "common-shell-retrofit-blocked-by-common-process-build",
+  "title": "swift-universal common-process needs swift-subprocess 0.3+/0.5 API migration — blocks CommonShell retrofit on all consuming workstream Packages",
+  "description": "Per operator 2026-05-31: 'use common-process, common-shell and common-cli where appropriate too' + 'NOOOOOO you should not make drift' + 'subprocess is all the way up to 0.5... so going back seems wrong....'\n\nROOT CAUSE: swift-universal common-process source at `private/universal/domain/build/spm/common-process/sources/common-process-runners/SubprocessRunner.swift` uses swift-subprocess 0.2.x APIs (non-generic `Execution` + escape-from-closure value storage + old `TeardownStep` enum shape). swift-subprocess 0.3.0 (2026-01-23) introduced THREE breaking changes that common-process source has not been migrated for:\n\n  1. `Execution` became `Execution<Input: InputProtocol, Output: OutputProtocol, Error: OutputProtocol>` — SubprocessRunner.swift:10 `var execution: Execution?` no longer compiles.\n  2. Added contract: 'The value is valid only for the duration of the closure. Don't let the execution value escape the closure.' — SubprocessExecHolder stores Execution OUTSIDE the closure scope, which is the new anti-pattern.\n  3. `TeardownStep` changed from enum to `public struct TeardownStep` with internal Storage; the `gracefulShutDown` parameter renamed from `allowedDurationToNextStep:` to `allowedDuration:` — SubprocessRunner.swift:172 `.gracefulShutDown(allowedDurationToNextStep: .milliseconds(200))` no longer compiles.\n  Plus a likely Signal API change at SubprocessRunner.swift:202 `exec.send(signal: .interrupt, ...)`.\n\nVERSION TIMELINE (from `swift-subprocess` git tags):\n  - 0.1   → 2025-09-04\n  - 0.2   → 2025-10-15\n  - 0.2.1 → 2025-10-21 ← LAST WORKING version for common-process current source\n  - 0.3   → 2026-01-23 ← FIRST BREAKING (Execution generic + escape-closure contract)\n  - 0.4   → 2026-03-24\n  - 0.5   → 2026-05-29 ← LATEST (2 days ago)\n\nWHY chained creative-selection build resolves 0.5.0 while standalone common-process resolves 0.2.1: common-process's `from: \"0.2.0\"` allows the full 0.x range; SwiftPM's version-graph solver picks DIFFERENT versions based on the overall dependency graph context. Standalone gets 0.2.1; transitively through workstream consumer the resolver picks 0.5.0.\n\nWHY PIN-TO-0.2.X IS NOT THE RIGHT FIX: Operator's diagnostic — 'subprocess is all the way up to 0.5... so going back seems wrong.' Pinning common-process to 0.2.x skips 4 months of swift-subprocess fixes (0.2.1 → 0.5 = 7 months gap). The RIGHT fix is to migrate common-process source to handle the swift-subprocess 0.3+/0.5 APIs:\n  - Refactor SubprocessExecHolder to NOT store Execution outside the closure scope; carry typed type-erased closures or use a generic SubprocessExecHolder<Input, Output, Error>.\n  - Update `.gracefulShutDown(allowedDurationToNextStep:)` → `.gracefulShutDown(allowedDuration:)`.\n  - Migrate signal-send call to the new Signal API.\n  - Update tests + bench-support if they exercise these surfaces.\n\nSCOPE OF UPSTREAM WORK: substantial — multiple files in common-process, likely tests too, possibly common-process-foundation-runner if it shares shapes. Out of scope for the 2026-05-31 turn that surfaced this. Tracked here for swift-universal collective maintainer's next focused turn.\n\nWHEN UPSTREAM IS FIXED: re-apply the CommonShellArguments retrofit (typed @OptionGroup) to creative-selection's .cli + .clia, plus the 4 sibling workstream Packages (spawn-software, maintain-software, creative-selection-loop, clia-rpg-spawn-run) + md@swift-universal.cli + workstream@wrkstrm-core.cli + agent-timeline-cli + digikoma-*-cli + harness@takumi-org.cli. The CommonShellArguments composition itself (typed --verbose / --working-directory / --outputs via @OptionGroup) is verified working when the chained build resolves swift-subprocess 0.2.x — the substrate-doctrine application is correct, only blocked by upstream tech debt.\n\nSwift toolchain at time of verification: Apple Swift 6.3 (swiftlang-6.3.0.123.5 clang-2100.0.123.102) on arm64-apple-macosx26.0.",
+  "assignee": "claude",
+  "issueType": "blocked-debt",
+  "status": "open",
+  "priority": 1,
+  "labels": ["typed-primitive-application", "common-shell", "common-process", "swift-subprocess", "workstream-cli", "workstream-clia", "verified-upstream-build-failure", "swift-universal-maintainer", "api-migration"],
+  "createdAt": "2026-05-31T08:30:00Z",
+  "updatedAt": "2026-05-31T09:30:00Z",
+  "blockerSource": "swift-universal common-process — swift-subprocess 0.3+/0.5 API migration not done",
+  "evidence": {
+    "subprocessReleaseDates": {
+      "0.1": "2025-09-04",
+      "0.2": "2025-10-15",
+      "0.2.1": "2025-10-21 (last-working)",
+      "0.3": "2026-01-23 (first-breaking)",
+      "0.4": "2026-03-24",
+      "0.5": "2026-05-29 (latest)"
+    },
+    "breakingChanges": [
+      "Execution<Input, Output, Error> generic (was non-generic)",
+      "'Don't let Execution escape the closure' contract added",
+      "TeardownStep enum → struct + .gracefulShutDown(allowedDuration:) param rename",
+      "Likely Signal API change"
+    ],
+    "consumerImpact": "all common-shell + common-process consumers in substrate",
+    "swiftToolchain": "Apple Swift 6.3 (swiftlang-6.3.0.123.5)",
+    "platform": "arm64-apple-macosx26.0"
+  },
+  "rejectedFix": {
+    "approach": "Pin swift-subprocess to '0.2.0 ..< 0.3.0' in common-process Package.swift",
+    "rejectedBy": "operator",
+    "rejectionReason": "subprocess is all the way up to 0.5... so going back seems wrong"
+  },
+  "doctrineRefs": [
+    "feedback_common-process-shell-cli-typed-primitives",
+    "feedback_deferral-is-drift-do-it-now",
+    "feedback_typed-primitive-bypass-3x-rule-confirmed",
+    "feedback_clia-is-cli-assistant-form-factor",
+    "feedback_workstream-package-ships-library-cli-and-clia",
+    "feedback_operator-intuition-is-substrate-truth-ahead-of-articulation"
+  ],
+  "schemaVersion": "0.1.0"
+}

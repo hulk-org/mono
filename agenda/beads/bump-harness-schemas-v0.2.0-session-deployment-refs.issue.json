@@ -1,0 +1,18 @@
+{
+  "id": "bump-harness-schemas-v0.2.0-session-deployment-refs",
+  "title": "Bump harness-schemas v0.1.0 → v0.2.0 adding sessionSchemaRefs + deploymentSchemaRefs",
+  "description": "Promote session/deployment schema references from ad-hoc identity.extensions to first-class optional fields on HarnessAspectDoc. Design locked: two parallel optional fields. Add to schema-universal/private/universal/domain/system/schema-families/harness-schemas/v0.2.0/spm/harness-schemas-v000-002-000/Sources/HarnessSchemas_v000_002_000/HarnessModel.swift: `public var sessionSchemaRefs: [SchemaFamilyRef]?` (for session-hosting harnesses) and `public var deploymentSchemaRefs: [SchemaFamilyRef]?` (for factory/mint carriers like digikoma). Update HarnessSchemaVersion.current = \"0.2.0\". Add SchemaFamilyRef struct if not already present (family: String, version: String). Mirror v0.1.0 directory wholesale, find/replace v000_001 → v000_002 in module name + Package.swift, bump schemaVersion constant, author migrator under schema-migrators/. Then update core-entity-set freshness audit binding to harness-schemas v0.2.0.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "closed",
+  "closedAt": "2026-05-14T20:25:00Z",
+  "resolutionNote": "Landed: harness-schemas v0.2.0 published at schema-universal/private/universal/domain/system/schema-families/harness-schemas/v0.2.0/spm/harness-schemas-v000-002-000/. Module renamed Harness_Schemas_v000_002_000. Added: SchemaFamilyRef struct (family + version, Codable+Sendable+Equatable), HarnessModel.sessionSchemaRefs: [SchemaFamilyRef]? and deploymentSchemaRefs: [SchemaFamilyRef]? as optional additive fields, HarnessSchemaVersion.current bumped to 0.2.0. CodingKeys + custom decoder updated, optional-decodeIfPresent so new fields default to nil. 9 tests pass: schemaVersionConstantIs0_2_0, sessionAndDeploymentRefsDefaultToNil, roundTripWithSessionSchemaRefs (pi-session-schemas v0.1.0), roundTripWithDeploymentSchemaRefs (digikoma-deployment-schemas v0.2.0), roundTripWithBothRefs, decodeRejectsWrongSchemaVersion, decodeWithoutOptionalRefsBehavesLikeV010, emptyRuntimeKindsRejected, schemaFamilyRefEquality. Sanity migrator (v0.1.0→v0.2.0) deferred to separate bead `harness-schemas-v0.1.0-to-v0.2.0-sanity-migrator` since the bump alone is the load-bearing artifact and migrator is descriptor-level work.",
+  "priority": 2,
+  "labels": ["harness-audit", "schema-family", "harness-schemas", "v0.2.0", "session-schema", "deployment-schema"],
+  "createdAt": "2026-05-13T18:16:53Z",
+  "relatedChronicleEntry": "2026-05-13T18:16:53Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/schema-universal/private/universal/domain/system/schema-families/harness-schemas/v0.1.0/",
+  "dependencies": [],
+  "schemaVersion": "0.1.0"
+}

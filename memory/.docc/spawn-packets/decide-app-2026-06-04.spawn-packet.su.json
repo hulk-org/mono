@@ -1,0 +1,55 @@
+{
+  "SpawnPacketModel": "0.1.0-informal",
+  "slug": "decide-app-2026-06-04",
+  "title": "Retroactive spawn-packet — decide-app runnable Mac app shell",
+  "spawnedAt": "2026-06-04",
+  "spawnVariant": "spawn-runnable-app",
+  "spawnVariantRationale": "Matrix-solver verdict: SINGLETON · spawn-runnable-app (constraint-determined). The medium-weight variant is the constraint-determined answer per the typed audit trail at tests/constraint-solver-tests/fixtures/spawn-workstream-for-runnable-app-shell.json. Operator can re-run the matrix-solver to verify.",
+  "violationAcknowledgment": "Authored without invoking the canonical spawn-software-workstream prospectively. This packet is the retroactive substrate-doctrinal repair.",
+
+  "spawned": {
+    "kind": "runnable-app-shell",
+    "package": "decide-app",
+    "home": "private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/decide-app",
+    "shape": "SwiftPM executable target (no xcodeproj). @main SwiftUI App with NavigationSplitView 4-pane shell. macOS-only at this cut.",
+    "composes": ["decide-kit"],
+    "launchCommand": "swift run --package-path private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/decide-app decide-app"
+  },
+
+  "designTruth": {
+    "designTruthShape": "four-pane NavigationSplitView + HSplitView, all panes bound to one DecideStore",
+    "panes": [
+      "Column 1 — DomainPickerView (sidebar)",
+      "Column 2 — ConstraintElicitationView (content)",
+      "Column 3 — OptionEditorView (detail-left)",
+      "Column 4 — VerdictView (detail-right)"
+    ],
+    "liveResolveClaim": "Matrix-solver re-runs on every store mutation. Operator sees the verdict update LIVE as they edit any pane. Window subtitle carries the verdict for cross-pane visibility."
+  },
+
+  "ldtProofs": {
+    "testCount": 0,
+    "knownGap": "decide-app ships without LDT proofs — substrate-doctrinal debt named here. Smoke tests for the @main App's view composition + the NavigationSplitView shape are a follow-up bead. The substrate-doctrinal rationale for shipping without tests THIS TURN: decide-app composes already-LDT-proven typed primitives (decide-kit + constraint-solver); the view-composition layer is a thin shell. swift build passing is the substrate-canonical minimum gate.",
+    "lastBuildVerified": "2026-06-04"
+  },
+
+  "launchReviewGate": {
+    "operatorRunnable": "swift run … decide-app opens the Mac window",
+    "swiftBuildPasses": true,
+    "decideKitLDTGreen": true,
+    "constraintSolverLDTGreen": true,
+    "knownDebt": "no smoke test for the SwiftUI view composition; no Info.plist; no proper Mac app bundle"
+  },
+
+  "maintenanceHandoff": {
+    "owningOrg": "wrkstrm-core",
+    "ownerSurface": "private/cross/spm/decide-app",
+    "primaryConsumer": "operator (Mac user running the app)",
+    "supersessionPolicy": "Likely supersession path: graduate from SwiftPM executable to a proper Mac app target (project.yml + xcodeproj) under wrkstrm-core/private/apple/apps/decide/ when the consumer surface needs sandboxing, signing, App Store distribution, or auto-deploy."
+  },
+
+  "monitoringPosture": {
+    "compileRegressions": "Surface via decide-kit + constraint-solver test runs + decide-app swift build in CI",
+    "viewRegressions": "Currently unmonitored — the substrate-doctrinal repair is to add smoke tests OR ship a Mac app target with proper UI snapshot testing"
+  }
+}

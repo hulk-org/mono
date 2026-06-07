@@ -1,0 +1,30 @@
+{
+  "id" : "vendor-typelift-org-as-maintainers-submodules",
+  "title" : "Vendor the typelift org at maintainers/typelift/ as git submodules",
+  "description" : "Phase A.2 of typelift-substrate-modernization. Depends on `typelift-org-catalog-audit` completing first for the full-org sweep. For each permissively licensed repo in the typelift org, add as git submodule at `private/universal/substrate/maintainers/typelift/public/universal/tooling/spm/<RepoName>/`. Pin to most-recent stable tag (or HEAD if no suitable tag exists). SwiftCheck was operator-promoted on 2026-05-28 and is already present as the first maintainer submodule; it is MIT licensed and pinned to HEAD after tag 0.12.0. Single omnibus commit OR per-repo commits — operator preference required for the remaining sweep. After landing: substrate has the typelift catalog as reference / lineage / provenance evidence; substrate doesn't depend on any of it; substrate-owned forks land separately under wrkstrm-core or swift-universal per Phase C. Sub-tasks: (1) update .gitmodules per submodule add; (2) verify each submodule clones cleanly on a fresh substrate checkout; (3) record vendoring decision in the thread's activities[].",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 2,
+  "labels" : [
+    "typelift-modernization",
+    "phase-a",
+    "vendoring",
+    "maintainers",
+    "git-submodule"
+  ],
+  "createdAt" : "2026-05-26T10:21:34Z",
+  "relatedChronicleEntry" : "2026-05-26T10:21:34Z",
+  "sourceType" : "thread-beat",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "phase-a-vendoring",
+  "dependencies" : [
+    {
+      "issueId" : "vendor-typelift-org-as-maintainers-submodules",
+      "dependsOnId" : "typelift-org-catalog-audit",
+      "type" : "blocks-until-complete"
+    }
+  ],
+  "sourceLocation" : "private/universal/substrate/maintainers/typelift/",
+  "schemaVersion" : "0.1.0"
+}

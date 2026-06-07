@@ -1,0 +1,20 @@
+{
+  "id" : "ai-model-family-release-stability-field",
+  "title" : "Add releaseStability typed-enum field to AIModelFamily entry",
+  "description" : "Distinct from `substrateDeploymentStatus` (substrate's roadmap state), `releaseStability` tracks the PROVIDER's own release-stability claim for the family. Substrate forms depend on this when choosing whether to bet on a family for production. Proposed enum cases: `experimental` (provider explicitly labels as research / preview / beta), `preview` (broad availability but provider may break compatibility), `stable` (provider commits to API stability), `deprecated` (provider has announced retirement). Populate per-family: Apple Foundation `stable`; Claude 3.5+ `stable`; Gemini 2.5 `stable`; GPT-5 `stable`; Mercury `experimental`; Llama 4 `stable`; Mistral `stable`; DeepSeek-R1 `preview` (rapidly evolving); Grok-3 `preview`; Phi `stable`; Qwen `stable`; Cohere `stable`; Nova `stable`. Add enum file alongside other capability enums. Update tests.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 4,
+  "labels" : [
+    "ai-model-family-dna",
+    "schema-universal",
+    "new-field",
+    "ai-model-catalog-schemas"
+  ],
+  "createdAt" : "2026-05-26T09:36:59Z",
+  "relatedChronicleEntry" : "2026-05-26T09:36:59Z",
+  "sourceType" : "operator-intake",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/ai/schema-families/ai-model-catalog-schemas/v0.1.0/spm/ai-model-catalog-schemas-v000-001-000/sources/AIModelFamilyOrdinalityTable.swift",
+  "schemaVersion" : "0.1.0"
+}

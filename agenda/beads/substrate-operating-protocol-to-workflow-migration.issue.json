@@ -1,0 +1,19 @@
+{
+  "id": "substrate-operating-protocol-to-workflow-migration",
+  "title": "Migrate remaining operating-protocol.json consumers (thread-spin, wrkstrm-operating-beliefs) to workflow.json shape",
+  "description": "WD MIGRATION (precedent) LANDED 2026-05-31 — winddown-execution-graph-extraction.workflow.json absorbed wd-doctrine as extensions. REMAINING WORK: (1) thread-spin migration — author thread-spin.workflow.json at private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/workflows/thread-spin/v0.1.0/ following winddown-execution-graph-extraction pattern; absorb thread-spin.operating-protocol.json content into extensions block as x-axioms (5 inline axioms preserving v0.1.0 shape per migration honesty) + x-steps + x-outcomes + x-triggers + x-workstream-templates; runtime-binding fields (bindingProfiles, declaredBudget, executionStagePolicy, executionTarget, lifecyclePolicy, route, routineRef, runtimePolicy, scenarioRef, workSurface, writebackPolicy) initialized with thread-spin-appropriate defaults; mark thread-spin.operating-protocol.json deprecated. Est 30-60 min. (2) wrkstrm-operating-beliefs migration — same pattern but 30KB source content; recommend dedicated focused session. ~2hr est. (3) After both migrations: 0 operating-protocol.json consumers remain; operating-protocol-schemas family can be archived/deleted entirely. (4) Update 10 axiom inbound refs at spaces-universal/.../kura-spaces/axioms/ if they currently point at deprecated operating-protocol paths.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "substrate-schema-deprecation",
+    "operating-protocol-to-workflow",
+    "wd-migration-followon"
+  ],
+  "createdAt": "2026-05-31T03:10:00Z",
+  "relatedChronicleEntry": "2026-05-31T03:10:00Z",
+  "sourceType": "schema-family-deprecation",
+  "sourceLocation": "private/universal/substrate/collectives/schema-universal/private/universal/domain/system/schema-families/operating-protocol-schemas/schema-catalog.family.descriptor.json",
+  "schemaVersion": "0.1.0"
+}

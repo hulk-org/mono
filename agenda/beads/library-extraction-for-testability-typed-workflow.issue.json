@@ -1,0 +1,15 @@
+{
+  "id": "library-extraction-for-testability-typed-workflow",
+  "title": "Author library-extraction-for-testability workflow-series and (if needed) runtime workflow.json binding",
+  "description": "Workstream-template + index.md now landed at substrate/collectives/wrkstrm/.../kura-spaces/spaces/workstreams/collections/library-extraction-for-testability/ (2026-05-31). Doctrine-level extraction is complete; this bead is downgraded to cover the next-layer-down: (a) author library-extraction-for-testability.workflow-series.json under kura-spaces/series/workflows/library-extraction-for-testability/ if we want to type each task (inventory, move-files, reduce-shells, build, test, qa-evidence-update) as a separate workflow with its own steward and judges (e.g. swift-build-judge after each move, swift-test-judge after each test addition); (b) if substrate runtime-binds this workstream to a specific package's refactor (e.g. for a future migration tool), author the heavy workflow.json instance with bindingProfiles for typical SPM layouts. Both deferrable until a real need arises. Pairs with [[bead:retroactive-packetization-typed-workflow]].",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 1,
+  "labels": ["typed-workflow", "swift-architecture", "axiom-projection", "wd-extraction-gap"],
+  "createdAt": "2026-05-31T02:35:00Z",
+  "relatedChronicleEntry": "2026-05-31T02:30:00Z",
+  "sourceType": "wd-extraction-gap",
+  "sourceLocation": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/axioms/data-vs-projection-applies-to-test-architecture.axiom.su.json",
+  "schemaVersion": "0.1.0"
+}

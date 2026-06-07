@@ -1,0 +1,21 @@
+{
+  "id" : "audit-workflow-graph-doctrine-v0.1.0-surface",
+  "title" : "Audit workflow-graph-doctrine-schemas v0.1.0 — the meta-doctrine layer",
+  "description" : "Comprehension bead 3/4 for agent-blame-shielded-workflow-doctrine. Read every public type in workflow-graph-doctrine-schemas v0.1.0: WorkflowGraphDoctrine (the doctrinal record), WorkflowGraphNode (doctrinal version, distinct from workflow-schemas), WorkflowGraphNodeKind, WorkflowGraphEdge (doctrinal), WorkflowGraphEdgeKind, WorkflowGraphSpawnRule, WorkflowGraphLoopInvariant, WorkflowGraphLoopProof. Produce a typed audit report covering: how this layer differs from workflow-schemas's node/edge types (the existence of two definitions is striking and needs disambiguation); what doctrinal claims WorkflowGraphDoctrine makes about workflow composition; what SpawnRule formalizes about dynamic workflow expansion; how LoopProof verifies termination; whether this is substrate's category-theory / formal-verification layer for workflows.",
+  "assignee" : "claude",
+  "issueType" : "investigation",
+  "status" : "open",
+  "priority" : 2,
+  "labels" : [
+    "agent-blame-shielded-workflow-doctrine",
+    "comprehension",
+    "schema-universal",
+    "workflow-graph-doctrine",
+    "meta-doctrine"
+  ],
+  "createdAt" : "2026-05-26T10:48:09Z",
+  "relatedChronicleEntry" : "2026-05-26T10:48:09Z",
+  "sourceType" : "investigation-finding",
+  "sourceLocation" : "private/universal/substrate/agents/claude/memory/.docc/investigation.docc/workflow-schema-universal-landscape-2026-05-26.md",
+  "schemaVersion" : "0.1.0"
+}

@@ -1,0 +1,23 @@
+{
+  "id" : "evaluate-broomburgo-swift-abstract-successor",
+  "title" : "Evaluate broomburgo/swift-abstract as successor reference for TypeLift Abstract/Algebra",
+  "description" : "Follow-up from the 2026-05-28 runtime-expectation / refinement-wrapper discussion. Operator flagged https://github.com/broomburgo/swift-abstract as interesting after TypeLift Abstract/Algebra surfaced. Evidence check: broomburgo/swift-abstract README describes it as 'Abstract algebra for Swift' and points to typelift/Abstract as previous work; typelift/Abstract README says it is deprecated/no longer maintained and points to swift-abstract as a new take. Treat swift-abstract as the conceptual successor/rewrite line for design research, but do not assume direct code portability or license safety until the license is verified. Local inspection found swift-abstract at HEAD 56abff5d5f84b7d54835116a2262139c01f03e33, tag 0.0.1, Swift tools 5.2, and a test dependency on typelift/SwiftCheck exact 0.12.0. swift test passed locally: 17 XCTest tests plus SwiftCheck law checks, 0 failures. typelift/Abstract at HEAD 15a2b4c8f81eae0e0e28b30041d9685638a6299e failed to build on the current toolchain due stale SwiftCheck/API compatibility, supporting the modernization path. API contrast: TypeLift Abstract is mostly type-conformance/operator based; swift-abstract is value-level algebraic structures with explicit Law and Check objects, which maps well to substrate runtime expectation accumulation, severity joins, unknown-state joins, repair strategies, and property-tested schema behavior. Audit scope: verify license and repo state, compare protocol/API surface with typelift/Abstract and typelift/Algebra, decide whether it should be vendored under maintainers/broomburgo/ as reference, and decide whether substrate's algebra/refinement primitive fork should borrow from swift-abstract, TypeLift, or be written fresh.",
+  "assignee" : "claude",
+  "issueType" : "investigation",
+  "status" : "open",
+  "priority" : 3,
+  "labels" : [
+    "typelift-modernization",
+    "swift-abstract",
+    "abstract-algebra",
+    "refinement-primitives",
+    "maintainers"
+  ],
+  "createdAt" : "2026-05-28T00:00:00Z",
+  "relatedChronicleEntry" : "2026-05-28T00:00:00Z",
+  "sourceType" : "operator-intake",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "swift-abstract-successor-audit",
+  "sourceLocation" : "https://github.com/broomburgo/swift-abstract",
+  "schemaVersion" : "0.1.0"
+}

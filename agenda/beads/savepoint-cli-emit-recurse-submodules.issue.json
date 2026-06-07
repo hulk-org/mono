@@ -1,0 +1,21 @@
+{
+  "id": "savepoint-cli-emit-recurse-submodules",
+  "title": "savepoint-cli emit --recurse-submodules: multi-repo fan-out for mono + dirty submodules",
+  "description": "Today savepoint-cli emit only addresses the cwd's git repo. The substrate's submodule layout makes the common case 'mono + N dirty submodules' (lived through repeatedly in this session's commits). --recurse-submodules should: enumerate nested git repos from cwd, find which have uncommitted changes (`git status --porcelain` non-empty), emit one CommitRequestModel per dirty repo, submit them to savepointd serially (v0.1) or in parallel (after v0.2 event-bus dispatch lands). Report the N TriggerImprints back.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "savepoint",
+    "savepoint-cli",
+    "multi-repo",
+    "submodules",
+    "ergonomics"
+  ],
+  "createdAt": "2026-05-24T02:01:23Z",
+  "relatedChronicleEntry": "2026-05-24T02:01:23Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/kura-org/private/universal/tools/savepoint.cli/",
+  "schemaVersion": "0.1.0"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "substrate-migration-retire-stale-duplicates-step",
+  "title": "Add 'retire stale duplicates' step to future schema-set migration tooling",
+  "description": "The 2026-05-12 investigation into the openclaw/discord shadow-profile hypothesis found that the 5 operator shadows in collectives/wrkstrm/private/universal/identity/ were artifacts of rismay's own 2026-03-23 e7e34f2a commit 'Migrate identities from 0.5.0 to 0.6.0'. That commit placed operator profiles inside the wrkstrm collective per the doctrine at the time, then the doctrine evolved — operators moved to substrate/operators/[slug]/ — and the migration tooling did not include a 'retire stale duplicates' step to clean up the old wrkstrm-collective copies. Result: shadow files sat unchanged from Feb 2026 onward until the 2026-05-12 cleanup. Doctrine recommendation: future schema-set migration tooling (whichever Koma owns this when it comes online) should include a step that checks for stale duplicates when canonical home semantics change between sets and either migrates them, retires them, or surfaces them for operator decision.",
+  "assignee": "claude",
+  "issueType": "decision",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "doctrine",
+    "migration",
+    "schema-set",
+    "stale-duplicates",
+    "lesson"
+  ],
+  "createdAt": "2026-05-13T00:00:00Z",
+  "relatedChronicleEntry": "2026-05-13T00:00:00Z",
+  "sourceType": "incident",
+  "sourceLocation": ".wrkstrm/incidents/active.incident.wrkstrm.json",
+  "schemaVersion": "0.1.0"
+}

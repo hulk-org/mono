@@ -1,0 +1,133 @@
+{
+  "SpawnPacketModel": "0.1.0-informal",
+  "slug": "tau-prototype-2026-06-04",
+  "title": "Spawn-packet — Tau prototype as constraint-solver consumer (founding-consumer typed-library extraction)",
+  "spawnedAt": "2026-06-04",
+  "spawnVariant": "spawn-runnable-app",
+  "spawnVariantRationale": "Tau is a runnable consumer-financial Mac/iOS app — same matrix-solver-runnable-app verdict as decide-app's matrix-solver fixture. The verdict ledger at constraint-solver/tests/.../fixtures/spawn-workstream-for-runnable-app-shell.json applies unchanged for this packet (8 constraints, SINGLETON · spawn-runnable-app).",
+
+  "foundingConsumerRecognition": {
+    "operatorAttestation_2026_06_04_a": "tau is the financial consumer and the place where we began! almost a year later!",
+    "operatorAttestation_2026_06_04_b": "we have to make a tau prototype which uses this technology!",
+    "substrateDoctrinalNaming": "[[founding-consumer-precedes-typed-primitive-by-substrate-pacing]] — substrate's year-long pacing between founding-consumer shipping and typed-primitive-extraction. Tau predates the typed doctrine; today's constraint-solver IS the typed extraction of Tau's founding pattern. The matrix-solver recursion fixture this session retroactively validates Tau's founding-consumer pattern without having named what it was validating.",
+    "fourLensProjectionRefinement": "Tau is substrate's CONSUMER-FINANCIAL lens of the matrix-solver. Sibling consumer lens: decide-app (consumer-general). Pro lens: constraint-selection-lab (substrate-engineer). Gamer lens: matrix (slot named, not yet authored). The 4-lens projection is structurally 2-consumer + 1-pro + 1-gamer — money decisions are load-bearing enough to deserve their own consumer-domain lens distinct from general decisions."
+  },
+
+  "doctrinalBackground": {
+    "primarySpawnDoctrine": "[[spawn-software-workstream-required-for-tool-authoring]]",
+    "sequenceDoctrine": "[[design-and-product-first-code-last]] — 7-position sequence: Design + Product → PRD → CUJ → Bugs+Epics → Code → QA → maybe Launch. This packet authors position 1 (Design + Product) + sketches positions 2-4. No code this turn.",
+    "circularityDoctrine": "[[feedback-issue-found-means-entire-spawn-software-rerun]] — any bug/gap/violation found during Tau-prototype work triggers re-run of the whole sequence from the typed bug-ticket → PRD-update → CUJ-draft.",
+    "checklistDoctrine": "[[substrate-modern-composition-checklist-is-required-spawn-software-proof-gate]] — Tau-app needs all 7 items (WrkstrmDesignTokenService + wrkstrm-color + wrkstrm-font + wrkstrm-gloss + WrkstrmOnboarding + token-system-explainer-page + app-owned-style-identity) OR a substrate-honest named-debt list signed by operator.",
+    "concretenessDoctrine": "[[non-concrete-definitions-trigger-product-manager-spin-up]] — this packet names the typed PM role-spin-up because Tau-prototype's MVP definition is non-concrete in 7 named axes (listed below).",
+    "antiChromeDoctrine": "[[chrome-over-content-is-substrate-doctrine-violation]] — Tau's CENTRAL content surface is the matrix-solver verdict + audit. Verdict view is primary, not chrome.",
+    "audiencePacketDoctrine": "[[audience-packets-apply-to-apps-not-just-web]] — Tau-app UI text is audience-packet-driven content, NOT Swift-string-literal chrome.",
+    "adversarialAudienceDoctrine": "[[adversarial-audience-the-entity]] — financial data has elevated extraction-attack surface; defender posture is load-bearing for Tau."
+  },
+
+  "spawned": {
+    "kind": "runnable-app-shell + consumer-typed-primitive-library (paired, mirrors decide-kit + decide-app pattern)",
+    "packages": ["tau-kit", "tau-app"],
+    "tauKitProposedHome": "private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/tau-kit",
+    "tauAppProposedHome": "private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/tau-app",
+    "ownershipQuestion": "wrkstrm-core/private/cross/spm/ matches decide-kit/decide-app placement and substrate-modern-composition platform-engineer-owned home. Tau's founding-consumer status MAY warrant a dedicated tau-org collective per [[collection-vs-collective-disambiguation]] — operator-creative-selection decision, deferred to PM."
+  },
+
+  "designTruth": {
+    "designTruthShape": "narrative + matrix-solver-recursion-fixture validation pending",
+    "consumerAudiencePacket": {
+      "primaryAudience": "consumer-financial — typed adult with money decisions to make (budget allocation, portfolio rebalancing, large-purchase trade-offs, subscription cleanup, debt-vs-invest, emergency-fund sizing, retirement contribution mix)",
+      "adversarialAudience": "the-entity per [[adversarial-audience-the-entity]] — financial data extraction defenders posture",
+      "operatorAsScenePartner": "operator is the first real consumer per [[feedback-operator-as-founder-researcher-agent-as-engineer]]"
+    },
+    "compositionStance": "Tau-kit composes constraint-solver + constraint-solver-schemas (today's typed primitives). Tau-app composes tau-kit + WrkstrmDesignTokenService + wrkstrm-color + wrkstrm-font + wrkstrm-gloss + WrkstrmOnboarding per substrate-modern-composition checklist. SHARED UI shape with decide-app where applicable (DomainPickerView lineage).",
+    "moneyShapedTypedPrimitives": [
+      "MoneyAmount — typed currency + amount + locale-aware presentation (avoid raw Double per substrate doctrine)",
+      "RiskTier — typed ordinality enum per [[JSON enums are bad — use ordinality tables instead]]: ultra-safe / conservative / moderate / aggressive / speculative — frozen ordinals once Tau-prototype ships",
+      "TimeHorizon — typed ordinality enum: immediate / short-3-12-mo / medium-1-5-yr / long-5-plus-yr",
+      "FinancialOption — specializes substrate's DesignOptionModel; attributeKeys include cost-amount / expected-roi / risk-tier-ordinal / time-horizon-ordinal / liquidity-band",
+      "FinancialConstraint — specializes ConstraintModel; semantic predicates for max-budget / min-roi / max-risk-tier / time-horizon-fit / liquidity-required",
+      "FinancialDomain — typed enum of decision categories: budget-allocation / portfolio-rebalance / large-purchase / subscription-cleanup / debt-paydown-vs-invest / emergency-fund / retirement-contribution-mix",
+      "FinancialDomainTemplate — per-domain seed inventories + starter constraints (operator-attested or AI-elicited)",
+      "TauStore — @MainActor ObservableObject driving the matrix-solver across SwiftUI views (mirrors DecideStore shape)"
+    ],
+    "fourPaneSwiftUIShellClaim": "NavigationSplitView + HSplitView mirroring decide-app shape: FinancialDomainPickerView (sidebar) + FinancialConstraintElicitationView (content) + FinancialOptionEditorView (detail-left) + FinancialVerdictView (detail-right). Matrix-solver re-runs on every store mutation. Verdict view is the central content surface per [[chrome-over-content-is-substrate-doctrine-violation]]. Window subtitle carries the verdict for cross-pane visibility.",
+    "auditTrailSurface": "Money-shaped audit prose ('dropped \"crypto-portfolio-X\" because risk-tier ULTRA-AGGRESSIVE exceeded your max-tier MODERATE'). Markdown export for advisor / spouse / CPA / future-self conversation per [[data-is-one-thing-rendering-is-projection]].",
+    "matrixSolverRecursionFixtureCommitment": "Per [[matrix-solver-typed-constraint-intersection-pattern]] axiom AND per the omission failure mode named in [[spawn-workstream-doctrine-violation-and-repair-2026-06-04]] — Tau-prototype gets its OWN recursion fixture validating ITS design among substrate principles INCLUDING spawn-software-workstream-required + design-and-product-first + chrome-over-content + substrate-modern-composition-checklist + audience-packets-apply-to-apps as constraints. Do not repeat the constraint-omission failure mode."
+  },
+
+  "prdShape": {
+    "northStar": "Operator with a financial decision feels the substrate's matrix-solver contract their option pool to a typed audit-trailed verdict, with money-shaped semantics throughout. The verdict is operator-actionable — exportable as Markdown for an advisor / spouse / future-self conversation.",
+    "primaryUserJobs": [
+      "Articulate a financial domain ('I'm choosing what to do with extra savings')",
+      "Edit the option pool (inventory of what they're considering)",
+      "Articulate constraints (budget, risk-tier, time-horizon, liquidity-required)",
+      "See the verdict + audit trail update live as they edit",
+      "Export the audit trail for a real-world conversation"
+    ],
+    "nonGoalsForPrototype": [
+      "NOT a live brokerage integration — no live market data, no trade execution (per system-doctrine: 'Never execute any financial trade or transfer of funds')",
+      "NOT personalized investment advice — substrate forbids per 'providing personalized investment or financial advice'",
+      "NOT a tax engine — defer per substrate-pacing",
+      "NOT a budgeting/transaction-categorization tool (Quicken/YNAB shape) — defer per scope",
+      "NO cloud sync — local-only for prototype per [[adversarial-audience-the-entity]]"
+    ],
+    "vZeroMvpScopeQuestion": "PM-level decision — which 2-3 financial domains does the prototype MVP ship? Engineering recommendation (operator-creative-selection may override): large-purchase trade-off + subscription-cleanup — both lowest-stakes, fastest to populate operator-attested inventory, both consumer-legible without financial-domain expertise."
+  },
+
+  "cujShape": {
+    "cujOneLargePurchaseDecision": "Operator opens Tau → picks 'Large purchase' domain → Tau seeds inventory with 3 starter options + 5 starter constraints → operator edits inventory (adds 'the thing I actually want') + tunes constraints (sets max-budget, risk-tier, time-horizon) → verdict updates live → operator copies Markdown audit → sends to spouse / advisor / future-self.",
+    "cujTwoSubscriptionCleanup": "Operator opens Tau → picks 'Subscription cleanup' domain → inventory seeded with operator's listed subscriptions → constraints seeded with cost-vs-actual-usage + delight-vs-cost + free-alternative-exists → verdict contracts to keep/cancel decisions per subscription with audit prose.",
+    "cujThreeDebtVsInvest": "Operator picks 'Debt-paydown-vs-invest' domain → constraints around debt-interest-rate vs expected-return vs psychological-relief → verdict surfaces optimal-vs-operator-preferred split with audit trail."
+  },
+
+  "bugsAndEpicsShape": {
+    "epicsPreCode": [
+      "EPIC: Tau-kit typed-primitive surface authoring (Money / RiskTier / TimeHorizon / FinancialOption / FinancialConstraint / FinancialDomain / FinancialDomainTemplate / TauStore)",
+      "EPIC: Tau-app SwiftUI four-pane shell authoring (mirror decide-app structure with money-shaped views)",
+      "EPIC: Substrate-modern-composition checklist compliance (7 items)",
+      "EPIC: Audience-packet-driven UI text per [[audience-packets-apply-to-apps-not-just-web]] — no Swift-string-literal chrome",
+      "EPIC: Matrix-solver recursion fixture for Tau-prototype's own design validation"
+    ],
+    "bugsAnticipatedPreCode": [
+      "BUG (anticipated): MoneyAmount needs locale-aware presentation across en-US / es-419 / pt-BR / ja-JP per [[substrate-locale-coverage-minimum]] — .stringsdict canonical per [[stringsdict-is-cross-platform-foundation-native-canonical]]",
+      "BUG (anticipated): RiskTier ordinality table entries are immutable once Tau-prototype ships per [[ordinality-table-entries-immutable-once-released]] — gradient applies during prototype phase"
+    ]
+  },
+
+  "ldtProofsShape": {
+    "preCodeLdtCommitment": "Per [[Login Driven Thinking (LDT)]] — every structural claim above lands as a Swift Testing test in tau-kit/tests/ + tau-app/tests/. No code without proof.",
+    "estimatedSuiteCount": "8-10 suites: MoneyAmountTests + RiskTierTests + TimeHorizonTests + FinancialOptionTests + FinancialConstraintTests + FinancialDomainTests + FinancialDomainTemplateTests + TauStoreTests + (app-layer) ViewCompositionSmokeTests"
+  },
+
+  "productManagerSpinUp": {
+    "perDoctrine": "[[non-concrete-definitions-trigger-product-manager-spin-up]]",
+    "roleSurface": "agents/claude/memory/.docc/roles/tau-prototype-product-manager.role.su.json (to author when PM decisions are first answered)",
+    "openOperatorCreativeSelectionQuestions": [
+      "1. OWNING COLLECTIVE — wrkstrm-core (matches decide-kit/decide-app, fastest-to-ship) OR new tau-org collective (founding-consumer-status deserves dedicated home)?",
+      "2. EXISTING TAU LINEAGE — Where is the year-old Tau code? Refactor it onto tau-kit OR ship parallel prototype that informs graduation?",
+      "3. MVP FINANCIAL DOMAIN SET — which 2-3 from the 7-domain shape ships first? (Engineering opinion: large-purchase + subscription-cleanup — operator-creative-selection retains override.)",
+      "4. CURRENCY-LOCALE SUPPORT LEVEL — USD-only MVP OR multi-currency from turn 1?",
+      "5. PLATFORM ORDER — iOS-Catalyst-first per [[AppKit only when macOS APIs are required]] OR macOS-first per [[Default roster — Hulk harness]] operator-machine?",
+      "6. SUBSTRATE-MODERN-COMPOSITION CHECKLIST DEPTH FOR PROTOTYPE — full 7-item compliance OR named-debt prototype with launch-review-gate explicitly deferred?",
+      "7. PRIVACY POSTURE — local-only files (substrate-honest, [[adversarial-audience-the-entity]] applies) OR keychain-stored typed inputs from turn 1?"
+    ]
+  },
+
+  "launchReviewGate": {
+    "status": "deferred-until-position-5-code-passes",
+    "perDoctrine": "[[release-gate-audience-review]] applies — UXW review required before any launch attempt",
+    "substrateModernCompositionGate": "Per [[substrate-modern-composition-checklist-is-required-spawn-software-proof-gate]] — all 7 items (WrkstrmDesignTokenService + wrkstrm-color + wrkstrm-font + wrkstrm-gloss + WrkstrmOnboarding + token-system-explainer-page + app-owned-style-identity + audience-packet-driven-text) gate the launch review packet"
+  },
+
+  "maintenanceHandoff": {
+    "owningOrg": "wrkstrm-core (proposed; PM may redirect to tau-org)",
+    "primaryConsumer": "operator (Mac/iOS user with financial decisions) + future Tau-kit downstream shells (web, watch, menu-bar)",
+    "supersessionPolicy": "If existing year-old Tau lives in a different collective, this prototype graduates onto it via additive evolution; or the existing Tau gets refactored onto tau-kit. Operator-creative-selection decides direction during PM spin-up."
+  },
+
+  "monitoringPosture": {
+    "compileRegressions": "tau-kit + tau-app builds in CI + decide-kit/constraint-solver downstream-consumer compilation",
+    "viewRegressions": "Smoke tests for SwiftUI view composition — substrate-honest minimum",
+    "matrixSolverVerdictRegressions": "Recursion-fixture verdict stability across Tau-prototype's design + substrate-doctrine constraints"
+  }
+}

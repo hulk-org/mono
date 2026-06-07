@@ -1,0 +1,20 @@
+{
+  "id": "author-ability-classification-ordinality-table",
+  "title": "Author AbilityClassification ordinality table — HM/TM/starter/specialty",
+  "description": "Per [[agent-abilities-pokemon-mechanics-with-topology-2026-05-26]]. Typed ordinality table classifying agent abilities: `0 = hmEquivalent` (mandatory utility every agent should have — wd, roster, maybe thread-spin/close); `1 = starter` (acquired at agent commissioning); `2 = tmEquivalent` (situational specialty — agentify-capture, playwright, build-macos-apps); `3 = restrictedArchetypeOnly` (only certain agent archetypes can learn — e.g., apple-pi cannot learn cloud-deploy); `4 = orphan` (currently held by 0 agents — substrate-gap signal); `5 = nearUbiquitous` (held by N-1 of N agents — candidate for promotion to substrate-shared LinkRef). Frozen ordinals per [[ordinality-table-entries-immutable-once-released]]. Substrate-doctrine driven categories — extend as topology analysis reveals new patterns.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- (NEW ordinality table — no direct cost-type composition)",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "agent-abilities-pokemon-topology",
+    "schema-universal",
+    "ordinality-table",
+    "classification"
+  ],
+  "createdAt": "2026-05-26T11:18:52Z",
+  "relatedChronicleEntry": "2026-05-26T11:18:52Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/agent-abilities-pokemon-mechanics-with-topology-2026-05-26.md",
+  "schemaVersion": "0.1.0"
+}

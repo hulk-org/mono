@@ -1,0 +1,21 @@
+{
+  "id": "workspace-validate-periodic-substrate-wide",
+  "title": "Schedule periodic workspace-validate --substrate-wide --execute runs for ongoing factory-base hygiene",
+  "description": "`wrkstrm-identifier workspace-validate` is the substrate xcworkspace's periodic-maintenance verb. As of this session it has handled three poison classes: stale `.swiftpm/xcode` cache directories (820 at FileRef paths + 1107 substrate-wide on first run), broken `.xcodeproj` bundles missing `project.pbxproj`, FileRefs pointing at paths that no longer exist. SPM regenerates `.swiftpm/xcode` cache on every package read, so the cache deletion mode is Sisyphean — but the FileRef pruning (broken xcodeproj + missing paths) is real cleanup that survives. Bead is to (a) integrate into a periodic cadence — operator runs once per week / month, OR (b) wire into a launchd or cron job that runs `workspace-validate --execute` (FileRef pruning only, no cache deletion) automatically. Cache deletion is cosmetic; FileRef pruning prevents xcodebuild walks from tripping on stale references. The substrate's 'factory base maintenance' pattern, parallel to memory-md-compaction: each surface accumulates entropy, each surface needs periodic compaction.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 4,
+  "labels": [
+    "workspace-validate",
+    "periodic-maintenance",
+    "factory-base-hygiene",
+    "spm-cache",
+    "substrate-xcworkspace"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/clia-org/private/universal/domain/tooling/spm/wrkstrm-identifier/Sources/wrkstrm-identifier/WorkspaceValidateCommand.swift",
+  "schemaVersion": "0.1.0"
+}

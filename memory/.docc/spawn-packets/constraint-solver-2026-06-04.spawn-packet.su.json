@@ -1,0 +1,62 @@
+{
+  "SpawnPacketModel": "0.1.0-informal",
+  "slug": "constraint-solver-2026-06-04",
+  "title": "Retroactive spawn-packet — constraint-solver library at wrkstrm-core",
+  "spawnedAt": "2026-06-04",
+  "spawnVariant": "spawn-typed-primitive-light",
+  "spawnVariantRationale": "Matrix-solver verdict (MULTI between light/medium) → operator-judged lean answer for foundational typed-primitive package. Substrate-canonical wire format may later promote this to a typed SpawnPacketModel schema family; for now this `.su.json` carries the informal-but-structured shape.",
+  "violationAcknowledgment": "Authored without invoking the canonical spawn-software-workstream prospectively. This packet is the retroactive substrate-doctrinal repair per [[deferral-is-drift-do-it-now]] applied at the workstream-record layer.",
+
+  "spawned": {
+    "kind": "typed-primitive-library",
+    "package": "constraint-solver",
+    "home": "private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/constraint-solver",
+    "consolidatedFrom": [
+      "private/universal/substrate/collectives/swift-universal/private/universal/domain/tooling/spm/constraint-solver@swift-universal.cli (parallel-session, retired)",
+      "private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/constraint-solver (my initial wrkstrm-core placement, retired in favor of the parallel-session pure-function design)"
+    ],
+    "additiveSurface": [
+      "PredicateModel+AttributeKeys.swift (substrate-lifted from cube-view helper)",
+      "IntersectionResultModel+Analytics.swift (determinednessScore, counterfactualVerdicts, minimumLoadBearingSubset)",
+      "PredicateModel+Simplify.swift (algebra normalizer)",
+      "IntersectionResultModel+RenderMarkdown.swift",
+      "IntersectionResultModel+RenderJSONL.swift",
+      "constraint-solver@wrkstrm-core.cli executable (axiom-promotion target realized; renamed 2026-06-05 per [[executable-naming-slug-at-org-dot-form]] — operator-attested 'constraint-solver-cli: this is not the right new way to name this: constraint-solver@{org}.cli'; library slug stays plain `constraint-solver` per library convention)"
+    ]
+  },
+
+  "designTruth": {
+    "designTruthShape": "matrix-solver-validated recursion fixture",
+    "designTruthRef": "tests/constraint-solver-tests/SolverSelfDesignTests.swift + fixtures/solver-self-design-{inventory,constraints}.json",
+    "verdict": "SINGLETON · pure-function-resolver (constraint-determined)",
+    "loadBearingConstraints": [
+      "wrkstrm-core-peer-naming",
+      "typed-everywhere",
+      "render-as-projection",
+      "consumer-first-api"
+    ],
+    "inertConstraints": [
+      "ldt-provable",
+      "do-not-break-ddd"
+    ],
+    "determinednessScore": 0.667,
+    "knownGap": "Recursion fixture omitted spawn-software-workstream-required as a constraint. The matrix-solver only honors the constraints the operator names; this gap is the substrate-doctrinal failure mode demonstrated."
+  },
+
+  "ldtProofs": {
+    "testCount": 50,
+    "suiteCount": 10,
+    "lastVerified": "2026-06-04",
+    "ldtProofRef": "tests/constraint-solver-tests/ (all suites green via swift test)"
+  },
+
+  "maintenanceHandoff": {
+    "owningOrg": "wrkstrm-core",
+    "ownerSurface": "private/cross/spm/constraint-solver",
+    "primaryConsumer": "constraint-selection-lab + decide-kit + decide-app + constraint-solver-cli",
+    "supersessionPolicy": "Backwards-compatible additive evolution. Breaking changes require new versioned package per [[preserve-prior-schema-versions]] pattern (constraint-solver-v002 etc.)."
+  },
+
+  "launchReviewGate": "omitted-per-spawn-typed-primitive-light-variant",
+  "monitoringPosture": "omitted-per-spawn-typed-primitive-light-variant — tests + downstream consumer compilation serve as the substrate-canonical regression surface"
+}

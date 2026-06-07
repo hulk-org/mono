@@ -1,0 +1,23 @@
+{
+  "id": "substrate-project-yml-legacy-build-location-vs-spm",
+  "title": "Substrate's per-app project.yml SYMROOT/CONFIGURATION_BUILD_DIR triggers Xcode 'legacy build locations' mode, which is incompatible with SPM package dependencies",
+  "description": "All substrate apps' project.yml has settings.base like SYMROOT: $(SRCROOT)/../../../../.build/xcode, CONFIGURATION_BUILD_DIR: $(SYMROOT)/$(CONFIGURATION), DEPLOYMENT_LOCATION: YES. These flip xcodebuild into 'legacy build locations' mode, which rejects SPM package dependencies with: 'Packages are not supported when using legacy build locations, but the current project has them enabled.' Discovered while trying to build foundry.mac.app (depends on 7 SPM packages). Same issue blocks the generated hackernews.mac.app initially — fixed there by emitting project.yml WITHOUT the legacy settings. The substrate-wide question: does this affect every app+SPM-dep combination, or is it only triggered when SYMROOT is a non-standard relative path? Either way, substrate's standard project.yml template needs revision to either (a) drop legacy settings entirely (use derivedDataPath flow), or (b) flip them via a separate 'install' build config that's used only for /Applications/categories/<id>/ installs and is skipped for dev builds. Workaround for foundry build: hand-edit foundry's project.yml, OR pass override settings (DEPLOYMENT_LOCATION=NO etc — but cmd-line overrides don't take effect for package resolution which happens before settings are applied). Documenting as P2 substrate-wide architecture issue.",
+  "assignee": "claude",
+  "issueType": "investigation",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "substrate-architecture",
+    "project-yml",
+    "xcodebuild",
+    "spm-packages",
+    "legacy-build-locations",
+    "foundry",
+    "install-path"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "investigation",
+  "sourceLocation": "private/universal/substrate/collectives/wrkstrm-app/private/apple/apps/foundry/project.yml",
+  "schemaVersion": "0.1.0"
+}

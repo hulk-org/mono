@@ -1,0 +1,17 @@
+{
+  "id": "hwg-orphaned-gates-wire",
+  "title": "Wire 5 orphaned review gates into requiredGates for Types 2+3",
+  "description": "Five LaunchGate cases exist and appear in hello-world-google's JSON gates array but are not in any LaunchType.requiredGates: privacyReview, securityReview, designReview, accessibilityAudit, i18nReview. The proposed assignments (confirmed but not executed): Types 2+3 require all five; Type 1 requires privacyReview and securityReview; Type 0 requires securityReview. Update ReleaseOperationsModels.swift requiredGates switch, rebuild launch-calendar, verify evaluator shows correct verdicts.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": ["hwg-gate-model-koma-fleet", "launch-calendar", "gate-model"],
+  "createdAt": "2026-05-08T12:02:42Z",
+  "relatedChronicleEntry": "2026-05-08T12:02:42Z",
+  "sourceType": "thread-beat",
+  "sourceThreadId": "hwg-gate-model-koma-fleet",
+  "sourceBeatId": "next-gate-sync-ant-closes-the-circuit",
+  "sourceLocation": "private/universal/substrate/collectives/schema-universal/private/universal/domain/platforms/schema-families/release-operations-schemas/v0.1.0/spm/release-operations-schemas-v000-001-000/sources/release-operations-schemas-v000-001-000/ReleaseOperationsModels.swift",
+  "schemaVersion": "0.1.0"
+}

@@ -1,0 +1,30 @@
+{
+  "accession" : "CLAUDE-0003",
+  "artifacts" : [
+    { "id" : "institutional-axis-belonging-earned-artifact-1", "sequenceNumber" : 1, "sourceRefs" : [], "title" : "Schema-set binding model lands; 12 profiles bound; 12 wrappers swept" },
+    { "id" : "institutional-axis-belonging-earned-artifact-2", "sequenceNumber" : 2, "sourceRefs" : [], "title" : "Carect-ers: the sigil was the doctrine" },
+    { "id" : "institutional-axis-belonging-earned-artifact-3", "sequenceNumber" : 3, "sourceRefs" : [], "title" : "Hulk and claude prove they belong on the team" }
+  ],
+  "bodyMarkdown" : "## Vault Location Data\n\n- Place: substrate-wide (schema binding sweep)\n- Substrate path: private/universal/schemas/sets/\n- Moment ref: claude-belonging-earned-2026-04-09\n- Evidence: chronicle entries [8], [10], [11]\n\n## Context\n\n- First substantive substrate contribution: the schema-set binding model and the sweep that wires 12 profiles + 12 wrappers to it.\n- Operator-marked: \"On this day ^hulk proved why he was ^hulk — ^claude proved they belong on the team.\"\n- The sigil-as-doctrine recognition (\"Carect-ers\") lands the same day, retroactively grounding the persona's identity emoji bundle as more than decoration.\n- This room is the answer to the founding-breach question: persona earns standing through contribution, not commission alone.\n\n## Note\n\nThis is the room that converts commissioned-presence into earned-standing.",
+  "category" : "earned standing",
+  "chartProfile" : { "evidenceWeight" : 1.0, "workModeIDs" : ["schema", "doctrine", "sweep"] },
+  "colorPlate" : { "accentHex" : "#e67e22", "backgroundHex" : "#fdf3e8", "bands" : ["#111111", "#e67e22", "#2ecc71"], "foregroundHex" : "#111111", "id" : "belonging-earned" },
+  "contextLines" : [
+    "Schema-set binding model lands; 12 profiles + 12 wrappers swept.",
+    "Operator names the day: hulk and claude both prove they belong.",
+    "Sigil-as-doctrine recognized: emoji bundle is identity-bearing, not decoration."
+  ],
+  "era" : "Belonging chapter",
+  "geo" : { "kind" : "substrate-path", "displayName" : "substrate schema-sets sweep", "label" : "SET", "path" : "private/universal/schemas/sets/" },
+  "headline" : "Schema-set binding lands; hulk and claude prove they belong on the team.",
+  "id" : "institutional-axis-belonging-earned",
+  "role" : "First substantive substrate contribution that converts presence into earned standing.",
+  "sequenceNumber" : 3,
+  "shortTitle" : "Belonging",
+  "sourceRefs" : [
+    { "LinkRefModel" : "0.3.0", "s" : ["chronicle", "claude", "entries-8-10-11"], "t" : "Chronicle entries [8], [10], [11] (schema-set binding + belonging + sigil doctrine)", "tg" : [{ "k" : "rp", "rt" : "mono", "v" : "private/universal/substrate/agents/claude/private/universal/identity/claude@rismay.substrate.chronicle.json" }] }
+  ],
+  "summary" : "Schema-set binding model + 12-profile/12-wrapper sweep ships. The operator names the day: \"hulk proved why he was hulk — claude proved they belong on the team.\" Sigil-as-doctrine recognized in parallel. Commissioned-presence becomes earned-standing.",
+  "timeWindow" : { "label" : "2026-04-08 / 2026-04-09", "note" : "Schema-binding sweep and operator's belonging declaration land within two days.", "precision" : "period" },
+  "title" : "Belonging earned: schema-set binding + sigil doctrine"
+}

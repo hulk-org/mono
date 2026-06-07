@@ -1,0 +1,37 @@
+{
+  "id" : "fork-typelift-category-theory-primitives-cluster",
+  "title" : "Fork Aquila + Focus + Operadics into substrate-owned category-theory primitives cluster",
+  "description" : "Phase C.2 (PRIORITY 2) of typelift-substrate-modernization. Three typelift packages cluster around category-theory primitives substrate's ordinality discipline reaches for: (1) Aquila — category-theory primitives (functors, natural transformations, morphism composition); (2) Focus — lenses + traversals (functional optics for nested Codable mutation); (3) Operadics — operad-based abstractions (composable typed-operation algebras). Fork scope: audit each package's API surface (depends on per-package-audit completion); identify which abstractions substrate genuinely needs (substrate has hand-rolled lens-shaped property accessors in several places; substrate has no operad primitives but its ordinality tables hint at the register); fork each as substrate-owned modernized SPM package at `private/universal/substrate/collectives/wrkstrm-core/private/cross/spm/<slug>/` or `swift-universal/private/universal/domain/tooling/spm/<slug>/` depending on shape; modernize per the TypeLift 2026 fork standard (Swift tools 6.3, strict concurrency / Sendable, Swift Testing, law definitions decoupled from the test runner, deterministic replay/shrinking, named APIs over operator-only APIs). Sub-bead candidates may spawn if any of the three turns out to be substantial-enough to warrant its own work-stream.",
+  "assignee" : "claude",
+  "issueType" : "task",
+  "status" : "open",
+  "priority" : 2,
+  "labels" : [
+    "typelift-modernization",
+    "phase-c",
+    "fork",
+    "category-theory",
+    "lenses",
+    "operad",
+    "wrkstrm-core"
+  ],
+  "createdAt" : "2026-05-26T10:21:34Z",
+  "relatedChronicleEntry" : "2026-05-26T10:21:34Z",
+  "sourceType" : "thread-beat",
+  "sourceThreadId" : "typelift-substrate-modernization-2026-05-26",
+  "sourceBeatId" : "phase-c-category-theory-forks",
+  "dependencies" : [
+    {
+      "issueId" : "fork-typelift-category-theory-primitives-cluster",
+      "dependsOnId" : "typelift-2026-fork-standard",
+      "type" : "blocks-until-complete"
+    },
+    {
+      "issueId" : "fork-typelift-category-theory-primitives-cluster",
+      "dependsOnId" : "typelift-per-package-substrate-audit",
+      "type" : "blocks-until-complete"
+    }
+  ],
+  "sourceLocation" : "private/universal/substrate/maintainers/typelift/",
+  "schemaVersion" : "0.1.0"
+}

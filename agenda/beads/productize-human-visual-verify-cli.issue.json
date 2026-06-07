@@ -1,0 +1,23 @@
+{
+  "assignee" : "claude",
+  "closedAt" : "2026-05-14T22:27:05Z",
+  "createdAt" : "2026-05-13T23:43:26Z",
+  "description" : "Build a Swift CLI (proposed slug `swift-human-visual-verify-cli`) that takes a release-receipts directory + an artifact path/URL, opens the artifact for the human (open URL in browser via mcp__claude-in-chrome or the local file in the appropriate macOS app), prompts for verdict (matches-expectation | wrong-content | partial-issue | could-not-verify), captures notes (mandatory for wrong-content / partial-issue per the schema invariant), optionally captures a screenshot, then writes a HumanVisualVerification entry into the appropriate ReleaseOperationItem via JSON edit. The CLI is the actual enforcement product behind the schema we just added. Operator directive: 'we need to productize this' after the vapor-wares.com near-miss. Schema reference: HumanVisualVerification + HumanVisualVerificationVerdict + LaunchGate.requiresHumanVisualVerification in release-operations-schemas.",
+  "id" : "productize-human-visual-verify-cli",
+  "issueType" : "task",
+  "labels" : [
+    "release-operations",
+    "human-in-the-loop",
+    "vapor-wares-lesson",
+    "productization",
+    "cli"
+  ],
+  "priority" : 2,
+  "relatedChronicleEntry" : "2026-05-13T23:43:26Z",
+  "resolutionNote" : "Reframed by operator 2026-05-14: 'a human can click a button! that's all we need. We need to in our release apps, schedule a notification for a human to open the app and click. and then we need to make the UI for the things that the humans release.' CLI is the wrong shape — humans should never type a verification command. Replaced by three new beads: release-verification-ui-package (button + verdict capture SwiftUI), release-verification-notifications (UNUserNotificationCenter scheduling per release item), release-artifact-viewer-components (per-artifact-type SwiftUI views the human sees before clicking).",
+  "schemaVersion" : "0.1.0",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/platforms/schema-families/release-operations-schemas/v0.1.0/spm/release-operations-schemas-v000-001-000/sources/release-operations-schemas-v000-001-000/ReleaseOperationsModels.swift",
+  "sourceType" : "operator-intake",
+  "status" : "closed",
+  "title" : "Productize HumanVisualVerification as a Swift CLI that loops the human through the verdict"
+}

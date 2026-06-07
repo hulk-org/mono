@@ -1,0 +1,22 @@
+{
+  "id": "digikoma-savepoint-stale-index-lock-detection",
+  "title": "digikoma-savepoint: detect + clear stale .git/index.lock with lsof safety check before git add",
+  "description": "Surfaced 2026-05-26 during the savepoint kura-org migration: a savepoint-cli emit invocation failed with worker exit 2 because /Users/sonoma/mono/.git/index.lock existed from a prior subprocess (likely an earlier savepoint-cli emit that was interrupted mid-flight or crashed). Symptom: digikoma-savepoint's `git add` step returns `fatal: Unable to create '<repo>/.git/index.lock': File exists`, savepointd reports `outcome: failed, error: worker exit 2`, no commit lands, and the operator has to manually `rm -f <repo>/.git/index.lock` and retry. The substrate's typed commit primitive should self-heal from stale locks instead of requiring manual intervention. Real fix: before invoking `git add`, digikoma-savepoint inspects `<gitDir>/index.lock`; if present, use `lsof <gitDir>/index.lock` (or `fuser` on Linux) to check whether any process currently holds an open file descriptor on it. If lsof returns empty (no holder, lock is stale), `rm -f` the lock + log a typed `StaleLockReclaimed` imprint into the savepoint ledger (with: locked-since-mtime, reclaiming-pid, reclaiming-sessionId), then proceed with git add. If lsof returns a holder, refuse to reclaim — surface a typed `LockHeldByOtherProcess` error with the holder's pid + cwd + cmdline so the operator can diagnose. Cross-platform note: macOS has lsof natively; Linux has both lsof + fuser; the digikoma should pick whichever is available. Test cases: (1) no lock, git add succeeds normally; (2) stale lock (no holder), digikoma reclaims + commits + emits StaleLockReclaimed imprint; (3) lock held by another git process, digikoma refuses + emits LockHeldByOtherProcess error with diagnostic detail; (4) lsof unavailable on the platform, digikoma refuses to auto-reclaim (conservative default — never silently delete a lock without verifying it's stale). Composes with [[feedback_command-line-adventures]] (this is the third command-line edge case worth a kura entry: 'when does git's index.lock get left behind').",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "digikoma-savepoint",
+    "git",
+    "robustness",
+    "stale-lock",
+    "self-healing",
+    "v0.2"
+  ],
+  "createdAt": "2026-05-26T18:20:00Z",
+  "relatedChronicleEntry": "2026-05-26T18:20:00Z",
+  "sourceType": "agent-observation-during-migration",
+  "sourceLocation": "private/universal/substrate/collectives/kura-org/private/universal/digikoma/savepoint-commit.digikoma.clia/",
+  "schemaVersion": "0.1.0"
+}

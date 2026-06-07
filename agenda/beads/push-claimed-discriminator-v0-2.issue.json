@@ -1,0 +1,15 @@
+{
+  "id": "push-claimed-discriminator-v0-2",
+  "title": "Wire .pushClaimed SubstrateEventKind so in-process DigikomaGitPushService can co-register with savepointd's PushService without double-push",
+  "description": "DigikomaGitPushService.condition is currently .never to prevent both savepointd's PushService AND a directly-registered DigikomaGitPushService from racing the same .pushIntent event into two simultaneous pushes against the same .git. Mirrors the same gap in DigikomaSavepointService (parent session bead: digikoma-savepoint-chat-summary-wiring-v0.2 — same kind of v0.2 follow-up). Resolution: add a .pushClaimed(intentFilePath:) event kind in common-service emitted by savepointd's PushService once it has successfully claimed an intent from the queue. DigikomaGitPushService then subscribes to .pushClaimed (not .pushIntent) — meaning queue routing stays in savepointd while actual execution can move in-process for testing, embedded deployments, or future event-bus daemon hosts. Bumps DigikomaGitPushService.condition from .never to .always. Same pattern needed for SavepointService → DigikomaSavepointService handoff (parallel bead exists from parent session).",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": ["common-service", "digikoma-git-push", "savepointd", "v0.2", "event-bus"],
+  "createdAt": "2026-05-24T03:35:55Z",
+  "relatedChronicleEntry": "2026-05-24T03:35:55Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/kura-org/private/universal/digikoma/savepoint-git-push.digikoma.clia/sources/SavepointGitPushService/SavepointGitPushService.swift",
+  "schemaVersion": "0.1.0"
+}

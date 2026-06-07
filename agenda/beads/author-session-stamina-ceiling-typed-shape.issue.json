@@ -1,0 +1,32 @@
+{
+  "id": "author-session-stamina-ceiling-typed-shape",
+  "title": "Author SessionStaminaCeiling typed shape — composite (harness × model × operator-policy) ceiling",
+  "description": "Per [[substrate-sync-cost-pattern-2026-05-26]] Layer 5. Typed shape declaring the session's stamina ceiling, COMPUTED at session-start from three inputs: (1) `HarnessStaminaProfile` (per-harness rate-limits + wall-clock conventions); (2) `AIModelFamilyOrdinalityTable` DNA traits — inferenceCostShape (electricity-only effectively unlimited financial; mid-per-token consumes fastest), contextWindowSizeClass (small/medium/large/xlarge — pending bead `ai-model-family-context-window-size-class-field`); (3) `OperatorPolicy` (substrate-side caps, daily budgets, override rules). Proposed shape: `SessionStaminaCeiling { sessionId, harnessRef: LinkRefModel, modelFamilyOrdinal: Int, computedAt: ISO-8601, contextTokenCeiling: Int, wallClockSeconds: Int, financialUSDCeiling: Double, rateLimitTokensPerMinute: Int, harnessProfileRef + modelDNARef + operatorPolicyRef (provenance LinkRefs) }`. BLOCKS on harness-stamina-profile + ai-model-family-context-window-size-class beads.\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- InferenceQuota (inference-account-schemas v0.2.0) — token-budget ceiling\n- InferenceRateLimit (same) — throughput ceiling (rpm/tpm)\n- InferenceCircuitBreaker (same) — over-limit policy\n- InferenceContextClass (inside InferenceModelEconomics) — context-window class\n- AIModelFamilyContextWindowSizeClass (pending bead ai-model-family-context-window-size-class-field) — composite ceiling input",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "substrate-sync-cost-pattern",
+    "encumbrance",
+    "schema-universal",
+    "composite-ceiling"
+  ],
+  "createdAt": "2026-05-26T11:36:31Z",
+  "relatedChronicleEntry": "2026-05-26T11:36:31Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/substrate-sync-cost-pattern-2026-05-26.md",
+  "dependencies": [
+    {
+      "issueId": "author-session-stamina-ceiling-typed-shape",
+      "dependsOnId": "author-harness-stamina-profile-typed-shape",
+      "type": "blocks-until-complete"
+    },
+    {
+      "issueId": "author-session-stamina-ceiling-typed-shape",
+      "dependsOnId": "ai-model-family-context-window-size-class-field",
+      "type": "blocks-until-complete"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "common-shell-implement-missing-types",
+  "title": "Implement Executable / EnvironmentModel / ProcessLogOptions / ExecutionHostKind.makeHost() in CommonProcess to unblock common-shell",
+  "description": "common-shell at swift-universal/private/universal/spm/domain/system/common-shell/ currently fails to compile because four types it consumes from CommonProcess are documented in DocC (CommandSpec.md MasterExecutable.md) but NOT IMPLEMENTED in `sources/common-process/`: `Executable` (struct, Sendable, Equatable, Codable; unified identity for name-or-path + defaults), `EnvironmentModel` (enum, .inherit / .custom / .inherit.updating cases), `ProcessLogOptions` (struct, default-initializable, exposure: ProcessExposure), `ExecutionHostKind` extension with `.makeHost()` instance method. This is design-first architectural debt — the API contract is documented but the implementation hasn't followed. Once these land, common-shell builds; swift-package-graph-cli builds (currently blocked); `workspace-owned-diff` returns to operational status (complements workspace-sync's add-path). Probably a multi-hour design task — read CommandSpec.md + MasterExecutable.md DocC; implement each type matching the documented contract; verify common-shell builds; verify swift-package-graph-cli builds. Defer until needed for the workspace diff workflow OR until the design-first debt's age becomes a project risk.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 3,
+  "labels": [
+    "common-process",
+    "common-shell",
+    "swift-package-graph-cli",
+    "design-first-debt",
+    "documented-but-unimplemented"
+  ],
+  "createdAt": "2026-05-17T22:30:00Z",
+  "relatedChronicleEntry": "2026-05-17T22:30:00Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/swift-universal/private/universal/spm/domain/system/common-process/sources/common-process/common-process.architecture.docc/CommandSpec.md",
+  "schemaVersion": "0.1.0"
+}

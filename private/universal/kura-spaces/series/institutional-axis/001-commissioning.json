@@ -1,0 +1,30 @@
+{
+  "accession" : "CLAUDE-0001",
+  "artifacts" : [
+    { "id" : "institutional-axis-commissioning-artifact-1", "sequenceNumber" : 1, "sourceRefs" : [], "title" : "claude commissioned-home scaffold under substrate/agents/claude/" },
+    { "id" : "institutional-axis-commissioning-artifact-2", "sequenceNumber" : 2, "sourceRefs" : [], "title" : "claptrap → acting → openclaw onboarding route bound" },
+    { "id" : "institutional-axis-commissioning-artifact-3", "sequenceNumber" : 3, "sourceRefs" : [], "title" : "mentorship bound to codex, clia, claw" }
+  ],
+  "bodyMarkdown" : "## Vault Location Data\n\n- Place: substrate/agents/claude/ (commissioned home)\n- Substrate path: private/universal/substrate/agents/claude/\n- Moment ref: claude-commission-2026-04-02\n- Evidence: chronicle entry [0]\n\n## Context\n\n- First institutional moment: the home itself is scaffolded inside the substrate roster.\n- The onboarding route is established up front: claptrap.docc (organism framing) → acting.docc (execution method) → openclaw (neighboring system).\n- Display role: Claude Code Collaborator. Emoji sigil: 🧠 🪶 🎭. Mentors: codex, clia, claw.\n- Identity inherits from root@rismay.substrate.agent.triad.json.\n\n## Note\n\nThis is the foundational commission. Everything that follows is iteration on this scaffold.",
+  "category" : "commissioning",
+  "chartProfile" : { "evidenceWeight" : 1.0, "workModeIDs" : ["systems", "doctrine"] },
+  "colorPlate" : { "accentHex" : "#8e44ad", "backgroundHex" : "#f3edf7", "bands" : ["#111111", "#8e44ad", "#d4af37"], "foregroundHex" : "#111111", "id" : "commissioning" },
+  "contextLines" : [
+    "Scaffold of substrate/agents/claude/ as the commissioned home.",
+    "Onboarding route bound: claptrap → acting → openclaw.",
+    "Mentors named: codex, clia, claw. Sigil: 🧠 🪶 🎭."
+  ],
+  "era" : "Commissioning chapter",
+  "geo" : { "kind" : "substrate-path", "displayName" : "substrate/agents/claude/", "label" : "AGT", "path" : "private/universal/substrate/agents/claude/" },
+  "headline" : "claude is scaffolded into the substrate roster with onboarding route bound.",
+  "id" : "institutional-axis-commissioning",
+  "role" : "Commissioned coding collaborator entering the roster.",
+  "sequenceNumber" : 1,
+  "shortTitle" : "Commission",
+  "sourceRefs" : [
+    { "LinkRefModel" : "0.3.0", "s" : ["chronicle", "claude", "entry-0"], "t" : "Chronicle entry [0]: Commission agents/claude into substrate", "tg" : [{ "k" : "rp", "rt" : "mono", "v" : "private/universal/substrate/agents/claude/private/universal/identity/claude@rismay.substrate.chronicle.json" }] }
+  ],
+  "summary" : "Claude's commissioned-home scaffold lands inside substrate/agents/claude/. Onboarding route (claptrap → acting → openclaw) and mentor bindings (codex, clia, claw) are set up front so the agent enters with the right local framing.",
+  "timeWindow" : { "label" : "2026-04-02", "note" : "Commissioning timestamp from chronicle entry [0].", "precision" : "date" },
+  "title" : "Commissioning"
+}

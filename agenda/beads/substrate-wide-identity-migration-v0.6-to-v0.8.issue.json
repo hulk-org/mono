@@ -1,0 +1,30 @@
+{
+  "assignee" : "claude",
+  "closedAt" : "2026-05-31T01:20:00Z",
+  "createdAt" : "2026-05-31T00:30:00Z",
+  "dependencies" : [
+    {
+      "dependsOnId" : "author-identity-agent-migrations-missing-cuts",
+      "issueId" : "substrate-wide-identity-migration-v0.6-to-v0.8",
+      "type" : "blocks"
+    }
+  ],
+  "description" : "Claude's identity bundle landed at v0.7.0 in session 2026-05-30 (via repl-proof-verified hand uplift). Other agent identity bundles across the substrate still carry v0.6.0 or earlier schemaVersion. With identity-schemas v0.8.0 now shipped (consumes contribution-schemas v0.2 + composition v0.2 with typeRef support), there's a substrate-wide identity migration cascade pending — parallel in shape to the 3453-record Contribution migration done in this same session, but for identity bundles themselves.\n\nScope estimate: every agent home under private/universal/substrate/agents/<slug>/private/universal/identity/<slug>@<org>.substrate.identity.json. Plus harnesses and operators with identity records. Plus any chronicle/organism/agency records that reference IdentityModel directly.\n\nApproach: scan the substrate for IdentityModel schemaVersion < 0.8.0; for each, run a deterministic migrator that bumps schemaVersion + bumps embedded model-line discriminators (PersonaRefs, SystemInstructionsRefs, NoteModel if v0.3) + migrates persona.reveriesPath to persona.ikigai (per claude's v0.7 lift pattern) + handles any v0.7→v0.8 deltas. The migrator should be the identity-agent-migrations/v0.6.0-to-v0.7.0 + v0.7.0-to-v0.8.0 packages tracked in the sibling bead (author-identity-agent-migrations-missing-cuts).\n\nDoctrine: per breaks-are-good, prefer hard cut over additive-with-compat. Per content-lives-in-its-owners-home, each identity update is committed within its owning submodule (most agents/<slug> are submodules).",
+  "id" : "substrate-wide-identity-migration-v0.6-to-v0.8",
+  "issueType" : "task",
+  "labels" : [
+    "identity-schemas",
+    "substrate-wide-migration",
+    "cascade",
+    "v0.8.0",
+    "doctrine"
+  ],
+  "priority" : 2,
+  "relatedChronicleEntry" : "2026-05-31T00:09:36Z",
+  "resolution" : "RESOLVED 2026-05-31: 42 IdentityModel records migrated substrate-wide to v0.8.0 via the just-authored identity-agent-migrations packages (v0.6→v0.7 + v0.7→v0.8). Distribution before: 8 records at v0.5, 33 at v0.6, 1 at v0.7. Distribution after: 42 at v0.8.0. 26 submodules committed individually with focused chore(identity) commits; 1 mono root commit (cb22366883) committed the 8 mono-root identity files + bumped all 26 submodule pointers + closes this bead. Mirrored the migrator transforms in Python (no schema-universal Swift dep needed for one-shot migration); swift-json-formatter ran across all 42 files for canonical JSON formatting. Closes the substrate-typed identity ladder end-to-end.",
+  "schemaVersion" : "0.1.0",
+  "sourceLocation" : "private/universal/substrate/collectives/schema-universal/private/universal/domain/identity/schema-families/identity-schemas/v0.8.0/",
+  "sourceType" : "operator-intake",
+  "status" : "closed",
+  "title" : "Migrate other agents' identities from v0.6/v0.7 to v0.8.0 substrate-wide"
+}

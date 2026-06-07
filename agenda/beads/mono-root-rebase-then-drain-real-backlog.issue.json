@@ -1,0 +1,15 @@
+{
+  "id": "mono-root-rebase-then-drain-real-backlog",
+  "title": "Reconcile mono root (ahead 1380, behind 1, dirty) so the push factory can drain its real backlog",
+  "description": "The push factory shipped + was dogfood-proven against clia-design-system gh-pages clone, but the real backlog it was meant to drain (1380 mono commits ahead of origin/main) is currently blocked. mono root has: (a) 1 commit behind origin/main → must rebase or merge before push, (b) substantial uncommitted working-tree state from OTHER sessions across many submodule pointers and several mono-root paths (e.g. private/universal/substrate/.docc/index.md, .docc/expertise/mirror articles, multiple agent identity bundles being touched by other agents). Cannot push 1380 ahead without first: (1) understanding which submodule pointer changes are intentional and which are stale-from-other-session, (2) deciding whether to rebase or merge the behind=1 remote commit, (3) cleaning up working tree to clean state, (4) THEN running savepoint-cli push --recurse-submodules from mono root to fan out to every submodule + finally push mono itself. Operator (rismay) decision needed on cleanup strategy. Once unblocked, the factory tooling is ready: savepoint-cli push --recurse-submodules --working-tree /Users/sonoma/mono --harness <h> --session-id <id> will dispatch through savepointd's server-side fanout.",
+  "assignee": "claude",
+  "issueType": "decision",
+  "status": "open",
+  "priority": 2,
+  "labels": ["mono-root", "push-backlog", "rebase", "operator-decision"],
+  "createdAt": "2026-05-24T03:35:55Z",
+  "relatedChronicleEntry": "2026-05-24T03:35:55Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "/Users/sonoma/mono",
+  "schemaVersion": "0.1.0"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "digikoma-savepoint-chat-summary-wiring-v0.2",
+  "title": "digikoma-savepoint v0.2: wire DigikomaSavepointFoundationModelsTool into composeMessage",
+  "description": "DigikomaSavepointFoundationModelsTool target exists with placeholder call() body. v0.2 hooks DigikomaSavepointTool.composeMessage to invoke the FoundationModels Tool via LanguageModelSession when (1) guidance.messageHint is nil (no agent override), (2) FoundationModels available at runtime, (3) chat transcript at request.provenance.chat.ref is readable. Read the chat JSONL, compose a prompt carrying chat preview + git diff stat + agent slug + worktask slug, derive the commit subject + body. Pre-26 callsites fall back to the v0.1 placeholder. Requires reading digikoma-chat-summary skill's prompt strategy + DigikomaHelloWorldFoundationModelsTool's full call pattern.",
+  "assignee": "claude",
+  "issueType": "task",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "savepoint",
+    "digikoma-savepoint",
+    "v0.2",
+    "foundation-models",
+    "chat-summary"
+  ],
+  "createdAt": "2026-05-24T02:01:23Z",
+  "relatedChronicleEntry": "2026-05-24T02:01:23Z",
+  "sourceType": "operator-intake",
+  "sourceLocation": "private/universal/substrate/collectives/kura-org/private/universal/digikoma/savepoint-commit.digikoma.clia/sources/SavepointCommitFoundationModelsTool/",
+  "schemaVersion": "0.1.0"
+}

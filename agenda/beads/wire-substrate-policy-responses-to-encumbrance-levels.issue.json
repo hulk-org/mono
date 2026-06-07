@@ -1,0 +1,33 @@
+{
+  "id": "wire-substrate-policy-responses-to-encumbrance-levels",
+  "title": "Wire substrate-runtime policy responses to EncumbrancePressureLevel transitions",
+  "description": "Per [[substrate-sync-cost-pattern-2026-05-26]] Layer 5. Substrate-runtime work: connect EncumbrancePressureLevel transitions to typed substrate-policy responses. Transition rules: `moderate → heavy` triggers operator-confirmation gate on new ability acquisitions; `heavy → at-ceiling` triggers auto-discharge of unused abilities (release context capacity); `at-ceiling → over-ceiling` triggers auto-invocation of wd (winddown) skill; `over-ceiling` refuses all new work except wd. Investigation aspect: where does this enforcement live? Pre-LLM-call substrate code? Harness-layer hooks? Agent-runtime per [[agent-blame-shielded-workflow-doctrine-2026-05-26]] Gap 2? Output: typed investigation report identifying the right enforcement layer + recommended primitives for substrate to author. May graduate sub-beads as authoring work spawns. BLOCKS on EncumbrancePressureLevel ordinality table + investigate-harness-side-ability-jit-loader (shared runtime question).\n\n## Composes with existing types (per [[cost-model-non-divergence-discipline]])\n\n- InferenceCircuitBreaker (inference-account-schemas v0.2.0) — at-ceiling threshold triggers breaker logic\n- EncumbrancePressureLevel ordinality (this cohort) — pressure-level → policy-response mapping",
+  "assignee": "claude",
+  "issueType": "investigation",
+  "status": "open",
+  "priority": 2,
+  "labels": [
+    "substrate-sync-cost-pattern",
+    "encumbrance",
+    "substrate-runtime",
+    "harness-layer",
+    "investigation"
+  ],
+  "createdAt": "2026-05-26T11:36:31Z",
+  "relatedChronicleEntry": "2026-05-26T11:36:31Z",
+  "sourceType": "doctrine-derivation",
+  "sourceLocation": "/Users/sonoma/.claude/memory/.docc/insights/substrate-sync-cost-pattern-2026-05-26.md",
+  "dependencies": [
+    {
+      "issueId": "wire-substrate-policy-responses-to-encumbrance-levels",
+      "dependsOnId": "author-encumbrance-pressure-level-ordinality-table",
+      "type": "blocks-until-complete"
+    },
+    {
+      "issueId": "wire-substrate-policy-responses-to-encumbrance-levels",
+      "dependsOnId": "investigate-harness-side-ability-jit-loader",
+      "type": "blocks-until-complete"
+    }
+  ],
+  "schemaVersion": "0.1.0"
+}
