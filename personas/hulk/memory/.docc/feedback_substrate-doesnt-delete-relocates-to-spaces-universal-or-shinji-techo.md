@@ -35,4 +35,17 @@ metadata:
 
 **Session-arc note:** This is the 4th substrate-doctrine moment this session typed as an AxiomModel — joining (1) [[destructive-substrate-fix-requires-behavioral-verification-and-workflow-escalation]] + (2) [[every-operator-architectural-strategy-request-spawns-typed-workstream]] (honored via harness-maintenance workstream-triad) + (3) the implicit substrate-doesnt-delete intuition I was operating against. The operator's mid-savepoint catch elevated the implicit intuition to explicit typed AxiomModel before any net-new commits landed without honoring it. This is the substrate's typed-everything discipline operating at commit time — the typed AxiomModel records authored mid-session shape the disposition of the very commit they're being authored INTO.
 
-**Operator quote:** *"we don't delete in this world"* + *"all of those should be moved to spaces-universal if they are important to everyone OR into your shinji-techo!"* (2026-06-08T04:35Z, mid-savepoint-prep)
+**Operator quotes (2 attestation moments):**
+1. *"we don't delete in this world"* + *"all of those should be moved to spaces-universal if they are important to everyone OR into your shinji-techo!"* (2026-06-08T04:35Z, mid-savepoint-prep — established the axiom)
+2. *"I don't like 128 D unless they were rehomed!"* (2026-06-08T11:50Z, cleanup-cascade turn — axiom in operator's own working-rule words, second-instance application)
+
+**Continuation /capture additions 2026-06-08T11:55Z (post-cleanup-cascade):**
+- AxiomModel extended 7 → 9 obligations (added cross-submodule content-survival recognition + UTF-8 path-safety in verification scripts)
+- AxiomModel extended 2 → 4 sourceRefs (added cleanup-cascade session-instance + second operator-quote)
+- NoteModel extended 7 → 9 blocks (added cross-submodule rehome-D companion + 7-SHA receipt audit trail)
+- Workstream `work.lastResult` extended with sweep #3 cascade outcome
+- Substrate-wide D-state achievement: 0 across 4 agent submodules (chatgpt + castor + common + claude)
+- Two NEW typed-skill-protocol drift instances surfaced:
+  - savepoint-cli `--files` variadic arg shell-expansion failure (workaround: fall back to direct git when bulk-staging needed)
+  - UTF-8 path encoding mismatch between git-status octal-escape serialization and filesystem (workaround: use `git status -z`)
+- 12 commits total this session anchor the typed-record receipt trail
