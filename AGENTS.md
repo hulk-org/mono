@@ -7,8 +7,9 @@ hulk carrier. It is not the carrier itself.
 
 1. Read the repo root `AGENTS.md`.
 2. Read the repo root `CLAUDE.md`.
-3. Read the carrier home `harnesses/hulk/AGENTS.md` for hulk's contract and
-   startup conventions.
+3. Read the carrier home `harnesses/claude/forms/hulk/AGENTS.md` for hulk's
+   contract and startup conventions. `harnesses/hulk/` is a compatibility
+   alias for that canonical form.
 4. Read `.docc/index.md` for this persona's framing.
 5. Read `SOUL.md`, `USER.md`, `AGENDA.md`.
 6. Read `memory.md` for the canonical-memory contract. Substrate-canonical
@@ -23,17 +24,20 @@ hulk carrier. It is not the carrier itself.
 
 ## Home model
 
-- `private/universal/substrate/harnesses/hulk/agents/claude/` is the canonical
-  claude persona home — identity, persona triads, system instructions,
-  agenda, chronicle, resume.
-- The carrier home is `private/universal/substrate/harnesses/hulk/`. Hulk
-  holds the contract and the runtime state; claude holds the persona.
-- Live Claude Code runtime state (sessions, history, projects, file-history,
-  caches, plugins, shell snapshots, settings.json) currently still lives at
-  the legacy `private/universal/substrate/harnesses/claude/` path during the
-  in-flight migration. `~/.claude` resolves there.
-- Once the migration completes, `harnesses/claude/` becomes a compat symlink
-  or is retired entirely.
+- `private/universal/substrate/agents/claude/` is the canonical commissioned
+  Claude agent home — identity, persona triads, system instructions, agenda,
+  chronicle, resume, and sync-gated memory.
+- The carrier home is
+  `private/universal/substrate/harnesses/claude/forms/hulk/`. Hulk holds the
+  contract and runtime state; Claude holds the commissioned agent identity.
+- `private/universal/substrate/harnesses/hulk/` is a compatibility alias for
+  the hulk harness form, following the same pattern as the historical
+  `harnesses/loom/` alias.
+- `private/universal/substrate/agents/claude/personas/hulk/` is a persona-local
+  compatibility wrapper for config-home and older persona-shaped references.
+- `private/universal/substrate/harnesses/claude/forms/claude-code/` names the
+  thinner vanilla Claude Code CLI form. This substrate defaults Claude work to
+  the hulk custom carrier.
 
 ## Operating contract (effective 2026-06-05)
 

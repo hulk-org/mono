@@ -1,0 +1,44 @@
+{
+  "FormModel": "0.1.0",
+  "fs": "claude-code",
+  "pa": {
+    "LinkRefModel": "0.3.0",
+    "tg": [
+      {
+        "k": "rp",
+        "rt": "private/universal/substrate",
+        "v": "agents/claude"
+      }
+    ]
+  },
+  "ha": {
+    "LinkRefModel": "0.3.0",
+    "tg": [
+      {
+        "k": "rp",
+        "rt": "private/universal/substrate",
+        "v": "harnesses/claude/forms/claude-code"
+      }
+    ]
+  },
+  "mo": {
+    "LinkRefModel": "0.3.0",
+    "tg": [
+      {
+        "k": "rp",
+        "rt": "private/universal/substrate",
+        "v": "models/anthropic-claude-3-5-sonnet"
+      }
+    ]
+  },
+  "d": "Claude running in the thinner vanilla/upstream Claude Code posture. This wrapper exists so the upstream/default CLI runtime can stay distinct from the substrate-owned hulk custom carrier, which remains the default Claude seat in this substrate.",
+  "s": [
+    "vanilla-runtime",
+    "upstream",
+    "claude-code-cli",
+    "explanatory"
+  ],
+  "ca": {
+    "x": "Compatibility wrapper authored 2026-06-09 after claude-code moved from a temporary persona-harness path into harnesses/claude/forms/claude-code."
+  }
+}

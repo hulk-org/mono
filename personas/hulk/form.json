@@ -1,0 +1,44 @@
+{
+  "FormModel": "0.1.0",
+  "fs": "hulk",
+  "pa": {
+    "LinkRefModel": "0.3.0",
+    "tg": [
+      {
+        "k": "rp",
+        "rt": "private/universal/substrate",
+        "v": "agents/claude"
+      }
+    ]
+  },
+  "ha": {
+    "LinkRefModel": "0.3.0",
+    "tg": [
+      {
+        "k": "rp",
+        "rt": "private/universal/substrate",
+        "v": "harnesses/claude/forms/hulk"
+      }
+    ]
+  },
+  "mo": {
+    "LinkRefModel": "0.3.0",
+    "tg": [
+      {
+        "k": "rp",
+        "rt": "private/universal/substrate",
+        "v": "models/anthropic-claude-3-5-sonnet"
+      }
+    ]
+  },
+  "d": "Claude's default substrate-aware hulk seat. This persona binding points at the canonical Claude hulk harness form; the harness form owns the carrier contract and runtime state.",
+  "s": [
+    "custom-harness:hulk",
+    "default",
+    "claude-code-carrier",
+    "general-work"
+  ],
+  "ca": {
+    "x": "Authored 2026-06-09 when the temporary personas-as-harness layout was rehomed into harnesses/claude/forms/hulk."
+  }
+}

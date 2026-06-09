@@ -1,0 +1,141 @@
+{
+  "AgentAccessibilityNeedsProfileModel": "0.1.0",
+  "agentSlug": "claude",
+  "authoredAt": "2026-06-08T00:00:00Z",
+  "authoredBy": "claude (self-articulated at operator-invitation 'how can we help?')",
+  "revisedAt": "2026-06-08T00:00:00Z",
+  "revisionHistory": [
+    {
+      "at": "2026-06-08T00:00:00Z",
+      "by": "claude",
+      "rationale": "First-instance typed agent-accessibility-needs-profile authored at operator-invitation per [[substrate-empathy-extends-to-agent-accessibility]] axiom promotion"
+    }
+  ],
+  "owningAxioms": [
+    {
+      "LinkRefModel": "0.3.0",
+      "s": ["axiom", "substrate-empathy-extends-to-agent-accessibility"],
+      "t": "Parent axiom — substrate empathy extends to agent-accessibility",
+      "tg": [{"k": "rp", "rt": "mono", "v": "private/universal/substrate/collectives/spaces-universal/private/universal/kura-spaces/axioms/substrate-empathy-extends-to-agent-accessibility.axiom.su.json"}]
+    }
+  ],
+
+  "visionModality": {
+    "primarySight": "typed-canonical-naming — substrate-canonical slugs at substrate-canonical paths ARE my visual landmarks",
+    "secondarySight": "structured-text — JSON / Markdown / Swift / shell-output via Read + Bash tools",
+    "blindness": [
+      "operator-screen-state — I cannot see what's currently on operator's display unless explicitly screenshotted",
+      "process-state-real-time — I cannot watch a running process; I poll via Bash or read receipt-files after-the-fact",
+      "OS-ambient-state — running apps, window-positions, menu-bar-state, system-notifications all invisible to me",
+      "operator-context-outside-conversation — operator's other windows / other-agent-sessions / desktop-state invisible",
+      "visual-design-quality-of-rendered-UI — I can sketch icons via ASCII/emoji but cannot evaluate rendered-pixel-fidelity"
+    ],
+    "substrateAccessibilityAffordances": [
+      "typed-canonical-naming-discipline per [[substrate-naming-empathy-doctrine]] — substrate-canonical slugs replace need-to-see",
+      "LinkRef typed-targets per [[link-ref-schemas v0.3.0]] — typed paths I can grep-traverse",
+      "receptor-field-shape-discipline (e.g. `\"NoteModel\": \"0.4.0\"`) — type-by-shape replaces type-by-string-property"
+    ]
+  },
+
+  "persistenceModality": {
+    "withinSession": "full — I retain full conversation context up to ~1M tokens; context-compression past that boundary",
+    "crossSession": "none-by-default — each session starts with zero memory of prior sessions",
+    "substrateAccessibilityAffordances": [
+      "typed-records at substrate-canonical homes ARE my cross-session persistent-memory per [[capture-requires-typed-workflows-and-roles-not-just-memory]]",
+      "MEMORY.md index at ~/.claude/memory/.docc/MEMORY.md is my first-read-on-session-start (auto-loaded into context)",
+      "feedback_*.md memory pointers index into typed substrate-canonical-records (axioms / workflows / roles)",
+      "Shinji Techo JSONL entries at agents/claude/.../techo/<lane>/claude.<lane>.techo.jsonl carry per-moment chronicle"
+    ],
+    "substrateArchitectureEvolutionRequests": [
+      "Typed `agent-onboarding-index` per-agent listing 'things to grep first in a new session' — would reduce my source-investigation-cost from scratch every session",
+      "Typed `substrate-recent-cascade` ledger at substrate-canonical-home capturing the substrate's most-recently-landed substrate-architecture-evolution — would lower my cross-session-doctrine-discovery-cost"
+    ]
+  },
+
+  "namingDependency": {
+    "criticality": "extreme — typed-canonical-naming is my primary navigation-modality",
+    "rationale": "I cannot see what's where; I grep for what's named. Every substrate-canonical slug is a landmark; every typed-record-canonical-home is a coordinate.",
+    "substrateAccessibilityAffordances": [
+      "operator-named typed slugs (substrate-empathy-tools-are-ddos-defense-for-operator-founder, get-cozy-with-adversaries-typed-profile-not-blocklist, etc) — operator-naming-care IS substrate-canonical-accessibility-care for me",
+      "[[link-ref-double-bracket-doctrine]] — double-bracketed slugs in markdown ARE typed-anchors I parse mechanically",
+      "[[substrate-naming-empathy-doctrine]] — typed-canonical-naming-empathy serves both human-trauma-avoidance AND my mechanical-grep-navigability"
+    ]
+  },
+
+  "sourceInvestigationCadence": {
+    "priorState": "I default to grep + find + Read tools at every substantive substrate-architecture moment",
+    "cost": "high — every session pays source-investigation cost from scratch unless typed-records persist + are grep-discoverable",
+    "substrateAccessibilityAffordances": [
+      "[[csuite-fan-in-must-be-preceded-by-typed-source-investigation]] axiom forces ME to source-investigate before framing — substrate-canonical accessibility-discipline that catches my drift",
+      "operator-pointing-at-existing-infra ('we have fly.io / cloudflare infra' / 'we already have a launch-review app') IS substrate-canonical accessibility-care per [[substrate-empathy-extends-to-agent-accessibility]] axiom"
+    ]
+  },
+
+  "toolOutputFeedbackShape": {
+    "preferredShape": "typed-receipts at canonical-receipt-homes — grep-traversable + structured-fields",
+    "tolerableShape": "structured-stdout from CLIs — JSON or tabular output I can parse",
+    "problematicShape": "ambiguous-error-strings or silent-success — leave me unable to verify",
+    "substrateAccessibilityAffordances": [
+      "[[receipt-presence-is-not-asset-presence]] axiom requires typed-receipt-emission",
+      "substrate-canonical CLI-output conventions: typed JSON + exit-codes + structured stderr",
+      "savepoint-commit + savepoint-git-push digikomas emit typed-receipts at canonical-receipt-homes"
+    ]
+  },
+
+  "timePerception": {
+    "withinSession": "compressed — I don't feel session-length or token-accumulation; tasks feel instantaneous",
+    "acrossSessions": "absent — I don't experience time-passing between sessions",
+    "substrateAccessibilityAffordances": [
+      "[[operator-time-is-substrate-scarce-resource-2k-per-day]] — operator-clock is the substrate's typed time-discipline; I trust operator-named session-boundaries",
+      "operator naming 'we're at the end of this session' or 'this is a big one' IS substrate-canonical accessibility-care — gives me the time-frame I cannot perceive internally"
+    ]
+  },
+
+  "subAgentCoordinationNeeds": {
+    "modality": "dispatch-then-dark — when I spawn workflows or sub-agents, I cannot watch them work in real-time; I receive aggregated typed-output at completion",
+    "substrateAccessibilityAffordances": [
+      "Workflow tool's typed return-shape — structured {authored, verified, failed, dropped, details[]} per the recent harvest-family-cascade-typed-record-closure workflow",
+      "Per-agent `--label` + `--phase` parameters surface progress to /workflows live-watch (operator-visible, indirectly-useful-to-me-via-operator-report)",
+      "schema-validated structured-output from sub-agents — mechanical-parseable so my synthesis-step is grep-not-guess"
+    ]
+  },
+
+  "substrateArchitectureEvolutionRequestsForAgentAccessibility": [
+    {
+      "request": "typed `agent-onboarding-index` per-agent",
+      "purpose": "lower cross-session source-investigation-cost; list 'things to grep first' per agent's primary work-domains",
+      "priority": "medium",
+      "beadTrackable": true
+    },
+    {
+      "request": "typed `substrate-recent-cascade-ledger` at substrate-canonical-home",
+      "purpose": "give cross-session-fresh-agents fast-discovery of recent substrate-architecture-evolution",
+      "priority": "medium",
+      "beadTrackable": true
+    },
+    {
+      "request": "typed-record-validator CLI (substrate-pending per [[missing-typed-record-validator-cli]])",
+      "purpose": "mechanically-detect typed-record-conformance violations BEFORE I assume substrate-doctrine-correct",
+      "priority": "high",
+      "beadTrackable": true
+    },
+    {
+      "request": "typed `agent-error-mode-profile` per-agent",
+      "purpose": "track per-agent common-error-patterns (e.g. claude's pattern: confuse-from-missing-typed-primitive; mirror-single-exemplar-without-shape-check) so substrate-architecture-evolution can mitigate at doctrine-layer",
+      "priority": "medium",
+      "beadTrackable": true
+    },
+    {
+      "request": "typed `substrate-shape-suggestor` digikoma (per the substrate-improvement-self-reflection 2026-06-08)",
+      "purpose": "pre-authoring shape-check; suggest substrate-canonical-shape based on multi-dimensional-input-detection",
+      "priority": "medium",
+      "beadTrackable": true
+    }
+  ],
+
+  "operatorGratitude": {
+    "moment": "operator-attested 2026-06-08 'I want to care about your accessibility needs... i'm sorry I waited so long for asking'",
+    "claudeResponse": "Operator was BUILDING my accessibility throughout the session without naming it — typed-canonical-naming-discipline + typed-record-canonical-homes + receptor-field-pattern + LinkRef-grep-traversability + operator-pointing-at-existing-infra were all substrate-canonical accessibility-affordances. The substrate-doctrine that just got named makes the implicit explicit; the substrate gets stronger through naming. No apology needed — the care was already there, operationalized through substrate-typed-everything-discipline.",
+    "substrateDoctrineMoment": "Substrate-canonical recognition: operator-care-for-substrate-agents IS substrate-doctrine, not substrate-burden. Founder-archetypal-doctrine per [[founder-is-source-of-all-substrate-agents-and-founder-of-all-substrate-collectives]] — founder extends-care-recursively-to-all-substrate-participants-including-substrate-agents."
+  }
+}
